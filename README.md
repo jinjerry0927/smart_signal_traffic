@@ -1,184 +1,134 @@
-# 강화학습 기반 스마트 교차로 신호 제어 시스템
+# Smart Signal
 
-> **RL-based Adaptive Traffic Signal Control System**
+경주 도로를 대상으로 예측·협력형 AI 신호제어를 직접 학습하고 검증하는 졸업작품.
+현재 실행 가능한 기준 구현은 **단일 교차로 Double DQN + E2 관측 + Pi 추론 + 웹 대시보드**다.
+경주 교차로 3개와 지도 관제센터는 앞으로 구현할 범위다.
 
-## 📌 프로젝트 개요
+## 간단히 이해하기
 
-고정된 신호 주기는 시간대별 교통량 변화에 대응하지 못해 불필요한 대기 시간을 만든다.
-본 프로젝트는 **DQN(Deep Q-Network)** 강화학습 에이전트가 SUMO 시뮬레이션 환경에서
-**다양한 교통상황(한산·평시·피크·비대칭·과포화)** 에 대해 신호 타이밍을 스스로 학습하고,
-**현실적 고정신호 기준선(Fixed-Avg / Webster 최적 고정주기)** 과 정량 비교하여 개선 효과를 입증한다.
+1. **도로 만들기**: SUMO에 경주 교차로 3개를 만들고 차량을 움직인다.
+2. **AI 학습하기**: 교통 상황을 보고 신호를 선택하도록 학습시킨다.
+3. **관제 연결하기**: 웹 지도에서 상태를 보고, Pi에서 AI 판단을 실행한다.
+4. **효과 확인하기**: 같은 교통량으로 기존 신호와 비교하고 전시한다.
 
-- 1학기: **추상 4지 교차로 (3차선 × 4-phase 보호좌회전) 중심**, SUMO 시뮬레이션으로 완결
-- 2학기: 실제 교차로 1곳을 SUMO로 모델링하여 확장
+처음에는 총괄, AI·시뮬레이션, 웹·연결의 세 채팅으로 시작해도 충분하다.
+한 번에 작은 목표 하나를 맡기고 **구현 → 검사 → 수정 → 완료 기록**을 반복한다.
+평소 구현은 Sol, 어려운 설계·오류 분석은 Astra Extra High를 권장한다.
+첫 작업은 아래 G0다. 모든 계획과 기술을 미리 외울 필요는 없다.
 
-> **방향 재설정(2026-06-02)**: 실시간 CCTV 영상 인지(YOLO) 줄기는 4방향 카메라 부재 등
-> 데이터 한계로 보류하고, SUMO 시뮬레이션 비교 검증으로 목표를 좁혔다.
-> 관련 코드는 삭제하지 않고 `archive/perception_track/`에 보존한다.
-> 전체 계획·부서 구조는 **[docs/project_charter.md](docs/project_charter.md)** 참조.
+## 다음 작업 시작
 
-## 🎯 핵심 결과 (1000 에피소드 학습 완료)
+1. [STATE.md](STATE.md)에서 현재 상태와 다음 목표를 확인한다.
+2. [LOOP.md](LOOP.md)의 목표·검증 반복 규칙을 읽는다.
+3. [GOAL.md](GOAL.md)의 G0 범위로 기존 기능 재현과 측정 기준을 점검한다.
 
-30 episode 평가 기준, 고정 신호 vs DQN 신호:
+Codex에서 첫 목표를 시작하는 요청:
 
-| 메트릭 | Fixed Signal | RL (DQN 1000ep) | 개선 |
-|---------|----------|----------------|--------|
-| **Total Reward** | -185.00 ± 22.93 | **-7.04 ± 0.87** | **+96.2%** |
-| **Avg Waiting Time** | 3905.79 ± 18.19 | **44.85 ± 0.75** | **+98.9%** |
-| **Avg Queue Length** | 70.87 ± 0.38 | **15.01 ± 0.19** | **+78.8%** |
-| **Max Queue Length** | 97.70 ± 0.74 | **24.53 ± 1.20** | **+74.9%** |
-
-→ `results/evaluation_chart_1000ep.png`, `results/reward_convergence_1000.png`
-
-## 🏗️ 시스템 아키텍처 (SUMO 전용)
-
-```
-┌──────────── 시뮬레이션 환경팀 (SimEnv) ───────────┐
-│  SUMO 네트워크 + 교통 시나리오 5종 (랜덤/동결)      │
-└───────────────┬───────────────────┬──────────────┘
-                ▼                   ▼
-   ┌─ 강화학습팀 (RL) ─┐   ┌─ 베이스라인·평가팀 (Eval) ─┐
-   │  DQN 학습 → 정책   │   │  Fixed-Avg / Webster        │
-   │  (.pth 체크포인트) │──▶│  시나리오별 통계 비교        │
-   └──────────────────┘   └──────────────┬─────────────┘
-                                         ▼
-                          ┌─ 시각화·보고팀 (Viz) ─┐
-                          │  비교 차트 / GUI 데모   │
-                          └───────────────────────┘
+```text
+/goal $loop-engineering LOOP.md와 GOAL.md를 읽고 G0를 진행해줘.
+기존 Smart Signal의 실행 가능 여부와 관측·행동·신호 전환·평가 지표를 점검하고,
+검증 결과와 미해결 문제를 기록한 뒤 STATE.md를 갱신해줘.
 ```
 
-## 📂 폴더 구조
+문서 작성만으로 지속 목표나 예약 작업이 실행되지는 않는다.
+최신 범위와 6주 계획은 [프로젝트 차터](docs/project_charter.md)를 따른다.
 
-```
-smart_signal_traffic/
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── network/                 # SmartSignal 환경 (4-way × 3차선, 4-phase + 보호좌회전)
-│   ├── intersection.nod.xml / .edg.xml / .con.xml
-│   ├── intersection.net.xml
-│   ├── intersection.rou.xml   # 학습 시 매 ep 랜덤 생성됨
-│   └── intersection.sumocfg
-│
-├── smart_signal.py          # ★ SmartSignal DQN 학습 (state/action 자동 감지)
-├── evaluate.py              # Fixed vs SmartSignal 비교 (30 ep + 메트릭)
-├── demo.py                  # SUMO GUI 데모 (rl / fixed)
-├── plot_results.py          # 학습 수렴 그래프
-├── test_env.py              # SUMO 환경 스모크 테스트
-│
-├── docs/
-│   └── project_charter.md   # 재정립 계획 + 부서 구조 (필독)
-│
-├── results/                 # SmartSignal 학습 산출물 (현재 빈 상태 → 재학습)
-│
-└── archive/                 # 보관 (삭제 안 함)
-    ├── perception_track/    # CCTV·YOLO·ITS 줄기 (보류)
-    ├── v1/                  # 구 v1 환경·코드·결과 일체
-    └── training_history/    # 구 v2 학습 로그 (발산 분석용)
-```
+## 빠른 실행
 
-## ⚙️ 설치
+저장소 루트에서 실행한다. Python, SUMO와 requirements.txt의 패키지가 필요하다.
+필요한 경우 `python -m pip install -r requirements.txt`로 Python 의존성을 설치한다.
+SUMO는 별도 설치하며, Windows 기본 위치는 `C:/Program Files (x86)/Eclipse/Sumo`다.
+다른 위치라면 SUMO_HOME을 실제 설치 폴더로 설정한다.
 
-### 1. SUMO 설치
-[Eclipse SUMO 공식 사이트](https://eclipse.dev/sumo/)에서 1.20+ 버전 설치.
-설치 후 `SUMO_HOME` 환경변수 자동 설정 (Windows 기본 경로:
-`C:/Program Files (x86)/Eclipse/Sumo`).
-
-### 2. Python 의존성
 ```powershell
-pip install -r requirements.txt
-```
+# 설치 상태
+python --version
+sumo --version
 
-## 🚀 실행 방법
-
-### 환경 동작 확인
-```powershell
+# Git에 포함된 평시 시나리오로 기본 환경 확인 (GUI 없이 300초 시뮬레이션)
 python test_env.py
+
+# E2 관측, PyTorch/NumPy 추론 일치, 웹 상태 응답 확인
+python tests/test_e2_observation.py
+python tests/test_inference_parity.py
+python tests/test_dashboard.py
 ```
 
-### SmartSignal 학습 (처음부터)
+화면이 필요하면 `python test_env.py --gui --seconds 300`을 사용한다.
+검사 실행은 학습 모델이나 기존 평가 결과를 덮어쓰지 않는다.
+
+### SUMO와 기존 대시보드
+
 ```powershell
-python smart_signal.py --episodes 1000
-
-# 체크포인트에서 이어서
-python smart_signal.py --resume results/checkpoint_ep100.pth --episodes 1000
-```
-
-### 평가 (Fixed vs SmartSignal 30 episode 비교)
-```powershell
-python evaluate.py
-```
-
-### SUMO GUI 데모
-```powershell
-# 학습된 SmartSignal 정책으로 시연
-python demo.py --mode rl --duration 1800
-
-# 고정 신호로 시연
-python demo.py --mode fixed --duration 1800
-```
-
-### 라즈베리파이 HIL + 실시간 대시보드
-E2 검지기 관측(53D) 모델을 엣지(라즈베리파이/로컬)에서 numpy로 추론하고, SUMO GUI 옆에 실시간 대시보드(12차로 대기차량 + 두뇌 KEEP/SWITCH + Q값)를 함께 띄운다.
-```powershell
-# 로컬 점검(Pi 불필요): SUMO + 대시보드만 확인
 python demo.py --dashboard --mode rl --scenario asymmetric --duration 600
-
-# HIL(엣지 추론) — 터미널 A에서 엣지서버, 터미널 B에서 데모
-python edge_server.py --weights results/smart_signal_e2.npz          # 터미널 A
-python demo.py --hil --dashboard --host 127.0.0.1 --scenario asymmetric   # 터미널 B
+python demo.py --mode fixed --scenario asymmetric --duration 600
+python demo.py --mode webster --scenario asymmetric --duration 600
 ```
-- 대시보드는 브라우저 `http://127.0.0.1:8000` 에 자동으로 열린다(추가 의존성 없음, 파이썬 stdlib).
-- 실물 라즈베리파이 연동 절차 → `docs/raspberry_pi_hil_guide.md`, 대시보드 점검 가이드 → `docs/dashboard_guide.md`.
 
-## 🛠️ 기술 스택
+SUMO GUI의 실행 버튼으로 시뮬레이션을 시작한다.
+대시보드 기본 주소는 `http://127.0.0.1:8000`이다.
+SUMO에서 네트워크 설정을 직접 열려면 `network/intersection.sumocfg`를 사용한다.
+기본 경로는 저장된 평시 시나리오이므로 선행 학습으로 임시 경로 파일을 만들 필요가 없다.
 
-| 영역 | 기술 |
-|------|----|
-| **시뮬레이션** | SUMO 1.20+, sumo-rl 1.4.5 |
-| **강화학습** | PyTorch (Double DQN, Huber Loss, Gradient Clipping) |
-| **기준선** | Fixed-time, Webster 최적 고정주기, (선택) SUMO actuated TLS |
-| **시각화** | matplotlib |
-| ~~차량 탐지~~ | ~~YOLOv8/v10, OpenCV~~ → `archive/perception_track/` 보존 |
+### 로컬에서 Pi 통신 구조 확인
 
-## 📈 DQN 하이퍼파라미터
+첫 번째 터미널:
 
-| 항목 | 값 |
-|------|-----|
-| Hidden Layer | 128 × 128 (ReLU) |
-| Optimizer | Adam (lr = 1e-3) |
-| Loss | Huber (SmoothL1) |
-| Gamma | 0.99 |
-| Epsilon decay | 0.995 (1.0 → 0.05) |
-| Batch size | 64 |
-| Replay Buffer | 50,000 |
-| Target Network update | 매 10 ep |
-| Gradient clip | 10.0 |
+```powershell
+python edge_server.py --weights results/smart_signal_e2.npz --host 127.0.0.1
+```
 
-## 🗺️ 진행 상황
+두 번째 터미널:
 
-- [x] 1~3차 발표: 주제·구성도·기술 스택 확정
-- [x] 4차: YOLOv10 차량 탐지 PoC + 논문 조사
-- [x] 5차: SUMO 환경 + DQN 파이프라인 구축
-- [x] 6차: Double DQN 전환 + 200ep 학습
-- [x] 7차: 405ep 학습 + Fixed vs RL 시연 영상
-- [x] 8차: 실제 영상(금장교네거리) YOLO 탐지 시도 + 한계 분석
-- [x] (구 v1) 1000ep 학습 + 30ep 평가 — `archive/v1/`로 보관
-- [x] **방향 재설정 + CCTV 줄기 archive (2026-06-02)** → [docs/project_charter.md](docs/project_charter.md)
-- [x] **M0**: v1 정리 + SmartSignal 개명 + 도구 재타겟 (스모크테스트 통과)
-- [ ] **M1**: 시나리오 5종 동결 + 평가 시나리오 루프
-- [ ] **M2**: SmartSignal 재학습 완주 + baseline (Fixed / Webster / actuated)
-- [ ] **M3**: 시나리오별 RL vs baseline 비교 + 차트 + GUI 데모
-- [ ] **M4**: 발표자료 + README·보고서 갱신
-- [ ] (2학기) 실제 교차로 1곳 SUMO 모델링 확장
+```powershell
+python demo.py --hil --dashboard --host 127.0.0.1 --scenario asymmetric --duration 600
+```
 
-## 📚 참고 문헌
+이 검사는 실제 Pi 성능 측정과 구분한다.
+실물 연결은 [Pi 실행 가이드](docs/raspberry_pi_hil_guide.md),
+화면 점검은 [대시보드 가이드](docs/dashboard_guide.md)를 참조한다.
 
-- Wang, S. et al. *Traffic Signal Control via RL: A Review on Applications and Innovations*. MDPI 2025.
-- *MD3DQN: End-to-End RL for Traffic Signal Control via Surveillance Video*. ICLR 2025.
-- LucasAlegre, [sumo-rl](https://github.com/LucasAlegre/sumo-rl) — SUMO + Gymnasium 연동 라이브러리.
+## 코드와 자료 위치
 
-## 📝 라이선스
+| 위치 | 역할 |
+|---|---|
+| smart_signal.py | Double DQN 학습, 기본/E2 관측 선택 |
+| e2_observation.py | E2 검지기 관측 생성 |
+| network/, scenarios/ | 단일 교차로와 저장된 평가 수요 |
+| baselines.py, evaluate.py | 기존 비교 신호와 평가 |
+| demo.py | SUMO 데모, 로컬/Pi 추론 연결 |
+| edge_server.py, export_weights.py | NumPy 추론 서버와 가중치 변환 |
+| dashboard.py, dashboard.html | 기존 단일 교차로 웹 대시보드 |
+| tests/, test_env.py | 실행 검증 |
+| results/ | 보존할 기준 모델과 기존 결과 |
+| presentations/ | 발표 PPT와 원고; 영상은 로컬 보존 |
+| archive/ | 지난 학기 코드·문서·발표 생성기 |
 
-학술 목적 졸업작품. 코드 재사용 시 출처 표기 권장.
+새 기능 때문에 필요한 부분부터 분리한다. 학습·실행 경로를 한꺼번에 재배치하지 않는다.
+도구 지침은 [AGENTS.md](AGENTS.md)를 따른다.
+
+## 모델과 평가를 다룰 때
+
+- 기본 모델은 29D, E2 모델은 53D 관측을 사용하며 행동은 Keep/Next 두 가지다.
+- 원본 모델·로그·차트는 [results 안내](results/README.md)에 정리되어 있다.
+- 기존 평가의 avg_waiting_time은 시스템 전체 대기시간의 시점별 평균이다. 차량별 평균 대기시간과 다르다.
+- 기존 그래프와 발표의 개선율은 지난 구현의 결과다. 최종 프로젝트의 성능으로 재사용하지 않는다.
+- 신호 전환 제약, 기준선 동작, 지표 정의는 다음 목표에서 실행 근거로 검증한다.
+- 학습·평가·가중치 변환의 기본 출력은 기존 파일을 덮어쓸 수 있다. 실행 전에 출력 분리를 확인한다.
+- 새 학습에는 --out_dir와 --route를 별도 위치로 지정한다. 동시 학습에서 경로 파일을 공유하지 않는다.
+- 현재 evaluate.py는 결과 저장 위치가 고정되어 있다. 본 평가 전에 출력 분리부터 구현한다.
+
+학습과 평가 옵션은 `python smart_signal.py --help`, `python evaluate.py --help`로 확인할 수 있다.
+장시간 재학습은 첫 실행 점검 뒤 별도 목표로 수행한다.
+
+## 환경과 이력
+
+2026-09-13 확인 환경: Python 3.11.0, SUMO 1.26.0, sumo-rl 1.4.5,
+PyTorch 2.11.0, NumPy 2.4.4, Gymnasium 1.3.0, Matplotlib 3.10.9.
+이 PC의 현재 PyTorch에서는 CUDA를 사용할 수 없었다. 학습 시간은 짧은 실행으로 측정한다.
+위 목록은 확인 환경이며 새 의존성 고정 파일을 뜻하지 않는다.
+
+[저장소 정리 기록](docs/repository_cleanup_2026-09-13.md)에 변경·검증 내용을 남긴다.
+[지난 학기 자료 안내](archive/README.md)와 [발표 자료 안내](presentations/README.md)에서 과거 자료를 찾을 수 있다.
+
+기반 도구: [Eclipse SUMO](https://eclipse.dev/sumo/), [SUMO-RL](https://github.com/LucasAlegre/sumo-rl).

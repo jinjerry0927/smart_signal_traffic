@@ -55,7 +55,7 @@ parser.add_argument("--scenario",   choices=list(EVAL_SCENARIOS), default=None,
                     help="평가 시나리오 5종 중 하나 (생략 시 --route 사용)")
 parser.add_argument("--model",      default="results/smart_signal.pth")
 parser.add_argument("--net",        default="network/intersection.net.xml")
-parser.add_argument("--route",      default="network/intersection.rou.xml",
+parser.add_argument("--route",      default="scenarios/eval/medium.rou.xml",
                     help="--scenario 미지정 시 사용할 route 파일")
 parser.add_argument("--seed",       type=int, default=1000,
                     help="트래픽 seed (fixed/webster/rl 동일값 → 같은 트래픽으로 대조)")

@@ -65,7 +65,7 @@
 ### 1. 창 B (노트북) — 폴더 진입 + Pi에 최신 서버 복사
 PowerShell 새 창:
 ```powershell
-cd C:\Users\jinuk\Documents\GitHub\smart_signal_traffic
+# 이 저장소를 내려받은 폴더에서 PowerShell을 연 뒤 실행
 git pull
 scp edge_server.py jinjerry@<IP>:~/
 ```

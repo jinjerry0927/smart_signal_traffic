@@ -89,3 +89,13 @@ results/e2_monitor*.csv
 
 # 브레인스토밍 시각화 산출물(재생성 가능)
 .superpowers/
+
+# 로컬 도구 캐시와 생성 중간 산출물
+.pytest_cache/
+.codex-artifacts/
+.chart-data-*/
+node_modules/
+archive/local_cache/
+
+# 구 v1 중간 체크포인트는 로컬 보존; 최종 모델과 학습 로그는 계속 추적
+archive/v1/old_checkpoints/
