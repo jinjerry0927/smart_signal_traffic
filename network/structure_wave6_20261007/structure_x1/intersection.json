@@ -1,0 +1,177 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "6bd47d59531d409b38f437f54a5e7e3eaf90fa75b22fff715463a06440812622",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "E_in_0": {
+      "length_m": 535.09,
+      "capacity_vehicles": 71.34533333333334,
+      "edge": "E_in"
+    },
+    "N_out_0": {
+      "length_m": 455.03,
+      "capacity_vehicles": 60.67066666666666,
+      "edge": "N_out"
+    },
+    "W_out_0": {
+      "length_m": 345.36,
+      "capacity_vehicles": 46.048,
+      "edge": "W_out"
+    },
+    "S_out_0": {
+      "length_m": 415.46,
+      "capacity_vehicles": 55.394666666666666,
+      "edge": "S_out"
+    },
+    "S_in_0": {
+      "length_m": 415.46,
+      "capacity_vehicles": 55.394666666666666,
+      "edge": "S_in"
+    },
+    "E_out_0": {
+      "length_m": 535.09,
+      "capacity_vehicles": 71.34533333333334,
+      "edge": "E_out"
+    },
+    "W_in_0": {
+      "length_m": 345.36,
+      "capacity_vehicles": 46.048,
+      "edge": "W_in"
+    },
+    "N_in_0": {
+      "length_m": 455.03,
+      "capacity_vehicles": 60.67066666666666,
+      "edge": "N_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "center",
+      "phases": [
+        {
+          "id": "N_G",
+          "state": "rrrrrrrrrGGG",
+          "incoming": [
+            "N_in_0"
+          ]
+        },
+        {
+          "id": "E_G",
+          "state": "GGGrrrrrrrrr",
+          "incoming": [
+            "E_in_0"
+          ]
+        },
+        {
+          "id": "S_G",
+          "state": "rrrGGGrrrrrr",
+          "incoming": [
+            "S_in_0"
+          ]
+        },
+        {
+          "id": "W_G",
+          "state": "rrrrrrGGGrrr",
+          "incoming": [
+            "W_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "E_in_0",
+          "outgoing": "N_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "E_in_0",
+          "outgoing": "W_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "E_in_0",
+          "outgoing": "S_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 3,
+          "incoming": "S_in_0",
+          "outgoing": "E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 4,
+          "incoming": "S_in_0",
+          "outgoing": "N_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 5,
+          "incoming": "S_in_0",
+          "outgoing": "W_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 6,
+          "incoming": "W_in_0",
+          "outgoing": "S_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 7,
+          "incoming": "W_in_0",
+          "outgoing": "E_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 8,
+          "incoming": "W_in_0",
+          "outgoing": "N_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 9,
+          "incoming": "N_in_0",
+          "outgoing": "W_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 10,
+          "incoming": "N_in_0",
+          "outgoing": "S_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 11,
+          "incoming": "N_in_0",
+          "outgoing": "E_out_0",
+          "turn": "l"
+        }
+      ]
+    }
+  ]
+}

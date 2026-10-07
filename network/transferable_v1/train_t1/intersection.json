@@ -1,0 +1,124 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "343e8e26a3d33bfe1dcc451caf32dcbba64d05c174badae07a5c8c0b9f46f560",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "N_in_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "N_in"
+    },
+    "S_out_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "S_out"
+    },
+    "E_out_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "E_out"
+    },
+    "E_in_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "E_in"
+    },
+    "N_out_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "N_out"
+    },
+    "S_in_0": {
+      "length_m": 204.8,
+      "capacity_vehicles": 27.30666666666667,
+      "edge": "S_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "center",
+      "phases": [
+        {
+          "id": "N_G",
+          "state": "GGrrrr",
+          "incoming": [
+            "N_in_0"
+          ]
+        },
+        {
+          "id": "E_G",
+          "state": "rrGGrr",
+          "incoming": [
+            "E_in_0"
+          ]
+        },
+        {
+          "id": "S_G",
+          "state": "rrrrGG",
+          "incoming": [
+            "S_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "N_in_0",
+          "outgoing": "S_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 1,
+          "incoming": "N_in_0",
+          "outgoing": "E_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 2,
+          "incoming": "E_in_0",
+          "outgoing": "N_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 3,
+          "incoming": "E_in_0",
+          "outgoing": "S_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "S_in_0",
+          "outgoing": "E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "S_in_0",
+          "outgoing": "N_out_0",
+          "turn": "s"
+        }
+      ]
+    }
+  ]
+}

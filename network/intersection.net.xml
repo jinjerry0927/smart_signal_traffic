@@ -15,7 +15,7 @@
 
     <tls_building>
         <tls.green.time value="30"/>
-        <tls.yellow.time value="4"/>
+        <tls.yellow.time value="3"/>
         <tls.allred.time value="2"/>
         <tls.left-green.time value="18"/>
         <tls.default-type value="static"/>
@@ -124,14 +124,16 @@
 
     <tlLogic id="center" type="static" programID="0" offset="0">
         <phase duration="30" state="gGrgrrgGrgrr"/>
-        <phase duration="4"  state="gyrgrrgyrgrr"/>
+        <phase duration="3"  state="yyryrryyryrr"/>
+        <phase duration="2"  state="rrrrrrrrrrrr"/>
         <phase duration="18" state="grGgrrgrGgrr"/>
-        <phase duration="4"  state="grygrrgrygrr"/>
+        <phase duration="3"  state="yryyrryryyrr"/>
         <phase duration="2"  state="rrrrrrrrrrrr"/>
         <phase duration="30" state="grrgGrgrrgGr"/>
-        <phase duration="4"  state="grrgyrgrrgyr"/>
+        <phase duration="3"  state="yrryyryrryyr"/>
+        <phase duration="2"  state="rrrrrrrrrrrr"/>
         <phase duration="18" state="grrgrGgrrgrG"/>
-        <phase duration="4"  state="grrgrygrrgry"/>
+        <phase duration="3"  state="yrryryyrryry"/>
         <phase duration="2"  state="rrrrrrrrrrrr"/>
     </tlLogic>
 

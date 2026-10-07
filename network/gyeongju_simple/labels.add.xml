@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<additional>
+  <poi id="용강네거리" x="45" y="35" color="52,68,87" layer="5" />
+  <poi id="근화여고네거리" x="165" y="585" color="52,68,87" layer="5" />
+  <poi id="승삼네거리" x="255" y="1135" color="52,68,87" layer="5" />
+</additional>

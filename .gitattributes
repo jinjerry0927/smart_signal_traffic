@@ -1,0 +1,11 @@
+# Preserve bytes used by frozen SHA256 contracts on Windows, Linux, and Pi.
+# The inference Python is LF; frozen JSON/XML may already contain CRLF.
+transferable_signal/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+signal_demo/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+configs/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+network/gyeongju_*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+network/transferable_*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+network/*_wave*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evaluation_support.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/runs/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='utf-8'?>
+<osm version="0.6" generator="build_gyeongju_corridor.py">
+  <bounds minlon="129.2038" minlat="35.8507" maxlon="129.2105" maxlat="35.8595" />
+  <node id="414664600" lat="35.8552485" lon="129.2068247">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="name" v="동대사거리" />
+    <tag k="name:en" v="Dongdae Crossroad" />
+    <tag k="name:ko" v="동대사거리" />
+    <tag k="name:ko-Latn" v="Dongdaesageori" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="529458584" lat="35.8564423" lon="129.2071037" />
+  <node id="529458585" lat="35.8566358" lon="129.2072043" />
+  <node id="529458586" lat="35.8572092" lon="129.2076818">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="529807760" lat="35.8508422" lon="129.2069318" />
+  <node id="529807761" lat="35.8505161" lon="129.2069292" />
+  <node id="529807765" lat="35.8507577" lon="129.2069324" />
+  <node id="529807774" lat="35.8530336" lon="129.2081807" />
+  <node id="529807775" lat="35.8530407" lon="129.2062252" />
+  <node id="529807788" lat="35.8555602" lon="129.2049501" />
+  <node id="529807792" lat="35.8549446" lon="129.2086358" />
+  <node id="529807794" lat="35.8553540" lon="129.2061728" />
+  <node id="529807795" lat="35.8554324" lon="129.2057107" />
+  <node id="529807796" lat="35.8554917" lon="129.2053272" />
+  <node id="529807798" lat="35.8547988" lon="129.2068158" />
+  <node id="529807863" lat="35.8556948" lon="129.2103413" />
+  <node id="530538242" lat="35.8556848" lon="129.2041790" />
+  <node id="530538244" lat="35.8556214" lon="129.2045733" />
+  <node id="530538272" lat="35.8553336" lon="129.2063140" />
+  <node id="530538274" lat="35.8545197" lon="129.2068178" />
+  <node id="530538286" lat="35.8553616" lon="129.2060928" />
+  <node id="530538293" lat="35.8556372" lon="129.2069166" />
+  <node id="530538295" lat="35.8549245" lon="129.2087553" />
+  <node id="530538296" lat="35.8548547" lon="129.2091714" />
+  <node id="530538307" lat="35.8551372" lon="129.2074881" />
+  <node id="530538308" lat="35.8550821" lon="129.2078162" />
+  <node id="530538310" lat="35.8550476" lon="129.2080219" />
+  <node id="530538312" lat="35.8549853" lon="129.2083935" />
+  <node id="530538318" lat="35.8547626" lon="129.2097203" />
+  <node id="530538321" lat="35.8548168" lon="129.2093974" />
+  <node id="530538340" lat="35.8562648" lon="129.2093411" />
+  <node id="530538341" lat="35.8560638" lon="129.2096895" />
+  <node id="530538351" lat="35.8584986" lon="129.2054714" />
+  <node id="530538359" lat="35.8568453" lon="129.2083201" />
+  <node id="530538372" lat="35.8558648" lon="129.2100415" />
+  <node id="699849783" lat="35.8529965" lon="129.2035253" />
+  <node id="699849816" lat="35.8530335" lon="129.2057876" />
+  <node id="699849834" lat="35.8530268" lon="129.2053771" />
+  <node id="699849862" lat="35.8530284" lon="129.2085830" />
+  <node id="699849882" lat="35.8530368" lon="129.2077798" />
+  <node id="699849948" lat="35.8530196" lon="129.2049388" />
+  <node id="699849984" lat="35.8530445" lon="129.2073615" />
+  <node id="699850081" lat="35.8530116" lon="129.2044473" />
+  <node id="699850102" lat="35.8530039" lon="129.2039820" />
+  <node id="699850127" lat="35.8520623" lon="129.2068795" />
+  <node id="699850140" lat="35.8530511" lon="129.2068636">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="699850142" lat="35.8540358" lon="129.2068262" />
+  <node id="2122131950" lat="35.8530088" lon="129.2100605" />
+  <node id="3657648973" lat="35.8568372" lon="129.2073635" />
+  <node id="5373391858" lat="35.8572585" lon="129.2075973">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="10588078364" lat="35.8567607" lon="129.2073030" />
+  <node id="10595481066" lat="35.8556031" lon="129.2046858" />
+  <node id="10855840584" lat="35.8530486" lon="129.2067104" />
+  <node id="10855840586" lat="35.8531573" lon="129.2068596" />
+  <node id="10855840588" lat="35.8530504" lon="129.2069129" />
+  <node id="10857621935" lat="35.8568124" lon="129.2072372" />
+  <node id="10857621936" lat="35.8566562" lon="129.2071357" />
+  <node id="10857621937" lat="35.8564541" lon="129.2070359" />
+  <node id="10857621938" lat="35.8552601" lon="129.2067552">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="10857621939" lat="35.8547988" lon="129.2067515" />
+  <node id="10857621940" lat="35.8540349" lon="129.2067641" />
+  <node id="10857621941" lat="35.8530498" lon="129.2067860">
+    <tag k="highway" v="traffic_signals" />
+    <tag k="traffic_signals" v="signal" />
+  </node>
+  <node id="10857621942" lat="35.8520611" lon="129.2068090" />
+  <node id="10857621947" lat="35.8507400" lon="129.2068471" />
+  <node id="11116533451" lat="35.8530232" lon="129.2089718" />
+  <node id="11116533904" lat="35.8530219" lon="129.2090760" />
+  <node id="11949300248" lat="35.8548420" lon="129.2092470" />
+  <way id="42436484">
+    <nd ref="2122131950" />
+    <nd ref="11116533904" />
+    <nd ref="11116533451" />
+    <nd ref="699849862" />
+    <nd ref="529807774" />
+    <nd ref="699849882" />
+    <nd ref="699849984" />
+    <nd ref="10855840588" />
+    <nd ref="699850140" />
+    <tag k="highway" v="unclassified" />
+    <tag k="layer" v="1" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로396번길" />
+    <tag k="name:en" v="Geumseong-ro 396beon-gil" />
+    <tag k="name:ko" v="금성로396번길" />
+  </way>
+  <way id="361265530">
+    <nd ref="530538242" />
+    <nd ref="530538244" />
+    <nd ref="10595481066" />
+    <nd ref="529807788" />
+    <nd ref="529807796" />
+    <nd ref="529807795" />
+    <nd ref="530538286" />
+    <nd ref="529807794" />
+    <nd ref="530538272" />
+    <nd ref="10857621938" />
+    <tag k="highway" v="tertiary" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="동대로" />
+    <tag k="name:en" v="Dongdae-ro" />
+    <tag k="name:ko" v="동대로" />
+  </way>
+  <way id="533136972">
+    <nd ref="414664600" />
+    <nd ref="530538307" />
+    <nd ref="530538308" />
+    <nd ref="530538310" />
+    <nd ref="530538312" />
+    <nd ref="529807792" />
+    <nd ref="530538295" />
+    <nd ref="530538296" />
+    <nd ref="11949300248" />
+    <nd ref="530538321" />
+    <nd ref="530538318" />
+    <tag k="highway" v="tertiary" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="공영주택길" />
+    <tag k="name:en" v="Gongyeongjutaek-gil" />
+    <tag k="name:ko" v="공영주택길" />
+  </way>
+  <way id="642113878">
+    <nd ref="414664600" />
+    <nd ref="530538293" />
+    <nd ref="529458584" />
+    <nd ref="529458585" />
+    <nd ref="10588078364" />
+    <nd ref="3657648973" />
+    <nd ref="529458586" />
+    <tag k="highway" v="tertiary" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로" />
+    <tag k="name:en" v="Geumseong-ro" />
+    <tag k="name:ko" v="금성로" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="8" />
+  </way>
+  <way id="912222341">
+    <nd ref="699850140" />
+    <nd ref="10857621941" />
+    <nd ref="10855840584" />
+    <nd ref="529807775" />
+    <nd ref="699849816" />
+    <nd ref="699849834" />
+    <nd ref="699849948" />
+    <nd ref="699850081" />
+    <nd ref="699850102" />
+    <nd ref="699849783" />
+    <tag k="highway" v="unclassified" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로395번길" />
+    <tag k="name:en" v="Geumseong-ro 395beon-gil" />
+    <tag k="name:ko" v="금성로395번길" />
+  </way>
+  <way id="983627969">
+    <nd ref="529807761" />
+    <nd ref="529807765" />
+    <nd ref="529807760" />
+    <nd ref="699850127" />
+    <nd ref="699850140" />
+    <nd ref="10855840586" />
+    <nd ref="699850142" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="2" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로" />
+    <tag k="name:en" v="Geumseong-ro" />
+    <tag k="name:ko" v="금성로" />
+    <tag k="oneway" v="yes" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1164614093">
+    <nd ref="530538351" />
+    <nd ref="5373391858" />
+    <nd ref="529458586" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="4" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="알천남로" />
+    <tag k="name:el" v="Άλτσοναμ-ρο" />
+    <tag k="name:en" v="Alcheonnam-ro" />
+    <tag k="name:ko" v="알천남로" />
+    <tag k="ref" v="24" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1164614094">
+    <nd ref="529458586" />
+    <nd ref="530538359" />
+    <nd ref="530538340" />
+    <nd ref="530538341" />
+    <nd ref="530538372" />
+    <nd ref="529807863" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="4" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="알천남로" />
+    <tag k="name:el" v="Άλτσοναμ-ρο" />
+    <tag k="name:en" v="Alcheonnam-ro" />
+    <tag k="name:ko" v="알천남로" />
+    <tag k="ref" v="24" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1164614095">
+    <nd ref="699850142" />
+    <nd ref="530538274" />
+    <nd ref="529807798" />
+    <nd ref="414664600" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="2" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로" />
+    <tag k="name:en" v="Geumseong-ro" />
+    <tag k="name:ko" v="금성로" />
+    <tag k="oneway" v="yes" />
+    <tag k="ref" v="8" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1167498389">
+    <nd ref="10857621938" />
+    <nd ref="10857621939" />
+    <nd ref="10857621940" />
+    <nd ref="10857621941" />
+    <nd ref="10857621942" />
+    <nd ref="10857621947" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="2" />
+    <tag k="layer" v="1" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로" />
+    <tag k="oneway" v="yes" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1334626930">
+    <nd ref="5373391858" />
+    <nd ref="10857621935" />
+    <nd ref="10857621936" />
+    <nd ref="10857621937" />
+    <nd ref="10857621938" />
+    <tag k="highway" v="tertiary" />
+    <tag k="lanes" v="2" />
+    <tag k="layer" v="1" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="금성로" />
+    <tag k="oneway" v="yes" />
+    <tag k="surface" v="asphalt" />
+  </way>
+  <way id="1334626931">
+    <nd ref="10857621938" />
+    <nd ref="414664600" />
+    <tag k="highway" v="tertiary" />
+    <tag k="maxspeed" v="50" />
+    <tag k="name" v="동대로" />
+    <tag k="name:en" v="Dongdae-ro" />
+    <tag k="name:ko" v="동대로" />
+  </way>
+</osm>

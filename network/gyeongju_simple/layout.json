@@ -1,0 +1,27 @@
+{
+  "description": "선택한 지도 정리형: 완만한 산업로 곡선과 반듯한 교차부. 건물·추가 갈림길 없는 3교차로 설계이며 실측 지도가 아니다.",
+  "curve_radius_m": 90,
+  "curve_step_m": 5,
+  "green_s": 25,
+  "yellow_s": 3,
+  "all_red_s": 2,
+  "speed_mps": 13.89,
+  "lane_width_m": 3.2,
+  "junctions": [
+    {"id": "gj_yonggang", "label": "용강네거리", "x": 0, "y": 0},
+    {"id": "gj_geunhwa", "label": "근화여고네거리", "x": 120, "y": 550},
+    {"id": "gj_seungsam", "label": "승삼네거리", "x": 210, "y": 1100}
+  ],
+  "roads": [
+    {"id": "yonggang_geunhwa", "a": "gj_yonggang", "b": "gj_geunhwa", "arm_a": "N", "arm_b": "S", "via": [[0, 180], [120, 370]], "lanes": 2, "name": "산업로 연결 구간"},
+    {"id": "geunhwa_seungsam", "a": "gj_geunhwa", "b": "gj_seungsam", "arm_a": "N", "arm_b": "S", "via": [[120, 730], [210, 930]], "lanes": 2, "name": "산업로 연결 구간"},
+    {"id": "yonggang_southwest", "a": "gj_yonggang", "b": "yonggang_southwest", "arm_a": "S", "end_xy": [-150, -400], "via": [[0, -140]], "lanes": 2, "name": "원화로 방면"},
+    {"id": "yonggang_southeast", "a": "gj_yonggang", "b": "yonggang_southeast", "arm_a": "E", "end_xy": [390, -400], "via": [[220, 0], [340, -140]], "lanes": 2, "name": "산업로 남동 방면"},
+    {"id": "yonggang_west", "a": "gj_yonggang", "b": "yonggang_west", "arm_a": "W", "end_xy": [-340, 110], "via": [[-180, 0]], "lanes": 1, "name": "유림로 방면"},
+    {"id": "geunhwa_west", "a": "gj_geunhwa", "b": "geunhwa_west", "arm_a": "W", "end_xy": [-360, 660], "via": [[-100, 550]], "lanes": 1, "name": "근화여고 서측"},
+    {"id": "geunhwa_east", "a": "gj_geunhwa", "b": "geunhwa_east", "arm_a": "E", "end_xy": [610, 430], "via": [[340, 550]], "lanes": 1, "name": "근화여고 동측"},
+    {"id": "seungsam_west", "a": "gj_seungsam", "b": "seungsam_west", "arm_a": "W", "end_xy": [-360, 1210], "via": [[-80, 1100]], "lanes": 1, "name": "승삼 서측"},
+    {"id": "seungsam_east", "a": "gj_seungsam", "b": "seungsam_east", "arm_a": "E", "end_xy": [610, 980], "via": [[400, 1100]], "lanes": 1, "name": "승삼 동측"},
+    {"id": "seungsam_north", "a": "gj_seungsam", "b": "seungsam_north", "arm_a": "N", "end_xy": [310, 1490], "via": [[210, 1300]], "lanes": 2, "name": "산업로 북측"}
+  ]
+}

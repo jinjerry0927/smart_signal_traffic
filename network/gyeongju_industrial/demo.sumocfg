@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+  <input>
+    <net-file value="industrial.net.xml" />
+    <route-files value="demo.rou.xml" />
+  </input>
+  <random_number>
+    <seed value="42" />
+  </random_number>
+  <gui_only>
+    <delay value="100" />
+  </gui_only>
+</configuration>

@@ -1,0 +1,1328 @@
+{
+  "schema_version": 2,
+  "network": "simple.net.xml",
+  "coordinate_system": "local_schematic_metres",
+  "geometry_is_surveyed": false,
+  "junctions": [
+    {
+      "id": "gj_yonggang",
+      "label": "용강네거리",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "gj_geunhwa",
+      "label": "근화여고네거리",
+      "x": 120,
+      "y": 550
+    },
+    {
+      "id": "gj_seungsam",
+      "label": "승삼네거리",
+      "x": 210,
+      "y": 1100
+    }
+  ],
+  "corridor_order": [
+    "gj_yonggang",
+    "gj_geunhwa",
+    "gj_seungsam"
+  ],
+  "external_boundaries": [
+    {
+      "id": "yonggang_southwest",
+      "junction": "gj_yonggang",
+      "arm": "S",
+      "fringe_nodes": {
+        "inbound": "yonggang_southwest",
+        "outbound": "yonggang_southwest"
+      },
+      "edges": {
+        "inbound": "yonggang_southwest_in",
+        "outbound": "yonggang_southwest_out"
+      }
+    },
+    {
+      "id": "yonggang_southeast",
+      "junction": "gj_yonggang",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "yonggang_southeast",
+        "outbound": "yonggang_southeast"
+      },
+      "edges": {
+        "inbound": "yonggang_southeast_in",
+        "outbound": "yonggang_southeast_out"
+      }
+    },
+    {
+      "id": "yonggang_west",
+      "junction": "gj_yonggang",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "yonggang_west",
+        "outbound": "yonggang_west"
+      },
+      "edges": {
+        "inbound": "yonggang_west_in",
+        "outbound": "yonggang_west_out"
+      }
+    },
+    {
+      "id": "geunhwa_west",
+      "junction": "gj_geunhwa",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "geunhwa_west",
+        "outbound": "geunhwa_west"
+      },
+      "edges": {
+        "inbound": "geunhwa_west_in",
+        "outbound": "geunhwa_west_out"
+      }
+    },
+    {
+      "id": "geunhwa_east",
+      "junction": "gj_geunhwa",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "geunhwa_east",
+        "outbound": "geunhwa_east"
+      },
+      "edges": {
+        "inbound": "geunhwa_east_in",
+        "outbound": "geunhwa_east_out"
+      }
+    },
+    {
+      "id": "seungsam_west",
+      "junction": "gj_seungsam",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "seungsam_west",
+        "outbound": "seungsam_west"
+      },
+      "edges": {
+        "inbound": "seungsam_west_in",
+        "outbound": "seungsam_west_out"
+      }
+    },
+    {
+      "id": "seungsam_east",
+      "junction": "gj_seungsam",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "seungsam_east",
+        "outbound": "seungsam_east"
+      },
+      "edges": {
+        "inbound": "seungsam_east_in",
+        "outbound": "seungsam_east_out"
+      }
+    },
+    {
+      "id": "seungsam_north",
+      "junction": "gj_seungsam",
+      "arm": "N",
+      "fringe_nodes": {
+        "inbound": "seungsam_north",
+        "outbound": "seungsam_north"
+      },
+      "edges": {
+        "inbound": "seungsam_north_in",
+        "outbound": "seungsam_north_out"
+      }
+    }
+  ],
+  "controlled_movements": [
+    {
+      "junction": "gj_yonggang",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "yonggang_geunhwa_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "yonggang_geunhwa_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_southwest_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "yonggang_geunhwa_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_southwest_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "yonggang_geunhwa_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_southeast_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "yonggang_southeast_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "yonggang_southeast_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 6,
+      "from_edge": "yonggang_southeast_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_southwest_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 7,
+      "from_edge": "yonggang_southwest_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_southeast_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 8,
+      "from_edge": "yonggang_southwest_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "yonggang_southwest_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_geunhwa_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 10,
+      "from_edge": "yonggang_southwest_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 11,
+      "from_edge": "yonggang_west_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_southwest_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 12,
+      "from_edge": "yonggang_west_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_southeast_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_yonggang",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 13,
+      "from_edge": "yonggang_west_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "geunhwa_seungsam_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "geunhwa_seungsam_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "geunhwa_seungsam_in",
+      "from_lane": 1,
+      "to_edge": "yonggang_geunhwa_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "geunhwa_seungsam_in",
+      "from_lane": 1,
+      "to_edge": "geunhwa_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "geunhwa_east_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "geunhwa_east_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 6,
+      "from_edge": "geunhwa_east_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 7,
+      "from_edge": "yonggang_geunhwa_out",
+      "from_lane": 0,
+      "to_edge": "geunhwa_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 8,
+      "from_edge": "yonggang_geunhwa_out",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "yonggang_geunhwa_out",
+      "from_lane": 1,
+      "to_edge": "geunhwa_seungsam_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 10,
+      "from_edge": "yonggang_geunhwa_out",
+      "from_lane": 1,
+      "to_edge": "geunhwa_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 11,
+      "from_edge": "geunhwa_west_in",
+      "from_lane": 0,
+      "to_edge": "yonggang_geunhwa_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 12,
+      "from_edge": "geunhwa_west_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_geunhwa",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 13,
+      "from_edge": "geunhwa_west_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "seungsam_north_in",
+      "from_lane": 0,
+      "to_edge": "seungsam_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "seungsam_north_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "seungsam_north_in",
+      "from_lane": 1,
+      "to_edge": "geunhwa_seungsam_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "seungsam_north_in",
+      "from_lane": 1,
+      "to_edge": "seungsam_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "seungsam_east_in",
+      "from_lane": 0,
+      "to_edge": "seungsam_north_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "seungsam_east_in",
+      "from_lane": 0,
+      "to_edge": "seungsam_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 6,
+      "from_edge": "seungsam_east_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 7,
+      "from_edge": "geunhwa_seungsam_out",
+      "from_lane": 0,
+      "to_edge": "seungsam_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 8,
+      "from_edge": "geunhwa_seungsam_out",
+      "from_lane": 0,
+      "to_edge": "seungsam_north_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "geunhwa_seungsam_out",
+      "from_lane": 1,
+      "to_edge": "seungsam_north_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 10,
+      "from_edge": "geunhwa_seungsam_out",
+      "from_lane": 1,
+      "to_edge": "seungsam_west_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 11,
+      "from_edge": "seungsam_west_in",
+      "from_lane": 0,
+      "to_edge": "geunhwa_seungsam_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 12,
+      "from_edge": "seungsam_west_in",
+      "from_lane": 0,
+      "to_edge": "seungsam_east_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "gj_seungsam",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 13,
+      "from_edge": "seungsam_west_in",
+      "from_lane": 0,
+      "to_edge": "seungsam_north_out",
+      "to_lane": 1
+    }
+  ],
+  "routes": [
+    {
+      "id": "od_00",
+      "from": "yonggang_southwest",
+      "to": "yonggang_southeast",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_01",
+      "from": "yonggang_southwest",
+      "to": "yonggang_west",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_02",
+      "from": "yonggang_southwest",
+      "to": "geunhwa_west",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_03",
+      "from": "yonggang_southwest",
+      "to": "geunhwa_east",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_04",
+      "from": "yonggang_southwest",
+      "to": "seungsam_west",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_05",
+      "from": "yonggang_southwest",
+      "to": "seungsam_east",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_06",
+      "from": "yonggang_southwest",
+      "to": "seungsam_north",
+      "edges": [
+        "yonggang_southwest_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_07",
+      "from": "yonggang_southeast",
+      "to": "yonggang_southwest",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_08",
+      "from": "yonggang_southeast",
+      "to": "yonggang_west",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_09",
+      "from": "yonggang_southeast",
+      "to": "geunhwa_west",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_10",
+      "from": "yonggang_southeast",
+      "to": "geunhwa_east",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_11",
+      "from": "yonggang_southeast",
+      "to": "seungsam_west",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_12",
+      "from": "yonggang_southeast",
+      "to": "seungsam_east",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_13",
+      "from": "yonggang_southeast",
+      "to": "seungsam_north",
+      "edges": [
+        "yonggang_southeast_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_14",
+      "from": "yonggang_west",
+      "to": "yonggang_southwest",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_15",
+      "from": "yonggang_west",
+      "to": "yonggang_southeast",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_16",
+      "from": "yonggang_west",
+      "to": "geunhwa_west",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_17",
+      "from": "yonggang_west",
+      "to": "geunhwa_east",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_18",
+      "from": "yonggang_west",
+      "to": "seungsam_west",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_19",
+      "from": "yonggang_west",
+      "to": "seungsam_east",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_20",
+      "from": "yonggang_west",
+      "to": "seungsam_north",
+      "edges": [
+        "yonggang_west_in",
+        "yonggang_geunhwa_out",
+        "geunhwa_seungsam_out",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_21",
+      "from": "geunhwa_west",
+      "to": "yonggang_southwest",
+      "edges": [
+        "geunhwa_west_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_22",
+      "from": "geunhwa_west",
+      "to": "yonggang_southeast",
+      "edges": [
+        "geunhwa_west_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_23",
+      "from": "geunhwa_west",
+      "to": "yonggang_west",
+      "edges": [
+        "geunhwa_west_in",
+        "yonggang_geunhwa_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_24",
+      "from": "geunhwa_west",
+      "to": "geunhwa_east",
+      "edges": [
+        "geunhwa_west_in",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_25",
+      "from": "geunhwa_west",
+      "to": "seungsam_west",
+      "edges": [
+        "geunhwa_west_in",
+        "geunhwa_seungsam_out",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_26",
+      "from": "geunhwa_west",
+      "to": "seungsam_east",
+      "edges": [
+        "geunhwa_west_in",
+        "geunhwa_seungsam_out",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_27",
+      "from": "geunhwa_west",
+      "to": "seungsam_north",
+      "edges": [
+        "geunhwa_west_in",
+        "geunhwa_seungsam_out",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_28",
+      "from": "geunhwa_east",
+      "to": "yonggang_southwest",
+      "edges": [
+        "geunhwa_east_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_29",
+      "from": "geunhwa_east",
+      "to": "yonggang_southeast",
+      "edges": [
+        "geunhwa_east_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_30",
+      "from": "geunhwa_east",
+      "to": "yonggang_west",
+      "edges": [
+        "geunhwa_east_in",
+        "yonggang_geunhwa_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_31",
+      "from": "geunhwa_east",
+      "to": "geunhwa_west",
+      "edges": [
+        "geunhwa_east_in",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_32",
+      "from": "geunhwa_east",
+      "to": "seungsam_west",
+      "edges": [
+        "geunhwa_east_in",
+        "geunhwa_seungsam_out",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_33",
+      "from": "geunhwa_east",
+      "to": "seungsam_east",
+      "edges": [
+        "geunhwa_east_in",
+        "geunhwa_seungsam_out",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_34",
+      "from": "geunhwa_east",
+      "to": "seungsam_north",
+      "edges": [
+        "geunhwa_east_in",
+        "geunhwa_seungsam_out",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_35",
+      "from": "seungsam_west",
+      "to": "yonggang_southwest",
+      "edges": [
+        "seungsam_west_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_36",
+      "from": "seungsam_west",
+      "to": "yonggang_southeast",
+      "edges": [
+        "seungsam_west_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_37",
+      "from": "seungsam_west",
+      "to": "yonggang_west",
+      "edges": [
+        "seungsam_west_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_38",
+      "from": "seungsam_west",
+      "to": "geunhwa_west",
+      "edges": [
+        "seungsam_west_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_39",
+      "from": "seungsam_west",
+      "to": "geunhwa_east",
+      "edges": [
+        "seungsam_west_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_40",
+      "from": "seungsam_west",
+      "to": "seungsam_east",
+      "edges": [
+        "seungsam_west_in",
+        "seungsam_east_out"
+      ]
+    },
+    {
+      "id": "od_41",
+      "from": "seungsam_west",
+      "to": "seungsam_north",
+      "edges": [
+        "seungsam_west_in",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_42",
+      "from": "seungsam_east",
+      "to": "yonggang_southwest",
+      "edges": [
+        "seungsam_east_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_43",
+      "from": "seungsam_east",
+      "to": "yonggang_southeast",
+      "edges": [
+        "seungsam_east_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_44",
+      "from": "seungsam_east",
+      "to": "yonggang_west",
+      "edges": [
+        "seungsam_east_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_45",
+      "from": "seungsam_east",
+      "to": "geunhwa_west",
+      "edges": [
+        "seungsam_east_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_46",
+      "from": "seungsam_east",
+      "to": "geunhwa_east",
+      "edges": [
+        "seungsam_east_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_47",
+      "from": "seungsam_east",
+      "to": "seungsam_west",
+      "edges": [
+        "seungsam_east_in",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_48",
+      "from": "seungsam_east",
+      "to": "seungsam_north",
+      "edges": [
+        "seungsam_east_in",
+        "seungsam_north_out"
+      ]
+    },
+    {
+      "id": "od_49",
+      "from": "seungsam_north",
+      "to": "yonggang_southwest",
+      "edges": [
+        "seungsam_north_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southwest_out"
+      ]
+    },
+    {
+      "id": "od_50",
+      "from": "seungsam_north",
+      "to": "yonggang_southeast",
+      "edges": [
+        "seungsam_north_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_southeast_out"
+      ]
+    },
+    {
+      "id": "od_51",
+      "from": "seungsam_north",
+      "to": "yonggang_west",
+      "edges": [
+        "seungsam_north_in",
+        "geunhwa_seungsam_in",
+        "yonggang_geunhwa_in",
+        "yonggang_west_out"
+      ]
+    },
+    {
+      "id": "od_52",
+      "from": "seungsam_north",
+      "to": "geunhwa_west",
+      "edges": [
+        "seungsam_north_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_west_out"
+      ]
+    },
+    {
+      "id": "od_53",
+      "from": "seungsam_north",
+      "to": "geunhwa_east",
+      "edges": [
+        "seungsam_north_in",
+        "geunhwa_seungsam_in",
+        "geunhwa_east_out"
+      ]
+    },
+    {
+      "id": "od_54",
+      "from": "seungsam_north",
+      "to": "seungsam_west",
+      "edges": [
+        "seungsam_north_in",
+        "seungsam_west_out"
+      ]
+    },
+    {
+      "id": "od_55",
+      "from": "seungsam_north",
+      "to": "seungsam_east",
+      "edges": [
+        "seungsam_north_in",
+        "seungsam_east_out"
+      ]
+    }
+  ],
+  "signals": {
+    "gj_yonggang": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrGGGGrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrryyyyrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrryyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    },
+    "gj_geunhwa": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrGGGGrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrryyyyrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrryyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    },
+    "gj_seungsam": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrGGGGrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrryyyyrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrryyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    }
+  },
+  "validation": "Static lane/route/signal checks only; no traffic simulation or model training.",
+  "assumptions": [
+    "Lane counts retain the earlier model assumptions, not verified current field counts.",
+    "Geometry is schematic; do not project it as real geographic coordinates.",
+    "No U-turns, pedestrians, intermediate alleys or bus stops. Timings are examples."
+  ]
+}

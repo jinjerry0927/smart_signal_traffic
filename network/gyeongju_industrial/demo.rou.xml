@@ -1,0 +1,444 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <vType id="car" vClass="passenger" length="5" accel="2.6" color="0.2,0.6,1" sigma="0.5" decel="4.5" maxSpeed="13.89" />
+  <vType id="truck" vClass="truck" length="12" accel="1.3" color="1,0.5,0.1" sigma="0.5" decel="4.5" maxSpeed="13.89" />
+  <vType id="bus" vClass="bus" length="12" accel="1.3" color="1,0.85,0.1" sigma="0.5" decel="4.5" maxSpeed="13.89" />
+  <route id="od_00" edges="1165014312#0 1436677989#1" />
+  <route id="od_01" edges="1165014312#0 -1431683203" />
+  <route id="od_02" edges="1165014312#0 1165014312#2 1165014312#3 -1331526504 -42410605" />
+  <route id="od_03" edges="1165014312#0 1165014312#2 1165014312#3 1510438990" />
+  <route id="od_04" edges="1165014312#0 1165014312#2 1165014312#3 1510438989#0 -1330059384" />
+  <route id="od_05" edges="1165014312#0 1165014312#2 1165014312#3 1510438989#0 -1330074578 -550137598" />
+  <route id="od_06" edges="1165014312#0 1165014312#2 1165014312#3 1510438989#0 1510438992#1" />
+  <route id="od_07" edges="1435307993 1165014311" />
+  <route id="od_08" edges="1435307993 -1431683203" />
+  <route id="od_09" edges="1435307993 1165014312#2 1165014312#3 -1331526504 -42410605" />
+  <route id="od_10" edges="1435307993 1165014312#2 1165014312#3 1510438990" />
+  <route id="od_11" edges="1435307993 1165014312#2 1165014312#3 1510438989#0 -1330059384" />
+  <route id="od_12" edges="1435307993 1165014312#2 1165014312#3 1510438989#0 -1330074578 -550137598" />
+  <route id="od_13" edges="1435307993 1165014312#2 1165014312#3 1510438989#0 1510438992#1" />
+  <route id="od_14" edges="1431683203 1165014311" />
+  <route id="od_15" edges="1431683203 1436677989#1" />
+  <route id="od_16" edges="1431683203 1165014312#2 1165014312#3 -1331526504 -42410605" />
+  <route id="od_17" edges="1431683203 1165014312#2 1165014312#3 1510438990" />
+  <route id="od_18" edges="1431683203 1165014312#2 1165014312#3 1510438989#0 -1330059384" />
+  <route id="od_19" edges="1431683203 1165014312#2 1165014312#3 1510438989#0 -1330074578 -550137598" />
+  <route id="od_20" edges="1431683203 1165014312#2 1165014312#3 1510438989#0 1510438992#1" />
+  <route id="od_21" edges="42410605 1331526504 1330059386 550137593 1435311645 1165014311" />
+  <route id="od_22" edges="42410605 1331526504 1330059386 550137593 1435311645 1436677989#1" />
+  <route id="od_23" edges="42410605 1331526504 1330059386 550137593 1435311645 -1431683203" />
+  <route id="od_24" edges="42410605 1331526504 1510438990" />
+  <route id="od_25" edges="42410605 1331526504 1510438989#0 -1330059384" />
+  <route id="od_26" edges="42410605 1331526504 1510438989#0 -1330074578 -550137598" />
+  <route id="od_27" edges="42410605 1331526504 1510438989#0 1510438992#1" />
+  <route id="od_28" edges="-1510438990 1330059386 550137593 1435311645 1165014311" />
+  <route id="od_29" edges="-1510438990 1330059386 550137593 1435311645 1436677989#1" />
+  <route id="od_30" edges="-1510438990 1330059386 550137593 1435311645 -1431683203" />
+  <route id="od_31" edges="-1510438990 -1331526504 -42410605" />
+  <route id="od_32" edges="-1510438990 1510438989#0 -1330059384" />
+  <route id="od_33" edges="-1510438990 1510438989#0 -1330074578 -550137598" />
+  <route id="od_34" edges="-1510438990 1510438989#0 1510438992#1" />
+  <route id="od_35" edges="1330059384 1330059385 1171256005 1330059386 550137593 1435311645 1165014311" />
+  <route id="od_36" edges="1330059384 1330059385 1171256005 1330059386 550137593 1435311645 1436677989#1" />
+  <route id="od_37" edges="1330059384 1330059385 1171256005 1330059386 550137593 1435311645 -1431683203" />
+  <route id="od_38" edges="1330059384 1330059385 1171256005 -1331526504 -42410605" />
+  <route id="od_39" edges="1330059384 1330059385 1171256005 1510438990" />
+  <route id="od_40" edges="1330059384 -1330074578 -550137598" />
+  <route id="od_41" edges="1330059384 1510438992#1" />
+  <route id="od_42" edges="550137598 1330074578 1330059385 1171256005 1330059386 550137593 1435311645 1165014311" />
+  <route id="od_43" edges="550137598 1330074578 1330059385 1171256005 1330059386 550137593 1435311645 1436677989#1" />
+  <route id="od_44" edges="550137598 1330074578 1330059385 1171256005 1330059386 550137593 1435311645 -1431683203" />
+  <route id="od_45" edges="550137598 1330074578 1330059385 1171256005 -1331526504 -42410605" />
+  <route id="od_46" edges="550137598 1330074578 1330059385 1171256005 1510438990" />
+  <route id="od_47" edges="550137598 1330074578 -1330059384" />
+  <route id="od_48" edges="550137598 1330074578 1510438992#1" />
+  <route id="od_49" edges="1431685342#0 1330059385 1171256005 1330059386 550137593 1435311645 1165014311" />
+  <route id="od_50" edges="1431685342#0 1330059385 1171256005 1330059386 550137593 1435311645 1436677989#1" />
+  <route id="od_51" edges="1431685342#0 1330059385 1171256005 1330059386 550137593 1435311645 -1431683203" />
+  <route id="od_52" edges="1431685342#0 1330059385 1171256005 -1331526504 -42410605" />
+  <route id="od_53" edges="1431685342#0 1330059385 1171256005 1510438990" />
+  <route id="od_54" edges="1431685342#0 -1330059384" />
+  <route id="od_55" edges="1431685342#0 -1330074578 -550137598" />
+  <vehicle id="balanced_0000" type="car" route="od_00" depart="0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0001" type="car" route="od_01" depart="2" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0002" type="car" route="od_02" depart="4" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0003" type="car" route="od_03" depart="6" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0004" type="car" route="od_04" depart="8" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0005" type="car" route="od_05" depart="10" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0006" type="car" route="od_06" depart="12" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0007" type="car" route="od_07" depart="14" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0008" type="car" route="od_08" depart="16" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0009" type="car" route="od_09" depart="18" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0010" type="car" route="od_10" depart="20" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0011" type="truck" route="od_11" depart="22" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0012" type="car" route="od_12" depart="24" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0013" type="car" route="od_13" depart="26" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0014" type="car" route="od_14" depart="28" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0015" type="car" route="od_15" depart="30" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0016" type="truck" route="od_16" depart="32" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0017" type="truck" route="od_17" depart="34" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0018" type="car" route="od_18" depart="36" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0019" type="car" route="od_19" depart="38" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0020" type="car" route="od_20" depart="40" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0021" type="car" route="od_21" depart="42" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0022" type="car" route="od_22" depart="44" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0023" type="car" route="od_23" depart="46" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0024" type="car" route="od_24" depart="48" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0025" type="car" route="od_25" depart="50" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0026" type="car" route="od_26" depart="52" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0027" type="car" route="od_27" depart="54" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0028" type="car" route="od_28" depart="56" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0029" type="bus" route="od_29" depart="58" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0030" type="truck" route="od_30" depart="60" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0031" type="car" route="od_31" depart="62" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0032" type="truck" route="od_32" depart="64" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0033" type="car" route="od_33" depart="66" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0034" type="car" route="od_34" depart="68" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0035" type="truck" route="od_35" depart="70" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0036" type="car" route="od_36" depart="72" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0037" type="bus" route="od_37" depart="74" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0038" type="car" route="od_38" depart="76" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0039" type="car" route="od_39" depart="78" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0040" type="car" route="od_40" depart="80" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0041" type="car" route="od_41" depart="82" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0042" type="truck" route="od_42" depart="84" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0043" type="car" route="od_43" depart="86" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0044" type="car" route="od_44" depart="88" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0045" type="car" route="od_45" depart="90" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0046" type="car" route="od_46" depart="92" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0047" type="truck" route="od_47" depart="94" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0048" type="car" route="od_48" depart="96" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0049" type="car" route="od_49" depart="98" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0050" type="car" route="od_50" depart="100" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0051" type="car" route="od_51" depart="102" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0052" type="car" route="od_52" depart="104" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0053" type="car" route="od_53" depart="106" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0054" type="bus" route="od_54" depart="108" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0055" type="car" route="od_55" depart="110" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0056" type="car" route="od_35" depart="112.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0057" type="car" route="od_01" depart="113.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0058" type="car" route="od_15" depart="115.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0059" type="bus" route="od_12" depart="116.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0060" type="car" route="od_41" depart="118.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0061" type="car" route="od_37" depart="119.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0062" type="bus" route="od_49" depart="121.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0063" type="car" route="od_04" depart="122.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0064" type="car" route="od_23" depart="124.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0065" type="car" route="od_01" depart="125.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0066" type="car" route="od_12" depart="127.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0067" type="car" route="od_28" depart="128.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0068" type="car" route="od_01" depart="130.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0069" type="truck" route="od_11" depart="131.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0070" type="car" route="od_36" depart="133.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0071" type="car" route="od_30" depart="134.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0072" type="car" route="od_12" depart="136.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0073" type="car" route="od_32" depart="137.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0074" type="car" route="od_45" depart="139.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0075" type="truck" route="od_00" depart="140.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0076" type="bus" route="od_45" depart="142.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0077" type="car" route="od_39" depart="143.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0078" type="car" route="od_19" depart="145.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0079" type="bus" route="od_08" depart="146.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0080" type="truck" route="od_53" depart="148.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0081" type="truck" route="od_18" depart="149.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0082" type="car" route="od_05" depart="151.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0083" type="car" route="od_05" depart="152.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0084" type="car" route="od_47" depart="154.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0085" type="bus" route="od_33" depart="155.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0086" type="car" route="od_45" depart="157.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0087" type="truck" route="od_40" depart="158.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0088" type="truck" route="od_30" depart="160.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0089" type="car" route="od_54" depart="161.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0090" type="car" route="od_21" depart="163.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0091" type="car" route="od_30" depart="164.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0092" type="car" route="od_46" depart="166.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0093" type="bus" route="od_34" depart="167.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0094" type="car" route="od_48" depart="169.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0095" type="car" route="od_32" depart="170.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0096" type="car" route="od_39" depart="172.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0097" type="car" route="od_02" depart="173.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0098" type="car" route="od_12" depart="175.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0099" type="truck" route="od_16" depart="176.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0100" type="car" route="od_04" depart="178.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0101" type="car" route="od_13" depart="179.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0102" type="car" route="od_05" depart="181.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0103" type="car" route="od_15" depart="182.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0104" type="truck" route="od_35" depart="184.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0105" type="car" route="od_20" depart="185.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0106" type="bus" route="od_20" depart="187.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0107" type="car" route="od_11" depart="188.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0108" type="bus" route="od_14" depart="190.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0109" type="car" route="od_52" depart="191.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0110" type="car" route="od_36" depart="193.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0111" type="car" route="od_34" depart="194.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0112" type="car" route="od_09" depart="196.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0113" type="bus" route="od_40" depart="197.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0114" type="car" route="od_09" depart="199.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0115" type="car" route="od_21" depart="200.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0116" type="car" route="od_55" depart="202.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0117" type="car" route="od_35" depart="203.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0118" type="car" route="od_31" depart="205.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0119" type="car" route="od_38" depart="206.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0120" type="car" route="od_47" depart="208.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0121" type="truck" route="od_43" depart="209.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0122" type="truck" route="od_12" depart="211.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0123" type="bus" route="od_01" depart="212.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0124" type="car" route="od_17" depart="214.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0125" type="car" route="od_14" depart="215.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0126" type="car" route="od_11" depart="217.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0127" type="car" route="od_52" depart="218.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0128" type="car" route="od_49" depart="220.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0129" type="car" route="od_17" depart="221.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0130" type="car" route="od_36" depart="223.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0131" type="car" route="od_22" depart="224.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0132" type="car" route="od_51" depart="226.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0133" type="car" route="od_25" depart="227.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0134" type="car" route="od_14" depart="229.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0135" type="car" route="od_13" depart="230.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0136" type="car" route="od_31" depart="232.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0137" type="car" route="od_14" depart="233.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0138" type="car" route="od_32" depart="235.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0139" type="car" route="od_50" depart="236.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0140" type="car" route="od_22" depart="238.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0141" type="car" route="od_12" depart="239.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0142" type="car" route="od_55" depart="241.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0143" type="car" route="od_28" depart="242.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0144" type="car" route="od_05" depart="244.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0145" type="car" route="od_02" depart="245.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0146" type="car" route="od_06" depart="247.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0147" type="car" route="od_35" depart="248.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0148" type="car" route="od_44" depart="250.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0149" type="car" route="od_23" depart="251.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0150" type="car" route="od_03" depart="253.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0151" type="car" route="od_21" depart="254.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0152" type="car" route="od_55" depart="256.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0153" type="car" route="od_29" depart="257.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0154" type="car" route="od_54" depart="259.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0155" type="car" route="od_48" depart="260.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0156" type="car" route="od_00" depart="262.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0157" type="car" route="od_40" depart="263.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0158" type="car" route="od_38" depart="265.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0159" type="car" route="od_30" depart="266.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0160" type="truck" route="od_14" depart="268.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0161" type="car" route="od_35" depart="269.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0162" type="car" route="od_06" depart="271.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0163" type="truck" route="od_24" depart="272.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0164" type="car" route="od_25" depart="274.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0165" type="car" route="od_53" depart="275.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0166" type="car" route="od_49" depart="277.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0167" type="car" route="od_14" depart="278.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0168" type="car" route="od_28" depart="280.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0169" type="bus" route="od_10" depart="281.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0170" type="car" route="od_51" depart="283.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0171" type="truck" route="od_48" depart="284.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0172" type="car" route="od_16" depart="286.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0173" type="car" route="od_35" depart="287.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0174" type="car" route="od_34" depart="289.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0175" type="truck" route="od_08" depart="290.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0176" type="car" route="od_42" depart="292.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0177" type="truck" route="od_30" depart="293.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0178" type="truck" route="od_43" depart="295.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0179" type="car" route="od_29" depart="296.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0180" type="bus" route="od_00" depart="298.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0181" type="car" route="od_18" depart="299.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0182" type="car" route="od_01" depart="301.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0183" type="car" route="od_52" depart="302.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0184" type="car" route="od_49" depart="304.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0185" type="car" route="od_46" depart="305.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0186" type="car" route="od_17" depart="307.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0187" type="car" route="od_03" depart="308.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0188" type="car" route="od_49" depart="310.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0189" type="car" route="od_53" depart="311.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0190" type="car" route="od_04" depart="313.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0191" type="car" route="od_27" depart="314.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0192" type="truck" route="od_03" depart="316.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0193" type="car" route="od_42" depart="317.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0194" type="car" route="od_42" depart="319.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0195" type="car" route="od_07" depart="320.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0196" type="car" route="od_26" depart="322.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0197" type="car" route="od_30" depart="323.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0198" type="car" route="od_14" depart="325.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0199" type="car" route="od_48" depart="326.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0200" type="car" route="od_23" depart="328.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0201" type="car" route="od_11" depart="329.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0202" type="car" route="od_30" depart="331.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0203" type="bus" route="od_40" depart="332.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0204" type="car" route="od_11" depart="334.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0205" type="car" route="od_17" depart="335.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0206" type="car" route="od_55" depart="337.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0207" type="car" route="od_36" depart="338.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0208" type="car" route="od_24" depart="340.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0209" type="truck" route="od_28" depart="341.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0210" type="car" route="od_06" depart="343.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0211" type="car" route="od_12" depart="344.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0212" type="car" route="od_18" depart="346.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0213" type="bus" route="od_32" depart="347.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0214" type="car" route="od_12" depart="349.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0215" type="car" route="od_12" depart="350.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0216" type="truck" route="od_03" depart="352.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0217" type="car" route="od_35" depart="353.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0218" type="car" route="od_12" depart="355.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0219" type="truck" route="od_50" depart="356.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0220" type="car" route="od_48" depart="358.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0221" type="car" route="od_03" depart="359.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0222" type="truck" route="od_13" depart="361.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0223" type="truck" route="od_37" depart="362.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0224" type="car" route="od_11" depart="364.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0225" type="car" route="od_07" depart="365.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0226" type="truck" route="od_52" depart="367.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0227" type="car" route="od_31" depart="368.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0228" type="car" route="od_26" depart="370.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0229" type="car" route="od_43" depart="371.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0230" type="car" route="od_45" depart="373.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0231" type="car" route="od_10" depart="374.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0232" type="car" route="od_05" depart="376.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0233" type="car" route="od_24" depart="377.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0234" type="car" route="od_23" depart="379.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0235" type="car" route="od_26" depart="380.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0236" type="car" route="od_40" depart="382.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0237" type="car" route="od_37" depart="383.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0238" type="car" route="od_55" depart="385.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0239" type="car" route="od_05" depart="386.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0240" type="car" route="od_22" depart="388.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0241" type="truck" route="od_19" depart="389.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0242" type="car" route="od_48" depart="391.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0243" type="car" route="od_13" depart="392.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0244" type="car" route="od_10" depart="394.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0245" type="car" route="od_25" depart="395.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0246" type="car" route="od_23" depart="397.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0247" type="car" route="od_15" depart="398.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0248" type="car" route="od_13" depart="400.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0249" type="bus" route="od_51" depart="401.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0250" type="car" route="od_24" depart="403.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0251" type="car" route="od_48" depart="404.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0252" type="car" route="od_30" depart="406.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0253" type="car" route="od_02" depart="407.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0254" type="truck" route="od_55" depart="409.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0255" type="truck" route="od_46" depart="410.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0256" type="car" route="od_54" depart="412.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0257" type="car" route="od_51" depart="413.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0258" type="car" route="od_47" depart="415.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0259" type="truck" route="od_09" depart="416.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0260" type="car" route="od_27" depart="418.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0261" type="car" route="od_11" depart="419.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0262" type="car" route="od_22" depart="421.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0263" type="car" route="od_03" depart="422.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0264" type="truck" route="od_21" depart="424.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0265" type="bus" route="od_55" depart="425.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0266" type="car" route="od_14" depart="427.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0267" type="car" route="od_43" depart="428.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0268" type="car" route="od_25" depart="430.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0269" type="car" route="od_23" depart="431.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0270" type="car" route="od_53" depart="433.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0271" type="car" route="od_55" depart="434.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0272" type="car" route="od_31" depart="436.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0273" type="truck" route="od_40" depart="437.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0274" type="car" route="od_08" depart="439.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0275" type="truck" route="od_16" depart="440.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0276" type="car" route="od_54" depart="442.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0277" type="car" route="od_32" depart="443.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0278" type="car" route="od_30" depart="445.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0279" type="car" route="od_41" depart="446.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0280" type="car" route="od_03" depart="448.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0281" type="car" route="od_32" depart="449.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0282" type="car" route="od_28" depart="451.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0283" type="car" route="od_47" depart="452.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0284" type="car" route="od_08" depart="454.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0285" type="car" route="od_53" depart="455.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0286" type="truck" route="od_04" depart="457.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0287" type="car" route="od_10" depart="458.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0288" type="car" route="od_33" depart="460.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0289" type="car" route="od_37" depart="461.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0290" type="car" route="od_13" depart="463.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0291" type="car" route="od_06" depart="464.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0292" type="truck" route="od_49" depart="466.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0293" type="car" route="od_13" depart="467.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0294" type="car" route="od_33" depart="469.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0295" type="truck" route="od_34" depart="470.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0296" type="car" route="od_23" depart="472.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0297" type="car" route="od_32" depart="473.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0298" type="car" route="od_29" depart="475.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0299" type="car" route="od_52" depart="476.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0300" type="car" route="od_11" depart="478.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0301" type="car" route="od_40" depart="479.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0302" type="car" route="od_13" depart="481.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0303" type="car" route="od_22" depart="482.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0304" type="car" route="od_37" depart="484.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0305" type="car" route="od_16" depart="485.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0306" type="car" route="od_17" depart="487.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0307" type="car" route="od_42" depart="488.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0308" type="car" route="od_04" depart="490.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0309" type="car" route="od_25" depart="491.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0310" type="car" route="od_55" depart="493.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0311" type="car" route="od_55" depart="494.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0312" type="car" route="od_04" depart="496.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0313" type="car" route="od_11" depart="497.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0314" type="car" route="od_14" depart="499.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0315" type="car" route="od_52" depart="500.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0316" type="car" route="od_49" depart="502.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0317" type="car" route="od_49" depart="503.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0318" type="car" route="od_20" depart="505.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0319" type="car" route="od_08" depart="506.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0320" type="car" route="od_46" depart="508.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0321" type="car" route="od_39" depart="509.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0322" type="car" route="od_34" depart="511.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0323" type="car" route="od_55" depart="512.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0324" type="bus" route="od_36" depart="514.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0325" type="truck" route="od_00" depart="515.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0326" type="bus" route="od_45" depart="517.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0327" type="car" route="od_16" depart="518.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0328" type="truck" route="od_37" depart="520.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0329" type="car" route="od_52" depart="521.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0330" type="car" route="od_07" depart="523.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0331" type="car" route="od_06" depart="524.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0332" type="car" route="od_05" depart="526.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0333" type="car" route="od_30" depart="527.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0334" type="car" route="od_15" depart="529.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0335" type="car" route="od_33" depart="530.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0336" type="car" route="od_40" depart="532.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0337" type="car" route="od_11" depart="533.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0338" type="car" route="od_35" depart="535.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0339" type="bus" route="od_14" depart="536.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0340" type="car" route="od_27" depart="538.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0341" type="car" route="od_50" depart="539.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0342" type="car" route="od_47" depart="541.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0343" type="car" route="od_05" depart="542.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0344" type="car" route="od_23" depart="544.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0345" type="car" route="od_15" depart="545.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0346" type="car" route="od_00" depart="547.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0347" type="car" route="od_43" depart="548.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0348" type="car" route="od_35" depart="550.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0349" type="car" route="od_14" depart="551.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0350" type="car" route="od_41" depart="553.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0351" type="car" route="od_30" depart="554.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0352" type="car" route="od_23" depart="556.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0353" type="car" route="od_00" depart="557.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0354" type="car" route="od_04" depart="559.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0355" type="car" route="od_49" depart="560.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0356" type="car" route="od_50" depart="562.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0357" type="bus" route="od_30" depart="563.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0358" type="truck" route="od_46" depart="565.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0359" type="car" route="od_32" depart="566.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0360" type="car" route="od_08" depart="568.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0361" type="car" route="od_07" depart="569.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0362" type="car" route="od_17" depart="571.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0363" type="car" route="od_50" depart="572.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0364" type="car" route="od_44" depart="574.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0365" type="car" route="od_48" depart="575.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0366" type="car" route="od_50" depart="577.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0367" type="car" route="od_11" depart="578.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0368" type="car" route="od_13" depart="580.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0369" type="car" route="od_05" depart="581.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0370" type="car" route="od_43" depart="583.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0371" type="car" route="od_49" depart="584.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0372" type="car" route="od_22" depart="586.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0373" type="car" route="od_34" depart="587.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0374" type="car" route="od_08" depart="589.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0375" type="car" route="od_52" depart="590.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0376" type="truck" route="od_48" depart="592.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0377" type="car" route="od_54" depart="593.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0378" type="car" route="od_45" depart="595.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0379" type="car" route="od_49" depart="596.5" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0380" type="bus" route="od_01" depart="598.0" departLane="best" departSpeed="0" />
+  <vehicle id="balanced_0381" type="car" route="od_41" depart="599.5" departLane="best" departSpeed="0" />
+</routes>

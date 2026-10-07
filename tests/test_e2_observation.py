@@ -2,11 +2,12 @@
 import os, sys
 os.environ.setdefault("SUMO_HOME", r"C:/Program Files (x86)/Eclipse/Sumo")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import numpy as np, sumo_rl
+import numpy as np
+from signal_environment import SignalEnvironment
 from e2_observation import E2ObservationFunction
 
 def main():
-    env = sumo_rl.SumoEnvironment(
+    env = SignalEnvironment(
         net_file="network/intersection.net.xml",
         route_file="scenarios/eval/medium.rou.xml",
         use_gui=False, num_seconds=300, min_green=15, max_green=60,
@@ -15,7 +16,8 @@ def main():
         additional_sumo_cmd="-a network/e2.add.xml --no-step-log")
     obs, _ = env.reset()
     for _ in range(20):
-        obs, *_ = env.step(env.action_space.sample())
+        current = int(np.asarray(obs[:4]).argmax())
+        obs, *_ = env.step((current + int(env.action_space.sample() % 2)) % 4)
     env.close()
     obs = np.asarray(obs)
     assert obs.shape == (53,), f"기대 53D, 실제 {obs.shape}"

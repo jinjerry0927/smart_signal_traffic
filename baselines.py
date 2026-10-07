@@ -1,15 +1,14 @@
 """
-Webster 최적 고정주기 baseline (Baseline & Eval 팀, 차터 M2).
+알려진 시나리오 수요로 계산하는 Webster 근사 고정주기 기준선.
 
-목적: scenarios.py 의 방향별 수요(veh/h)로부터 Webster 공식으로 "고정신호가 낼 수 있는
-최선"의 사이클 길이 + 방향별 녹색 split 을 계산한다. 단순 균등분할 Fixed 와 학습기반
-SmartSignal 사이의 "가장 공정한 적수" 역할.
+방향별 수요(veh/h)로 주기와 녹색 배분을 계산하고 실험용 시간 제약을 적용한다.
+전체 시나리오 수요를 아는 기준선이다. 실시간 추정 방식이나 최적 성능 보장은 아니다.
 
 network/ 의 green phase 4종(sumo_rl 인덱스 순서)과 매핑:
-    idx0 = N·S 직진 (GGgGrrGGgGrr)
-    idx1 = N·S 보호좌회전 (rrGrrrrrGrrr)
-    idx2 = E·W 직진 (GrrGGgGrrGGg)
-    idx3 = E·W 보호좌회전 (rrrrrGrrrrrG)
+    idx0 = N·S 직진 (gGrgrrgGrgrr)
+    idx1 = N·S 보호좌회전 (grGgrrgrGgrr)
+    idx2 = E·W 직진 (grrgGrgrrgGr)
+    idx3 = E·W 보호좌회전 (grrgrGgrrgrG)
 
 진입 방향당 3차로 = 우회전/직진/좌회전 각 1차로. 임계 교통량비 yᵢ 는 각 phase에서
 가장 큰 movement(직진 0.60 또는 좌회전 0.15)로 결정한다. 우회전(0.25)은 직진 phase 중
@@ -32,7 +31,7 @@ import math
 from scenarios import EVAL_SCENARIOS
 
 SAT_FLOW = 1900     # 포화교통류율 (veh/h/차로, HCM 표준)
-LOST_TIME = 20      # 손실시간 (s/cycle): 황색 4×4s + 전적색 2×2s — net 설계 그대로
+LOST_TIME = 20      # 실험용 전환 손실 근사: 4 × (황색 3s + 전체 적색 2s)
 MAX_CYCLE = 180     # 과포화 시 사이클 상한
 
 # green phase 인덱스(sumo_rl 순서) → (임계 회전종류, 해당 진입방향 쌍)
@@ -65,6 +64,9 @@ def webster_timing(demand, sat_flow=SAT_FLOW, lost_time=LOST_TIME,
          for mv, apps in WEBSTER_PHASES]
     Y = sum(y)
     saturated = Y >= 0.95
+    if Y == 0:
+        return dict(cycle=4 * min_green + lost_time, green=[min_green] * 4,
+                    green_cont=[min_green] * 4, y=y, Y=Y, C0=0.0, saturated=False)
 
     if saturated:
         # 과포화: 포화도가 본질적으로 ≥1 → target_x 상한은 무의미. 사이클을 max_cycle 로
@@ -107,8 +109,8 @@ def webster_timing(demand, sat_flow=SAT_FLOW, lost_time=LOST_TIME,
 def webster_schedule(demand, delta_time=5, **kw):
     """Webster green(초) → 결정스텝 단위 phase 스케줄.
 
-    evaluate.py 가 `action = sched[step % len(sched)]` 로 fixed 와 동일하게 구동.
-    녹색은 webster_timing 에서 이미 delta_time 격자로 올림 양자화돼 나온다.
+    과거 호출 호환용 목록이다. 실행 중 제어는 green_phase_action을 사용해
+    실제 녹색 경과 시간으로 전환한다(황색·전체 적색은 녹색 시간에 포함하지 않음).
 
     반환: (sched, timing)
         sched  : 예) [0,0,0, 1,1,1, 2,2,2,2, 3,3,3]
@@ -119,6 +121,15 @@ def webster_schedule(demand, delta_time=5, **kw):
     for i, g in enumerate(t['green']):
         sched += [i] * max(1, round(g / delta_time))
     return sched, t
+
+
+def green_phase_action(env, durations):
+    """Fixed/Webster의 녹색 목표 시간만 비교하고 보호 전환은 공통 환경에 맡긴다."""
+    ts = env.traffic_signals[env.ts_ids[0]]
+    current = ts.green_phase
+    if ts.green_elapsed >= durations[current]:
+        return (current + 1) % ts.num_green_phases
+    return current
 
 
 if __name__ == '__main__':

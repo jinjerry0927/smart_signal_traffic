@@ -1,37 +1,30 @@
-"""
-Fixed / Webster / SmartSignal(DQN) 3자 비교 — 시나리오별 평가 (M2).
+"""동일한 출발 일정·seed·공통 신호 규칙으로 Fixed/Webster/기존 AI를 비교한다.
 
-핵심: 평가용 동결 시나리오 5종(scenarios/eval/*.rou.xml)을 순회하며,
-시나리오마다 3개 제어기를 **동일 seed(동일 트래픽)** 로 비교 → 차이는 신호 전략 때문만.
-
-세 제어기 모두 동일 안전 봉투(min_green=15 / max_green=60) 하에서 동작하며,
-green phase 를 어떻게 배분하느냐에서만 차이 난다:
-- fixed   : green phase 를 균등 간격으로 순환 (단순 고정신호)
-- webster : 수요 기반 최적 green split (baselines.webster_schedule, 최적 고정신호)
-- rl      : DQN 출력 0=Keep / 1=Next → 적응형 사이클 전환 (state 29차원)
-
-teleport: sumo_rl 기본은 교착차량 순간이동 off(-1) → 빡빡한 고정주기가 교차로 박스를
-영구 교착시키는 시뮬 아티팩트가 생김. SUMO 기본값(300s)을 복원해 세 모드 동일 조건에서
-교착을 해소한다(run_episode 참고).
-
-메트릭: avg_waiting_time / avg_queue / max_queue(낮을수록 좋음) +
-throughput(도착차량 수, 높을수록 좋음 — TraCI getArrivedNumber 누적, M3 추가).
-실행:
-    python evaluate.py                 # 기본: 시나리오당 10ep
-    python evaluate.py --episodes 30   # 통계 강화
+새 실행 폴더에 입력 해시, 매초 집계, 완료 차량 tripinfo와 CSV를 기록한다.
+mean_system_total_waiting_time_s는 각 시점의 시스템 전체 현재 대기시간 합의 평균이다.
+mean_completed_waiting_time_s는 도착 완료 차량의 여정 전체 대기시간 평균이다.
+완료 차량 평균은 미도착/미진입 수와 함께 해석한다. 기존 모델의 성능 보장은 없다.
 """
 import os
 import sys
 import csv
 import time
 import argparse
+from contextlib import contextmanager
+from datetime import datetime
+import json
+import importlib.metadata
+from pathlib import Path
+import shutil
+import xml.etree.ElementTree as ET
 import numpy as np
 import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 
-from scenarios import EVAL_SCENARIOS, freeze_eval_scenarios
-from baselines import webster_schedule
+from scenarios import EVAL_SCENARIOS
+from baselines import webster_timing, green_phase_action
+from evaluation_support import EpisodeMetrics, freeze_departures, file_hash
 
 
 def set_sumo_home():
@@ -46,7 +39,8 @@ def set_sumo_home():
 
 
 set_sumo_home()
-import sumo_rl
+from signal_environment import (SignalEnvironment, MIN_GREEN, MAX_GREEN, DELTA_TIME,
+                                YELLOW_TIME, ALL_RED_TIME, CONTROL_VERSION)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model",         default="results/smart_signal.pth")
@@ -56,9 +50,23 @@ parser.add_argument("--episodes",      type=int, default=10, help="시나리오�
 parser.add_argument("--seconds",       type=int, default=3600)
 parser.add_argument("--seed_base",     type=int, default=1000)
 parser.add_argument("--fixed_hold",    type=int, default=6, help="고정신호: green phase 유지 결정스텝")
+parser.add_argument("--model_e2", default="results/smart_signal_e2.pth")
+parser.add_argument("--scenarios", nargs="+", choices=list(EVAL_SCENARIOS), default=list(EVAL_SCENARIOS))
+parser.add_argument("--modes", nargs="+", choices=["fixed", "webster", "rl_global", "rl_e2"],
+                    default=["fixed", "webster", "rl_global", "rl_e2"])
+parser.add_argument("--out-dir", default=None, help="존재하지 않는 새 결과 폴더")
+parser.add_argument("--skip-plots", action="store_true")
 args = parser.parse_args()
 
-MIN_GREEN, MAX_GREEN = 15, 60
+if args.episodes <= 0 or args.seconds <= 0 or args.seconds % DELTA_TIME:
+    parser.error("episodes는 양수, seconds는 양수이며 결정 간격의 배수여야 합니다.")
+if not MIN_GREEN <= args.fixed_hold * DELTA_TIME <= MAX_GREEN:
+    parser.error("fixed_hold × 결정 간격은 최소/최대 녹색 범위여야 합니다.")
+if "fixed" not in args.modes:
+    parser.error("비교표의 기준선 fixed를 --modes에 포함하세요.")
+args.net = str(Path(args.net).resolve())
+args.scenarios_dir = str(Path(args.scenarios_dir).resolve())
+args.model, args.model_e2 = str(Path(args.model).resolve()), str(Path(args.model_e2).resolve())
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
@@ -88,106 +96,141 @@ def _load_dqn(path):
     return net, ng
 
 NETS = {}
-net_g, ng_g = _load_dqn("results/smart_signal.pth")
-if net_g is not None:
-    NETS["rl_global"] = net_g
-net_e, ng_e = _load_dqn("results/smart_signal_e2.pth")
-if net_e is not None:
-    NETS["rl_e2"] = net_e
-NUM_GREEN_PHASES = ng_g or ng_e or 4
-MODES = ["fixed", "webster"] + list(NETS.keys())
+for mode, path, size in [("rl_global", args.model, 29), ("rl_e2", args.model_e2, 53)]:
+    if mode not in args.modes:
+        continue
+    net, ng = _load_dqn(path)
+    if net is None:
+        parser.error(f"선택한 모드의 모델이 없습니다: {path}")
+    if ng != 4 or net.net[0].in_features != size or net.net[-1].out_features != 2:
+        parser.error(f"모델 규약 불일치: {mode}는 {size}D/2 actions/4 green이 필요합니다.")
+    NETS[mode] = net
+NUM_GREEN_PHASES = 4
+MODES = list(dict.fromkeys(args.modes))
 print(f"[INFO] 평가 모드: {MODES}")
 
 LABELS = {"fixed": "Fixed", "webster": "Webster",
           "rl_global": "SmartSignal(god-view)", "rl_e2": "SmartSignal(E2)"}
 
-# ── 시나리오 파일 확보 (없으면 자동 생성) ──
-scenario_paths = {}
-for name in EVAL_SCENARIOS:
-    p = os.path.join(args.scenarios_dir, f"{name}.rou.xml")
-    if not os.path.isfile(p):
-        print("[INFO] 시나리오 파일이 없어 생성합니다...")
-        freeze_eval_scenarios(args.scenarios_dir)
-    scenario_paths[name] = p
+# ── 입력 보존: 원본을 재생성하지 않고 이번 실행의 명시적 출발 일정으로 동결 ──
+for name in args.scenarios:
+    if not Path(args.scenarios_dir, f"{name}.rou.xml").is_file():
+        parser.error(f"평가 수요가 없습니다: {name}. 원본은 자동 생성/덮어쓰기하지 않습니다.")
+out_dir = Path(args.out_dir or f"results/runs/eval-{datetime.now():%Y%m%d-%H%M%S-%f}").resolve()
+out_dir.mkdir(parents=True, exist_ok=False)
+inputs = out_dir / "inputs"
+inputs.mkdir()
+shutil.copy2(args.net, inputs / "intersection.net.xml")
+args.net = str(inputs / "intersection.net.xml")
+scenario_paths, scheduled_counts, scenario_hashes = {}, {}, {}
+for name in dict.fromkeys(args.scenarios):
+    source = Path(args.scenarios_dir, f"{name}.rou.xml")
+    snapshot = inputs / f"{name}.rou.xml"
+    scheduled_counts[name] = freeze_departures(source, snapshot, args.seconds)
+    scenario_paths[name] = str(snapshot)
+    scenario_hashes[name] = dict(source_sha256=file_hash(source), frozen_sha256=file_hash(snapshot))
+manifest = dict(control_version=CONTROL_VERSION, seconds=args.seconds, episodes=args.episodes,
+    seed_base=args.seed_base, modes=MODES, scenarios=scenario_hashes, net_sha256=file_hash(args.net),
+    control=dict(min_green=MIN_GREEN, max_green=MAX_GREEN, yellow=YELLOW_TIME,
+                 all_red=ALL_RED_TIME, delta_time=DELTA_TIME, teleport=300),
+    models={mode: file_hash(args.model if mode == "rl_global" else args.model_e2) for mode in NETS},
+    metric_version="per-second-v1", python=sys.version,
+    sumo_rl=importlib.metadata.version("sumo-rl"),
+    sources={filename: file_hash(Path(__file__).resolve().parent / filename)
+             for filename in ("evaluate.py", "evaluation_support.py", "baselines.py", "signal_environment.py")},
+    note="기존 모델의 변경된 환경 연결 검사. 성능 향상 주장이나 본 평가가 아님. Webster는 시나리오 수요를 알고 계산함.")
+(out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def run_episode(mode, route_file, seed, demand=None):
+@contextmanager
+def working_directory(path):
+    previous = Path.cwd()
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(previous)
+
+
+def run_episode(mode, route_file, seed, demand=None, *, name, episode):
     """한 에피소드 실행 → 메트릭 dict.
 
     mode == 'webster' 인 경우 demand(방향별 veh/h)로 green split 스케줄을 계산해 순환한다.
     mode == 'rl_e2' 인 경우 E2 검지기 관측(53D)을 사용한다.
     """
-    extra = "--no-step-log"
+    episode_dir = out_dir / f"{name}-{mode}-{episode}"
+    episode_dir.mkdir()
+    extra = "--no-step-log --tripinfo-output tripinfo.xml"
     obs_class = None
     if mode == "rl_e2":
         from e2_observation import E2ObservationFunction
         obs_class = E2ObservationFunction
-        extra = "-a network/e2.add.xml --no-step-log"
-    env = sumo_rl.SumoEnvironment(
-        net_file=args.net, route_file=route_file, use_gui=False,
-        num_seconds=args.seconds, min_green=MIN_GREEN, max_green=MAX_GREEN,
-        single_agent=True, sumo_warnings=False, sumo_seed=seed,
-        # sumo_rl 기본은 teleport off(-1) → 과포화/빡빡한 고정주기에서 교차로 박스가
-        # 영구 교착(흡수상태)되는 시뮬 아티팩트 발생. SUMO 기본값(300s)을 복원해
-        # 세 제어기 동일 조건에서 교착을 해소(공정). 자세한 진단은 커밋 메시지 참고.
-        time_to_teleport=300,
-        additional_sumo_cmd=extra,   # 콘솔의 'Step #...' 스팸 억제 (+E2면 검지기 add)
-        **({"observation_class": obs_class} if obs_class else {}),
-    )
-    obs, _ = env.reset()
-    # throughput(도착차량 누적): env.step 은 내부에서 simulationStep 을 delta_time(황색 포함)
+        detectors = ET.parse(Path(__file__).resolve().parent / "network/e2.add.xml")
+        for detector in detectors.getroot():
+            detector.set("file", "detectors.xml")
+        detectors.write(episode_dir / "detectors.add.xml", encoding="utf-8")
+        extra += " -a detectors.add.xml"
+    # SUMO의 상대 출력은 에피소드 폴더에 한정한다. 공백 있는 상위 경로도 지원한다.
+    with working_directory(episode_dir):
+        env = SignalEnvironment(
+            net_file=args.net, route_file=route_file, use_gui=False,
+            num_seconds=args.seconds, min_green=MIN_GREEN, max_green=MAX_GREEN,
+            single_agent=True, sumo_warnings=False, sumo_seed=seed,
+            # 비교 기법 모두 같은 teleport 기준을 사용하고 발생 횟수도 기록한다.
+            time_to_teleport=300,
+            additional_sumo_cmd=extra,   # 콘솔의 'Step #...' 스팸 억제 (+E2면 검지기 add)
+            **({"observation_class": obs_class} if obs_class else {}),
+        )
+        obs, _ = env.reset()
+    # arrived_vehicles(도착차량 누적): env.step 은 내부에서 simulationStep 을 delta_time(황색 포함)
     # 만큼 여러 번 돌리므로, env.step 뒤 getArrivedNumber()를 1회만 읽으면 대부분의 도착을
     # 놓친다. _sumo_step 을 감싸 매 시뮬레이션 스텝의 도착수를 누적한다(reset 이후 부착).
-    arrived = [0]
+    metrics = EpisodeMetrics()
     _orig_sumo_step = env._sumo_step
 
     def _counting_sumo_step():
         _orig_sumo_step()
-        arrived[0] += env.sumo.simulation.getArrivedNumber()
+        metrics.sample(env.sumo)
 
     env._sumo_step = _counting_sumo_step
     # Webster: env 의 결정 주기(delta_time)에 맞춘 phase 스케줄 1회 계산
-    webster_sched = None
+    green_durations = [args.fixed_hold * DELTA_TIME] * NUM_GREEN_PHASES
     if mode == "webster":
-        webster_sched, _ = webster_schedule(
+        timing = webster_timing(
             demand, delta_time=getattr(env, "delta_time", 5),
-            min_green=MIN_GREEN, max_green=MAX_GREEN)
+            min_green=MIN_GREEN, max_green=MAX_GREEN,
+            lost_time=NUM_GREEN_PHASES * (YELLOW_TIME + ALL_RED_TIME))
+        green_durations = timing["green"]
     total_reward, done, step = 0.0, False, 0
-    waits, queues = [], []
-    while not done:
-        cur_phase = int(np.array(obs[:NUM_GREEN_PHASES]).argmax())
-        if mode == "fixed":
-            action = (step // args.fixed_hold) % NUM_GREEN_PHASES
-        elif mode == "webster":
-            action = webster_sched[step % len(webster_sched)]
-        else:  # rl_global / rl_e2
-            net = NETS[mode]
-            with torch.no_grad():
-                q = net(torch.FloatTensor(np.array(obs, dtype=np.float32)).to(device))
-                dqn_action = int(q.argmax().item())
-            action = cur_phase if dqn_action == 0 else (cur_phase + 1) % NUM_GREEN_PHASES
-        obs, reward, terminated, truncated, info = env.step(action)
-        done = terminated or truncated
-        total_reward += reward
-        step += 1
-        if isinstance(info, dict):
-            if info.get('system_total_waiting_time') is not None:
-                waits.append(info['system_total_waiting_time'])
-            if info.get('system_total_stopped') is not None:
-                queues.append(info['system_total_stopped'])
-    env.close()
+    try:
+        while not done:
+            cur_phase = int(np.array(obs[:NUM_GREEN_PHASES]).argmax())
+            if mode in ("fixed", "webster"):
+                action = green_phase_action(env, green_durations)
+            else:  # rl_global / rl_e2
+                net = NETS[mode]
+                with torch.no_grad():
+                    q = net(torch.FloatTensor(np.array(obs, dtype=np.float32)).to(device))
+                    dqn_action = int(q.argmax().item())
+                action = cur_phase if dqn_action == 0 else (cur_phase + 1) % NUM_GREEN_PHASES
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated
+            total_reward += reward
+            step += 1
+        running = len(env.sumo.vehicle.getIDList())
+        pending = len(env.sumo.simulation.getPendingVehicles())
+    finally:
+        env.close()
     return {
         'total_reward': total_reward,
-        'avg_waiting_time': float(np.mean(waits)) if waits else 0.0,
-        'avg_queue': float(np.mean(queues)) if queues else 0.0,
-        'max_queue': float(max(queues)) if queues else 0.0,
-        'throughput': int(arrived[0]),   # 에피소드 동안 목적지 도착한 차량 수 (높을수록 좋음)
+        **metrics.finish(episode_dir / "tripinfo.xml", running, pending, scheduled_counts[name]),
+        'route_sha256': scenario_hashes[name]['frozen_sha256'],
+        'control_version': CONTROL_VERSION,
     }
 
 
 # ── CSV 저장 헬퍼 (시나리오마다 호출 → 중간 끊겨도 완료분 보존) ──
-os.makedirs("results", exist_ok=True)
-OUT_CSV = "results/evaluation_e2.csv"
+OUT_CSV = str(out_dir / "evaluation.csv")
 
 
 def flush_csv(recs):
@@ -201,12 +244,12 @@ def flush_csv(recs):
 
 # ── 평가 루프 (시나리오 × 모드 × 에피소드, 페어드 seed) ──
 records = []   # 개별 에피소드 결과
-n_scen = len(EVAL_SCENARIOS)
+n_scen = len(scenario_paths)
 total_eps = n_scen * args.episodes * len(MODES)
 t_start = time.time()
 done_eps = 0
 print(f"\n평가 시작: {n_scen} 시나리오 × {args.episodes}ep × {MODES}  (총 {total_eps} 에피소드)\n")
-for si, name in enumerate(EVAL_SCENARIOS, 1):
+for si, name in enumerate(scenario_paths, 1):
     route = scenario_paths[name]
     demand = EVAL_SCENARIOS[name]
     t_scen = time.time()
@@ -214,7 +257,7 @@ for si, name in enumerate(EVAL_SCENARIOS, 1):
     for ep in range(args.episodes):
         seed = args.seed_base + ep   # 모든 모드 동일 seed → 동일 트래픽
         for mode in MODES:
-            m = run_episode(mode, route, seed, demand=demand)
+            m = run_episode(mode, route, seed, demand=demand, name=name, episode=ep)
             records.append({'scenario': name, 'mode': mode, 'episode': ep, 'seed': seed, **m})
             done_eps += 1
         # 에피소드 단위 진행률 (모든 모드 끝날 때마다)
@@ -225,8 +268,8 @@ for si, name in enumerate(EVAL_SCENARIOS, 1):
     # 시나리오 요약 + 중간저장
     line = f"[{name:11s} 완료 {(time.time()-t_scen)/60:.1f}분]"
     for mode in MODES:
-        w = [r['avg_waiting_time'] for r in records if r['scenario'] == name and r['mode'] == mode]
-        q = [r['avg_queue'] for r in records if r['scenario'] == name and r['mode'] == mode]
+        w = [r['mean_system_total_waiting_time_s'] for r in records if r['scenario'] == name and r['mode'] == mode]
+        q = [r['mean_queue_vehicles'] for r in records if r['scenario'] == name and r['mode'] == mode]
         line += f"  {LABELS[mode]}: wait={np.mean(w):7.1f} queue={np.mean(q):5.1f}"
     print(line)
     flush_csv(records)   # 시나리오 단위 중간저장 (크래시 보험)
@@ -249,20 +292,21 @@ for m in other_modes:
     hdr += f" {LABELS[m] + ' (개선)':>{colw}s}"
 print(hdr)
 print("=" * header_w)
-# (key, 표시명, 방향): 'lower'=낮을수록 좋음, 'higher'=높을수록 좋음(throughput)
-TABLE_METRICS = [('avg_waiting_time', 'Avg Wait', 'lower'),
-                 ('avg_queue', 'Avg Queue', 'lower'),
-                 ('max_queue', 'Max Queue', 'lower'),
-                 ('throughput', 'Throughput', 'higher')]
-for name in EVAL_SCENARIOS:
+# (key, 표시명, 방향): 'lower'=낮을수록 좋음, 'higher'=높을수록 좋음(arrived_vehicles)
+TABLE_METRICS = [('mean_system_total_waiting_time_s', 'System Wait(s)', 'lower'),
+                 ('mean_queue_vehicles', 'Avg Queue', 'lower'),
+                 ('max_queue_vehicles', 'Max Queue', 'lower'),
+                 ('arrived_vehicles', 'Throughput', 'higher')]
+for name in scenario_paths:
     for key, label, direction in TABLE_METRICS:
         fm, fs = agg(name, 'fixed', key)
         row = f"{name:12s} {label:12s} {fm:9.2f}±{fs:5.2f}"
         for m in other_modes:
             mm, ms = agg(name, m, key)
-            # 개선율: lower 메트릭은 (fixed-mode), higher(throughput)는 (mode-fixed)
-            imp = ((fm - mm) if direction == 'lower' else (mm - fm)) / max(fm, 1e-9) * 100
-            row += f" {mm:9.2f}±{ms:5.2f}({imp:+5.1f}%)"
+            # 개선율: lower 메트릭은 (fixed-mode), higher(arrived_vehicles)는 (mode-fixed)
+            change = ((fm - mm) if direction == 'lower' else (mm - fm)) / fm * 100 if fm else None
+            comparison = f"{change:+5.1f}%" if change is not None else "n/a"
+            row += f" {mm:9.2f}±{ms:5.2f}({comparison})"
         print(row)
     print("-" * header_w)
 
@@ -273,11 +317,13 @@ print(f"[INFO] CSV 저장: {OUT_CSV}")
 
 
 # ── 차트 (시나리오별 그룹 막대, N개 모드 일반화) ──
+if args.skip_plots:
+    sys.exit(0)
 STYLE = {'fixed': ('#546E7A', 'Fixed'),
          'webster': ('#8E7CC3', 'Webster'),
          'rl_global': ('#00897B', 'SmartSignal(god-view)'),
          'rl_e2': ('#FF7043', 'SmartSignal(E2)')}
-scen = list(EVAL_SCENARIOS.keys())
+scen = list(scenario_paths)
 x = np.arange(len(scen))
 n = len(MODES)
 width = 0.8 / n
@@ -287,9 +333,9 @@ title_modes = ' vs '.join(STYLE.get(m, ('', m))[1] for m in MODES)
 fig.suptitle(f'{title_modes} — Per-Scenario Comparison', color='white',
              fontsize=15, fontweight='bold')
 
-for ax, (key, title) in zip(axes, [('avg_waiting_time', 'Avg Waiting Time (lower better)'),
-                                    ('avg_queue', 'Avg Queue Length (lower better)'),
-                                    ('throughput', 'Throughput (higher better)')]):
+for ax, (key, title) in zip(axes, [('mean_system_total_waiting_time_s', 'Mean system waiting sum (s)'),
+                                    ('mean_queue_vehicles', 'Avg Queue Length (lower better)'),
+                                    ('arrived_vehicles', 'Throughput (higher better)')]):
     ax.set_facecolor('#0D1B2A')
     for i, m in enumerate(MODES):
         means = [agg(s, m, key)[0] for s in scen]
@@ -307,6 +353,6 @@ for ax, (key, title) in zip(axes, [('avg_waiting_time', 'Avg Waiting Time (lower
     ax.legend(facecolor='#1a2d40', labelcolor='white')
 
 plt.tight_layout()
-out_png = "results/evaluation_e2_by_scenario.png"
+out_png = str(out_dir / "evaluation_by_scenario.png")
 plt.savefig(out_png, dpi=150, bbox_inches='tight', facecolor='#0D1B2A')
 print(f"[INFO] 그래프 저장: {out_png}")

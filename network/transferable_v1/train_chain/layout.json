@@ -1,0 +1,143 @@
+{
+  "green_s": 25,
+  "yellow_s": 3,
+  "all_red_s": 2,
+  "speed_mps": 13.89,
+  "lane_width_m": 3.2,
+  "junctions": [
+    {
+      "id": "j0",
+      "label": "Synthetic 0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "j1",
+      "label": "Synthetic 1",
+      "x": 0,
+      "y": 200
+    },
+    {
+      "id": "j2",
+      "label": "Synthetic 2",
+      "x": 0,
+      "y": 400
+    }
+  ],
+  "roads": [
+    {
+      "id": "link0",
+      "a": "j0",
+      "b": "j1",
+      "arm_a": "N",
+      "arm_b": "S",
+      "lanes": 2,
+      "name": "Synthetic connector"
+    },
+    {
+      "id": "link1",
+      "a": "j1",
+      "b": "j2",
+      "arm_a": "N",
+      "arm_b": "S",
+      "lanes": 2,
+      "name": "Synthetic connector"
+    },
+    {
+      "id": "j0_E",
+      "a": "j0",
+      "b": "j0_E",
+      "arm_a": "E",
+      "lanes": 2,
+      "end_xy": [
+        200,
+        0
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j0_S",
+      "a": "j0",
+      "b": "j0_S",
+      "arm_a": "S",
+      "lanes": 2,
+      "end_xy": [
+        0,
+        -200
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j0_W",
+      "a": "j0",
+      "b": "j0_W",
+      "arm_a": "W",
+      "lanes": 2,
+      "end_xy": [
+        -200,
+        0
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j1_E",
+      "a": "j1",
+      "b": "j1_E",
+      "arm_a": "E",
+      "lanes": 2,
+      "end_xy": [
+        200,
+        200
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j1_W",
+      "a": "j1",
+      "b": "j1_W",
+      "arm_a": "W",
+      "lanes": 2,
+      "end_xy": [
+        -200,
+        200
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j2_N",
+      "a": "j2",
+      "b": "j2_N",
+      "arm_a": "N",
+      "lanes": 2,
+      "end_xy": [
+        0,
+        600
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j2_E",
+      "a": "j2",
+      "b": "j2_E",
+      "arm_a": "E",
+      "lanes": 2,
+      "end_xy": [
+        200,
+        400
+      ],
+      "name": "Synthetic boundary"
+    },
+    {
+      "id": "j2_W",
+      "a": "j2",
+      "b": "j2_W",
+      "arm_a": "W",
+      "lanes": 2,
+      "end_xy": [
+        -200,
+        400
+      ],
+      "name": "Synthetic boundary"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<edges>
+  <edge id="link0_out" from="j0" to="j1" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic connector" shape="0,0 0,200" />
+  <edge id="link0_in" from="j1" to="j0" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic connector" shape="0,200 0,0" />
+  <edge id="link1_out" from="j1" to="j2" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic connector" shape="0,200 0,400" />
+  <edge id="link1_in" from="j2" to="j1" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic connector" shape="0,400 0,200" />
+  <edge id="j0_E_out" from="j0" to="j0_E" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,0 200,0" />
+  <edge id="j0_E_in" from="j0_E" to="j0" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="200,0 0,0" />
+  <edge id="j0_S_out" from="j0" to="j0_S" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,0 0,-200" />
+  <edge id="j0_S_in" from="j0_S" to="j0" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,-200 0,0" />
+  <edge id="j0_W_out" from="j0" to="j0_W" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,0 -200,0" />
+  <edge id="j0_W_in" from="j0_W" to="j0" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="-200,0 0,0" />
+  <edge id="j1_E_out" from="j1" to="j1_E" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,200 200,200" />
+  <edge id="j1_E_in" from="j1_E" to="j1" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="200,200 0,200" />
+  <edge id="j1_W_out" from="j1" to="j1_W" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,200 -200,200" />
+  <edge id="j1_W_in" from="j1_W" to="j1" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="-200,200 0,200" />
+  <edge id="j2_N_out" from="j2" to="j2_N" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,400 0,600" />
+  <edge id="j2_N_in" from="j2_N" to="j2" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,600 0,400" />
+  <edge id="j2_E_out" from="j2" to="j2_E" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,400 200,400" />
+  <edge id="j2_E_in" from="j2_E" to="j2" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="200,400 0,400" />
+  <edge id="j2_W_out" from="j2" to="j2_W" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="0,400 -200,400" />
+  <edge id="j2_W_in" from="j2_W" to="j2" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" name="Synthetic boundary" shape="-200,400 0,400" />
+</edges>

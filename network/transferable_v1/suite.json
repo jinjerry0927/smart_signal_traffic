@@ -1,0 +1,428 @@
+{
+  "version": "transferable-v1",
+  "cases": [
+    {
+      "id": "train_t1",
+      "split": "train",
+      "spec": "train_t1/intersection.json",
+      "spec_sha256": "55bbb1ac9fa505bc07c9d07f578632875d5e1ea3bf897568ea76bb3bfa44d64e"
+    },
+    {
+      "id": "train_t2",
+      "split": "train",
+      "spec": "train_t2/intersection.json",
+      "spec_sha256": "b8b2156c64ed02d6c8549fcd4164b54fecb8faec187dad8cfcaf0214c33b041d"
+    },
+    {
+      "id": "train_t3",
+      "split": "train",
+      "spec": "train_t3/intersection.json",
+      "spec_sha256": "da1f06a6f43c6b3f1ffdfad2b52d620fad5e0bc079cd5b43a26f9c7b7c04bd3a"
+    },
+    {
+      "id": "train_x1",
+      "split": "train",
+      "spec": "train_x1/intersection.json",
+      "spec_sha256": "9bdb402ca2298e2c55e84f3aca38d227e378db1053a313751891a0661ce4c0fa"
+    },
+    {
+      "id": "train_x2",
+      "split": "train",
+      "spec": "train_x2/intersection.json",
+      "spec_sha256": "cc51bf419abf5a8ddd90e24eb83417aae0848e671c8fff47b27803c9529923d0"
+    },
+    {
+      "id": "train_x3",
+      "split": "train",
+      "spec": "train_x3/intersection.json",
+      "spec_sha256": "1cf81e04a4c5db9e9ae4a14bdf3554c780de52df3d29dc2a6773585055f4a738"
+    },
+    {
+      "id": "train_chain",
+      "split": "train",
+      "spec": "train_chain/intersection.json",
+      "spec_sha256": "aec8869c137403cccb250d5b69413850e1b0fc255f64ba213a11567163e0a5f8"
+    },
+    {
+      "id": "valid_t2",
+      "split": "validation",
+      "spec": "valid_t2/intersection.json",
+      "spec_sha256": "a2288fadb0fa37bff3a893a7d7b56eef425513962fa2fd782731c1b039dc839f"
+    },
+    {
+      "id": "valid_x3",
+      "split": "validation",
+      "spec": "valid_x3/intersection.json",
+      "spec_sha256": "0e6295d62959f8a3e12f0acd1c62b2d61058bff644e05e6a809f98d0de45da19"
+    },
+    {
+      "id": "gyeongju",
+      "split": "test",
+      "spec": "gyeongju/intersection.json",
+      "spec_sha256": "3902cb101f20148cd477a80ac65717d3aa8efb87ceff782d93d8bf7a20ee4c6c"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "train_t1_quiet",
+      "case": "train_t1",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_t1/quiet.rou.xml",
+      "routes_sha256": "5faff7e6a0910517b028d3401414e605ce72438fa01b68472d7ded673aed6858",
+      "scheduled": 94,
+      "seed": 11010,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t1_busy",
+      "case": "train_t1",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_t1/busy.rou.xml",
+      "routes_sha256": "626afe563f53702fed3c1d883bc7d190b0176bccbd48d298559179d8c3cf7a53",
+      "scheduled": 193,
+      "seed": 11011,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t1_directional",
+      "case": "train_t1",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_t1/directional.rou.xml",
+      "routes_sha256": "5df9ae53724d2bb2aeae6efe2f5fc8538a0ec8aa4ac585e750300b97c29db49c",
+      "scheduled": 153,
+      "seed": 11012,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t2_quiet",
+      "case": "train_t2",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_t2/quiet.rou.xml",
+      "routes_sha256": "afa16b41a01b2c89a05efc406ac140db1156825ce922572daca7b46140f773b7",
+      "scheduled": 188,
+      "seed": 11020,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t2_busy",
+      "case": "train_t2",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_t2/busy.rou.xml",
+      "routes_sha256": "1ecdc942ca7772119da5697469eb08cc85f36f5eaa8d113ac6827c2c3656eb87",
+      "scheduled": 336,
+      "seed": 11021,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t2_directional",
+      "case": "train_t2",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_t2/directional.rou.xml",
+      "routes_sha256": "962718bce38210f8d167b49be0a23bce775e88b39d1896ec6803b4be020fa6fc",
+      "scheduled": 299,
+      "seed": 11022,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t3_quiet",
+      "case": "train_t3",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_t3/quiet.rou.xml",
+      "routes_sha256": "8918bc0446ac185c052fe647fccb66ba99b817520c8735503ce4f3b67f75ca0a",
+      "scheduled": 268,
+      "seed": 11030,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t3_busy",
+      "case": "train_t3",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_t3/busy.rou.xml",
+      "routes_sha256": "fa2d523821d207a231b07a380489603c7a2799b323ea980eb0dab77503ae863c",
+      "scheduled": 554,
+      "seed": 11031,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_t3_directional",
+      "case": "train_t3",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_t3/directional.rou.xml",
+      "routes_sha256": "d1eed53fbd01a57ba69704a2d5515cf9579ba85d0966aed0ab7ab15071275e56",
+      "scheduled": 477,
+      "seed": 11032,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x1_quiet",
+      "case": "train_x1",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_x1/quiet.rou.xml",
+      "routes_sha256": "a95b142add649aa608ef58ac01ce22574dd7a3bf198a3084e904b21d66ff1667",
+      "scheduled": 107,
+      "seed": 11040,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x1_busy",
+      "case": "train_x1",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_x1/busy.rou.xml",
+      "routes_sha256": "02d1c1248e8d746aa24f89f53d9d3ac6f01899ad438be77d8f9f5f2a27014bc5",
+      "scheduled": 276,
+      "seed": 11041,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x1_directional",
+      "case": "train_x1",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_x1/directional.rou.xml",
+      "routes_sha256": "833d92a228f5bad79c60c19c6c264d347377a06fd4e77d29201991920616293e",
+      "scheduled": 200,
+      "seed": 11042,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x2_quiet",
+      "case": "train_x2",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_x2/quiet.rou.xml",
+      "routes_sha256": "e0bb14f9d03cc07952ed2dcc15351de119340561e107354f13fa6ad5bbf3f1f6",
+      "scheduled": 207,
+      "seed": 11050,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x2_busy",
+      "case": "train_x2",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_x2/busy.rou.xml",
+      "routes_sha256": "8c3d6b5c8c492101c353db09d1589f5b0da436b5f713d1ffe1b28b2f0046fc6d",
+      "scheduled": 493,
+      "seed": 11051,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x2_directional",
+      "case": "train_x2",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_x2/directional.rou.xml",
+      "routes_sha256": "1d3924663ca1a6bdaeab3a2b91ee78f1579d7400efec140c87322f87e7aab27e",
+      "scheduled": 445,
+      "seed": 11052,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x3_quiet",
+      "case": "train_x3",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_x3/quiet.rou.xml",
+      "routes_sha256": "1a7d37c8336d2e066522368dd389dc8794ed00d2e6967618354b0a90839383de",
+      "scheduled": 392,
+      "seed": 11060,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x3_busy",
+      "case": "train_x3",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_x3/busy.rou.xml",
+      "routes_sha256": "776fc9df576f35fbe4c51fbe2a6ebac38c87bf156c84de465fcb9cf2d89e92c7",
+      "scheduled": 740,
+      "seed": 11061,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_x3_directional",
+      "case": "train_x3",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_x3/directional.rou.xml",
+      "routes_sha256": "72dd94a174df0410d0caf4cb68178bfb770bb01ad39baa0cfab5383a5a386b62",
+      "scheduled": 599,
+      "seed": 11062,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_chain_quiet",
+      "case": "train_chain",
+      "split": "train",
+      "profile": "quiet",
+      "routes": "train_chain/quiet.rou.xml",
+      "routes_sha256": "72e4448ddadae346143506dd38e0dd417e97b615e7eac3197a87c66487eaec7b",
+      "scheduled": 480,
+      "seed": 11070,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_chain_busy",
+      "case": "train_chain",
+      "split": "train",
+      "profile": "busy",
+      "routes": "train_chain/busy.rou.xml",
+      "routes_sha256": "2ce559d8c737976d65a53d66eb9076803644293a7880a08603c2b07e9b2a8e61",
+      "scheduled": 1004,
+      "seed": 11071,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "train_chain_directional",
+      "case": "train_chain",
+      "split": "train",
+      "profile": "directional",
+      "routes": "train_chain/directional.rou.xml",
+      "routes_sha256": "e31092935f31f64dcbdf87d1f5ceea848a051bfc30b57e61c63560dc8cd1a7b3",
+      "scheduled": 796,
+      "seed": 11072,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_t2_quiet",
+      "case": "valid_t2",
+      "split": "validation",
+      "profile": "quiet",
+      "routes": "valid_t2/quiet.rou.xml",
+      "routes_sha256": "5add48c29a8bd3eaeb2cbb04b552b64cb19a78fe1109569a3eea700c9d9f4f13",
+      "scheduled": 198,
+      "seed": 22010,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_t2_busy",
+      "case": "valid_t2",
+      "split": "validation",
+      "profile": "busy",
+      "routes": "valid_t2/busy.rou.xml",
+      "routes_sha256": "2c6da543abca680ef79c5accbec27ec8e307861b64e3052db7428b951dd71e48",
+      "scheduled": 376,
+      "seed": 22011,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_t2_directional",
+      "case": "valid_t2",
+      "split": "validation",
+      "profile": "directional",
+      "routes": "valid_t2/directional.rou.xml",
+      "routes_sha256": "b83a791124881c6209ddaf005d74e7b2aeeaf3312e14339eb9d3a49fd87f719b",
+      "scheduled": 303,
+      "seed": 22012,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_x3_quiet",
+      "case": "valid_x3",
+      "split": "validation",
+      "profile": "quiet",
+      "routes": "valid_x3/quiet.rou.xml",
+      "routes_sha256": "b8a52bb600e734dca6e89811553516f2066d561769c7d3ec6056959c267afb20",
+      "scheduled": 388,
+      "seed": 22020,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_x3_busy",
+      "case": "valid_x3",
+      "split": "validation",
+      "profile": "busy",
+      "routes": "valid_x3/busy.rou.xml",
+      "routes_sha256": "eb7714643b666e28554ea1982b0d67fa0b35632a52863984568091050f6e6a78",
+      "scheduled": 725,
+      "seed": 22021,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "valid_x3_directional",
+      "case": "valid_x3",
+      "split": "validation",
+      "profile": "directional",
+      "routes": "valid_x3/directional.rou.xml",
+      "routes_sha256": "e8a940530d60de725517ac79c9979494c2888d59cd3ac1f54ac0a81c794dd127",
+      "scheduled": 635,
+      "seed": 22022,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "gyeongju_quiet",
+      "case": "gyeongju",
+      "split": "test",
+      "profile": "quiet",
+      "routes": "gyeongju/quiet.rou.xml",
+      "routes_sha256": "dd2f6667ac02b5df9b792b5dc1a063b7fa200564d2c7c2c64b4d73f005856b4f",
+      "scheduled": 338,
+      "seed": 33010,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "gyeongju_busy",
+      "case": "gyeongju",
+      "split": "test",
+      "profile": "busy",
+      "routes": "gyeongju/busy.rou.xml",
+      "routes_sha256": "9d20d1233a687bd0b6ad63f3ae868e54060048e82ab290cf089e39de1acc7b98",
+      "scheduled": 680,
+      "seed": 33011,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "gyeongju_directional",
+      "case": "gyeongju",
+      "split": "test",
+      "profile": "directional",
+      "routes": "gyeongju/directional.rou.xml",
+      "routes_sha256": "be29f091afcbca329d2f97733a5c1f9edf829222f9ba7a10a5bb3c19080c97dc",
+      "scheduled": 579,
+      "seed": 33012,
+      "duration_s": 600,
+      "drain_s": 300
+    }
+  ],
+  "preparation_only": true
+}

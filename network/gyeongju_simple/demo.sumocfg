@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+  <input>
+    <net-file value="simple.net.xml" />
+    <route-files value="demo.rou.xml" />
+    <additional-files value="labels.add.xml" />
+  </input>
+  <gui_only>
+    <gui-settings-file value="view.xml" />
+    <delay value="100" />
+  </gui_only>
+</configuration>

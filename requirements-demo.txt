@@ -1,0 +1,4 @@
+# Presentation runtime only; tested with Python 3.11 and SUMO 1.26.0.
+numpy==2.4.4
+sumolib==1.26.0
+traci==1.26.0

@@ -1,0 +1,102 @@
+{
+  "version": "transferable-v1",
+  "duration_s": 600,
+  "drain_s": 300,
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "profiles": [
+    "quiet",
+    "busy",
+    "directional"
+  ],
+  "cases": [
+    {
+      "id": "train_t1",
+      "split": "train",
+      "arms": "NES",
+      "lanes": 1,
+      "length_m": 220,
+      "seed": 1101
+    },
+    {
+      "id": "train_t2",
+      "split": "train",
+      "arms": "NES",
+      "lanes": 2,
+      "length_m": 300,
+      "seed": 1102
+    },
+    {
+      "id": "train_t3",
+      "split": "train",
+      "arms": "NES",
+      "lanes": 3,
+      "length_m": 380,
+      "seed": 1103
+    },
+    {
+      "id": "train_x1",
+      "split": "train",
+      "arms": "NESW",
+      "lanes": 1,
+      "length_m": 260,
+      "seed": 1104
+    },
+    {
+      "id": "train_x2",
+      "split": "train",
+      "arms": "NESW",
+      "lanes": 2,
+      "length_m": 340,
+      "seed": 1105
+    },
+    {
+      "id": "train_x3",
+      "split": "train",
+      "arms": "NESW",
+      "lanes": 3,
+      "length_m": 420,
+      "seed": 1106
+    },
+    {
+      "id": "train_chain",
+      "split": "train",
+      "layout": "corridor",
+      "lanes": 2,
+      "length_m": 200,
+      "seed": 1107
+    },
+    {
+      "id": "valid_t2",
+      "split": "validation",
+      "arms": "NES",
+      "lanes": 2,
+      "length_m": 470,
+      "seed": 2201
+    },
+    {
+      "id": "valid_x3",
+      "split": "validation",
+      "arms": "NESW",
+      "lanes": 3,
+      "length_m": 530,
+      "seed": 2202
+    },
+    {
+      "id": "gyeongju",
+      "split": "test",
+      "source_network": "network/gyeongju_simple/simple.net.xml",
+      "seed": 3301
+    }
+  ]
+}

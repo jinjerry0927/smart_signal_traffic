@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "network": "network/gyeongju_corridor/corridor.net.xml",
+  "junctions": [
+    {
+      "id": "gj_south",
+      "label": "금성로 남측 교차로",
+      "lat": 35.85305,
+      "lon": 129.20683,
+      "osm_ids": [
+        "10857621941",
+        "699850140"
+      ]
+    },
+    {
+      "id": "gj_center",
+      "label": "동대사거리",
+      "lat": 35.85525,
+      "lon": 129.20679,
+      "osm_ids": [
+        "10857621938",
+        "414664600"
+      ]
+    },
+    {
+      "id": "gj_north",
+      "label": "금성로-알천남로 교차로",
+      "lat": 35.85723,
+      "lon": 129.20764,
+      "osm_ids": [
+        "529458586",
+        "5373391858"
+      ]
+    }
+  ],
+  "external_boundaries": [
+    {
+      "id": "south_south",
+      "junction": "gj_south",
+      "direction_from_junction": "south",
+      "fringe_nodes": {
+        "inbound": "529807761",
+        "outbound": "10857621947"
+      },
+      "edges": {
+        "inbound": "983627969#0",
+        "outbound": "1167498389#1"
+      }
+    },
+    {
+      "id": "south_west",
+      "junction": "gj_south",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "699849783",
+        "outbound": "699849783"
+      },
+      "edges": {
+        "inbound": "-912222341#1",
+        "outbound": "912222341#1"
+      }
+    },
+    {
+      "id": "south_east",
+      "junction": "gj_south",
+      "direction_from_junction": "east",
+      "fringe_nodes": {
+        "inbound": "2122131950",
+        "outbound": "2122131950"
+      },
+      "edges": {
+        "inbound": "42436484",
+        "outbound": "-42436484"
+      }
+    },
+    {
+      "id": "center_west",
+      "junction": "gj_center",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "530538242",
+        "outbound": "530538242"
+      },
+      "edges": {
+        "inbound": "361265530",
+        "outbound": "-361265530"
+      }
+    },
+    {
+      "id": "center_east",
+      "junction": "gj_center",
+      "direction_from_junction": "east",
+      "fringe_nodes": {
+        "inbound": "530538318",
+        "outbound": "530538318"
+      },
+      "edges": {
+        "inbound": "-533136972",
+        "outbound": "533136972"
+      }
+    },
+    {
+      "id": "north_west",
+      "junction": "gj_north",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "530538351",
+        "outbound": "530538351"
+      },
+      "edges": {
+        "inbound": "1164614093#0",
+        "outbound": "-1164614093#0"
+      }
+    },
+    {
+      "id": "north_east",
+      "junction": "gj_north",
+      "direction_from_junction": "east",
+      "fringe_nodes": {
+        "inbound": "529807863",
+        "outbound": "529807863"
+      },
+      "edges": {
+        "inbound": "-1164614094",
+        "outbound": "1164614094"
+      }
+    }
+  ],
+  "tls_programs": {
+    "gj_center": {
+      "program_id": "0",
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "GGGgrrrGGgrrr",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "yyyyrrryyyrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "rrrGrrrrrGrrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "rrryrrrrryrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 6,
+          "duration": 30,
+          "state": "rrrrGGgrrrGGg",
+          "kind": "green"
+        },
+        {
+          "index": 7,
+          "duration": 3,
+          "state": "rrrryyyrrryyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 8,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "1334626930",
+          "from_lane": 0,
+          "to_edge": "-361265530",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "1334626930",
+          "from_lane": 0,
+          "to_edge": "1167498389#0",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "1334626930",
+          "from_lane": 1,
+          "to_edge": "1167498389#0",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "1334626930",
+          "from_lane": 1,
+          "to_edge": "533136972",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "-533136972",
+          "from_lane": 0,
+          "to_edge": "642113878",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "-533136972",
+          "from_lane": 0,
+          "to_edge": "-361265530",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "-533136972",
+          "from_lane": 0,
+          "to_edge": "1167498389#0",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "1164614095",
+          "from_lane": 0,
+          "to_edge": "533136972",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 8,
+          "from_edge": "1164614095",
+          "from_lane": 0,
+          "to_edge": "642113878",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 9,
+          "from_edge": "1164614095",
+          "from_lane": 1,
+          "to_edge": "-361265530",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 10,
+          "from_edge": "361265530",
+          "from_lane": 0,
+          "to_edge": "1167498389#0",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 11,
+          "from_edge": "361265530",
+          "from_lane": 0,
+          "to_edge": "533136972",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 12,
+          "from_edge": "361265530",
+          "from_lane": 0,
+          "to_edge": "642113878",
+          "to_lane": 0,
+          "direction": "l"
+        }
+      ]
+    },
+    "gj_south": {
+      "program_id": "0",
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "rrrGGGgrrrGGGg",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "rrryyyyrrryyyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "GGgrrrrGGgrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "yyyrrrryyyrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "42436484",
+          "from_lane": 0,
+          "to_edge": "983627969#1",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "42436484",
+          "from_lane": 0,
+          "to_edge": "912222341#1",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "42436484",
+          "from_lane": 0,
+          "to_edge": "1167498389#1",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "983627969#0",
+          "from_lane": 0,
+          "to_edge": "-42436484",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "983627969#0",
+          "from_lane": 0,
+          "to_edge": "983627969#1",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "983627969#0",
+          "from_lane": 1,
+          "to_edge": "983627969#1",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "983627969#0",
+          "from_lane": 1,
+          "to_edge": "912222341#1",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "-912222341#1",
+          "from_lane": 0,
+          "to_edge": "1167498389#1",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 8,
+          "from_edge": "-912222341#1",
+          "from_lane": 0,
+          "to_edge": "-42436484",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 9,
+          "from_edge": "-912222341#1",
+          "from_lane": 0,
+          "to_edge": "983627969#1",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 10,
+          "from_edge": "1167498389#0",
+          "from_lane": 0,
+          "to_edge": "912222341#1",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 11,
+          "from_edge": "1167498389#0",
+          "from_lane": 0,
+          "to_edge": "1167498389#1",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 12,
+          "from_edge": "1167498389#0",
+          "from_lane": 1,
+          "to_edge": "1167498389#1",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 13,
+          "from_edge": "1167498389#0",
+          "from_lane": 1,
+          "to_edge": "-42436484",
+          "to_lane": 0,
+          "direction": "l"
+        }
+      ]
+    },
+    "gj_north": {
+      "program_id": "0",
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "GGgrrGGG",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "yyyrryyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "rrrGGGrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "rrryyyrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "-1164614094",
+          "from_lane": 0,
+          "to_edge": "-1164614093#0",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "-1164614094",
+          "from_lane": 1,
+          "to_edge": "-1164614093#0",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "-1164614094",
+          "from_lane": 1,
+          "to_edge": "1334626930",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "642113878",
+          "from_lane": 0,
+          "to_edge": "1164614094",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "642113878",
+          "from_lane": 0,
+          "to_edge": "-1164614093#0",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "1164614093#0",
+          "from_lane": 0,
+          "to_edge": "1334626930",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "1164614093#0",
+          "from_lane": 0,
+          "to_edge": "1164614094",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "1164614093#0",
+          "from_lane": 1,
+          "to_edge": "1164614094",
+          "to_lane": 1,
+          "direction": "s"
+        }
+      ]
+    }
+  },
+  "source_osm": {
+    "url": "https://api.openstreetmap.org/api/0.6/map?bbox=129.199,35.849,129.213,35.861",
+    "retrieved_date": "2026-09-17",
+    "sha256": "91fb1a319ebaedae234fa5b4ff3d1ee904e5011ab0e44f38775df0d5e55c559b",
+    "license": "OpenStreetMap contributors, ODbL 1.0",
+    "subset": "network/gyeongju_corridor/source/gyeongju_corridor.osm.xml",
+    "way_ids": [
+      "42436484",
+      "361265530",
+      "533136972",
+      "642113878",
+      "912222341",
+      "983627969",
+      "1164614093",
+      "1164614094",
+      "1164614095",
+      "1167498389",
+      "1334626930",
+      "1334626931"
+    ],
+    "junction_clusters": {
+      "gj_south": "cluster_10857621941_699850140",
+      "gj_center": "cluster_10857621938_414664600",
+      "gj_north": "cluster_529458586_5373391858"
+    }
+  },
+  "assumptions": [
+    "All modeled roads use 50 km/h where OSM has no maxspeed tag; this is a simulation assumption, not a surveyed value.",
+    "OSM way 642113878 has no lanes tag, so SUMO's one-lane one-way default is retained.",
+    "The two-way, four-lane Alcheonnam-ro OSM ways are modeled as two lanes per direction.",
+    "Unspecified turn-lane data is not treated as field-observed lane allocation.",
+    "Intermediate living/service/residential streets, pedestrian facilities, bus stops, parking, bicycles, and U-turns are omitted; their inflow and outflow are zero.",
+    "Signal green groups come from SUMO's imported G/g link priorities; each green stage is normalized to 30 s followed by 3 s yellow and 2 s all-red."
+  ]
+}

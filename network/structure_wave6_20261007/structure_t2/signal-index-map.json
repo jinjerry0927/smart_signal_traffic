@@ -1,0 +1,13 @@
+{
+  "reason": "Preserve movement colors after netconvert renumbers geometry-dependent TLS links",
+  "declared_to_imported": {
+    "0": 5,
+    "1": 6,
+    "2": 7,
+    "3": 0,
+    "4": 1,
+    "5": 2,
+    "6": 3,
+    "7": 4
+  }
+}

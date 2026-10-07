@@ -1,0 +1,1388 @@
+{
+  "schema_version": 2,
+  "network": "simple.net.xml",
+  "coordinate_system": "local_schematic_metres",
+  "geometry_is_surveyed": false,
+  "junctions": [
+    {
+      "id": "j0",
+      "label": "Synthetic 0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "j1",
+      "label": "Synthetic 1",
+      "x": 0,
+      "y": 200
+    },
+    {
+      "id": "j2",
+      "label": "Synthetic 2",
+      "x": 0,
+      "y": 400
+    }
+  ],
+  "corridor_order": [
+    "j0",
+    "j1",
+    "j2"
+  ],
+  "external_boundaries": [
+    {
+      "id": "j0_E",
+      "junction": "j0",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "j0_E",
+        "outbound": "j0_E"
+      },
+      "edges": {
+        "inbound": "j0_E_in",
+        "outbound": "j0_E_out"
+      }
+    },
+    {
+      "id": "j0_S",
+      "junction": "j0",
+      "arm": "S",
+      "fringe_nodes": {
+        "inbound": "j0_S",
+        "outbound": "j0_S"
+      },
+      "edges": {
+        "inbound": "j0_S_in",
+        "outbound": "j0_S_out"
+      }
+    },
+    {
+      "id": "j0_W",
+      "junction": "j0",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "j0_W",
+        "outbound": "j0_W"
+      },
+      "edges": {
+        "inbound": "j0_W_in",
+        "outbound": "j0_W_out"
+      }
+    },
+    {
+      "id": "j1_E",
+      "junction": "j1",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "j1_E",
+        "outbound": "j1_E"
+      },
+      "edges": {
+        "inbound": "j1_E_in",
+        "outbound": "j1_E_out"
+      }
+    },
+    {
+      "id": "j1_W",
+      "junction": "j1",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "j1_W",
+        "outbound": "j1_W"
+      },
+      "edges": {
+        "inbound": "j1_W_in",
+        "outbound": "j1_W_out"
+      }
+    },
+    {
+      "id": "j2_N",
+      "junction": "j2",
+      "arm": "N",
+      "fringe_nodes": {
+        "inbound": "j2_N",
+        "outbound": "j2_N"
+      },
+      "edges": {
+        "inbound": "j2_N_in",
+        "outbound": "j2_N_out"
+      }
+    },
+    {
+      "id": "j2_E",
+      "junction": "j2",
+      "arm": "E",
+      "fringe_nodes": {
+        "inbound": "j2_E",
+        "outbound": "j2_E"
+      },
+      "edges": {
+        "inbound": "j2_E_in",
+        "outbound": "j2_E_out"
+      }
+    },
+    {
+      "id": "j2_W",
+      "junction": "j2",
+      "arm": "W",
+      "fringe_nodes": {
+        "inbound": "j2_W",
+        "outbound": "j2_W"
+      },
+      "edges": {
+        "inbound": "j2_W_in",
+        "outbound": "j2_W_out"
+      }
+    }
+  ],
+  "controlled_movements": [
+    {
+      "junction": "j0",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "link0_in",
+      "from_lane": 0,
+      "to_edge": "j0_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "link0_in",
+      "from_lane": 0,
+      "to_edge": "j0_S_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "link0_in",
+      "from_lane": 1,
+      "to_edge": "j0_S_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "link0_in",
+      "from_lane": 1,
+      "to_edge": "j0_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "j0_E_in",
+      "from_lane": 0,
+      "to_edge": "link0_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "j0_E_in",
+      "from_lane": 0,
+      "to_edge": "j0_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 6,
+      "from_edge": "j0_E_in",
+      "from_lane": 1,
+      "to_edge": "j0_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 7,
+      "from_edge": "j0_E_in",
+      "from_lane": 1,
+      "to_edge": "j0_S_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 8,
+      "from_edge": "j0_S_in",
+      "from_lane": 0,
+      "to_edge": "j0_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "j0_S_in",
+      "from_lane": 0,
+      "to_edge": "link0_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 10,
+      "from_edge": "j0_S_in",
+      "from_lane": 1,
+      "to_edge": "link0_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 11,
+      "from_edge": "j0_S_in",
+      "from_lane": 1,
+      "to_edge": "j0_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 12,
+      "from_edge": "j0_W_in",
+      "from_lane": 0,
+      "to_edge": "j0_S_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 13,
+      "from_edge": "j0_W_in",
+      "from_lane": 0,
+      "to_edge": "j0_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j0",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 14,
+      "from_edge": "j0_W_in",
+      "from_lane": 1,
+      "to_edge": "j0_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j0",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 15,
+      "from_edge": "j0_W_in",
+      "from_lane": 1,
+      "to_edge": "link0_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "link1_in",
+      "from_lane": 0,
+      "to_edge": "j1_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "link1_in",
+      "from_lane": 0,
+      "to_edge": "link0_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "link1_in",
+      "from_lane": 1,
+      "to_edge": "link0_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "link1_in",
+      "from_lane": 1,
+      "to_edge": "j1_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "j1_E_in",
+      "from_lane": 0,
+      "to_edge": "link1_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "j1_E_in",
+      "from_lane": 0,
+      "to_edge": "j1_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 6,
+      "from_edge": "j1_E_in",
+      "from_lane": 1,
+      "to_edge": "j1_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 7,
+      "from_edge": "j1_E_in",
+      "from_lane": 1,
+      "to_edge": "link0_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 8,
+      "from_edge": "link0_out",
+      "from_lane": 0,
+      "to_edge": "j1_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "link0_out",
+      "from_lane": 0,
+      "to_edge": "link1_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 10,
+      "from_edge": "link0_out",
+      "from_lane": 1,
+      "to_edge": "link1_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 11,
+      "from_edge": "link0_out",
+      "from_lane": 1,
+      "to_edge": "j1_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 12,
+      "from_edge": "j1_W_in",
+      "from_lane": 0,
+      "to_edge": "link0_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 13,
+      "from_edge": "j1_W_in",
+      "from_lane": 0,
+      "to_edge": "j1_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j1",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 14,
+      "from_edge": "j1_W_in",
+      "from_lane": 1,
+      "to_edge": "j1_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j1",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 15,
+      "from_edge": "j1_W_in",
+      "from_lane": 1,
+      "to_edge": "link1_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "N",
+      "turn": "right",
+      "link_index": 0,
+      "from_edge": "j2_N_in",
+      "from_lane": 0,
+      "to_edge": "j2_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 1,
+      "from_edge": "j2_N_in",
+      "from_lane": 0,
+      "to_edge": "link1_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "N",
+      "turn": "straight",
+      "link_index": 2,
+      "from_edge": "j2_N_in",
+      "from_lane": 1,
+      "to_edge": "link1_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "N",
+      "turn": "left",
+      "link_index": 3,
+      "from_edge": "j2_N_in",
+      "from_lane": 1,
+      "to_edge": "j2_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "E",
+      "turn": "right",
+      "link_index": 4,
+      "from_edge": "j2_E_in",
+      "from_lane": 0,
+      "to_edge": "j2_N_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 5,
+      "from_edge": "j2_E_in",
+      "from_lane": 0,
+      "to_edge": "j2_W_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "E",
+      "turn": "straight",
+      "link_index": 6,
+      "from_edge": "j2_E_in",
+      "from_lane": 1,
+      "to_edge": "j2_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "E",
+      "turn": "left",
+      "link_index": 7,
+      "from_edge": "j2_E_in",
+      "from_lane": 1,
+      "to_edge": "link1_in",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "S",
+      "turn": "right",
+      "link_index": 8,
+      "from_edge": "link1_out",
+      "from_lane": 0,
+      "to_edge": "j2_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 9,
+      "from_edge": "link1_out",
+      "from_lane": 0,
+      "to_edge": "j2_N_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "S",
+      "turn": "straight",
+      "link_index": 10,
+      "from_edge": "link1_out",
+      "from_lane": 1,
+      "to_edge": "j2_N_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "S",
+      "turn": "left",
+      "link_index": 11,
+      "from_edge": "link1_out",
+      "from_lane": 1,
+      "to_edge": "j2_W_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "W",
+      "turn": "right",
+      "link_index": 12,
+      "from_edge": "j2_W_in",
+      "from_lane": 0,
+      "to_edge": "link1_in",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 13,
+      "from_edge": "j2_W_in",
+      "from_lane": 0,
+      "to_edge": "j2_E_out",
+      "to_lane": 0
+    },
+    {
+      "junction": "j2",
+      "arm": "W",
+      "turn": "straight",
+      "link_index": 14,
+      "from_edge": "j2_W_in",
+      "from_lane": 1,
+      "to_edge": "j2_E_out",
+      "to_lane": 1
+    },
+    {
+      "junction": "j2",
+      "arm": "W",
+      "turn": "left",
+      "link_index": 15,
+      "from_edge": "j2_W_in",
+      "from_lane": 1,
+      "to_edge": "j2_N_out",
+      "to_lane": 1
+    }
+  ],
+  "routes": [
+    {
+      "id": "od_00",
+      "from": "j0_E",
+      "to": "j0_S",
+      "edges": [
+        "j0_E_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_01",
+      "from": "j0_E",
+      "to": "j0_W",
+      "edges": [
+        "j0_E_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_02",
+      "from": "j0_E",
+      "to": "j1_E",
+      "edges": [
+        "j0_E_in",
+        "link0_out",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_03",
+      "from": "j0_E",
+      "to": "j1_W",
+      "edges": [
+        "j0_E_in",
+        "link0_out",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_04",
+      "from": "j0_E",
+      "to": "j2_N",
+      "edges": [
+        "j0_E_in",
+        "link0_out",
+        "link1_out",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_05",
+      "from": "j0_E",
+      "to": "j2_E",
+      "edges": [
+        "j0_E_in",
+        "link0_out",
+        "link1_out",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_06",
+      "from": "j0_E",
+      "to": "j2_W",
+      "edges": [
+        "j0_E_in",
+        "link0_out",
+        "link1_out",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_07",
+      "from": "j0_S",
+      "to": "j0_E",
+      "edges": [
+        "j0_S_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_08",
+      "from": "j0_S",
+      "to": "j0_W",
+      "edges": [
+        "j0_S_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_09",
+      "from": "j0_S",
+      "to": "j1_E",
+      "edges": [
+        "j0_S_in",
+        "link0_out",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_10",
+      "from": "j0_S",
+      "to": "j1_W",
+      "edges": [
+        "j0_S_in",
+        "link0_out",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_11",
+      "from": "j0_S",
+      "to": "j2_N",
+      "edges": [
+        "j0_S_in",
+        "link0_out",
+        "link1_out",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_12",
+      "from": "j0_S",
+      "to": "j2_E",
+      "edges": [
+        "j0_S_in",
+        "link0_out",
+        "link1_out",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_13",
+      "from": "j0_S",
+      "to": "j2_W",
+      "edges": [
+        "j0_S_in",
+        "link0_out",
+        "link1_out",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_14",
+      "from": "j0_W",
+      "to": "j0_E",
+      "edges": [
+        "j0_W_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_15",
+      "from": "j0_W",
+      "to": "j0_S",
+      "edges": [
+        "j0_W_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_16",
+      "from": "j0_W",
+      "to": "j1_E",
+      "edges": [
+        "j0_W_in",
+        "link0_out",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_17",
+      "from": "j0_W",
+      "to": "j1_W",
+      "edges": [
+        "j0_W_in",
+        "link0_out",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_18",
+      "from": "j0_W",
+      "to": "j2_N",
+      "edges": [
+        "j0_W_in",
+        "link0_out",
+        "link1_out",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_19",
+      "from": "j0_W",
+      "to": "j2_E",
+      "edges": [
+        "j0_W_in",
+        "link0_out",
+        "link1_out",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_20",
+      "from": "j0_W",
+      "to": "j2_W",
+      "edges": [
+        "j0_W_in",
+        "link0_out",
+        "link1_out",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_21",
+      "from": "j1_E",
+      "to": "j0_E",
+      "edges": [
+        "j1_E_in",
+        "link0_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_22",
+      "from": "j1_E",
+      "to": "j0_S",
+      "edges": [
+        "j1_E_in",
+        "link0_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_23",
+      "from": "j1_E",
+      "to": "j0_W",
+      "edges": [
+        "j1_E_in",
+        "link0_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_24",
+      "from": "j1_E",
+      "to": "j1_W",
+      "edges": [
+        "j1_E_in",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_25",
+      "from": "j1_E",
+      "to": "j2_N",
+      "edges": [
+        "j1_E_in",
+        "link1_out",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_26",
+      "from": "j1_E",
+      "to": "j2_E",
+      "edges": [
+        "j1_E_in",
+        "link1_out",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_27",
+      "from": "j1_E",
+      "to": "j2_W",
+      "edges": [
+        "j1_E_in",
+        "link1_out",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_28",
+      "from": "j1_W",
+      "to": "j0_E",
+      "edges": [
+        "j1_W_in",
+        "link0_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_29",
+      "from": "j1_W",
+      "to": "j0_S",
+      "edges": [
+        "j1_W_in",
+        "link0_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_30",
+      "from": "j1_W",
+      "to": "j0_W",
+      "edges": [
+        "j1_W_in",
+        "link0_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_31",
+      "from": "j1_W",
+      "to": "j1_E",
+      "edges": [
+        "j1_W_in",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_32",
+      "from": "j1_W",
+      "to": "j2_N",
+      "edges": [
+        "j1_W_in",
+        "link1_out",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_33",
+      "from": "j1_W",
+      "to": "j2_E",
+      "edges": [
+        "j1_W_in",
+        "link1_out",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_34",
+      "from": "j1_W",
+      "to": "j2_W",
+      "edges": [
+        "j1_W_in",
+        "link1_out",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_35",
+      "from": "j2_N",
+      "to": "j0_E",
+      "edges": [
+        "j2_N_in",
+        "link1_in",
+        "link0_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_36",
+      "from": "j2_N",
+      "to": "j0_S",
+      "edges": [
+        "j2_N_in",
+        "link1_in",
+        "link0_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_37",
+      "from": "j2_N",
+      "to": "j0_W",
+      "edges": [
+        "j2_N_in",
+        "link1_in",
+        "link0_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_38",
+      "from": "j2_N",
+      "to": "j1_E",
+      "edges": [
+        "j2_N_in",
+        "link1_in",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_39",
+      "from": "j2_N",
+      "to": "j1_W",
+      "edges": [
+        "j2_N_in",
+        "link1_in",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_40",
+      "from": "j2_N",
+      "to": "j2_E",
+      "edges": [
+        "j2_N_in",
+        "j2_E_out"
+      ]
+    },
+    {
+      "id": "od_41",
+      "from": "j2_N",
+      "to": "j2_W",
+      "edges": [
+        "j2_N_in",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_42",
+      "from": "j2_E",
+      "to": "j0_E",
+      "edges": [
+        "j2_E_in",
+        "link1_in",
+        "link0_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_43",
+      "from": "j2_E",
+      "to": "j0_S",
+      "edges": [
+        "j2_E_in",
+        "link1_in",
+        "link0_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_44",
+      "from": "j2_E",
+      "to": "j0_W",
+      "edges": [
+        "j2_E_in",
+        "link1_in",
+        "link0_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_45",
+      "from": "j2_E",
+      "to": "j1_E",
+      "edges": [
+        "j2_E_in",
+        "link1_in",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_46",
+      "from": "j2_E",
+      "to": "j1_W",
+      "edges": [
+        "j2_E_in",
+        "link1_in",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_47",
+      "from": "j2_E",
+      "to": "j2_N",
+      "edges": [
+        "j2_E_in",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_48",
+      "from": "j2_E",
+      "to": "j2_W",
+      "edges": [
+        "j2_E_in",
+        "j2_W_out"
+      ]
+    },
+    {
+      "id": "od_49",
+      "from": "j2_W",
+      "to": "j0_E",
+      "edges": [
+        "j2_W_in",
+        "link1_in",
+        "link0_in",
+        "j0_E_out"
+      ]
+    },
+    {
+      "id": "od_50",
+      "from": "j2_W",
+      "to": "j0_S",
+      "edges": [
+        "j2_W_in",
+        "link1_in",
+        "link0_in",
+        "j0_S_out"
+      ]
+    },
+    {
+      "id": "od_51",
+      "from": "j2_W",
+      "to": "j0_W",
+      "edges": [
+        "j2_W_in",
+        "link1_in",
+        "link0_in",
+        "j0_W_out"
+      ]
+    },
+    {
+      "id": "od_52",
+      "from": "j2_W",
+      "to": "j1_E",
+      "edges": [
+        "j2_W_in",
+        "link1_in",
+        "j1_E_out"
+      ]
+    },
+    {
+      "id": "od_53",
+      "from": "j2_W",
+      "to": "j1_W",
+      "edges": [
+        "j2_W_in",
+        "link1_in",
+        "j1_W_out"
+      ]
+    },
+    {
+      "id": "od_54",
+      "from": "j2_W",
+      "to": "j2_N",
+      "edges": [
+        "j2_W_in",
+        "j2_N_out"
+      ]
+    },
+    {
+      "id": "od_55",
+      "from": "j2_W",
+      "to": "j2_E",
+      "edges": [
+        "j2_W_in",
+        "j2_E_out"
+      ]
+    }
+  ],
+  "signals": {
+    "j0": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGGrrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyyrrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrGGGGrrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrryyyyrrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrrGGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrrryyyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    },
+    "j1": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGGrrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyyrrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrGGGGrrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrryyyyrrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrrGGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrrryyyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    },
+    "j2": {
+      "offset_s": 0,
+      "phases": [
+        {
+          "duration": "25",
+          "state": "GGGGrrrrrrrrrrrr",
+          "name": "N_green"
+        },
+        {
+          "duration": "3",
+          "state": "yyyyrrrrrrrrrrrr",
+          "name": "N_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "N_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrGGGGrrrrrrrr",
+          "name": "E_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrryyyyrrrrrrrr",
+          "name": "E_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "E_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrGGGGrrrr",
+          "name": "S_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrryyyyrrrr",
+          "name": "S_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "S_all_red"
+        },
+        {
+          "duration": "25",
+          "state": "rrrrrrrrrrrrGGGG",
+          "name": "W_green"
+        },
+        {
+          "duration": "3",
+          "state": "rrrrrrrrrrrryyyy",
+          "name": "W_yellow"
+        },
+        {
+          "duration": "2",
+          "state": "rrrrrrrrrrrrrrrr",
+          "name": "W_all_red"
+        }
+      ]
+    }
+  },
+  "validation": "Static lane/route/signal checks only; no traffic simulation or model training.",
+  "assumptions": [
+    "Lane counts retain the earlier model assumptions, not verified current field counts.",
+    "Geometry is schematic; do not project it as real geographic coordinates.",
+    "No U-turns, pedestrians, intermediate alleys or bus stops. Timings are examples."
+  ]
+}

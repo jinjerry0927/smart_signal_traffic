@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="center" x="0" y="0" type="traffic_light" radius="12" />
+  <node id="N" x="-19" y="260" type="priority" fringe="outer" />
+  <node id="E" x="300" y="19" type="priority" fringe="outer" />
+  <node id="S" x="23" y="-265" type="priority" fringe="outer" />
+</nodes>

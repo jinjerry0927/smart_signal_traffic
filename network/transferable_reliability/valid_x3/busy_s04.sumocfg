@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+  <input>
+    <net-file value="network.net.xml" />
+    <route-files value="busy_s04.rou.xml" />
+  </input>
+  <time>
+    <end value="900" />
+  </time>
+</configuration>

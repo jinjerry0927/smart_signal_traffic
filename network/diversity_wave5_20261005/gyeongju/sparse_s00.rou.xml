@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <vType id="passenger" vClass="passenger" length="5" maxSpeed="13.89" />
+  <vType id="bus" vClass="bus" length="12" maxSpeed="13.89" />
+  <vType id="truck" vClass="truck" length="12" maxSpeed="13.89" />
+  <route id="od_000" edges="geunhwa_east_in geunhwa_west_out" />
+  <route id="od_001" edges="geunhwa_east_in geunhwa_seungsam_out seungsam_east_out" />
+  <route id="od_002" edges="geunhwa_east_in geunhwa_seungsam_out seungsam_north_out" />
+  <route id="od_003" edges="geunhwa_east_in geunhwa_seungsam_out seungsam_west_out" />
+  <route id="od_004" edges="geunhwa_east_in yonggang_geunhwa_in yonggang_southeast_out" />
+  <route id="od_005" edges="geunhwa_east_in yonggang_geunhwa_in yonggang_southwest_out" />
+  <route id="od_006" edges="geunhwa_east_in yonggang_geunhwa_in yonggang_west_out" />
+  <route id="od_007" edges="geunhwa_west_in geunhwa_east_out" />
+  <route id="od_008" edges="geunhwa_west_in geunhwa_seungsam_out seungsam_east_out" />
+  <route id="od_009" edges="geunhwa_west_in geunhwa_seungsam_out seungsam_north_out" />
+  <route id="od_010" edges="geunhwa_west_in geunhwa_seungsam_out seungsam_west_out" />
+  <route id="od_011" edges="geunhwa_west_in yonggang_geunhwa_in yonggang_southeast_out" />
+  <route id="od_012" edges="geunhwa_west_in yonggang_geunhwa_in yonggang_southwest_out" />
+  <route id="od_013" edges="geunhwa_west_in yonggang_geunhwa_in yonggang_west_out" />
+  <route id="od_014" edges="seungsam_east_in geunhwa_seungsam_in geunhwa_east_out" />
+  <route id="od_015" edges="seungsam_east_in geunhwa_seungsam_in geunhwa_west_out" />
+  <route id="od_016" edges="seungsam_east_in seungsam_north_out" />
+  <route id="od_017" edges="seungsam_east_in seungsam_west_out" />
+  <route id="od_018" edges="seungsam_east_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southeast_out" />
+  <route id="od_019" edges="seungsam_east_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southwest_out" />
+  <route id="od_020" edges="seungsam_east_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_west_out" />
+  <route id="od_021" edges="seungsam_north_in geunhwa_seungsam_in geunhwa_east_out" />
+  <route id="od_022" edges="seungsam_north_in geunhwa_seungsam_in geunhwa_west_out" />
+  <route id="od_023" edges="seungsam_north_in seungsam_east_out" />
+  <route id="od_024" edges="seungsam_north_in seungsam_west_out" />
+  <route id="od_025" edges="seungsam_north_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southeast_out" />
+  <route id="od_026" edges="seungsam_north_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southwest_out" />
+  <route id="od_027" edges="seungsam_north_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_west_out" />
+  <route id="od_028" edges="seungsam_west_in geunhwa_seungsam_in geunhwa_east_out" />
+  <route id="od_029" edges="seungsam_west_in geunhwa_seungsam_in geunhwa_west_out" />
+  <route id="od_030" edges="seungsam_west_in seungsam_east_out" />
+  <route id="od_031" edges="seungsam_west_in seungsam_north_out" />
+  <route id="od_032" edges="seungsam_west_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southeast_out" />
+  <route id="od_033" edges="seungsam_west_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_southwest_out" />
+  <route id="od_034" edges="seungsam_west_in geunhwa_seungsam_in yonggang_geunhwa_in yonggang_west_out" />
+  <route id="od_035" edges="yonggang_southeast_in yonggang_geunhwa_out geunhwa_east_out" />
+  <route id="od_036" edges="yonggang_southeast_in yonggang_geunhwa_out geunhwa_west_out" />
+  <route id="od_037" edges="yonggang_southeast_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_east_out" />
+  <route id="od_038" edges="yonggang_southeast_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_north_out" />
+  <route id="od_039" edges="yonggang_southeast_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_west_out" />
+  <route id="od_040" edges="yonggang_southeast_in yonggang_southwest_out" />
+  <route id="od_041" edges="yonggang_southeast_in yonggang_west_out" />
+  <route id="od_042" edges="yonggang_southwest_in yonggang_geunhwa_out geunhwa_east_out" />
+  <route id="od_043" edges="yonggang_southwest_in yonggang_geunhwa_out geunhwa_west_out" />
+  <route id="od_044" edges="yonggang_southwest_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_east_out" />
+  <route id="od_045" edges="yonggang_southwest_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_north_out" />
+  <route id="od_046" edges="yonggang_southwest_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_west_out" />
+  <route id="od_047" edges="yonggang_southwest_in yonggang_southeast_out" />
+  <route id="od_048" edges="yonggang_southwest_in yonggang_west_out" />
+  <route id="od_049" edges="yonggang_west_in yonggang_geunhwa_out geunhwa_east_out" />
+  <route id="od_050" edges="yonggang_west_in yonggang_geunhwa_out geunhwa_west_out" />
+  <route id="od_051" edges="yonggang_west_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_east_out" />
+  <route id="od_052" edges="yonggang_west_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_north_out" />
+  <route id="od_053" edges="yonggang_west_in yonggang_geunhwa_out geunhwa_seungsam_out seungsam_west_out" />
+  <route id="od_054" edges="yonggang_west_in yonggang_southeast_out" />
+  <route id="od_055" edges="yonggang_west_in yonggang_southwest_out" />
+  <vehicle id="veh_00000" type="passenger" route="od_024" depart="1.058" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00001" type="passenger" route="od_026" depart="8.549" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00002" type="passenger" route="od_046" depart="12.045" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00003" type="passenger" route="od_021" depart="13.452" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00004" type="passenger" route="od_025" depart="27.355" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00005" type="passenger" route="od_048" depart="28.658" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00006" type="passenger" route="od_022" depart="30.465" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00007" type="passenger" route="od_043" depart="40.248" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00008" type="passenger" route="od_004" depart="40.469" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00009" type="passenger" route="od_046" depart="48.680" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00010" type="passenger" route="od_038" depart="49.558" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00011" type="passenger" route="od_043" depart="63.370" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00012" type="passenger" route="od_011" depart="68.448" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00013" type="passenger" route="od_004" depart="76.148" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00014" type="passenger" route="od_046" depart="79.286" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00015" type="truck" route="od_001" depart="87.000" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00016" type="passenger" route="od_035" depart="87.262" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00017" type="passenger" route="od_036" depart="100.896" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00018" type="passenger" route="od_046" depart="109.571" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00019" type="passenger" route="od_036" depart="120.143" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00020" type="passenger" route="od_020" depart="122.816" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00021" type="truck" route="od_005" depart="135.523" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00022" type="bus" route="od_040" depart="137.110" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00023" type="passenger" route="od_035" depart="138.837" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00024" type="passenger" route="od_041" depart="139.652" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00025" type="passenger" route="od_052" depart="158.363" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00026" type="passenger" route="od_003" depart="175.411" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00027" type="passenger" route="od_047" depart="189.453" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00028" type="passenger" route="od_028" depart="191.327" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00029" type="passenger" route="od_025" depart="206.160" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00030" type="bus" route="od_017" depart="206.486" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00031" type="bus" route="od_055" depart="207.208" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00032" type="passenger" route="od_040" depart="212.873" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00033" type="passenger" route="od_012" depart="224.448" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00034" type="passenger" route="od_048" depart="234.860" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00035" type="passenger" route="od_055" depart="260.961" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00036" type="passenger" route="od_048" depart="265.665" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00037" type="passenger" route="od_001" depart="268.409" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00038" type="truck" route="od_042" depart="273.080" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00039" type="bus" route="od_038" depart="274.142" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00040" type="truck" route="od_050" depart="277.681" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00041" type="passenger" route="od_054" depart="280.849" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00042" type="passenger" route="od_004" depart="282.032" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00043" type="passenger" route="od_041" depart="282.318" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00044" type="passenger" route="od_039" depart="291.620" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00045" type="passenger" route="od_035" depart="304.549" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00046" type="passenger" route="od_031" depart="305.761" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00047" type="passenger" route="od_041" depart="307.987" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00048" type="passenger" route="od_023" depart="310.831" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00049" type="passenger" route="od_001" depart="318.824" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00050" type="passenger" route="od_046" depart="320.764" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00051" type="passenger" route="od_037" depart="322.743" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00052" type="passenger" route="od_020" depart="324.402" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00053" type="truck" route="od_040" depart="329.317" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00054" type="bus" route="od_038" depart="329.944" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00055" type="passenger" route="od_042" depart="331.519" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00056" type="passenger" route="od_024" depart="333.517" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00057" type="passenger" route="od_006" depart="333.590" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00058" type="bus" route="od_002" depart="335.511" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00059" type="passenger" route="od_036" depart="336.128" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00060" type="passenger" route="od_025" depart="345.401" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00061" type="passenger" route="od_035" depart="346.317" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00062" type="bus" route="od_035" depart="347.260" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00063" type="passenger" route="od_003" depart="352.227" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00064" type="passenger" route="od_047" depart="361.280" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00065" type="passenger" route="od_032" depart="363.693" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00066" type="passenger" route="od_015" depart="367.323" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00067" type="passenger" route="od_040" depart="374.925" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00068" type="passenger" route="od_044" depart="382.656" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00069" type="bus" route="od_046" depart="386.886" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00070" type="truck" route="od_044" depart="388.542" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00071" type="passenger" route="od_043" depart="393.871" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00072" type="passenger" route="od_009" depart="399.941" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00073" type="passenger" route="od_054" depart="404.272" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00074" type="passenger" route="od_010" depart="414.076" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00075" type="passenger" route="od_036" depart="416.629" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00076" type="passenger" route="od_036" depart="417.712" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00077" type="passenger" route="od_012" depart="422.665" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00078" type="passenger" route="od_034" depart="423.540" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00079" type="passenger" route="od_043" depart="426.890" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00080" type="passenger" route="od_012" depart="431.539" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00081" type="passenger" route="od_026" depart="433.027" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00082" type="passenger" route="od_035" depart="435.724" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00083" type="truck" route="od_021" depart="436.347" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00084" type="passenger" route="od_044" depart="444.376" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00085" type="passenger" route="od_008" depart="448.847" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00086" type="passenger" route="od_032" depart="459.399" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00087" type="passenger" route="od_014" depart="473.008" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00088" type="passenger" route="od_047" depart="475.799" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00089" type="passenger" route="od_025" depart="476.392" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00090" type="passenger" route="od_027" depart="517.101" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00091" type="passenger" route="od_054" depart="536.539" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00092" type="passenger" route="od_021" depart="536.902" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00093" type="truck" route="od_041" depart="538.191" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00094" type="passenger" route="od_047" depart="539.530" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00095" type="passenger" route="od_010" depart="540.038" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00096" type="passenger" route="od_022" depart="541.142" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00097" type="bus" route="od_052" depart="546.541" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00098" type="passenger" route="od_054" depart="573.709" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00099" type="passenger" route="od_044" depart="578.349" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00100" type="passenger" route="od_014" depart="579.383" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00101" type="passenger" route="od_040" depart="579.650" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00102" type="passenger" route="od_047" depart="586.102" departLane="best" departSpeed="0" />
+  <vehicle id="veh_00103" type="passenger" route="od_045" depart="586.779" departLane="best" departSpeed="0" />
+</routes>

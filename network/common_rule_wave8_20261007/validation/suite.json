@@ -1,0 +1,717 @@
+{
+  "version": "transferable-v1",
+  "preparation_status": "completed",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "plan": {
+    "candidates": {
+      "all_density25": {
+        "version": "common-rules-v3",
+        "guard_green_s": 25,
+        "queue_margin": 0.01,
+        "balanced_low": false,
+        "hold_until_s": 25,
+        "pressure_margin": 2
+      },
+      "balanced25": {
+        "version": "common-rules-v3",
+        "guard_green_s": 25,
+        "queue_margin": 0.01,
+        "balanced_low": true,
+        "hold_until_s": 25,
+        "pressure_margin": 2
+      },
+      "balanced20": {
+        "version": "common-rules-v3",
+        "guard_green_s": 20,
+        "queue_margin": 0.01,
+        "balanced_low": true,
+        "hold_until_s": 25,
+        "pressure_margin": 2
+      }
+    },
+    "model_seed": 43,
+    "additional_training": 0,
+    "validation_geometries": [
+      {
+        "id": "ruleval_t1",
+        "arms": "NES",
+        "lanes": 1,
+        "length_m": 240,
+        "coords": {
+          "N": [
+            -20,
+            260
+          ],
+          "E": [
+            340,
+            15
+          ],
+          "S": [
+            30,
+            -210
+          ]
+        }
+      },
+      {
+        "id": "ruleval_t2",
+        "arms": "NES",
+        "lanes": 2,
+        "length_m": 340,
+        "coords": {
+          "N": [
+            -10,
+            390
+          ],
+          "E": [
+            310,
+            25
+          ],
+          "S": [
+            20,
+            -460
+          ]
+        }
+      },
+      {
+        "id": "ruleval_x2",
+        "arms": "NESW",
+        "lanes": 2,
+        "length_m": 200,
+        "coords": {
+          "N": [
+            -20,
+            230
+          ],
+          "E": [
+            320,
+            15
+          ],
+          "S": [
+            30,
+            -240
+          ],
+          "W": [
+            -240,
+            -25
+          ]
+        }
+      },
+      {
+        "id": "ruleval_x3",
+        "arms": "NESW",
+        "lanes": 3,
+        "length_m": 350,
+        "coords": {
+          "N": [
+            -15,
+            330
+          ],
+          "E": [
+            470,
+            20
+          ],
+          "S": [
+            20,
+            -370
+          ],
+          "W": [
+            -390,
+            -15
+          ]
+        }
+      }
+    ],
+    "final_geometries": [
+      {
+        "id": "rulefinal_t1",
+        "arms": "NES",
+        "lanes": 1,
+        "length_m": 255,
+        "coords": {
+          "N": [
+            -19,
+            260
+          ],
+          "E": [
+            300,
+            19
+          ],
+          "S": [
+            23,
+            -265
+          ]
+        }
+      },
+      {
+        "id": "rulefinal_t2",
+        "arms": "NES",
+        "lanes": 2,
+        "length_m": 310,
+        "coords": {
+          "N": [
+            -20,
+            330
+          ],
+          "E": [
+            360,
+            20
+          ],
+          "S": [
+            24,
+            -320
+          ]
+        }
+      },
+      {
+        "id": "rulefinal_t3",
+        "arms": "NES",
+        "lanes": 3,
+        "length_m": 365,
+        "coords": {
+          "N": [
+            -21,
+            400
+          ],
+          "E": [
+            420,
+            21
+          ],
+          "S": [
+            25,
+            -375
+          ]
+        }
+      },
+      {
+        "id": "rulefinal_x1",
+        "arms": "NESW",
+        "lanes": 1,
+        "length_m": 255,
+        "coords": {
+          "N": [
+            -19,
+            260
+          ],
+          "E": [
+            300,
+            19
+          ],
+          "S": [
+            23,
+            -265
+          ],
+          "W": [
+            -235,
+            -21
+          ]
+        }
+      },
+      {
+        "id": "rulefinal_x2",
+        "arms": "NESW",
+        "lanes": 2,
+        "length_m": 310,
+        "coords": {
+          "N": [
+            -20,
+            330
+          ],
+          "E": [
+            360,
+            20
+          ],
+          "S": [
+            24,
+            -320
+          ],
+          "W": [
+            -300,
+            -22
+          ]
+        }
+      },
+      {
+        "id": "rulefinal_x3",
+        "arms": "NESW",
+        "lanes": 3,
+        "length_m": 365,
+        "coords": {
+          "N": [
+            -21,
+            400
+          ],
+          "E": [
+            420,
+            21
+          ],
+          "S": [
+            25,
+            -375
+          ],
+          "W": [
+            -365,
+            -23
+          ]
+        }
+      }
+    ],
+    "profiles": [
+      "quiet",
+      "busy",
+      "directional"
+    ],
+    "validation_samples": 2,
+    "final_samples": 1,
+    "corridor_samples": 2,
+    "seed_base": 91000,
+    "duration_s": 600,
+    "drain_s": 300,
+    "max_runs": 240,
+    "criteria": {
+      "queue_change_v2": -0.02,
+      "queue_change_fixed": -0.05,
+      "arrivals_nondecrease": true,
+      "worst_group_v2": 0.1
+    }
+  },
+  "policy_identity": {
+    "mode": "validated",
+    "profile_version": "smart-signal-default-v1",
+    "profile_path": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\configs\\smart_signal_default.json",
+    "profile_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "profile_identity_sha256": "9cf9be01abf2099c14e47be139430300106c6bcc3786f92789bc3b8190877cfe",
+    "seed": 43,
+    "model_path": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\results\\runs\\transferable_train_150_seed43\\model.json",
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "variant": "load_gate_pressure_wait35",
+    "config": {
+      "version": "adaptive-v2",
+      "low_load_mode": "pressure",
+      "density_threshold": 0.1,
+      "fixed_green_s": 25,
+      "guard_green_s": 25,
+      "guard_density_threshold": 0.12,
+      "guard_queue_margin": 0.01,
+      "wait_green_s": 35,
+      "wait_queue_ratio": 0.01,
+      "wait_red_ratio": 0.4,
+      "wait_high_load_only": true
+    },
+    "version": "adaptive-v2",
+    "features": [
+      "queue_ratio",
+      "density_ratio",
+      "arrival_ratio",
+      "downstream_ratio",
+      "red_age_ratio",
+      "green_elapsed_ratio",
+      "is_green"
+    ],
+    "limits": {
+      "decision_s": 5,
+      "min_green_s": 15,
+      "max_green_s": 60,
+      "yellow_s": 3,
+      "all_red_s": 2,
+      "max_red_s": 180,
+      "fixed_green_s": 25,
+      "arrival_window_s": 60,
+      "saturation_vph_per_lane": 1800,
+      "storage_m_per_vehicle": 7.5
+    },
+    "source_sha256": {
+      "transferable_signal/__init__.py": "e2f29f0be2a78285f650fd1b6c2b532e905b827da658ae91c12ea66285af0a84",
+      "transferable_signal/control.py": "27178b31dfc3306ab5d6d4eb94deb56e72634fe82634cabb27ddebbad7643f88",
+      "transferable_signal/controllers.py": "e74e22a21b36c4f06040477dfc6799d91aed814723041ff878d92d3302f8348c",
+      "transferable_signal/environment.py": "460c655427714977e3b2f8a77d7ac6c474c16b3d78f2bb897b08e670b1504106",
+      "transferable_signal/model.py": "5dea7f70cc0a4b998b7ece0e8e7b50efa9507e7d574edf55dd0aed641ac548c9",
+      "transferable_signal/spec.py": "b4eb997d40cc6013d73dfeacd1b534364946fb5cc1f4850a8e9f32a36cf3a0d4",
+      "transferable_signal/suite.py": "74a81af996114a3b401abe68315486a5492f9451edfe8dffa8e05d6c78684b9d",
+      "evaluation_support.py": "7f5b3b1a34b4edfb9aded593bdd4d1fb326342d179f4ba9f62fe1618f01e27a0",
+      "transferable_signal/adaptive.py": "6f9214880703b4c1e7a9efadc0435bd22adb9bff9af95d9a39a1e021e56e5cb5",
+      "transferable_signal/adaptive_v2.py": "a0abf3e8ecb20ea424c885fa6166e743c7f597116e98c20a8b1b7d04f81045a0"
+    },
+    "selection": {
+      "rule": "Lowest held-out validation mean queue; ties use arrivals, worst profile, then seed; test results never reselect",
+      "manifest_sha256": "d022e2749550d06a2db65c9d5b9e7163c0f9fbabb8d879d285a74b52a4ee0f5e",
+      "comparison_sha256": "d3ee36b810cc12dffbc6ca6e252c557fc7dc1f42504f1bb67b733f8c4b8c0c11"
+    },
+    "factory_sha256": "8f725eac3b0781519e605e819006027750849279e98e21a82915a5139372be21"
+  },
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "ruleval_t1",
+      "split": "validation",
+      "spec": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\intersection.json",
+      "spec_sha256": "698b0f3532a44564d729a2d354f51f8bb31116f29ed1b5c6d7d511339e2ed6a4"
+    },
+    {
+      "id": "ruleval_t2",
+      "split": "validation",
+      "spec": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\intersection.json",
+      "spec_sha256": "d20dbe3cada609118ff766105623e7069ca0e3c0bd5585b6163bd73453574e17"
+    },
+    {
+      "id": "ruleval_x2",
+      "split": "validation",
+      "spec": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\intersection.json",
+      "spec_sha256": "a2f9b1bd00b1185499257769b7c40cbbd2a3f44cd4f04cd3bd5aceba7eee28c7"
+    },
+    {
+      "id": "ruleval_x3",
+      "split": "validation",
+      "spec": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\intersection.json",
+      "spec_sha256": "d8900af3d2c245e1a2625d26e9d1c911ac6501bb4b1ac6bcc27e4c096cb2b2e1"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "ruleval_t1_quiet_s00",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 91000,
+      "scheduled": 88,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\quiet_s00.rou.xml",
+      "routes_sha256": "1e6329e1bac6736423c880474335cd7fc60ae7d359f4b0f58b74c4eb2d590ce5",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t1_quiet_s01",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 91001,
+      "scheduled": 102,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\quiet_s01.rou.xml",
+      "routes_sha256": "77c767205b47f1e3f8b7d2c99ec6ad031e5aa4f66f097d6d91857c692c78e531",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t1_busy_s00",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 91010,
+      "scheduled": 183,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\busy_s00.rou.xml",
+      "routes_sha256": "56c115c1364d0d12b770383f20c19763cd5e0fffdb2fedad8913b670a0593548",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t1_busy_s01",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 91011,
+      "scheduled": 191,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\busy_s01.rou.xml",
+      "routes_sha256": "2b322199637d3da9d0ff41ec4b28a4cb42170c1b216b8b46380c3d844addd9a8",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t1_directional_s00",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 91020,
+      "scheduled": 141,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\directional_s00.rou.xml",
+      "routes_sha256": "e85915eed69736473588b25f2777c1cdc620c1c7e9eebfb5d4fdc4c89d60c612",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t1_directional_s01",
+      "case": "ruleval_t1",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 91021,
+      "scheduled": 148,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t1\\directional_s01.rou.xml",
+      "routes_sha256": "eceef74096e217e43f217b56e5a4ec9a673c05474ed10bf976eaec44def790d5",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_quiet_s00",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 91100,
+      "scheduled": 194,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\quiet_s00.rou.xml",
+      "routes_sha256": "d68301af6e77d073082a744d5aab6d13561e9a78f677a4ad125d5c9860b5d63c",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_quiet_s01",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 91101,
+      "scheduled": 184,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\quiet_s01.rou.xml",
+      "routes_sha256": "bdc5f93b507a3c60e9a3102f142aad21084cfdfd352876d40761ea17c817c9eb",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_busy_s00",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 91110,
+      "scheduled": 348,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\busy_s00.rou.xml",
+      "routes_sha256": "0af9698b9d1cfddfa73482d4bca24112346b3f6a0873e4862ad739f654e87b37",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_busy_s01",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 91111,
+      "scheduled": 344,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\busy_s01.rou.xml",
+      "routes_sha256": "4201a23052700bfdfa03a1fedda8fba84ae56ca36fca465d8ca81f1d901e9b96",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_directional_s00",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 91120,
+      "scheduled": 285,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\directional_s00.rou.xml",
+      "routes_sha256": "5ede528acaefabdb1a651fc84a9a4b90f11625c58f6cfcf5dc5debc8a6fc8521",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_t2_directional_s01",
+      "case": "ruleval_t2",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 91121,
+      "scheduled": 306,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_t2\\directional_s01.rou.xml",
+      "routes_sha256": "67019ca059d0e4a175e01285dafd06f4f8e124ddfbc97e705a3d1ce20df23b3e",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_quiet_s00",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 91200,
+      "scheduled": 243,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\quiet_s00.rou.xml",
+      "routes_sha256": "20db99e4fa8be25f781815027ef543e3e65732795b30941b164ac36ef0bebb8e",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_quiet_s01",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 91201,
+      "scheduled": 240,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\quiet_s01.rou.xml",
+      "routes_sha256": "6aa9dfee98e6432098827e2af1d412bf1406b6b3cf4db6bb6090767f32ffe16b",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_busy_s00",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 91210,
+      "scheduled": 494,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\busy_s00.rou.xml",
+      "routes_sha256": "f04176ae407f5e8271ca2f04bb4453c3869037b82c3f0ef898caeee2f1e9dc82",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_busy_s01",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 91211,
+      "scheduled": 503,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\busy_s01.rou.xml",
+      "routes_sha256": "c6c3b17746a5eb23169b0b3658b08263e05e3166d2aa8b479241ec6da9e38c0d",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_directional_s00",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 91220,
+      "scheduled": 390,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\directional_s00.rou.xml",
+      "routes_sha256": "747a5f7f89579528b8c8a1ac1822b807154143cb8001323c10ec36e8a4ccbec8",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x2_directional_s01",
+      "case": "ruleval_x2",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 91221,
+      "scheduled": 403,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x2\\directional_s01.rou.xml",
+      "routes_sha256": "6bcf0115a57639fd11382512aa844bfa715442454dd3163d85ec0930fa8c84be",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_quiet_s00",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 91300,
+      "scheduled": 362,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\quiet_s00.rou.xml",
+      "routes_sha256": "cbf784567818733d1b0e76507d86fcef111c4c0184e84f8b6666a20dce2100e4",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_quiet_s01",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 91301,
+      "scheduled": 353,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\quiet_s01.rou.xml",
+      "routes_sha256": "d6b138880a2157ec6e95325a8e010475382f83b8e17204c9b324bd8dcb7c6581",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_busy_s00",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 91310,
+      "scheduled": 737,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\busy_s00.rou.xml",
+      "routes_sha256": "201dcde679504d730d645c4837a4d755dd5f029aaacbad43242b88a1473f8ef0",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_busy_s01",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 91311,
+      "scheduled": 726,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\busy_s01.rou.xml",
+      "routes_sha256": "a3ad16817fc2b0bc993a8b73a350a3e5effbe865a3eaed4834881c47173b1c0e",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_directional_s00",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 91320,
+      "scheduled": 649,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\directional_s00.rou.xml",
+      "routes_sha256": "aa23c19d4b2ed60dd383bd35acdb914688d0c6e0475be30483f307c0526eece9",
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "ruleval_x3_directional_s01",
+      "case": "ruleval_x3",
+      "split": "validation",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 91321,
+      "scheduled": 577,
+      "synthetic": true,
+      "routes": "C:\\Users\\James\\.codex\\worktrees\\f73e\\sumo_project\\network\\common_rule_wave8_20261007\\validation\\ruleval_x3\\directional_s01.rou.xml",
+      "routes_sha256": "8983024d4df65447025ace70e5ae362cfd90f6bda077a19ecde3a8053640da65",
+      "duration_s": 600,
+      "drain_s": 300
+    }
+  ]
+}

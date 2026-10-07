@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<viewsettings>
+  <scheme name="map_clean_corridor">
+    <background backgroundColor="247,248,246" showGrid="0" />
+    <edges laneEdgeMode="0" laneShowBorders="1" showLinkDecals="1" showLinkRules="1" hideConnectors="1" edgeName_show="0" streetName_show="0">
+      <colorScheme name="uniform">
+        <entry color="103,116,132" name="road" />
+      </colorScheme>
+    </edges>
+    <pois poiName_show="1" poiName_size="32" poiName_color="52,68,87" />
+    <vehicles vehicleQuality="2" vehicle_exaggeration="1.5" vehicle_constantSize="1" />
+  </scheme>
+</viewsettings>

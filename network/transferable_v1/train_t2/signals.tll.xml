@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tlLogics>
+  <tlLogic id="center" type="static" programID="0" offset="0">
+    <phase duration="25" name="N_G" state="GGGrrrrr" />
+    <phase duration="3" name="N_y" state="yyyrrrrr" />
+    <phase duration="2" name="N_r" state="rrrrrrrr" />
+    <phase duration="25" name="E_G" state="rrrGGrrr" />
+    <phase duration="3" name="E_y" state="rrryyrrr" />
+    <phase duration="2" name="E_r" state="rrrrrrrr" />
+    <phase duration="25" name="S_G" state="rrrrrGGG" />
+    <phase duration="3" name="S_y" state="rrrrryyy" />
+    <phase duration="2" name="S_r" state="rrrrrrrr" />
+  </tlLogic>
+</tlLogics>

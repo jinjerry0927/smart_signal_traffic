@@ -1,0 +1,544 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "3acd8eff736cf4922f2f48e7fa8f65e742f080d690984ce69c3adca108d7e82c",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "geunhwa_seungsam_in_0": {
+      "length_m": 534.77,
+      "capacity_vehicles": 71.30266666666667,
+      "edge": "geunhwa_seungsam_in"
+    },
+    "geunhwa_west_out_0": {
+      "length_m": 480.93,
+      "capacity_vehicles": 64.124,
+      "edge": "geunhwa_west_out"
+    },
+    "yonggang_geunhwa_in_0": {
+      "length_m": 543.58,
+      "capacity_vehicles": 72.47733333333333,
+      "edge": "yonggang_geunhwa_in"
+    },
+    "geunhwa_seungsam_in_1": {
+      "length_m": 534.77,
+      "capacity_vehicles": 71.30266666666667,
+      "edge": "geunhwa_seungsam_in"
+    },
+    "yonggang_geunhwa_in_1": {
+      "length_m": 543.58,
+      "capacity_vehicles": 72.47733333333333,
+      "edge": "yonggang_geunhwa_in"
+    },
+    "geunhwa_east_out_0": {
+      "length_m": 493.85,
+      "capacity_vehicles": 65.84666666666666,
+      "edge": "geunhwa_east_out"
+    },
+    "geunhwa_east_in_0": {
+      "length_m": 495.18,
+      "capacity_vehicles": 66.024,
+      "edge": "geunhwa_east_in"
+    },
+    "geunhwa_seungsam_out_0": {
+      "length_m": 534.77,
+      "capacity_vehicles": 71.30266666666667,
+      "edge": "geunhwa_seungsam_out"
+    },
+    "yonggang_geunhwa_out_0": {
+      "length_m": 543.58,
+      "capacity_vehicles": 72.47733333333333,
+      "edge": "yonggang_geunhwa_out"
+    },
+    "yonggang_geunhwa_out_1": {
+      "length_m": 543.58,
+      "capacity_vehicles": 72.47733333333333,
+      "edge": "yonggang_geunhwa_out"
+    },
+    "geunhwa_seungsam_out_1": {
+      "length_m": 534.77,
+      "capacity_vehicles": 71.30266666666667,
+      "edge": "geunhwa_seungsam_out"
+    },
+    "geunhwa_west_in_0": {
+      "length_m": 482.21,
+      "capacity_vehicles": 64.29466666666666,
+      "edge": "geunhwa_west_in"
+    },
+    "seungsam_north_in_0": {
+      "length_m": 397.95,
+      "capacity_vehicles": 53.059999999999995,
+      "edge": "seungsam_north_in"
+    },
+    "seungsam_west_out_0": {
+      "length_m": 569.74,
+      "capacity_vehicles": 75.96533333333333,
+      "edge": "seungsam_west_out"
+    },
+    "seungsam_north_in_1": {
+      "length_m": 397.95,
+      "capacity_vehicles": 53.059999999999995,
+      "edge": "seungsam_north_in"
+    },
+    "seungsam_east_out_0": {
+      "length_m": 409.25,
+      "capacity_vehicles": 54.56666666666667,
+      "edge": "seungsam_east_out"
+    },
+    "seungsam_east_in_0": {
+      "length_m": 410.91,
+      "capacity_vehicles": 54.788000000000004,
+      "edge": "seungsam_east_in"
+    },
+    "seungsam_north_out_0": {
+      "length_m": 394.85,
+      "capacity_vehicles": 52.64666666666667,
+      "edge": "seungsam_north_out"
+    },
+    "seungsam_north_out_1": {
+      "length_m": 394.85,
+      "capacity_vehicles": 52.64666666666667,
+      "edge": "seungsam_north_out"
+    },
+    "seungsam_west_in_0": {
+      "length_m": 570.94,
+      "capacity_vehicles": 76.12533333333334,
+      "edge": "seungsam_west_in"
+    },
+    "yonggang_west_out_0": {
+      "length_m": 350.5,
+      "capacity_vehicles": 46.733333333333334,
+      "edge": "yonggang_west_out"
+    },
+    "yonggang_southwest_out_0": {
+      "length_m": 417.56,
+      "capacity_vehicles": 55.67466666666667,
+      "edge": "yonggang_southwest_out"
+    },
+    "yonggang_southwest_out_1": {
+      "length_m": 417.56,
+      "capacity_vehicles": 55.67466666666667,
+      "edge": "yonggang_southwest_out"
+    },
+    "yonggang_southeast_out_1": {
+      "length_m": 634.14,
+      "capacity_vehicles": 84.55199999999999,
+      "edge": "yonggang_southeast_out"
+    },
+    "yonggang_southeast_in_0": {
+      "length_m": 642.98,
+      "capacity_vehicles": 85.73066666666666,
+      "edge": "yonggang_southeast_in"
+    },
+    "yonggang_southeast_in_1": {
+      "length_m": 642.98,
+      "capacity_vehicles": 85.73066666666666,
+      "edge": "yonggang_southeast_in"
+    },
+    "yonggang_southwest_in_0": {
+      "length_m": 420.91,
+      "capacity_vehicles": 56.12133333333334,
+      "edge": "yonggang_southwest_in"
+    },
+    "yonggang_southeast_out_0": {
+      "length_m": 634.14,
+      "capacity_vehicles": 84.55199999999999,
+      "edge": "yonggang_southeast_out"
+    },
+    "yonggang_southwest_in_1": {
+      "length_m": 420.91,
+      "capacity_vehicles": 56.12133333333334,
+      "edge": "yonggang_southwest_in"
+    },
+    "yonggang_west_in_0": {
+      "length_m": 352.43,
+      "capacity_vehicles": 46.99066666666667,
+      "edge": "yonggang_west_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "gj_geunhwa",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrr",
+          "incoming": [
+            "geunhwa_seungsam_in_0",
+            "geunhwa_seungsam_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGrrrrrrr",
+          "incoming": [
+            "geunhwa_east_in_0"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrGGGGrrr",
+          "incoming": [
+            "yonggang_geunhwa_out_0",
+            "yonggang_geunhwa_out_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrGGG",
+          "incoming": [
+            "geunhwa_west_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "geunhwa_seungsam_in_0",
+          "outgoing": "geunhwa_west_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "geunhwa_seungsam_in_0",
+          "outgoing": "yonggang_geunhwa_in_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "geunhwa_seungsam_in_1",
+          "outgoing": "yonggang_geunhwa_in_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "geunhwa_seungsam_in_1",
+          "outgoing": "geunhwa_east_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "geunhwa_east_in_0",
+          "outgoing": "geunhwa_seungsam_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "geunhwa_east_in_0",
+          "outgoing": "geunhwa_west_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "geunhwa_east_in_0",
+          "outgoing": "yonggang_geunhwa_in_1",
+          "turn": "l"
+        },
+        {
+          "index": 7,
+          "incoming": "yonggang_geunhwa_out_0",
+          "outgoing": "geunhwa_east_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 8,
+          "incoming": "yonggang_geunhwa_out_0",
+          "outgoing": "geunhwa_seungsam_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 9,
+          "incoming": "yonggang_geunhwa_out_1",
+          "outgoing": "geunhwa_seungsam_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "yonggang_geunhwa_out_1",
+          "outgoing": "geunhwa_west_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 11,
+          "incoming": "geunhwa_west_in_0",
+          "outgoing": "yonggang_geunhwa_in_0",
+          "turn": "r"
+        },
+        {
+          "index": 12,
+          "incoming": "geunhwa_west_in_0",
+          "outgoing": "geunhwa_east_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 13,
+          "incoming": "geunhwa_west_in_0",
+          "outgoing": "geunhwa_seungsam_out_1",
+          "turn": "l"
+        }
+      ]
+    },
+    {
+      "id": "gj_seungsam",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrr",
+          "incoming": [
+            "seungsam_north_in_0",
+            "seungsam_north_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGrrrrrrr",
+          "incoming": [
+            "seungsam_east_in_0"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrGGGGrrr",
+          "incoming": [
+            "geunhwa_seungsam_out_0",
+            "geunhwa_seungsam_out_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrGGG",
+          "incoming": [
+            "seungsam_west_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "seungsam_north_in_0",
+          "outgoing": "seungsam_west_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "seungsam_north_in_0",
+          "outgoing": "geunhwa_seungsam_in_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "seungsam_north_in_1",
+          "outgoing": "geunhwa_seungsam_in_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "seungsam_north_in_1",
+          "outgoing": "seungsam_east_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "seungsam_east_in_0",
+          "outgoing": "seungsam_north_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "seungsam_east_in_0",
+          "outgoing": "seungsam_west_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "seungsam_east_in_0",
+          "outgoing": "geunhwa_seungsam_in_1",
+          "turn": "l"
+        },
+        {
+          "index": 7,
+          "incoming": "geunhwa_seungsam_out_0",
+          "outgoing": "seungsam_east_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 8,
+          "incoming": "geunhwa_seungsam_out_0",
+          "outgoing": "seungsam_north_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 9,
+          "incoming": "geunhwa_seungsam_out_1",
+          "outgoing": "seungsam_north_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "geunhwa_seungsam_out_1",
+          "outgoing": "seungsam_west_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 11,
+          "incoming": "seungsam_west_in_0",
+          "outgoing": "geunhwa_seungsam_in_0",
+          "turn": "r"
+        },
+        {
+          "index": 12,
+          "incoming": "seungsam_west_in_0",
+          "outgoing": "seungsam_east_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 13,
+          "incoming": "seungsam_west_in_0",
+          "outgoing": "seungsam_north_out_1",
+          "turn": "l"
+        }
+      ]
+    },
+    {
+      "id": "gj_yonggang",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrr",
+          "incoming": [
+            "yonggang_geunhwa_in_0",
+            "yonggang_geunhwa_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGrrrrrrr",
+          "incoming": [
+            "yonggang_southeast_in_0",
+            "yonggang_southeast_in_1"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrGGGGrrr",
+          "incoming": [
+            "yonggang_southwest_in_0",
+            "yonggang_southwest_in_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrGGG",
+          "incoming": [
+            "yonggang_west_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "yonggang_geunhwa_in_0",
+          "outgoing": "yonggang_west_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "yonggang_geunhwa_in_0",
+          "outgoing": "yonggang_southwest_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "yonggang_geunhwa_in_1",
+          "outgoing": "yonggang_southwest_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "yonggang_geunhwa_in_1",
+          "outgoing": "yonggang_southeast_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "yonggang_southeast_in_0",
+          "outgoing": "yonggang_geunhwa_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "yonggang_southeast_in_0",
+          "outgoing": "yonggang_west_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "yonggang_southeast_in_1",
+          "outgoing": "yonggang_southwest_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 7,
+          "incoming": "yonggang_southwest_in_0",
+          "outgoing": "yonggang_southeast_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 8,
+          "incoming": "yonggang_southwest_in_0",
+          "outgoing": "yonggang_geunhwa_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 9,
+          "incoming": "yonggang_southwest_in_1",
+          "outgoing": "yonggang_geunhwa_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "yonggang_southwest_in_1",
+          "outgoing": "yonggang_west_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 11,
+          "incoming": "yonggang_west_in_0",
+          "outgoing": "yonggang_southwest_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 12,
+          "incoming": "yonggang_west_in_0",
+          "outgoing": "yonggang_southeast_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 13,
+          "incoming": "yonggang_west_in_0",
+          "outgoing": "yonggang_geunhwa_out_1",
+          "turn": "l"
+        }
+      ]
+    }
+  ]
+}

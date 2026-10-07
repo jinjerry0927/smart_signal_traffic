@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="gj_yonggang" x="0" y="0" type="traffic_light" radius="12" />
+  <node id="gj_geunhwa" x="120" y="550" type="traffic_light" radius="12" />
+  <node id="gj_seungsam" x="210" y="1100" type="traffic_light" radius="12" />
+  <node id="yonggang_southwest" x="-150" y="-400" type="priority" fringe="outer" />
+  <node id="yonggang_southeast" x="390" y="-400" type="priority" fringe="outer" />
+  <node id="yonggang_west" x="-340" y="110" type="priority" fringe="outer" />
+  <node id="geunhwa_west" x="-360" y="660" type="priority" fringe="outer" />
+  <node id="geunhwa_east" x="610" y="430" type="priority" fringe="outer" />
+  <node id="seungsam_west" x="-360" y="1210" type="priority" fringe="outer" />
+  <node id="seungsam_east" x="610" y="980" type="priority" fringe="outer" />
+  <node id="seungsam_north" x="310" y="1490" type="priority" fringe="outer" />
+</nodes>

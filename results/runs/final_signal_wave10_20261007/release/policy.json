@@ -1,0 +1,61 @@
+{
+  "profile_version": "smart-signal-default-v1",
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "model": {
+    "seed": 43,
+    "path": "results/runs/transferable_train_150_seed43/model.json",
+    "sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999"
+  },
+  "variant": "load_gate_pressure_wait35",
+  "policy_config": {
+    "version": "adaptive-v2",
+    "low_load_mode": "pressure",
+    "density_threshold": 0.1,
+    "fixed_green_s": 25,
+    "guard_green_s": 25,
+    "guard_density_threshold": 0.12,
+    "guard_queue_margin": 0.01,
+    "wait_green_s": 35,
+    "wait_queue_ratio": 0.01,
+    "wait_red_ratio": 0.4,
+    "wait_high_load_only": true
+  },
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "source_sha256": {
+    "transferable_signal/__init__.py": "e2f29f0be2a78285f650fd1b6c2b532e905b827da658ae91c12ea66285af0a84",
+    "transferable_signal/control.py": "27178b31dfc3306ab5d6d4eb94deb56e72634fe82634cabb27ddebbad7643f88",
+    "transferable_signal/controllers.py": "e74e22a21b36c4f06040477dfc6799d91aed814723041ff878d92d3302f8348c",
+    "transferable_signal/environment.py": "460c655427714977e3b2f8a77d7ac6c474c16b3d78f2bb897b08e670b1504106",
+    "transferable_signal/model.py": "5dea7f70cc0a4b998b7ece0e8e7b50efa9507e7d574edf55dd0aed641ac548c9",
+    "transferable_signal/spec.py": "b4eb997d40cc6013d73dfeacd1b534364946fb5cc1f4850a8e9f32a36cf3a0d4",
+    "transferable_signal/suite.py": "74a81af996114a3b401abe68315486a5492f9451edfe8dffa8e05d6c78684b9d",
+    "evaluation_support.py": "7f5b3b1a34b4edfb9aded593bdd4d1fb326342d179f4ba9f62fe1618f01e27a0",
+    "transferable_signal/adaptive.py": "6f9214880703b4c1e7a9efadc0435bd22adb9bff9af95d9a39a1e021e56e5cb5",
+    "transferable_signal/adaptive_v2.py": "a0abf3e8ecb20ea424c885fa6166e743c7f597116e98c20a8b1b7d04f81045a0"
+  },
+  "selection": {
+    "rule": "Lowest held-out validation mean queue; ties use arrivals, worst profile, then seed; test results never reselect",
+    "manifest_sha256": "d022e2749550d06a2db65c9d5b9e7163c0f9fbabb8d879d285a74b52a4ee0f5e",
+    "comparison_sha256": "d3ee36b810cc12dffbc6ca6e252c557fc7dc1f42504f1bb67b733f8c4b8c0c11"
+  }
+}

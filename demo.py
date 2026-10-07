@@ -1,27 +1,7 @@
-"""
-SUMO GUI 데모 — 시연영상 촬영용. 고정신호 / Webster / SmartSignal 을 시각적으로 시연.
+"""SUMO 관제 데모. Fixed/Webster/AI에 같은 신호 전환 규칙을 적용한다.
 
-evaluate.py 와 동일한 조건으로 돌아간다(공정·재현):
-- 평가 시나리오 5종(--scenario)을 그대로 사용 가능
-- --seed 고정 → fixed/webster/rl 이 똑같은 트래픽을 받음 (영상에서 직접 대조 가능)
-- teleport=300 (교차로 영구 교착 방지, 평가와 동일)
-- 제어 규약: state 29차원, DQN 0=Keep/1=Next, 안전 min_green 15s / max_green 60s
-
-━━ 시연영상 촬영 (3개를 똑같은 조건으로 찍어 비교) ━━
-같은 --scenario·--seed 면 셋 다 완전히 같은 트래픽을 받고, 카메라 화면(줌·중심)도
-자동으로 동일하게 고정되므로(--zoom), 영상에서 신호 전략 차이만 곧바로 대조된다.
-
-    python demo.py --mode fixed   --scenario asymmetric   # ① 고정신호(균등) → 주축 막힘
-    python demo.py --mode webster --scenario asymmetric   # ② Webster(최적고정)
-    python demo.py --mode rl      --scenario asymmetric   # ③ SmartSignal(RL) → 잘 흐름
-
-(--seed 기본 1000. 셋 다 같은 값이면 같은 트래픽. 다른 시나리오는 --scenario high/saturated/...)
-
-GUI 팁:
-  - 창이 열리면 --start 로 자동 재생된다(바로 녹화 시작 가능).
-  - 너무 빠르면 상단 'Delay (ms)' 칸에 50~100 입력 → 사람이 보기 좋은 속도.
-  - 셋 다 같은 화면비로 녹화하려면 창 크기를 동일하게 두고 찍는다.
-  - 짧게 찍으려면 --duration 900 (15분 시뮬) 정도면 대조가 충분히 보인다.
+같은 시나리오와 seed로 제어기를 시연할 수 있다. 공정한 수치 비교와 완료 차량
+통계는 출발 일정을 동결하는 evaluate.py를 사용한다. --headless는 GUI 없는 검사다.
 """
 import os
 import sys
@@ -44,9 +24,9 @@ def set_sumo_home():
 
 
 set_sumo_home()
-import sumo_rl
-from scenarios import EVAL_SCENARIOS, freeze_eval_scenarios
-from baselines import webster_schedule
+from signal_environment import SignalEnvironment, MIN_GREEN, MAX_GREEN, DELTA_TIME
+from scenarios import EVAL_SCENARIOS
+from baselines import webster_timing, green_phase_action
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--mode",       choices=["fixed", "webster", "rl"], default="rl",
@@ -72,9 +52,13 @@ parser.add_argument("--host", default="127.0.0.1")
 parser.add_argument("--port", type=int, default=9999)
 parser.add_argument("--dashboard", action="store_true", help="실시간 대시보드(웹) 동시 기동")
 parser.add_argument("--dash_port", type=int, default=8000, help="대시보드 포트")
+parser.add_argument("--headless", action="store_true", help="GUI 없이 연결 검사")
 args = parser.parse_args()
 
-MIN_GREEN, MAX_GREEN = 15, 60
+if args.duration <= 0 or args.duration % DELTA_TIME:
+    parser.error("duration은 양수이며 결정 간격의 배수여야 합니다.")
+if not MIN_GREEN <= args.fixed_hold * DELTA_TIME <= MAX_GREEN:
+    parser.error("fixed_hold × 결정 간격은 최소/최대 녹색 범위여야 합니다.")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ── 시나리오 → route 파일 / 수요 결정 ──
@@ -82,8 +66,7 @@ demand = None
 if args.scenario:
     route_file = os.path.join("scenarios/eval", f"{args.scenario}.rou.xml")
     if not os.path.isfile(route_file):
-        print(f"[INFO] 시나리오 파일이 없어 생성합니다: {route_file}")
-        freeze_eval_scenarios("scenarios/eval")
+        parser.error(f"저장된 시나리오가 없습니다: {route_file}")
     demand = EVAL_SCENARIOS[args.scenario]
 else:
     route_file = args.route
@@ -153,11 +136,12 @@ if args.mode == "rl" and not args.hil:
     print(f"[INFO] 모델 로드: {args.model} "
           f"(state={state_size}, action={action_size}, green_phases={num_green_phases})")
 
-LABELS = {"fixed": "고정신호(균등)", "webster": "Webster(최적고정)", "rl": "SmartSignal(RL)"}
+LABELS = {"fixed": "고정신호(균등)", "webster": "Webster(수요기반)", "rl": "SmartSignal(RL)"}
 print(f"\n[INFO] 모드: {LABELS[args.mode]}"
       + (f"  시나리오: {args.scenario}" if args.scenario else "")
       + f"  seed: {args.seed}")
-print("[INFO] SUMO GUI가 열립니다. ▶ 버튼으로 시작하세요. (Delay 슬라이더로 속도 조절)\n")
+if not args.headless:
+    print("[INFO] SUMO GUI가 열립니다. Delay 슬라이더로 속도를 조절할 수 있습니다.\n")
 
 # ── HIL: E2 모델 기준이므로 데모도 E2 검지기 관측으로 띄운다 ──
 ENV_KWARGS = {}
@@ -171,8 +155,8 @@ elif args.dashboard:
     # 관측 클래스는 기본 유지 → 로컬 rl 모델(smart_signal.pth) 차원과 일치.
     extra_cmd = "-a network/e2.add.xml --no-step-log"
 
-env = sumo_rl.SumoEnvironment(
-    net_file=args.net, route_file=route_file, use_gui=True,
+env = SignalEnvironment(
+    net_file=args.net, route_file=route_file, use_gui=not args.headless,
     num_seconds=args.duration, min_green=MIN_GREEN, max_green=MAX_GREEN,
     single_agent=True, sumo_seed=args.seed, time_to_teleport=args.teleport,
     additional_sumo_cmd=extra_cmd,
@@ -180,28 +164,41 @@ env = sumo_rl.SumoEnvironment(
 )
 
 # Webster: env 결정 주기에 맞춘 phase 스케줄 1회 계산
-webster_sched = None
+green_durations = [args.fixed_hold * DELTA_TIME] * num_green_phases
 if args.mode == "webster":
-    webster_sched, t = webster_schedule(
+    t = webster_timing(
         demand, delta_time=getattr(env, "delta_time", 5),
         min_green=MIN_GREEN, max_green=MAX_GREEN)
     print(f"[INFO] Webster green(초): {t['green']}  cycle: {t['cycle']:.0f}s")
+    green_durations = t["green"]
 
 obs, _ = env.reset()
+arrived = 0
+original_sumo_step = env._sumo_step
+
+
+def count_arrivals():
+    global arrived
+    original_sumo_step()
+    arrived += env.sumo.simulation.getArrivedNumber()
+
+
+env._sumo_step = count_arrivals
 
 # ── 카메라 화면 고정 ──
 # 3개 모드(fixed/webster/rl)를 같은 줌·중심으로 비춰야 영상 대조가 공정하다.
 # --zoom 동일값으로 셋을 찍으면 화면이 완전히 일치한다(0 이면 네트워크 전체 자동맞춤).
-try:
-    _view = "View #0"
-    (xmin, ymin), (xmax, ymax) = env.sumo.simulation.getNetBoundary()
-    if args.zoom and args.zoom > 0:
-        env.sumo.gui.setOffset(_view, (xmin + xmax) / 2, (ymin + ymax) / 2)
-        env.sumo.gui.setZoom(_view, args.zoom)
-    else:
-        env.sumo.gui.setBoundary(_view, xmin, ymin, xmax, ymax)
-except Exception as e:
-    print(f"[WARN] GUI 뷰 고정 실패(무시하고 진행): {e}")
+if not args.headless:
+    try:
+        _view = "View #0"
+        (xmin, ymin), (xmax, ymax) = env.sumo.simulation.getNetBoundary()
+        if args.zoom and args.zoom > 0:
+            env.sumo.gui.setOffset(_view, (xmin + xmax) / 2, (ymin + ymax) / 2)
+            env.sumo.gui.setZoom(_view, args.zoom)
+        else:
+            env.sumo.gui.setBoundary(_view, xmin, ymin, xmax, ymax)
+    except Exception as e:
+        print(f"[WARN] GUI 뷰 고정 실패(무시하고 진행): {e}")
 
 total_reward = 0.0
 done = False
@@ -212,7 +209,6 @@ edge = EdgeClient(args.host, args.port) if args.hil else None
 # ── 대시보드(웹) 기동 + 차로/현시 매핑 ──
 dash = None
 LANE_ORDER = LANE_LABELS = GROUP = PHASE_NAMES = PHASE_GREEN = cap_map = None
-arrived = 0
 dqn_action = None
 last_qvals = None
 if args.dashboard:
@@ -233,16 +229,15 @@ if args.dashboard:
     url = dash.start(port=args.dash_port)
     print(f"[dashboard] {url}  <- 브라우저에서 열기")
     try:
-        webbrowser.open(url)
+        if not args.headless:
+            webbrowser.open(url)
     except Exception:
         pass
 
 while not done:
     cur_phase = int(np.array(obs[:num_green_phases]).argmax())
-    if args.mode == "fixed":
-        env_action = (step // args.fixed_hold) % num_green_phases  # 사이클 고정
-    elif args.mode == "webster":
-        env_action = webster_sched[step % len(webster_sched)]
+    if args.mode in ("fixed", "webster"):
+        env_action = green_phase_action(env, green_durations)
     else:
         if edge is not None:
             dqn_action = edge.act(obs)          # 엣지서버(소켓) 추론
@@ -256,16 +251,19 @@ while not done:
 
     obs, reward, terminated, truncated, info = env.step(env_action)
     if args.dashboard:
-        arrived += env.sumo.simulation.getArrivedNumber()
         la = env.sumo.lanearea
         halting = {lane: int(la.getLastStepHaltingNumber("e2_" + lane)) for lane in LANE_ORDER}
         disp_phase = int(np.array(obs[:num_green_phases]).argmax())
         decision = ("keep" if dqn_action == 0 else "switch") if args.mode == "rl" else "fixed"
         mean_wait = info.get("system_mean_waiting_time") if isinstance(info, dict) else None
+        active_green_lanes = {lane_id for links, light in zip(
+            env.sumo.trafficlight.getControlledLinks(env.ts_ids[0]),
+            env.sumo.trafficlight.getRedYellowGreenState(env.ts_ids[0]))
+            if light in "gG" for lane_id, _, _ in links}
         dash.update({
             "step": step,
             "phase": disp_phase, "phase_name": PHASE_NAMES[disp_phase],
-            "time_in_phase": 0,
+            "time_in_phase": env.traffic_signals[env.ts_ids[0]].green_elapsed,
             "decision": decision,
             "q": last_qvals if args.mode == "rl" else None,
             "metrics": {
@@ -276,7 +274,7 @@ while not done:
             "lanes": [{
                 "label": LANE_LABELS[lane], "group": GROUP[lane],
                 "count": halting[lane], "cap": int(cap_map[lane]),
-                "is_green": (lane in PHASE_GREEN[disp_phase]) or lane.endswith("_0"),
+                "is_green": lane in active_green_lanes,
             } for lane in LANE_ORDER],
             "mode": args.mode,
             "edge": f"{args.host}:{args.port}" if args.hil else "local",
@@ -301,6 +299,6 @@ print(f"\n{'='*48}")
 print(f"  모드        : {LABELS[args.mode]}")
 print(f"  시나리오    : {args.scenario or route_file}  (seed {args.seed})")
 print(f"  총 스텝     : {step}")
-print(f"  평균 대기시간: {avg_wait:.1f}   (낮을수록 좋음 - 보고서 인용용)")
+print(f"  시스템 총 대기시간의 시점 평균: {avg_wait:.1f}s (결정 간격별 표본, 차량별 평균 아님)")
 print(f"  총 보상     : {total_reward:.2f}")
 print(f"{'='*48}")

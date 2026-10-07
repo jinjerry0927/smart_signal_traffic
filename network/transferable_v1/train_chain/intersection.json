@@ -1,0 +1,635 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "50e60abdcabefd1e240ec3640e4b13bdadd18bc41c6188be62fdd052169685f9",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "link0_in_0": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link0_in"
+    },
+    "j0_W_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_W_out"
+    },
+    "j0_S_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_S_out"
+    },
+    "link0_in_1": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link0_in"
+    },
+    "j0_S_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_S_out"
+    },
+    "j0_E_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_E_out"
+    },
+    "j0_E_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_E_in"
+    },
+    "link0_out_0": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link0_out"
+    },
+    "j0_E_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_E_in"
+    },
+    "j0_W_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_W_out"
+    },
+    "j0_S_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_S_in"
+    },
+    "j0_E_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_E_out"
+    },
+    "j0_S_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_S_in"
+    },
+    "link0_out_1": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link0_out"
+    },
+    "j0_W_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_W_in"
+    },
+    "j0_W_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j0_W_in"
+    },
+    "link1_in_0": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link1_in"
+    },
+    "j1_W_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_W_out"
+    },
+    "link1_in_1": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link1_in"
+    },
+    "j1_E_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_E_out"
+    },
+    "j1_E_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_E_in"
+    },
+    "link1_out_0": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link1_out"
+    },
+    "j1_E_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_E_in"
+    },
+    "j1_W_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_W_out"
+    },
+    "j1_E_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_E_out"
+    },
+    "link1_out_1": {
+      "length_m": 163.2,
+      "capacity_vehicles": 21.759999999999998,
+      "edge": "link1_out"
+    },
+    "j1_W_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_W_in"
+    },
+    "j1_W_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j1_W_in"
+    },
+    "j2_N_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_N_in"
+    },
+    "j2_W_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_W_out"
+    },
+    "j2_N_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_N_in"
+    },
+    "j2_E_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_E_out"
+    },
+    "j2_E_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_E_in"
+    },
+    "j2_N_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_N_out"
+    },
+    "j2_E_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_E_in"
+    },
+    "j2_W_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_W_out"
+    },
+    "j2_E_out_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_E_out"
+    },
+    "j2_N_out_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_N_out"
+    },
+    "j2_W_in_0": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_W_in"
+    },
+    "j2_W_in_1": {
+      "length_m": 181.6,
+      "capacity_vehicles": 24.21333333333333,
+      "edge": "j2_W_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "j0",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrrrr",
+          "incoming": [
+            "link0_in_0",
+            "link0_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGGrrrrrrrr",
+          "incoming": [
+            "j0_E_in_0",
+            "j0_E_in_1"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrrGGGGrrrr",
+          "incoming": [
+            "j0_S_in_0",
+            "j0_S_in_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrrGGGG",
+          "incoming": [
+            "j0_W_in_0",
+            "j0_W_in_1"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "link0_in_0",
+          "outgoing": "j0_W_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "link0_in_0",
+          "outgoing": "j0_S_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "link0_in_1",
+          "outgoing": "j0_S_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "link0_in_1",
+          "outgoing": "j0_E_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "j0_E_in_0",
+          "outgoing": "link0_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "j0_E_in_0",
+          "outgoing": "j0_W_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "j0_E_in_1",
+          "outgoing": "j0_W_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 7,
+          "incoming": "j0_E_in_1",
+          "outgoing": "j0_S_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 8,
+          "incoming": "j0_S_in_0",
+          "outgoing": "j0_E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 9,
+          "incoming": "j0_S_in_0",
+          "outgoing": "link0_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "j0_S_in_1",
+          "outgoing": "link0_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 11,
+          "incoming": "j0_S_in_1",
+          "outgoing": "j0_W_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 12,
+          "incoming": "j0_W_in_0",
+          "outgoing": "j0_S_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 13,
+          "incoming": "j0_W_in_0",
+          "outgoing": "j0_E_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 14,
+          "incoming": "j0_W_in_1",
+          "outgoing": "j0_E_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 15,
+          "incoming": "j0_W_in_1",
+          "outgoing": "link0_out_1",
+          "turn": "l"
+        }
+      ]
+    },
+    {
+      "id": "j1",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrrrr",
+          "incoming": [
+            "link1_in_0",
+            "link1_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGGrrrrrrrr",
+          "incoming": [
+            "j1_E_in_0",
+            "j1_E_in_1"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrrGGGGrrrr",
+          "incoming": [
+            "link0_out_0",
+            "link0_out_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrrGGGG",
+          "incoming": [
+            "j1_W_in_0",
+            "j1_W_in_1"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "link1_in_0",
+          "outgoing": "j1_W_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "link1_in_0",
+          "outgoing": "link0_in_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "link1_in_1",
+          "outgoing": "link0_in_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "link1_in_1",
+          "outgoing": "j1_E_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "j1_E_in_0",
+          "outgoing": "link1_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "j1_E_in_0",
+          "outgoing": "j1_W_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "j1_E_in_1",
+          "outgoing": "j1_W_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 7,
+          "incoming": "j1_E_in_1",
+          "outgoing": "link0_in_1",
+          "turn": "l"
+        },
+        {
+          "index": 8,
+          "incoming": "link0_out_0",
+          "outgoing": "j1_E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 9,
+          "incoming": "link0_out_0",
+          "outgoing": "link1_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "link0_out_1",
+          "outgoing": "link1_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 11,
+          "incoming": "link0_out_1",
+          "outgoing": "j1_W_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 12,
+          "incoming": "j1_W_in_0",
+          "outgoing": "link0_in_0",
+          "turn": "r"
+        },
+        {
+          "index": 13,
+          "incoming": "j1_W_in_0",
+          "outgoing": "j1_E_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 14,
+          "incoming": "j1_W_in_1",
+          "outgoing": "j1_E_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 15,
+          "incoming": "j1_W_in_1",
+          "outgoing": "link1_out_1",
+          "turn": "l"
+        }
+      ]
+    },
+    {
+      "id": "j2",
+      "phases": [
+        {
+          "id": "N_green",
+          "state": "GGGGrrrrrrrrrrrr",
+          "incoming": [
+            "j2_N_in_0",
+            "j2_N_in_1"
+          ]
+        },
+        {
+          "id": "E_green",
+          "state": "rrrrGGGGrrrrrrrr",
+          "incoming": [
+            "j2_E_in_0",
+            "j2_E_in_1"
+          ]
+        },
+        {
+          "id": "S_green",
+          "state": "rrrrrrrrGGGGrrrr",
+          "incoming": [
+            "link1_out_0",
+            "link1_out_1"
+          ]
+        },
+        {
+          "id": "W_green",
+          "state": "rrrrrrrrrrrrGGGG",
+          "incoming": [
+            "j2_W_in_0",
+            "j2_W_in_1"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "j2_N_in_0",
+          "outgoing": "j2_W_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "j2_N_in_0",
+          "outgoing": "link1_in_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "j2_N_in_1",
+          "outgoing": "link1_in_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "j2_N_in_1",
+          "outgoing": "j2_E_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "j2_E_in_0",
+          "outgoing": "j2_N_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "j2_E_in_0",
+          "outgoing": "j2_W_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 6,
+          "incoming": "j2_E_in_1",
+          "outgoing": "j2_W_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 7,
+          "incoming": "j2_E_in_1",
+          "outgoing": "link1_in_1",
+          "turn": "l"
+        },
+        {
+          "index": 8,
+          "incoming": "link1_out_0",
+          "outgoing": "j2_E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 9,
+          "incoming": "link1_out_0",
+          "outgoing": "j2_N_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "link1_out_1",
+          "outgoing": "j2_N_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 11,
+          "incoming": "link1_out_1",
+          "outgoing": "j2_W_out_1",
+          "turn": "l"
+        },
+        {
+          "index": 12,
+          "incoming": "j2_W_in_0",
+          "outgoing": "link1_in_0",
+          "turn": "r"
+        },
+        {
+          "index": 13,
+          "incoming": "j2_W_in_0",
+          "outgoing": "j2_E_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 14,
+          "incoming": "j2_W_in_1",
+          "outgoing": "j2_E_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 15,
+          "incoming": "j2_W_in_1",
+          "outgoing": "j2_N_out_1",
+          "turn": "l"
+        }
+      ]
+    }
+  ]
+}

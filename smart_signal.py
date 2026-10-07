@@ -24,6 +24,9 @@ import sys
 import csv
 import random
 import argparse
+from datetime import datetime
+from pathlib import Path
+import xml.etree.ElementTree as ET
 import numpy as np
 from collections import deque
 
@@ -53,10 +56,11 @@ def set_sumo_home(path=None):
 parser = argparse.ArgumentParser()
 parser.add_argument("--sumo_home",  default=None)
 parser.add_argument("--net",        default="network/intersection.net.xml")
-parser.add_argument("--route",      default="network/intersection.rou.xml")
+parser.add_argument("--route",      default=None, help="생성 수요 경로. 기본은 이번 실행 폴더 내부")
 parser.add_argument("--episodes",   type=int, default=1000)
 parser.add_argument("--resume",     default=None)
-parser.add_argument("--out_dir",    default="results")
+parser.add_argument("--out_dir",    default=None, help="새 학습 결과 폴더")
+parser.add_argument("--seconds", type=int, default=3600, help="에피소드 시뮬레이션 시간")
 parser.add_argument("--traffic_min", type=int, default=300,
                     help="각 방향 최소 vehsPerHour (한산)")
 parser.add_argument("--traffic_max", type=int, default=1200,
@@ -66,25 +70,55 @@ parser.add_argument("--obs", choices=["global", "e2"], default="global",
 args = parser.parse_args()
 
 set_sumo_home(args.sumo_home)
-os.makedirs(args.out_dir, exist_ok=True)
+from signal_environment import SignalEnvironment, MIN_GREEN, MAX_GREEN, CONTROL_VERSION
 
-import sumo_rl
+resume_checkpoint = None
+if args.resume:
+    resume_checkpoint = torch.load(args.resume, map_location="cpu")
+    required = {"policy_net", "target_net", "optimizer", "episode", "epsilon", "control_version",
+                "state_size", "action_size", "num_green_phases"}
+    if not isinstance(resume_checkpoint, dict) or not required <= resume_checkpoint.keys():
+        parser.error("학습 재개에는 optimizer·episode를 포함한 체크포인트가 필요합니다.")
+    if resume_checkpoint["control_version"] != CONTROL_VERSION:
+        parser.error("다른 제어 규칙의 체크포인트는 학습 재개에 사용할 수 없습니다.")
+    if (resume_checkpoint["state_size"] != (53 if args.obs == "e2" else 29)
+            or resume_checkpoint["action_size"] != 2 or resume_checkpoint["num_green_phases"] != 4):
+        parser.error("체크포인트의 관측 모드·행동·신호 규약이 이번 실행과 다릅니다.")
+    if args.episodes <= resume_checkpoint["episode"]:
+        parser.error("episodes는 체크포인트 이후의 마지막 에피소드 번호여야 합니다.")
+if args.episodes <= 0 or args.seconds <= 0 or args.seconds % 5:
+    parser.error("episodes는 양수, seconds는 양수이며 5의 배수여야 합니다.")
+args.out_dir = str(Path(args.out_dir or f"results/runs/train-{datetime.now():%Y%m%d-%H%M%S-%f}").resolve())
+Path(args.out_dir).mkdir(parents=True, exist_ok=False)
+args.route = str(Path(args.route or str(Path(args.out_dir) / "training.rou.xml")).resolve())
+if not Path(args.route).is_relative_to(Path(args.out_dir)):
+    parser.error("생성 수요 --route는 이번 실행의 --out_dir 내부여야 합니다.")
+if Path(args.route).exists():
+    parser.error("기존 수요 파일을 덮어쓸 수 없습니다. 새 --route 경로를 지정하세요.")
+args.net = str(Path(args.net).resolve())
+if args.resume:
+    args.resume = str(Path(args.resume).resolve())
+
 from scenarios import random_demand, write_routes   # 트래픽 생성은 scenarios.py 공용 정의 사용
 
 # ── 관측 소스 선택 (global=sumo_rl 기본 / e2=E2 검지기 기반) ──
-ENV_KWARGS = {}
+ENV_KWARGS = dict(additional_sumo_cmd="--no-step-log")
 MODEL_NAME = "smart_signal.pth"
 if args.obs == "e2":
     from e2_observation import E2ObservationFunction
+    detectors = ET.parse(Path(__file__).resolve().parent / "network/e2.add.xml")
+    for detector in detectors.getroot():
+        detector.set("file", "detectors.xml")
+    detectors.write(Path(args.out_dir) / "detectors.add.xml", encoding="utf-8")
     ENV_KWARGS = dict(observation_class=E2ObservationFunction,
-                      additional_sumo_cmd="-a network/e2.add.xml")
+                      additional_sumo_cmd="-a detectors.add.xml --no-step-log")
     MODEL_NAME = "smart_signal_e2.pth"
 print(f"[INFO] 관측 모드: {args.obs} → 모델 파일 {MODEL_NAME}")
+os.chdir(args.out_dir)  # SUMO의 상대 출력도 이 실행에 격리한다.
 
 
 # ── 안전 제약 (현실 도로 기준) ─────────────────────
-MIN_GREEN = 15      # 보행자 횡단 + 운전자 예측을 위한 최소 녹색 시간
-MAX_GREEN = 60      # 반대 방향 과도한 대기 방지
+# 시간 규칙은 signal_environment.py에서 공통 관리한다.
 
 # ── DQN 하이퍼파라미터 ──
 LR            = 1e-3
@@ -117,14 +151,15 @@ def generate_random_routes(out_path, t_min, t_max):
 # ── 환경 검증 (probe — random route 한 번 생성해서 차원 확인) ──
 print("[INFO] 환경 검증 중...")
 generate_random_routes(args.route, args.traffic_min, args.traffic_max)
-probe_env = sumo_rl.SumoEnvironment(
+probe_env = SignalEnvironment(
     net_file=args.net,
     route_file=args.route,
     use_gui=False,
-    num_seconds=3600,
+    num_seconds=args.seconds,
     min_green=MIN_GREEN,
     max_green=MAX_GREEN,
     single_agent=True,
+    time_to_teleport=300,
     **ENV_KWARGS,
 )
 probe_obs, _ = probe_env.reset()
@@ -198,7 +233,7 @@ start_episode = 1
 epsilon       = EPSILON_START
 
 if args.resume:
-    ckpt = torch.load(args.resume, map_location=device)
+    ckpt = resume_checkpoint
     policy_net.load_state_dict(ckpt["policy_net"])
     target_net.load_state_dict(ckpt["target_net"])
     optimizer.load_state_dict(ckpt["optimizer"])
@@ -210,7 +245,7 @@ if args.resume:
 log_path = os.path.join(args.out_dir, "training_log.csv")
 csv_file = open(log_path, "a", newline="")
 csv_writer = csv.writer(csv_file)
-if start_episode == 1:
+if csv_file.tell() == 0:
     csv_writer.writerow(["episode", "total_reward", "epsilon", "buffer_size",
                           "keep_ratio", "next_ratio",
                           "traffic_N", "traffic_S", "traffic_E", "traffic_W"])
@@ -245,14 +280,15 @@ for episode in range(start_episode, args.episodes + 1):
     # 매 episode 새로운 random 트래픽 패턴 생성
     traffic_summary = generate_random_routes(args.route, args.traffic_min, args.traffic_max)
 
-    env = sumo_rl.SumoEnvironment(
+    env = SignalEnvironment(
         net_file=args.net,
         route_file=args.route,
         use_gui=False,
-        num_seconds=3600,
+        num_seconds=args.seconds,
         min_green=MIN_GREEN,
         max_green=MAX_GREEN,
         single_agent=True,
+        time_to_teleport=300,
         **ENV_KWARGS,
     )
     obs, _ = env.reset()
@@ -306,7 +342,7 @@ for episode in range(start_episode, args.episodes + 1):
                           tN, tS, tE, tW])
     csv_file.flush()
 
-    if episode % CHECKPOINT_EVERY == 0:
+    if episode % CHECKPOINT_EVERY == 0 or episode == args.episodes:
         ckpt_path = os.path.join(args.out_dir, f"checkpoint_{args.obs}_ep{episode}.pth")
         torch.save({
             "episode":         episode,
@@ -317,6 +353,7 @@ for episode in range(start_episode, args.episodes + 1):
             "state_size":      STATE_SIZE,
             "action_size":     ACTION_SIZE,
             "num_green_phases": NUM_GREEN_PHASES,
+            "control_version": CONTROL_VERSION,
         }, ckpt_path)
         print(f"  >> 체크포인트 저장: {ckpt_path}")
 
@@ -328,6 +365,7 @@ torch.save({
     "state_size":       STATE_SIZE,
     "action_size":      ACTION_SIZE,
     "num_green_phases": NUM_GREEN_PHASES,
+    "control_version": CONTROL_VERSION,
 }, final_path)
 print(f"\n학습 완료. 최종 모델: {final_path}")
 print(f"학습 로그: {log_path}")

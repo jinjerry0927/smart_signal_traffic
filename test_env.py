@@ -5,7 +5,7 @@ import os
 os.environ.setdefault("SUMO_HOME", "C:/Program Files (x86)/Eclipse/Sumo")
 
 import numpy as np
-import sumo_rl
+from signal_environment import SignalEnvironment
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     if args.seconds <= 0:
         parser.error("--seconds는 양수여야 합니다.")
 
-    env = sumo_rl.SumoEnvironment(
+    env = SignalEnvironment(
         net_file="network/intersection.net.xml",
         route_file="scenarios/eval/medium.rou.xml",
         use_gui=args.gui,
@@ -39,7 +39,9 @@ def main():
             assert np.all(np.isfinite(obs)), "관측에 비유한 값이 있습니다."
             if done:
                 break
-            obs, _, terminated, truncated, _ = env.step(env.action_space.sample())
+            current = int(np.asarray(obs[:4]).argmax())
+            action = (current + int(env.action_space.sample() % 2)) % 4
+            obs, _, terminated, truncated, _ = env.step(action)
             done = terminated or truncated
             steps += 1
         print(f"[PASS] 기본 관측 29D / 녹색 단계 4개 / {steps} steps")

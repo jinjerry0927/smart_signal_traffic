@@ -1,0 +1,906 @@
+{
+  "schema_version": 1,
+  "network": "industrial.net.xml",
+  "corridor_order": [
+    "gj_yonggang",
+    "gj_geunhwa",
+    "gj_seungsam"
+  ],
+  "junctions": [
+    {
+      "id": "gj_yonggang",
+      "label": "용강네거리",
+      "lat": 35.8675992,
+      "lon": 129.2236595,
+      "osm_ids": [
+        "529483975",
+        "13807673402",
+        "13807673403"
+      ]
+    },
+    {
+      "id": "gj_geunhwa",
+      "label": "근화여고네거리",
+      "lat": 35.8722779,
+      "lon": 129.2257674,
+      "osm_ids": [
+        "436736928",
+        "13807673604"
+      ]
+    },
+    {
+      "id": "gj_seungsam",
+      "label": "승삼네거리",
+      "lat": 35.8769551,
+      "lon": 129.2273545,
+      "osm_ids": [
+        "436736929",
+        "13807673605"
+      ]
+    }
+  ],
+  "external_boundaries": [
+    {
+      "id": "yonggang_southwest",
+      "junction": "gj_yonggang",
+      "direction_from_junction": "southwest",
+      "fringe_nodes": {
+        "inbound": "-911650143121",
+        "outbound": "-911650143112"
+      },
+      "edges": {
+        "inbound": "1165014312#0",
+        "outbound": "1165014311"
+      }
+    },
+    {
+      "id": "yonggang_southeast",
+      "junction": "gj_yonggang",
+      "direction_from_junction": "southeast",
+      "fringe_nodes": {
+        "inbound": "-914353079931",
+        "outbound": "-914366779892"
+      },
+      "edges": {
+        "inbound": "1435307993",
+        "outbound": "1436677989#1"
+      }
+    },
+    {
+      "id": "yonggang_west",
+      "junction": "gj_yonggang",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "-914316832031",
+        "outbound": "-914316832031"
+      },
+      "edges": {
+        "inbound": "1431683203",
+        "outbound": "-1431683203"
+      }
+    },
+    {
+      "id": "geunhwa_west",
+      "junction": "gj_geunhwa",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "-9424106051",
+        "outbound": "-9424106051"
+      },
+      "edges": {
+        "inbound": "42410605",
+        "outbound": "-42410605"
+      }
+    },
+    {
+      "id": "geunhwa_east",
+      "junction": "gj_geunhwa",
+      "direction_from_junction": "east",
+      "fringe_nodes": {
+        "inbound": "-915104389902",
+        "outbound": "-915104389902"
+      },
+      "edges": {
+        "inbound": "-1510438990",
+        "outbound": "1510438990"
+      }
+    },
+    {
+      "id": "seungsam_west",
+      "junction": "gj_seungsam",
+      "direction_from_junction": "west",
+      "fringe_nodes": {
+        "inbound": "529483978",
+        "outbound": "529483978"
+      },
+      "edges": {
+        "inbound": "1330059384",
+        "outbound": "-1330059384"
+      }
+    },
+    {
+      "id": "seungsam_east",
+      "junction": "gj_seungsam",
+      "direction_from_junction": "east",
+      "fringe_nodes": {
+        "inbound": "-95501375981",
+        "outbound": "-95501375981"
+      },
+      "edges": {
+        "inbound": "550137598",
+        "outbound": "-550137598"
+      }
+    },
+    {
+      "id": "seungsam_north",
+      "junction": "gj_seungsam",
+      "direction_from_junction": "north",
+      "fringe_nodes": {
+        "inbound": "-914316853421",
+        "outbound": "-915104389922"
+      },
+      "edges": {
+        "inbound": "1431685342#0",
+        "outbound": "1510438992#1"
+      }
+    }
+  ],
+  "tls_programs": {
+    "gj_yonggang": {
+      "program_id": "0",
+      "offset_s": 0.0,
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "GGrrrrrrrrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "yyrrrrrrrrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "rrGGrrrrrrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "rryyrrrrrrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 6,
+          "duration": 30,
+          "state": "rrrrGGGGrrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 7,
+          "duration": 3,
+          "state": "rrrryyyyrrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 8,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 9,
+          "duration": 30,
+          "state": "rrrrrrrrGGGGrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 10,
+          "duration": 3,
+          "state": "rrrrrrrryyyyrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 11,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 12,
+          "duration": 30,
+          "state": "rrrrrrrrrrrrGGGG",
+          "kind": "green"
+        },
+        {
+          "index": 13,
+          "duration": 3,
+          "state": "rrrrrrrrrrrryyyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 14,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "1435311645",
+          "from_lane": 0,
+          "to_edge": "-1431683203",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "1435311645",
+          "from_lane": 0,
+          "to_edge": "1165014311",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "1435311645",
+          "from_lane": 1,
+          "to_edge": "1165014311",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "1435311645",
+          "from_lane": 1,
+          "to_edge": "1436677989#1",
+          "to_lane": 1,
+          "direction": "L"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "1435307993",
+          "from_lane": 0,
+          "to_edge": "550137596",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "1435307993",
+          "from_lane": 1,
+          "to_edge": "1165014312#2",
+          "to_lane": 0,
+          "direction": "R"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "1435307993",
+          "from_lane": 1,
+          "to_edge": "-1431683203",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "1435307993",
+          "from_lane": 1,
+          "to_edge": "1165014311",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 8,
+          "from_edge": "1165014312#0",
+          "from_lane": 0,
+          "to_edge": "1165014312#2",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 9,
+          "from_edge": "1165014312#0",
+          "from_lane": 1,
+          "to_edge": "1165014312#2",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 10,
+          "from_edge": "1165014312#0",
+          "from_lane": 1,
+          "to_edge": "-1431683203",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 11,
+          "from_edge": "1165014312#0",
+          "from_lane": 1,
+          "to_edge": "1436677989#1",
+          "to_lane": 1,
+          "direction": "r"
+        },
+        {
+          "link_index": 12,
+          "from_edge": "1431683203",
+          "from_lane": 0,
+          "to_edge": "1165014311",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 13,
+          "from_edge": "1431683203",
+          "from_lane": 0,
+          "to_edge": "1436677989#1",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 14,
+          "from_edge": "1431683203",
+          "from_lane": 0,
+          "to_edge": "1436677989#1",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 15,
+          "from_edge": "1431683203",
+          "from_lane": 0,
+          "to_edge": "1165014312#2",
+          "to_lane": 1,
+          "direction": "l"
+        }
+      ]
+    },
+    "gj_seungsam": {
+      "program_id": "0",
+      "offset_s": 0.0,
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "GGGGrrrrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "yyyyrrrrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "rrrrGGGrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "rrrryyyrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 6,
+          "duration": 30,
+          "state": "rrrrrrrGGGGrrr",
+          "kind": "green"
+        },
+        {
+          "index": 7,
+          "duration": 3,
+          "state": "rrrrrrryyyyrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 8,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 9,
+          "duration": 30,
+          "state": "rrrrrrrrrrrGGG",
+          "kind": "green"
+        },
+        {
+          "index": 10,
+          "duration": 3,
+          "state": "rrrrrrrrrrryyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 11,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "1431685342#0",
+          "from_lane": 0,
+          "to_edge": "-1330059384",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "1431685342#0",
+          "from_lane": 0,
+          "to_edge": "1330059385",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "1431685342#0",
+          "from_lane": 1,
+          "to_edge": "1330059385",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "1431685342#0",
+          "from_lane": 1,
+          "to_edge": "-1330074578",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "1330074578",
+          "from_lane": 0,
+          "to_edge": "1510438992#1",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "1330074578",
+          "from_lane": 0,
+          "to_edge": "-1330059384",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "1330074578",
+          "from_lane": 0,
+          "to_edge": "1330059385",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "1510438989#0",
+          "from_lane": 0,
+          "to_edge": "-1330074578",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 8,
+          "from_edge": "1510438989#0",
+          "from_lane": 0,
+          "to_edge": "1510438992#1",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 9,
+          "from_edge": "1510438989#0",
+          "from_lane": 1,
+          "to_edge": "1510438992#1",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 10,
+          "from_edge": "1510438989#0",
+          "from_lane": 1,
+          "to_edge": "-1330059384",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 11,
+          "from_edge": "1330059384",
+          "from_lane": 0,
+          "to_edge": "1330059385",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 12,
+          "from_edge": "1330059384",
+          "from_lane": 0,
+          "to_edge": "-1330074578",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 13,
+          "from_edge": "1330059384",
+          "from_lane": 0,
+          "to_edge": "1510438992#1",
+          "to_lane": 1,
+          "direction": "l"
+        }
+      ]
+    },
+    "gj_geunhwa": {
+      "program_id": "0",
+      "offset_s": 105.0,
+      "phases": [
+        {
+          "index": 0,
+          "duration": 30,
+          "state": "GGGGrrrrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 1,
+          "duration": 3,
+          "state": "yyyyrrrrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 2,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 3,
+          "duration": 30,
+          "state": "rrrrGGGrrrrrrr",
+          "kind": "green"
+        },
+        {
+          "index": 4,
+          "duration": 3,
+          "state": "rrrryyyrrrrrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 5,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 6,
+          "duration": 30,
+          "state": "rrrrrrrGGGGrrr",
+          "kind": "green"
+        },
+        {
+          "index": 7,
+          "duration": 3,
+          "state": "rrrrrrryyyyrrr",
+          "kind": "yellow"
+        },
+        {
+          "index": 8,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        },
+        {
+          "index": 9,
+          "duration": 30,
+          "state": "rrrrrrrrrrrGGG",
+          "kind": "green"
+        },
+        {
+          "index": 10,
+          "duration": 3,
+          "state": "rrrrrrrrrrryyy",
+          "kind": "yellow"
+        },
+        {
+          "index": 11,
+          "duration": 2,
+          "state": "rrrrrrrrrrrrrr",
+          "kind": "all_red"
+        }
+      ],
+      "controlled_movements": [
+        {
+          "link_index": 0,
+          "from_edge": "1171256005",
+          "from_lane": 0,
+          "to_edge": "-1331526504",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 1,
+          "from_edge": "1171256005",
+          "from_lane": 0,
+          "to_edge": "1330059386",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 2,
+          "from_edge": "1171256005",
+          "from_lane": 1,
+          "to_edge": "1330059386",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 3,
+          "from_edge": "1171256005",
+          "from_lane": 1,
+          "to_edge": "1510438990",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 4,
+          "from_edge": "-1510438990",
+          "from_lane": 0,
+          "to_edge": "1510438989#0",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 5,
+          "from_edge": "-1510438990",
+          "from_lane": 0,
+          "to_edge": "-1331526504",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 6,
+          "from_edge": "-1510438990",
+          "from_lane": 0,
+          "to_edge": "1330059386",
+          "to_lane": 1,
+          "direction": "l"
+        },
+        {
+          "link_index": 7,
+          "from_edge": "1165014312#3",
+          "from_lane": 0,
+          "to_edge": "1510438990",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 8,
+          "from_edge": "1165014312#3",
+          "from_lane": 0,
+          "to_edge": "1510438989#0",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 9,
+          "from_edge": "1165014312#3",
+          "from_lane": 1,
+          "to_edge": "1510438989#0",
+          "to_lane": 1,
+          "direction": "s"
+        },
+        {
+          "link_index": 10,
+          "from_edge": "1165014312#3",
+          "from_lane": 1,
+          "to_edge": "-1331526504",
+          "to_lane": 0,
+          "direction": "l"
+        },
+        {
+          "link_index": 11,
+          "from_edge": "1331526504",
+          "from_lane": 0,
+          "to_edge": "1330059386",
+          "to_lane": 0,
+          "direction": "r"
+        },
+        {
+          "link_index": 12,
+          "from_edge": "1331526504",
+          "from_lane": 0,
+          "to_edge": "1510438990",
+          "to_lane": 0,
+          "direction": "s"
+        },
+        {
+          "link_index": 13,
+          "from_edge": "1331526504",
+          "from_lane": 0,
+          "to_edge": "1510438989#0",
+          "to_lane": 1,
+          "direction": "l"
+        }
+      ]
+    }
+  },
+  "source_osm": {
+    "url": "https://api.openstreetmap.org/api/0.6/map?bbox=129.215,35.862,129.234,35.882",
+    "retrieved_date": "2026-09-25",
+    "sha256": "f2dfeae3893d41a6fcf70652ef045e1cb1dfb4294435acaa5b06af61cf966f27",
+    "license": "OpenStreetMap contributors, ODbL 1.0",
+    "subset": "source/industrial_corridor.osm.xml",
+    "subset_sha256": "81e39e23a5dc63dccf9a745c4cb0f6902f6b83ac8d2205cd1b78525692dfa38f",
+    "way_ids": [
+      "42410605",
+      "550137593",
+      "550137596",
+      "550137598",
+      "791274407",
+      "888388950",
+      "891102455",
+      "1165014311",
+      "1165014312",
+      "1171256005",
+      "1238003413",
+      "1238003414",
+      "1330059384",
+      "1330059385",
+      "1330059386",
+      "1330074578",
+      "1331526504",
+      "1431683203",
+      "1431685342",
+      "1435307993",
+      "1435311644",
+      "1435311645",
+      "1436677989",
+      "1510438970",
+      "1510438971",
+      "1510438989",
+      "1510438990",
+      "1510438991",
+      "1510438992"
+    ],
+    "junction_clusters": {
+      "gj_yonggang": "cluster_13807673402_13807673403_529483972_529483975",
+      "gj_geunhwa": "cluster_13807673604_436736928",
+      "gj_seungsam": "cluster_13807673416_13807673420_13807673424_13807673429_#4more"
+    }
+  },
+  "lane_assumptions": {
+    "osm_explicit_lanes_2": {
+      "meaning": "OSM supplied lanes=2; no lane-count override was needed.",
+      "way_ids": [
+        "1165014311",
+        "1165014312",
+        "1431683203",
+        "1435307993",
+        "1435311644",
+        "1436677989",
+        "1510438989",
+        "1510438992"
+      ]
+    },
+    "divided_main_carriageways": {
+      "lanes_per_direction": 2,
+      "basis": "Adjacent OSM carriageways are tagged lanes=2; missing parallel carriageway tags are model overrides, not field observations.",
+      "way_ids": [
+        "550137593",
+        "1171256005",
+        "1238003414",
+        "1330059385",
+        "1330059386",
+        "1431685342",
+        "1435311645"
+      ]
+    },
+    "local_two_way_arms": {
+      "lanes_total": 2,
+      "basis": "Missing lane counts are modeled as one lane per direction.",
+      "way_ids": [
+        "42410605",
+        "550137598",
+        "791274407",
+        "1238003413",
+        "1330059384",
+        "1330074578",
+        "1331526504",
+        "1510438971",
+        "1510438990",
+        "1510438991"
+      ]
+    },
+    "one_way_slip_links": {
+      "lanes": 1,
+      "basis": "Missing lane counts are modeled as one lane.",
+      "way_ids": [
+        "550137596",
+        "888388950",
+        "891102455",
+        "1510438970"
+      ]
+    }
+  },
+  "speed_assumptions": {
+    "osm_explicit_70_kmh": [
+      "1431683203",
+      "1435307993",
+      "1435311644"
+    ],
+    "main_road_missing_tag_70_kmh": [
+      "550137593",
+      "1165014311",
+      "1165014312",
+      "1171256005",
+      "1238003414",
+      "1330059385",
+      "1330059386",
+      "1431685342",
+      "1435311645",
+      "1436677989",
+      "1510438989",
+      "1510438992"
+    ],
+    "local_or_slip_missing_tag_50_kmh": [
+      "42410605",
+      "550137596",
+      "550137598",
+      "791274407",
+      "888388950",
+      "891102455",
+      "1238003413",
+      "1330059384",
+      "1330074578",
+      "1331526504",
+      "1510438970",
+      "1510438971",
+      "1510438990",
+      "1510438991"
+    ]
+  },
+  "assumptions": [
+    "The three traffic lights and their 30 s green, 3 s yellow, 2 s all-red programs are simulation definitions; field signal phases and timings were not observed.",
+    "Main-road ways missing maxspeed use 70 km/h based on adjacent tagged OSM segments; local arms and slip links missing maxspeed use 50 km/h. These are model inputs, not new field measurements.",
+    "Official 2024 and 2026 photographs show a three-to-four-lane expansion near Yonggang and Cheonggangsa, but the photographed segment and direction cannot be mapped reliably to a specific OSM way from the published material. No way-specific lane override is attributed to that project.",
+    "Recent road-expansion lane geometry cannot be reproduced completely from OSM and may differ from official photographs; this is a map-based simulation model, not a current surveyed road inventory.",
+    "Intermediate alleys are omitted with zero inflow and outflow. Pedestrians, parking, and U-turns are excluded.",
+    "Passenger cars, trucks, and buses are permitted by the road network; demand composition is defined outside this builder.",
+    "A default junction radius of 12 m is used to keep Seungsam turns usable by the simulated vehicle classes; it also applies to the other signals and some merging junctions. This is a model assumption, not a survey measurement.",
+    "The incoming TLS layout gives each incoming road a separate protected green phase. Netconvert regenerates the right-of-way rules and internal paths. Protected foes within an approach are separated by incoming lane, keeping all turns from each lane together to prevent head-of-line blocking. Every group uses 30 s green, 3 s yellow and 2 s all-red. This conservative experimental plan is not a measured or optimized field signal plan.",
+    "Geunhwa has a modeled SUMO offset of 105 s; its north-approach green overlaps Seungsam's east-approach green at t=35..65 modulo 140 s. This avoids the repeated downstream blockage observed with zero offsets. Other offsets are zero. Field coordination was not measured."
+  ]
+}

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tlLogics>
+  <tlLogic id="gj_yonggang" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGGGrrrrrrrrrr" name="N_green" />
+    <phase duration="3" state="yyyyrrrrrrrrrr" name="N_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="N_all_red" />
+    <phase duration="25" state="rrrrGGGrrrrrrr" name="E_green" />
+    <phase duration="3" state="rrrryyyrrrrrrr" name="E_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="E_all_red" />
+    <phase duration="25" state="rrrrrrrGGGGrrr" name="S_green" />
+    <phase duration="3" state="rrrrrrryyyyrrr" name="S_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="S_all_red" />
+    <phase duration="25" state="rrrrrrrrrrrGGG" name="W_green" />
+    <phase duration="3" state="rrrrrrrrrrryyy" name="W_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="W_all_red" />
+  </tlLogic>
+  <tlLogic id="gj_geunhwa" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGGGrrrrrrrrrr" name="N_green" />
+    <phase duration="3" state="yyyyrrrrrrrrrr" name="N_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="N_all_red" />
+    <phase duration="25" state="rrrrGGGrrrrrrr" name="E_green" />
+    <phase duration="3" state="rrrryyyrrrrrrr" name="E_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="E_all_red" />
+    <phase duration="25" state="rrrrrrrGGGGrrr" name="S_green" />
+    <phase duration="3" state="rrrrrrryyyyrrr" name="S_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="S_all_red" />
+    <phase duration="25" state="rrrrrrrrrrrGGG" name="W_green" />
+    <phase duration="3" state="rrrrrrrrrrryyy" name="W_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="W_all_red" />
+  </tlLogic>
+  <tlLogic id="gj_seungsam" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGGGrrrrrrrrrr" name="N_green" />
+    <phase duration="3" state="yyyyrrrrrrrrrr" name="N_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="N_all_red" />
+    <phase duration="25" state="rrrrGGGrrrrrrr" name="E_green" />
+    <phase duration="3" state="rrrryyyrrrrrrr" name="E_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="E_all_red" />
+    <phase duration="25" state="rrrrrrrGGGGrrr" name="S_green" />
+    <phase duration="3" state="rrrrrrryyyyrrr" name="S_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="S_all_red" />
+    <phase duration="25" state="rrrrrrrrrrrGGG" name="W_green" />
+    <phase duration="3" state="rrrrrrrrrrryyy" name="W_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="W_all_red" />
+  </tlLogic>
+</tlLogics>
