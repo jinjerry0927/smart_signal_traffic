@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<connections>
+  <connection from="zt_link_in" to="zt_a_W_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="0" />
+  <connection from="zt_link_in" to="zt_a_S_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="1" />
+  <connection from="zt_link_in" to="zt_a_S_out" fromLane="1" toLane="1" tl="zt_a" linkIndex="2" />
+  <connection from="zt_link_in" to="zt_a_E_out" fromLane="1" toLane="0" tl="zt_a" linkIndex="3" />
+  <connection from="zt_a_E_in" to="zt_link_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="4" />
+  <connection from="zt_a_E_in" to="zt_a_W_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="5" />
+  <connection from="zt_a_E_in" to="zt_a_S_out" fromLane="0" toLane="2" tl="zt_a" linkIndex="6" />
+  <connection from="zt_a_S_in" to="zt_a_E_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="7" />
+  <connection from="zt_a_S_in" to="zt_link_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="8" />
+  <connection from="zt_a_S_in" to="zt_link_out" fromLane="1" toLane="1" tl="zt_a" linkIndex="9" />
+  <connection from="zt_a_S_in" to="zt_a_W_out" fromLane="2" toLane="0" tl="zt_a" linkIndex="10" />
+  <connection from="zt_a_W_in" to="zt_a_S_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="11" />
+  <connection from="zt_a_W_in" to="zt_a_E_out" fromLane="0" toLane="0" tl="zt_a" linkIndex="12" />
+  <connection from="zt_a_W_in" to="zt_link_out" fromLane="0" toLane="1" tl="zt_a" linkIndex="13" />
+  <connection from="zt_b_N_in" to="zt_b_W_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="0" />
+  <connection from="zt_b_N_in" to="zt_link_in" fromLane="0" toLane="0" tl="zt_b" linkIndex="1" />
+  <connection from="zt_b_N_in" to="zt_link_in" fromLane="1" toLane="1" tl="zt_b" linkIndex="2" />
+  <connection from="zt_b_N_in" to="zt_b_E_out" fromLane="2" toLane="0" tl="zt_b" linkIndex="3" />
+  <connection from="zt_b_E_in" to="zt_b_N_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="4" />
+  <connection from="zt_b_E_in" to="zt_b_W_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="5" />
+  <connection from="zt_b_E_in" to="zt_link_in" fromLane="0" toLane="1" tl="zt_b" linkIndex="6" />
+  <connection from="zt_link_out" to="zt_b_E_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="7" />
+  <connection from="zt_link_out" to="zt_b_N_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="8" />
+  <connection from="zt_link_out" to="zt_b_N_out" fromLane="1" toLane="1" tl="zt_b" linkIndex="9" />
+  <connection from="zt_link_out" to="zt_b_W_out" fromLane="1" toLane="0" tl="zt_b" linkIndex="10" />
+  <connection from="zt_b_W_in" to="zt_link_in" fromLane="0" toLane="0" tl="zt_b" linkIndex="11" />
+  <connection from="zt_b_W_in" to="zt_b_E_out" fromLane="0" toLane="0" tl="zt_b" linkIndex="12" />
+  <connection from="zt_b_W_in" to="zt_b_N_out" fromLane="0" toLane="2" tl="zt_b" linkIndex="13" />
+</connections>

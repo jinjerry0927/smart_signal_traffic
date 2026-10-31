@@ -1,0 +1,86 @@
+{
+  "completed": 137,
+  "failed": 3,
+  "unattempted": 22,
+  "failed_prefix": {
+    "id": "zt_pair_short_busy_s02/webster",
+    "outcome": "failed_teleport",
+    "path": "followup_round02\\zt_pair_short_busy_s02\\webster",
+    "manifest_sha256": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+    "frames": 479,
+    "actions": 192,
+    "event": {
+      "time_s": 478,
+      "teleports": 1,
+      "collisions": 0
+    },
+    "prefix_replay": "PASS",
+    "completed_metrics": null,
+    "files_sha256": {
+      "decisions.jsonl": "c5e68abc4a98b7cd279530f443acb1068e6f5ae4125df2d959e86d4bc1af1998",
+      "frames.jsonl": "4845c60cfd0360f11718082643faa631037bdcda72bf7bdea08a1c615922559c",
+      "manifest.json": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+      "signals.csv": "776f781eaa769d8fdeab88e3312aee5099e5eb5517a1963d851ac2120320fdae",
+      "sumo-errors.log": "2350c92c19cc547463751af91f1a0c98bdf923fd3b43f5ce9612e34b58e6fc99",
+      "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tripinfo.xml": "a22027d648967359ea0e479a02132decbc81a86422626f16841d27cef5c5e7cc"
+    }
+  },
+  "reason": "yield",
+  "source_lane": "zt_b_N_in_0",
+  "sumo_warning_time": 477.0,
+  "vehicle": {
+    "id": "veh_00172",
+    "type": "bus",
+    "route": "od_021",
+    "depart": "142.441",
+    "departLane": "best",
+    "departSpeed": "0",
+    "route_edges": [
+      "zt_b_N_in",
+      "zt_link_in",
+      "zt_a_S_out"
+    ]
+  },
+  "stopped_begin": 178,
+  "stopped_end": 477,
+  "continuous_stopped_seconds": 300,
+  "last_pre_event_speed_wait": [
+    0.0,
+    300.0
+  ],
+  "upstream_junction": "zt_b",
+  "upstream_green": [
+    {
+      "begin": 360,
+      "end": 390,
+      "seconds": 31
+    }
+  ],
+  "receiving_lane": "zt_link_in_0",
+  "receiving_lane_count_when_green": [
+    15,
+    15
+  ],
+  "downstream": {
+    "junction": "zt_a",
+    "green": [
+      {
+        "begin": 295,
+        "end": 310,
+        "seconds": 16
+      },
+      {
+        "begin": 410,
+        "end": 425,
+        "seconds": 16
+      }
+    ],
+    "continuous_from_actual_receiving_lane": true,
+    "next_incoming_options": [
+      "zt_link_in_0",
+      "zt_link_in_1"
+    ]
+  },
+  "uncertainty": "Exact microscopic gap/leader cause is not established without position/leader data. Do not tune the final inputs based on this result."
+}

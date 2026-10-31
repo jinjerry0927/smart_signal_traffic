@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='utf-8'?>
+<net xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.20" junctionCornerDetail="8" junctionLinkDetail="8" limitTurnSpeed="5.50" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+  <location netOffset="0.00,0.00" convBoundary="-220.00,-300.00,180.00,520.00" origBoundary="-220.00,-300.00,180.00,520.00" projParameter="!" />
+  <edge id=":zt_a_0" function="internal">
+    <lane id=":zt_a_0_0" index="0" allow="passenger bus truck" speed="10.40" length="24.67" width="3.20" shape="-4.80,15.20 -5.14,11.59 -6.17,8.54 -7.89,6.04 -10.29,4.10 -13.37,2.71 -17.14,1.88 -21.60,1.60" />
+  </edge>
+  <edge id=":zt_a_1" function="internal">
+    <lane id=":zt_a_1_0" index="0" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="-4.80,15.20 -4.98,11.15 -5.43,7.42 -6.06,3.76 -6.74,-0.09 -7.37,-4.36 -7.82,-9.32 -8.00,-15.20" />
+    <lane id=":zt_a_1_1" index="1" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="-1.60,15.20 -1.78,11.15 -2.23,7.42 -2.86,3.76 -3.54,-0.09 -4.17,-4.36 -4.62,-9.32 -4.80,-15.20" />
+  </edge>
+  <edge id=":zt_a_3" function="internal">
+    <lane id=":zt_a_3_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="-1.60,15.20 -1.13,10.74 0.29,6.97 2.66,3.89 5.98,1.49 10.24,-0.23 15.44,-1.26 21.60,-1.60" />
+  </edge>
+  <edge id=":zt_a_4" function="internal">
+    <lane id=":zt_a_4_0" index="0" allow="passenger bus truck" speed="10.40" length="24.67" width="3.20" shape="21.60,1.60 17.14,1.88 13.37,2.71 10.29,4.10 7.89,6.04 6.17,8.54 5.14,11.59 4.80,15.20" />
+  </edge>
+  <edge id=":zt_a_5" function="internal">
+    <lane id=":zt_a_5_0" index="0" allow="passenger bus truck" speed="13.89" length="43.20" width="3.20" shape="21.60,1.60 -21.60,1.60" />
+  </edge>
+  <edge id=":zt_a_6" function="internal">
+    <lane id=":zt_a_6_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="21.60,1.60 15.44,1.26 10.24,0.23 5.98,-1.49 2.66,-3.89 0.29,-6.97 -1.13,-10.74 -1.60,-15.20" />
+  </edge>
+  <edge id=":zt_a_7" function="internal">
+    <lane id=":zt_a_7_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="8.00,-15.20 8.28,-11.59 9.11,-8.54 10.50,-6.04 12.44,-4.10 14.94,-2.71 17.99,-1.88 21.60,-1.60" />
+  </edge>
+  <edge id=":zt_a_8" function="internal">
+    <lane id=":zt_a_8_0" index="0" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="8.00,-15.20 7.82,-9.32 7.37,-4.36 6.74,-0.09 6.06,3.76 5.43,7.42 4.98,11.15 4.80,15.20" />
+    <lane id=":zt_a_8_1" index="1" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="4.80,-15.20 4.62,-9.32 4.17,-4.36 3.54,-0.09 2.86,3.76 2.23,7.42 1.78,11.15 1.60,15.20" />
+  </edge>
+  <edge id=":zt_a_10" function="internal">
+    <lane id=":zt_a_10_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="1.60,-15.20 1.13,-10.74 -0.29,-6.97 -2.66,-3.89 -5.98,-1.49 -10.24,0.23 -15.44,1.26 -21.60,1.60" />
+  </edge>
+  <edge id=":zt_a_11" function="internal">
+    <lane id=":zt_a_11_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="-21.60,-1.60 -17.99,-1.88 -14.94,-2.71 -12.44,-4.10 -10.50,-6.04 -9.11,-8.54 -8.28,-11.59 -8.00,-15.20" />
+  </edge>
+  <edge id=":zt_a_12" function="internal">
+    <lane id=":zt_a_12_0" index="0" allow="passenger bus truck" speed="13.89" length="43.20" width="3.20" shape="-21.60,-1.60 21.60,-1.60" />
+  </edge>
+  <edge id=":zt_a_13" function="internal">
+    <lane id=":zt_a_13_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="-21.60,-1.60 -15.44,-1.26 -10.24,-0.23 -5.98,1.49 -2.66,3.89 -0.29,6.97 1.13,10.74 1.60,15.20" />
+  </edge>
+  <edge id=":zt_b_0" function="internal">
+    <lane id=":zt_b_0_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="-8.00,175.20 -8.28,171.59 -9.11,168.54 -10.50,166.04 -12.44,164.10 -14.94,162.71 -17.99,161.88 -21.60,161.60" />
+  </edge>
+  <edge id=":zt_b_1" function="internal">
+    <lane id=":zt_b_1_0" index="0" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="-8.00,175.20 -7.82,169.32 -7.37,164.36 -6.74,160.09 -6.06,156.24 -5.43,152.58 -4.98,148.85 -4.80,144.80" />
+    <lane id=":zt_b_1_1" index="1" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="-4.80,175.20 -4.62,169.32 -4.17,164.36 -3.54,160.09 -2.86,156.24 -2.23,152.58 -1.78,148.85 -1.60,144.80" />
+  </edge>
+  <edge id=":zt_b_3" function="internal">
+    <lane id=":zt_b_3_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="-1.60,175.20 -1.13,170.74 0.29,166.97 2.66,163.89 5.98,161.49 10.24,159.77 15.44,158.74 21.60,158.40" />
+  </edge>
+  <edge id=":zt_b_4" function="internal">
+    <lane id=":zt_b_4_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="21.60,161.60 17.99,161.88 14.94,162.71 12.44,164.10 10.50,166.04 9.11,168.54 8.28,171.59 8.00,175.20" />
+  </edge>
+  <edge id=":zt_b_5" function="internal">
+    <lane id=":zt_b_5_0" index="0" allow="passenger bus truck" speed="13.89" length="43.20" width="3.20" shape="21.60,161.60 -21.60,161.60" />
+  </edge>
+  <edge id=":zt_b_6" function="internal">
+    <lane id=":zt_b_6_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="21.60,161.60 15.44,161.26 10.24,160.23 5.98,158.51 2.66,156.11 0.29,153.03 -1.13,149.26 -1.60,144.80" />
+  </edge>
+  <edge id=":zt_b_7" function="internal">
+    <lane id=":zt_b_7_0" index="0" allow="passenger bus truck" speed="10.40" length="24.67" width="3.20" shape="4.80,144.80 5.14,148.41 6.17,151.46 7.89,153.96 10.29,155.90 13.37,157.29 17.14,158.12 21.60,158.40" />
+  </edge>
+  <edge id=":zt_b_8" function="internal">
+    <lane id=":zt_b_8_0" index="0" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="4.80,144.80 4.98,148.85 5.43,152.58 6.06,156.24 6.74,160.09 7.37,164.36 7.82,169.32 8.00,175.20" />
+    <lane id=":zt_b_8_1" index="1" allow="passenger bus truck" speed="13.89" length="30.61" width="3.20" shape="1.60,144.80 1.78,148.85 2.23,152.58 2.86,156.24 3.54,160.09 4.17,164.36 4.62,169.32 4.80,175.20" />
+  </edge>
+  <edge id=":zt_b_10" function="internal">
+    <lane id=":zt_b_10_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="1.60,144.80 1.13,149.26 -0.29,153.03 -2.66,156.11 -5.98,158.51 -10.24,160.23 -15.44,161.26 -21.60,161.60" />
+  </edge>
+  <edge id=":zt_b_11" function="internal">
+    <lane id=":zt_b_11_0" index="0" allow="passenger bus truck" speed="10.40" length="24.67" width="3.20" shape="-21.60,158.40 -17.14,158.12 -13.37,157.29 -10.29,155.90 -7.89,153.96 -6.17,151.46 -5.14,148.41 -4.80,144.80" />
+  </edge>
+  <edge id=":zt_b_12" function="internal">
+    <lane id=":zt_b_12_0" index="0" allow="passenger bus truck" speed="13.89" length="43.20" width="3.20" shape="-21.60,158.40 21.60,158.40" />
+  </edge>
+  <edge id=":zt_b_13" function="internal">
+    <lane id=":zt_b_13_0" index="0" allow="passenger bus truck" speed="11.88" length="32.56" width="3.20" shape="-21.60,158.40 -15.44,158.74 -10.24,159.77 -5.98,161.49 -2.66,163.89 -0.29,166.97 1.13,170.74 1.60,175.20" />
+  </edge>
+  <edge id="zt_a_E_in" from="zt_a_E_end" to="zt_a" priority="-1">
+    <lane id="zt_a_E_in_0" index="0" allow="passenger bus truck" speed="13.89" length="158.40" width="3.20" shape="180.00,1.60 21.60,1.60" />
+  </edge>
+  <edge id="zt_a_E_out" from="zt_a" to="zt_a_E_end" priority="-1">
+    <lane id="zt_a_E_out_0" index="0" allow="passenger bus truck" speed="13.89" length="158.40" width="3.20" shape="21.60,-1.60 180.00,-1.60" />
+  </edge>
+  <edge id="zt_a_S_in" from="zt_a_S_end" to="zt_a" priority="-1">
+    <lane id="zt_a_S_in_0" index="0" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="8.00,-300.00 8.00,-15.20" />
+    <lane id="zt_a_S_in_1" index="1" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="4.80,-300.00 4.80,-15.20" />
+    <lane id="zt_a_S_in_2" index="2" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="1.60,-300.00 1.60,-15.20" />
+  </edge>
+  <edge id="zt_a_S_out" from="zt_a" to="zt_a_S_end" priority="-1">
+    <lane id="zt_a_S_out_0" index="0" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="-8.00,-15.20 -8.00,-300.00" />
+    <lane id="zt_a_S_out_1" index="1" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="-4.80,-15.20 -4.80,-300.00" />
+    <lane id="zt_a_S_out_2" index="2" allow="passenger bus truck" speed="13.89" length="284.80" width="3.20" shape="-1.60,-15.20 -1.60,-300.00" />
+  </edge>
+  <edge id="zt_a_W_in" from="zt_a_W_end" to="zt_a" priority="-1">
+    <lane id="zt_a_W_in_0" index="0" allow="passenger bus truck" speed="13.89" length="198.40" width="3.20" shape="-220.00,-1.60 -21.60,-1.60" />
+  </edge>
+  <edge id="zt_a_W_out" from="zt_a" to="zt_a_W_end" priority="-1">
+    <lane id="zt_a_W_out_0" index="0" allow="passenger bus truck" speed="13.89" length="198.40" width="3.20" shape="-21.60,1.60 -220.00,1.60" />
+  </edge>
+  <edge id="zt_b_E_in" from="zt_b_E_end" to="zt_b" priority="-1">
+    <lane id="zt_b_E_in_0" index="0" allow="passenger bus truck" speed="13.89" length="158.40" width="3.20" shape="180.00,161.60 21.60,161.60" />
+  </edge>
+  <edge id="zt_b_E_out" from="zt_b" to="zt_b_E_end" priority="-1">
+    <lane id="zt_b_E_out_0" index="0" allow="passenger bus truck" speed="13.89" length="158.40" width="3.20" shape="21.60,158.40 180.00,158.40" />
+  </edge>
+  <edge id="zt_b_N_in" from="zt_b_N_end" to="zt_b" priority="-1">
+    <lane id="zt_b_N_in_0" index="0" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="-8.00,520.00 -8.00,175.20" />
+    <lane id="zt_b_N_in_1" index="1" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="-4.80,520.00 -4.80,175.20" />
+    <lane id="zt_b_N_in_2" index="2" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="-1.60,520.00 -1.60,175.20" />
+  </edge>
+  <edge id="zt_b_N_out" from="zt_b" to="zt_b_N_end" priority="-1">
+    <lane id="zt_b_N_out_0" index="0" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="8.00,175.20 8.00,520.00" />
+    <lane id="zt_b_N_out_1" index="1" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="4.80,175.20 4.80,520.00" />
+    <lane id="zt_b_N_out_2" index="2" allow="passenger bus truck" speed="13.89" length="344.80" width="3.20" shape="1.60,175.20 1.60,520.00" />
+  </edge>
+  <edge id="zt_b_W_in" from="zt_b_W_end" to="zt_b" priority="-1">
+    <lane id="zt_b_W_in_0" index="0" allow="passenger bus truck" speed="13.89" length="198.40" width="3.20" shape="-220.00,158.40 -21.60,158.40" />
+  </edge>
+  <edge id="zt_b_W_out" from="zt_b" to="zt_b_W_end" priority="-1">
+    <lane id="zt_b_W_out_0" index="0" allow="passenger bus truck" speed="13.89" length="198.40" width="3.20" shape="-21.60,161.60 -220.00,161.60" />
+  </edge>
+  <edge id="zt_link_in" from="zt_b" to="zt_a" priority="-1">
+    <lane id="zt_link_in_0" index="0" allow="passenger bus truck" speed="13.89" length="129.60" width="3.20" shape="-4.80,144.80 -4.80,15.20" />
+    <lane id="zt_link_in_1" index="1" allow="passenger bus truck" speed="13.89" length="129.60" width="3.20" shape="-1.60,144.80 -1.60,15.20" />
+  </edge>
+  <edge id="zt_link_out" from="zt_a" to="zt_b" priority="-1">
+    <lane id="zt_link_out_0" index="0" allow="passenger bus truck" speed="13.89" length="129.60" width="3.20" shape="4.80,15.20 4.80,144.80" />
+    <lane id="zt_link_out_1" index="1" allow="passenger bus truck" speed="13.89" length="129.60" width="3.20" shape="1.60,15.20 1.60,144.80" />
+  </edge>
+  <tlLogic id="zt_a" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGGGrrrrrrrrrr" name="N_G" />
+    <phase duration="3" state="yyyyrrrrrrrrrr" name="N_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="N_r" />
+    <phase duration="25" state="rrrrGGGrrrrrrr" name="E_G" />
+    <phase duration="3" state="rrrryyyrrrrrrr" name="E_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="E_r" />
+    <phase duration="25" state="rrrrrrrGGGGrrr" name="S_G" />
+    <phase duration="3" state="rrrrrrryyyyrrr" name="S_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="S_r" />
+    <phase duration="25" state="rrrrrrrrrrrGGG" name="W_G" />
+    <phase duration="3" state="rrrrrrrrrrryyy" name="W_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="W_r" />
+  </tlLogic>
+  <tlLogic id="zt_b" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGGGrrrrrrrrrr" name="N_G" />
+    <phase duration="3" state="yyyyrrrrrrrrrr" name="N_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="N_r" />
+    <phase duration="25" state="rrrrGGGrrrrrrr" name="E_G" />
+    <phase duration="3" state="rrrryyyrrrrrrr" name="E_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="E_r" />
+    <phase duration="25" state="rrrrrrrGGGGrrr" name="S_G" />
+    <phase duration="3" state="rrrrrrryyyyrrr" name="S_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="S_r" />
+    <phase duration="25" state="rrrrrrrrrrrGGG" name="W_G" />
+    <phase duration="3" state="rrrrrrrrrrryyy" name="W_y" />
+    <phase duration="2" state="rrrrrrrrrrrrrr" name="W_r" />
+  </tlLogic>
+  <junction id="zt_a" type="traffic_light" x="0.00" y="0.00" incLanes="zt_link_in_0 zt_link_in_1 zt_a_E_in_0 zt_a_S_in_0 zt_a_S_in_1 zt_a_S_in_2 zt_a_W_in_0" intLanes=":zt_a_0_0 :zt_a_1_0 :zt_a_1_1 :zt_a_3_0 :zt_a_4_0 :zt_a_5_0 :zt_a_6_0 :zt_a_7_0 :zt_a_8_0 :zt_a_8_1 :zt_a_10_0 :zt_a_11_0 :zt_a_12_0 :zt_a_13_0" shape="-6.40,15.20 6.40,15.20 6.59,12.68 7.15,10.46 8.09,8.53 9.40,6.90 11.09,5.57 13.16,4.53 15.60,3.79 18.41,3.35 21.60,3.20 21.60,-3.20 19.08,-3.35 16.86,-3.79 14.93,-4.53 13.30,-5.57 11.97,-6.90 10.93,-8.53 10.19,-10.46 9.75,-12.68 9.60,-15.20 -9.60,-15.20 -9.75,-12.68 -10.19,-10.46 -10.93,-8.53 -11.97,-6.90 -13.30,-5.57 -14.93,-4.53 -16.86,-3.79 -19.08,-3.35 -21.60,-3.20 -21.60,3.20 -18.41,3.35 -15.60,3.79 -13.16,4.53 -11.09,5.57 -9.40,6.90 -8.09,8.53 -7.15,10.46 -6.59,12.68" radius="12.00">
+    <request index="0" response="00000000000000" foes="00010000100000" cont="0" />
+    <request index="1" response="00000000000000" foes="11110000100000" cont="0" />
+    <request index="2" response="00000000000000" foes="11110000100000" cont="0" />
+    <request index="3" response="00001110000000" foes="11001111100000" cont="0" />
+    <request index="4" response="00001100000000" foes="00001100000000" cont="0" />
+    <request index="5" response="00011100001111" foes="10011100001111" cont="0" />
+    <request index="6" response="01011100001000" foes="01011100001000" cont="0" />
+    <request index="7" response="00000000000000" foes="01000000001000" cont="0" />
+    <request index="8" response="00000000000000" foes="11000001111000" cont="0" />
+    <request index="9" response="00000000000000" foes="11000001111000" cont="0" />
+    <request index="10" response="00000000000111" foes="11000001100111" cont="0" />
+    <request index="11" response="00000000000110" foes="00000000000110" cont="0" />
+    <request index="12" response="00011110001110" foes="00011111001110" cont="0" />
+    <request index="13" response="00011100101110" foes="00011100101110" cont="0" />
+  </junction>
+  <junction id="zt_a_E_end" type="dead_end" x="180.00" y="0.00" incLanes="zt_a_E_out_0" intLanes="" shape="180.00,0.00 180.00,-3.20 180.00,0.00" fringe="outer" />
+  <junction id="zt_a_S_end" type="dead_end" x="0.00" y="-300.00" incLanes="zt_a_S_out_0 zt_a_S_out_1 zt_a_S_out_2" intLanes="" shape="0.00,-300.00 -9.60,-300.00 0.00,-300.00" fringe="outer" />
+  <junction id="zt_a_W_end" type="dead_end" x="-220.00" y="0.00" incLanes="zt_a_W_out_0" intLanes="" shape="-220.00,0.00 -220.00,3.20 -220.00,0.00" fringe="outer" />
+  <junction id="zt_b" type="traffic_light" x="0.00" y="160.00" incLanes="zt_b_N_in_0 zt_b_N_in_1 zt_b_N_in_2 zt_b_E_in_0 zt_link_out_0 zt_link_out_1 zt_b_W_in_0" intLanes=":zt_b_0_0 :zt_b_1_0 :zt_b_1_1 :zt_b_3_0 :zt_b_4_0 :zt_b_5_0 :zt_b_6_0 :zt_b_7_0 :zt_b_8_0 :zt_b_8_1 :zt_b_10_0 :zt_b_11_0 :zt_b_12_0 :zt_b_13_0" shape="-9.60,175.20 9.60,175.20 9.75,172.68 10.19,170.46 10.93,168.53 11.97,166.90 13.30,165.57 14.93,164.53 16.86,163.79 19.08,163.35 21.60,163.20 21.60,156.80 18.41,156.65 15.60,156.21 13.16,155.47 11.09,154.43 9.40,153.10 8.09,151.47 7.15,149.54 6.59,147.32 6.40,144.80 -6.40,144.80 -6.59,147.32 -7.15,149.54 -8.09,151.47 -9.40,153.10 -11.09,154.43 -13.16,155.47 -15.60,156.21 -18.41,156.65 -21.60,156.80 -21.60,163.20 -19.08,163.35 -16.86,163.79 -14.93,164.53 -13.30,165.57 -11.97,166.90 -10.93,168.53 -10.19,170.46 -9.75,172.68" radius="12.00">
+    <request index="0" response="00000000000000" foes="00010000100000" cont="0" />
+    <request index="1" response="00000000000000" foes="11110001100000" cont="0" />
+    <request index="2" response="00000000000000" foes="11110001100000" cont="0" />
+    <request index="3" response="00001110000000" foes="11001111100000" cont="0" />
+    <request index="4" response="00001100000000" foes="00001100000000" cont="0" />
+    <request index="5" response="00011100001111" foes="10011100001111" cont="0" />
+    <request index="6" response="01011100001110" foes="01011100001110" cont="0" />
+    <request index="7" response="00000000000000" foes="01000000001000" cont="0" />
+    <request index="8" response="00000000000000" foes="01000001111000" cont="0" />
+    <request index="9" response="00000000000000" foes="01000001111000" cont="0" />
+    <request index="10" response="00000000000111" foes="11000001100111" cont="0" />
+    <request index="11" response="00000000000110" foes="00000000000110" cont="0" />
+    <request index="12" response="00011110001110" foes="00011111001110" cont="0" />
+    <request index="13" response="00010000101110" foes="00010000101110" cont="0" />
+  </junction>
+  <junction id="zt_b_E_end" type="dead_end" x="180.00" y="160.00" incLanes="zt_b_E_out_0" intLanes="" shape="180.00,160.00 180.00,156.80 180.00,160.00" fringe="outer" />
+  <junction id="zt_b_N_end" type="dead_end" x="0.00" y="520.00" incLanes="zt_b_N_out_0 zt_b_N_out_1 zt_b_N_out_2" intLanes="" shape="0.00,520.00 9.60,520.00 0.00,520.00" fringe="outer" />
+  <junction id="zt_b_W_end" type="dead_end" x="-220.00" y="160.00" incLanes="zt_b_W_out_0" intLanes="" shape="-220.00,160.00 -220.00,163.20 -220.00,160.00" fringe="outer" />
+  <connection from="zt_a_E_in" to="zt_link_out" fromLane="0" toLane="0" via=":zt_a_4_0" tl="zt_a" linkIndex="4" dir="r" state="o" />
+  <connection from="zt_a_E_in" to="zt_a_W_out" fromLane="0" toLane="0" via=":zt_a_5_0" tl="zt_a" linkIndex="5" dir="s" state="o" />
+  <connection from="zt_a_E_in" to="zt_a_S_out" fromLane="0" toLane="2" via=":zt_a_6_0" tl="zt_a" linkIndex="6" dir="l" state="o" />
+  <connection from="zt_a_S_in" to="zt_a_E_out" fromLane="0" toLane="0" via=":zt_a_7_0" tl="zt_a" linkIndex="7" dir="r" state="O" />
+  <connection from="zt_a_S_in" to="zt_link_out" fromLane="0" toLane="0" via=":zt_a_8_0" tl="zt_a" linkIndex="8" dir="s" state="O" />
+  <connection from="zt_a_S_in" to="zt_link_out" fromLane="1" toLane="1" via=":zt_a_8_1" tl="zt_a" linkIndex="9" dir="s" state="O" />
+  <connection from="zt_a_S_in" to="zt_a_W_out" fromLane="2" toLane="0" via=":zt_a_10_0" tl="zt_a" linkIndex="10" dir="l" state="o" />
+  <connection from="zt_a_W_in" to="zt_a_S_out" fromLane="0" toLane="0" via=":zt_a_11_0" tl="zt_a" linkIndex="11" dir="r" state="o" />
+  <connection from="zt_a_W_in" to="zt_a_E_out" fromLane="0" toLane="0" via=":zt_a_12_0" tl="zt_a" linkIndex="12" dir="s" state="o" />
+  <connection from="zt_a_W_in" to="zt_link_out" fromLane="0" toLane="1" via=":zt_a_13_0" tl="zt_a" linkIndex="13" dir="l" state="o" />
+  <connection from="zt_b_E_in" to="zt_b_N_out" fromLane="0" toLane="0" via=":zt_b_4_0" tl="zt_b" linkIndex="4" dir="r" state="o" />
+  <connection from="zt_b_E_in" to="zt_b_W_out" fromLane="0" toLane="0" via=":zt_b_5_0" tl="zt_b" linkIndex="5" dir="s" state="o" />
+  <connection from="zt_b_E_in" to="zt_link_in" fromLane="0" toLane="1" via=":zt_b_6_0" tl="zt_b" linkIndex="6" dir="l" state="o" />
+  <connection from="zt_b_N_in" to="zt_b_W_out" fromLane="0" toLane="0" via=":zt_b_0_0" tl="zt_b" linkIndex="0" dir="r" state="O" />
+  <connection from="zt_b_N_in" to="zt_link_in" fromLane="0" toLane="0" via=":zt_b_1_0" tl="zt_b" linkIndex="1" dir="s" state="O" />
+  <connection from="zt_b_N_in" to="zt_link_in" fromLane="1" toLane="1" via=":zt_b_1_1" tl="zt_b" linkIndex="2" dir="s" state="O" />
+  <connection from="zt_b_N_in" to="zt_b_E_out" fromLane="2" toLane="0" via=":zt_b_3_0" tl="zt_b" linkIndex="3" dir="l" state="o" />
+  <connection from="zt_b_W_in" to="zt_link_in" fromLane="0" toLane="0" via=":zt_b_11_0" tl="zt_b" linkIndex="11" dir="r" state="o" />
+  <connection from="zt_b_W_in" to="zt_b_E_out" fromLane="0" toLane="0" via=":zt_b_12_0" tl="zt_b" linkIndex="12" dir="s" state="o" />
+  <connection from="zt_b_W_in" to="zt_b_N_out" fromLane="0" toLane="2" via=":zt_b_13_0" tl="zt_b" linkIndex="13" dir="l" state="o" />
+  <connection from="zt_link_in" to="zt_a_W_out" fromLane="0" toLane="0" via=":zt_a_0_0" tl="zt_a" linkIndex="0" dir="r" state="O" />
+  <connection from="zt_link_in" to="zt_a_S_out" fromLane="0" toLane="0" via=":zt_a_1_0" tl="zt_a" linkIndex="1" dir="s" state="O" />
+  <connection from="zt_link_in" to="zt_a_S_out" fromLane="1" toLane="1" via=":zt_a_1_1" tl="zt_a" linkIndex="2" dir="s" state="O" />
+  <connection from="zt_link_in" to="zt_a_E_out" fromLane="1" toLane="0" via=":zt_a_3_0" tl="zt_a" linkIndex="3" dir="l" state="o" />
+  <connection from="zt_link_out" to="zt_b_E_out" fromLane="0" toLane="0" via=":zt_b_7_0" tl="zt_b" linkIndex="7" dir="r" state="O" />
+  <connection from="zt_link_out" to="zt_b_N_out" fromLane="0" toLane="0" via=":zt_b_8_0" tl="zt_b" linkIndex="8" dir="s" state="O" />
+  <connection from="zt_link_out" to="zt_b_N_out" fromLane="1" toLane="1" via=":zt_b_8_1" tl="zt_b" linkIndex="9" dir="s" state="O" />
+  <connection from="zt_link_out" to="zt_b_W_out" fromLane="1" toLane="0" via=":zt_b_10_0" tl="zt_b" linkIndex="10" dir="l" state="o" />
+  <connection from=":zt_a_0" to="zt_a_W_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_a_1" to="zt_a_S_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_a_1" to="zt_a_S_out" fromLane="1" toLane="1" dir="s" state="M" />
+  <connection from=":zt_a_3" to="zt_a_E_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_a_4" to="zt_link_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_a_5" to="zt_a_W_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_a_6" to="zt_a_S_out" fromLane="0" toLane="2" dir="l" state="M" />
+  <connection from=":zt_a_7" to="zt_a_E_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_a_8" to="zt_link_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_a_8" to="zt_link_out" fromLane="1" toLane="1" dir="s" state="M" />
+  <connection from=":zt_a_10" to="zt_a_W_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_a_11" to="zt_a_S_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_a_12" to="zt_a_E_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_a_13" to="zt_link_out" fromLane="0" toLane="1" dir="l" state="M" />
+  <connection from=":zt_b_0" to="zt_b_W_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_b_1" to="zt_link_in" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_b_1" to="zt_link_in" fromLane="1" toLane="1" dir="s" state="M" />
+  <connection from=":zt_b_3" to="zt_b_E_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_b_4" to="zt_b_N_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_b_5" to="zt_b_W_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_b_6" to="zt_link_in" fromLane="0" toLane="1" dir="l" state="M" />
+  <connection from=":zt_b_7" to="zt_b_E_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_b_8" to="zt_b_N_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_b_8" to="zt_b_N_out" fromLane="1" toLane="1" dir="s" state="M" />
+  <connection from=":zt_b_10" to="zt_b_W_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_b_11" to="zt_link_in" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_b_12" to="zt_b_E_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_b_13" to="zt_b_N_out" fromLane="0" toLane="2" dir="l" state="M" />
+</net>

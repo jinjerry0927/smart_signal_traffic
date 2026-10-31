@@ -1,0 +1,319 @@
+{
+  "title": "동결한 SmartSignal V2의 새 도로망 적용",
+  "data_date": "2026-10-29",
+  "scope": "지원된 T/X·1~3차로 범위의 새 가상 기하3종; 새 교차로 유형 전체나 현장 검증이 아님",
+  "roads": 3,
+  "conditions": 27,
+  "profiles": 3,
+  "departure_samples_per_profile": 3,
+  "controllers": 6,
+  "attempts": 162,
+  "completed_runs": 157,
+  "failed_runs": 5,
+  "smart_conditions_completed": 27,
+  "smart_collision_events": 0,
+  "smart_teleport_events": 0,
+  "additional_training": 0,
+  "policy_changes": 0,
+  "smart": {
+    "controller": "smart_v2",
+    "label": "SmartSignal V2",
+    "n": 27,
+    "mean_queue": 32.272839506172836,
+    "arrived": 8709,
+    "scheduled": 9037,
+    "remaining": 328
+  },
+  "fixed": {
+    "controller": "fixed",
+    "label": "Fixed",
+    "n": 27,
+    "mean_queue": 39.859053497942384,
+    "arrived": 8356,
+    "scheduled": 9037,
+    "remaining": 681
+  },
+  "max_pressure": {
+    "controller": "max_pressure",
+    "label": "Max-Pressure",
+    "n": 27,
+    "mean_queue": 31.482716049382717,
+    "arrived": 8387,
+    "scheduled": 9037,
+    "remaining": 650
+  },
+  "by_road": [
+    {
+      "case": "zt_t1_short",
+      "road": "삼거리",
+      "n": 9,
+      "fixed_mean_queue": 5.53395061728395,
+      "smart_mean_queue": 3.107283950617284,
+      "queue_change_pct": -43.8505298382599,
+      "queue_reduction_pct": 43.8505298382599,
+      "fixed_arrived": 1237,
+      "smart_arrived": 1237,
+      "scheduled": 1237
+    },
+    {
+      "case": "zt_x31_asymmetric",
+      "road": "비대칭 사거리",
+      "n": 9,
+      "fixed_mean_queue": 35.404074074074074,
+      "smart_mean_queue": 28.541851851851852,
+      "queue_change_pct": -19.382577857748117,
+      "queue_reduction_pct": 19.382577857748117,
+      "fixed_arrived": 3382,
+      "smart_arrived": 3451,
+      "scheduled": 3453
+    },
+    {
+      "case": "zt_pair_short",
+      "road": "연결 2교차로",
+      "n": 9,
+      "fixed_mean_queue": 78.63913580246913,
+      "smart_mean_queue": 65.16938271604938,
+      "queue_change_pct": -17.12856194179695,
+      "queue_reduction_pct": 17.12856194179695,
+      "fixed_arrived": 3737,
+      "smart_arrived": 4021,
+      "scheduled": 4347
+    }
+  ],
+  "by_road_demand": [
+    {
+      "case": "zt_t1_short",
+      "road": "삼거리",
+      "profile": "quiet",
+      "demand": "한산",
+      "n": 3,
+      "fixed_mean_queue": 2.4374074074074072,
+      "smart_mean_queue": 1.4748148148148148,
+      "queue_change_pct": -39.49247834675581,
+      "queue_reduction_pct": 39.49247834675581,
+      "fixed_arrived": 263,
+      "smart_arrived": 263,
+      "scheduled": 263
+    },
+    {
+      "case": "zt_t1_short",
+      "road": "삼거리",
+      "profile": "busy",
+      "demand": "혼잡",
+      "n": 3,
+      "fixed_mean_queue": 6.708888888888889,
+      "smart_mean_queue": 4.655185185185185,
+      "queue_change_pct": -30.611681572264548,
+      "queue_reduction_pct": 30.611681572264548,
+      "fixed_arrived": 525,
+      "smart_arrived": 525,
+      "scheduled": 525
+    },
+    {
+      "case": "zt_t1_short",
+      "road": "삼거리",
+      "profile": "directional",
+      "demand": "방향 편중",
+      "n": 3,
+      "fixed_mean_queue": 7.455555555555555,
+      "smart_mean_queue": 3.191851851851852,
+      "queue_change_pct": -57.18827620466964,
+      "queue_reduction_pct": 57.18827620466964,
+      "fixed_arrived": 449,
+      "smart_arrived": 449,
+      "scheduled": 449
+    },
+    {
+      "case": "zt_x31_asymmetric",
+      "road": "비대칭 사거리",
+      "profile": "quiet",
+      "demand": "한산",
+      "n": 3,
+      "fixed_mean_queue": 10.488148148148149,
+      "smart_mean_queue": 7.69962962962963,
+      "queue_change_pct": -26.587329613673283,
+      "queue_reduction_pct": 26.587329613673283,
+      "fixed_arrived": 713,
+      "smart_arrived": 713,
+      "scheduled": 713
+    },
+    {
+      "case": "zt_x31_asymmetric",
+      "road": "비대칭 사거리",
+      "profile": "busy",
+      "demand": "혼잡",
+      "n": 3,
+      "fixed_mean_queue": 53.62481481481481,
+      "smart_mean_queue": 45.51111111111111,
+      "queue_change_pct": -15.130502047835781,
+      "queue_reduction_pct": 15.130502047835781,
+      "fixed_arrived": 1455,
+      "smart_arrived": 1493,
+      "scheduled": 1493
+    },
+    {
+      "case": "zt_x31_asymmetric",
+      "road": "비대칭 사거리",
+      "profile": "directional",
+      "demand": "방향 편중",
+      "n": 3,
+      "fixed_mean_queue": 42.099259259259256,
+      "smart_mean_queue": 32.41481481481482,
+      "queue_change_pct": -23.00383573213216,
+      "queue_reduction_pct": 23.00383573213216,
+      "fixed_arrived": 1214,
+      "smart_arrived": 1245,
+      "scheduled": 1247
+    },
+    {
+      "case": "zt_pair_short",
+      "road": "연결 2교차로",
+      "profile": "quiet",
+      "demand": "한산",
+      "n": 3,
+      "fixed_mean_queue": 21.054814814814815,
+      "smart_mean_queue": 15.427777777777777,
+      "queue_change_pct": -26.725654376583176,
+      "queue_reduction_pct": 26.725654376583176,
+      "fixed_arrived": 901,
+      "smart_arrived": 901,
+      "scheduled": 901
+    },
+    {
+      "case": "zt_pair_short",
+      "road": "연결 2교차로",
+      "profile": "busy",
+      "demand": "혼잡",
+      "n": 3,
+      "fixed_mean_queue": 122.04518518518518,
+      "smart_mean_queue": 109.42777777777778,
+      "queue_change_pct": -10.338308216143377,
+      "queue_reduction_pct": 10.338308216143377,
+      "fixed_arrived": 1493,
+      "smart_arrived": 1646,
+      "scheduled": 1908
+    },
+    {
+      "case": "zt_pair_short",
+      "road": "연결 2교차로",
+      "profile": "directional",
+      "demand": "방향 편중",
+      "n": 3,
+      "fixed_mean_queue": 92.8174074074074,
+      "smart_mean_queue": 70.65259259259258,
+      "queue_change_pct": -23.88001931310778,
+      "queue_reduction_pct": 23.88001931310778,
+      "fixed_arrived": 1343,
+      "smart_arrived": 1474,
+      "scheduled": 1538
+    }
+  ],
+  "paired_baselines": [
+    {
+      "baseline": "fixed",
+      "label": "Fixed",
+      "n": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 39.859053497942384,
+      "queue_change_pct": -19.03259943731771,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8356
+    },
+    {
+      "baseline": "webster",
+      "label": "Webster",
+      "n": 22,
+      "smart_mean_queue": 17.519343434343433,
+      "baseline_mean_queue": 21.918737373737372,
+      "queue_change_pct": -20.071383968791977,
+      "smart_arrived": 6071,
+      "baseline_arrived": 5938
+    },
+    {
+      "baseline": "max_pressure",
+      "label": "Max-Pressure",
+      "n": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 31.482716049382717,
+      "queue_change_pct": 2.5097055017450076,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8387
+    },
+    {
+      "baseline": "raw_smart",
+      "label": "학습 모델 단독",
+      "n": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 33.806748971193414,
+      "queue_change_pct": -4.53728770645061,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8660
+    },
+    {
+      "baseline": "rules_pressure",
+      "label": "규칙 중심 진단",
+      "n": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 31.452181069958847,
+      "queue_change_pct": 2.609225841567575,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8388
+    }
+  ],
+  "coverage": [
+    {
+      "controller": "fixed",
+      "label": "Fixed",
+      "completed": 27,
+      "failed": 0,
+      "unattempted": 0
+    },
+    {
+      "controller": "webster",
+      "label": "Webster",
+      "completed": 22,
+      "failed": 5,
+      "unattempted": 0
+    },
+    {
+      "controller": "max_pressure",
+      "label": "Max-Pressure",
+      "completed": 27,
+      "failed": 0,
+      "unattempted": 0
+    },
+    {
+      "controller": "smart_v2",
+      "label": "SmartSignal V2",
+      "completed": 27,
+      "failed": 0,
+      "unattempted": 0
+    },
+    {
+      "controller": "raw_smart",
+      "label": "학습 모델 단독",
+      "completed": 27,
+      "failed": 0,
+      "unattempted": 0
+    },
+    {
+      "controller": "rules_pressure",
+      "label": "규칙 중심 진단",
+      "completed": 27,
+      "failed": 0,
+      "unattempted": 0
+    }
+  ],
+  "fixed_queue_change_pct": -19.03259943731771,
+  "fixed_arrival_increase": 353,
+  "fixed_arrival_change_pct": 4.224509334609872,
+  "max_pressure_queue_change_pct": 2.5097055017450076,
+  "max_pressure_arrival_increase": 322,
+  "all27_queue_improved_vs_fixed": true,
+  "learned_contribution_target_met": false,
+  "original_full_protocol_pass_claim": false,
+  "source_comparison_sha256": "24980ee43d52de4f3443f7d7609275b66d11911f793aab92b1f252bc28b07fb0",
+  "source_summary_sha256": "890307441af1020181e4a14b55a2cf8d246ed8e167ab6e9a25adc69591ea2388",
+  "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+  "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3"
+}

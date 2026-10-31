@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<edges>
+  <edge id="zt_t1_short_N_out" from="zt_t1_short" to="zt_t1_short_N_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_t1_short_N_in" from="zt_t1_short_N_end" to="zt_t1_short" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_t1_short_E_out" from="zt_t1_short" to="zt_t1_short_E_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_t1_short_E_in" from="zt_t1_short_E_end" to="zt_t1_short" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_t1_short_S_out" from="zt_t1_short" to="zt_t1_short_S_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_t1_short_S_in" from="zt_t1_short_S_end" to="zt_t1_short" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+</edges>

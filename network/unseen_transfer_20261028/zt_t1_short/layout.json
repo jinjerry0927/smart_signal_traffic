@@ -1,0 +1,44 @@
+{
+  "junctions": [
+    {
+      "id": "zt_t1_short",
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "roads": [
+    {
+      "id": "zt_t1_short_N",
+      "a": "zt_t1_short",
+      "b": "zt_t1_short_N_end",
+      "arm_a": "N",
+      "lanes": 1,
+      "end_xy": [
+        0,
+        150
+      ]
+    },
+    {
+      "id": "zt_t1_short_E",
+      "a": "zt_t1_short",
+      "b": "zt_t1_short_E_end",
+      "arm_a": "E",
+      "lanes": 1,
+      "end_xy": [
+        330,
+        0
+      ]
+    },
+    {
+      "id": "zt_t1_short_S",
+      "a": "zt_t1_short",
+      "b": "zt_t1_short_S_end",
+      "arm_a": "S",
+      "lanes": 1,
+      "end_xy": [
+        0,
+        -210
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="zt_t1_short" x="0" y="0" type="traffic_light" radius="12" />
+  <node id="zt_t1_short_N_end" x="0" y="150" type="priority" fringe="outer" />
+  <node id="zt_t1_short_E_end" x="330" y="0" type="priority" fringe="outer" />
+  <node id="zt_t1_short_S_end" x="0" y="-210" type="priority" fringe="outer" />
+</nodes>

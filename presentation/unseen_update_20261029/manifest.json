@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "created": "2026-10-29",
+  "kind": "PPT planning, factual visual assets and editable source data",
+  "files": {
+    "00_ChatGPT_제작요청.txt": {
+      "bytes": 20678,
+      "sha256": "6d5851523f5c3c137cf2d0cd201206f15d517c0c9989d35b052e7cf6f3d4fc38"
+    },
+    "01_슬라이드구성_발표대본.md": {
+      "bytes": 14679,
+      "sha256": "df64e001fc9c656e68ec94feff4ee52fb2c5e863139645efeaa6ed380ac24c85"
+    },
+    "02_교수님_질문대응.md": {
+      "bytes": 8819,
+      "sha256": "65471b0faf741c3c5823e31a34cac1660728c4fc705a1204cdc45b776664a1cf"
+    },
+    "03_수치정의_주의사항.md": {
+      "bytes": 5810,
+      "sha256": "57c49d697b076f1d4a9b41dfd8684c5041a972773071339bc062dd16bda59532"
+    },
+    "04_시각자료_목록.md": {
+      "bytes": 4989,
+      "sha256": "0bf30ffe655aac09f31ada7656c248280ab0aaf3ed5b2ca5f6fcdddef0b95e9b"
+    },
+    "assets/01_road_a.png": {
+      "bytes": 61775,
+      "sha256": "67a505fbaf12509d869b21116a30007b8fd17ea4046d56a274c73ddc6497d0ca"
+    },
+    "assets/01_road_a.svg": {
+      "bytes": 1702,
+      "sha256": "6ada9271ff1a67792790fb312c30d11c6d48f398a6f13cb13297b363911724b8"
+    },
+    "assets/02_road_b.png": {
+      "bytes": 65176,
+      "sha256": "4c383ca048b48b8f4ad8efbfca6f23d8cca7530eb20bccb5141b99e5b42be81f"
+    },
+    "assets/02_road_b.svg": {
+      "bytes": 3919,
+      "sha256": "6fc3a70806ae6a4cdbf3683fa62f7e72479658a47ba67050f9742446d9a5fd03"
+    },
+    "assets/03_road_c.png": {
+      "bytes": 68346,
+      "sha256": "315ecf0122f7751dc626b900266ab6b57dd724c1667435264e83e432a2745dfb"
+    },
+    "assets/03_road_c.svg": {
+      "bytes": 5901,
+      "sha256": "a9cdc5519da1fd638330f9474356df76a61bb2827781dcd197dffa3ff3cabf3f"
+    },
+    "assets/04_overall_queue.png": {
+      "bytes": 94275,
+      "sha256": "6325192515e287e976ccde98c298b9721f9fdfe734be045fa7e5ec4e9bf71f50"
+    },
+    "assets/04_overall_queue.svg": {
+      "bytes": 7824,
+      "sha256": "b1d22492e79a326e87555f6aef9fd2ba99897ba8a38d677e89043c4535d653b6"
+    },
+    "assets/05_arrived_vehicles.png": {
+      "bytes": 114714,
+      "sha256": "c245d4e89dbabaafc5df538483de3f403244584b21a0b68a2e78c1a6b1605095"
+    },
+    "assets/05_arrived_vehicles.svg": {
+      "bytes": 8542,
+      "sha256": "573a800575ea415fdfb70bb11c6acec25e7babcf31b6825958ded81be111fd22"
+    },
+    "assets/06_by_geometry.png": {
+      "bytes": 135517,
+      "sha256": "6495bf45eb3450fc61165de23189e004c7462711bc026cca5491193fd5c100fa"
+    },
+    "assets/06_by_geometry.svg": {
+      "bytes": 12094,
+      "sha256": "9e4e03afa14f4863aa1e71d9c3d8fad631e6d759ff4655a59f25586890dabfca"
+    },
+    "assets/07_demand_heatmap.png": {
+      "bytes": 171461,
+      "sha256": "f98232584ef43b5f971a11c5c6bc96b305f4beb170d215fdb1213c70618e8d14"
+    },
+    "assets/07_demand_heatmap.svg": {
+      "bytes": 13982,
+      "sha256": "d8fedc176eb24fc770a94c04067bf5d68a7e8c4c75111af0b818bde1f11346f8"
+    },
+    "assets/08_paired_baselines.png": {
+      "bytes": 132969,
+      "sha256": "f4fde830a73bdc061dd57fd00a715f3314bfd7ddba5953b563de9119f7135eea"
+    },
+    "assets/08_paired_baselines.svg": {
+      "bytes": 10214,
+      "sha256": "312382d4085d18640cb878499f01b80a67aec4f72967ad0ba269322a6b721453"
+    },
+    "assets/09_completion.png": {
+      "bytes": 94530,
+      "sha256": "0cb2588614de7f2f12ed1404ef66ef2056d9a8f84afe16926b4d638df58214d8"
+    },
+    "assets/09_completion.svg": {
+      "bytes": 9517,
+      "sha256": "315a79df8dbe05204784c046203188984dacde5020df749dd1c384c0f0dd6b72"
+    },
+    "assets/10_web_trial.png": {
+      "bytes": 46920,
+      "sha256": "cbee16e86dbd0ed2f8a0562cbbbe9703c9a694cd557390623ed1ce4f2075b55a"
+    },
+    "assets/11_all27_conditions.png": {
+      "bytes": 112115,
+      "sha256": "ad450d5c0a39a13bca63dab5ecbe33c6eadf60c709fd24603769be5c8352349f"
+    },
+    "assets/11_all27_conditions.svg": {
+      "bytes": 16227,
+      "sha256": "8f5ad8cb69bb16d4dbca842d46b93311172960c40538b04beae90c7d84e7be69"
+    },
+    "assets/12_network_geometry_reference.png": {
+      "bytes": 73719,
+      "sha256": "3f7c8900c5a5bc3aa7ca714bc437829d29c85b9a80f4be73a73fcfe50c593abe"
+    },
+    "assets/map_capture_metadata.json": {
+      "bytes": 583,
+      "sha256": "8e68d29464caf680f4653cad03cf90ed327af85e21d8162e18383941ae9563fe"
+    },
+    "data/01_overall_full27.csv": {
+      "bytes": 376,
+      "sha256": "260b73efcd59381e1f5789440b91c29e9583ddc2e8c1fa17363a63b9fc5d2449"
+    },
+    "data/02_by_road_full9.csv": {
+      "bytes": 491,
+      "sha256": "8fa07cfe9c508a58f186e736b515720fe0a6d418257d3ab175e125689e810567"
+    },
+    "data/03_by_road_demand_full3.csv": {
+      "bytes": 1389,
+      "sha256": "0f42e5b9a32c289c13c3b71f431cffaddcc0bb27d62c4af4624ce2c670c70f18"
+    },
+    "data/04_all27_fixed_smart_pairs.csv": {
+      "bytes": 3959,
+      "sha256": "c91b2f9d1a24d582e78138a72262ad07f26b84ab9de313caba3a5bba51efe59b"
+    },
+    "data/05_paired_baselines.csv": {
+      "bytes": 581,
+      "sha256": "cd99248b72e58e5493ef64a9196c4df15c03627c34a93b44472035e75b2c7896"
+    },
+    "data/06_completion_counts.csv": {
+      "bytes": 243,
+      "sha256": "dda376055b4cf09309e6522a5adbb8173e61dda7a52dee7337a4763a9dfe9342"
+    },
+    "data/07_experiment_matrix.csv": {
+      "bytes": 148,
+      "sha256": "6954dd6725b7ebe3dc83961f476bcf67d742220e4ae4f284583f3d2d518347ba"
+    },
+    "data/08_all162_attempts_source.csv": {
+      "bytes": 19226,
+      "sha256": "24980ee43d52de4f3443f7d7609275b66d11911f793aab92b1f252bc28b07fb0"
+    },
+    "data/metrics_for_presentation.json": {
+      "bytes": 9376,
+      "sha256": "b62ed7f7e4954861d84f3c7204aeff082f3b34aa21d6754eb2da06ca7a50ad30"
+    },
+    "evidence/network_specs/zt_pair_short.json": {
+      "bytes": 9460,
+      "sha256": "53f45208e9ef4fd840720911e452f5883e72da83a0d80bdaaa3f36f200d98880"
+    },
+    "evidence/network_specs/zt_t1_short.json": {
+      "bytes": 3046,
+      "sha256": "a330b812511de6299d30228cc491c539a34320e2eb0fd32883f15f9252c1f68b"
+    },
+    "evidence/network_specs/zt_x31_asymmetric.json": {
+      "bytes": 6697,
+      "sha256": "e180a4fffd21080e29dcf80ee7d01b8af1a8c02343cc3f601a42c87aea26864e"
+    },
+    "evidence/report-verification.json": {
+      "bytes": 627,
+      "sha256": "247da4e12bc7a674660139fa7beca25e30463fefee336c649db16f42d45c27c6"
+    },
+    "evidence/results.md": {
+      "bytes": 9451,
+      "sha256": "b588e392b97d7d75cedcd06eb586140abfafedc9fa5c01f694448cefa1a7bfe0"
+    },
+    "evidence/web-trial.md": {
+      "bytes": 6464,
+      "sha256": "fc0c9bdd924ae6c086f28424ad419308e8b4e6a202328b28ce9d9bcf01392f77"
+    },
+    "evidence/webster-cause-investigation.md": {
+      "bytes": 5731,
+      "sha256": "8b615d11451111a325f4c32f6da8918193ee999d01b8ea22b8cb7fa0a26cf71f"
+    },
+    "README.md": {
+      "bytes": 3790,
+      "sha256": "cf70f54398d333f8cab51473026037609b67e25a597477d75b828f0bc7475c15"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="zt_a" x="0" y="0" type="traffic_light" radius="12" />
+  <node id="zt_b" x="0" y="160" type="traffic_light" radius="12" />
+  <node id="zt_a_E_end" x="180" y="0" type="priority" fringe="outer" />
+  <node id="zt_a_S_end" x="0" y="-300" type="priority" fringe="outer" />
+  <node id="zt_a_W_end" x="-220" y="0" type="priority" fringe="outer" />
+  <node id="zt_b_N_end" x="0" y="520" type="priority" fringe="outer" />
+  <node id="zt_b_E_end" x="180" y="160" type="priority" fringe="outer" />
+  <node id="zt_b_W_end" x="-220" y="160" type="priority" fringe="outer" />
+</nodes>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="835.2pt" height="446.4pt" viewBox="0 0 835.2 446.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-29T01:59:06.384721</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 446.4 
+L 835.2 446.4 
+L 835.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 116.928 352.656 
+L 801.792 352.656 
+L 801.792 75.888 
+L 116.928 75.888 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="ma440e68960" d="M 0 0 
+L 0 3.5 
+" style="stroke: #193247; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#ma440e68960" x="251.825455" y="352.656" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 15px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #193247" x="251.825455" y="371.65307" transform="rotate(-0 251.825455 371.65307)">Fixed</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#ma440e68960" x="666.894545" y="352.656" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 15px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #193247" x="666.894545" y="371.65307" transform="rotate(-0 666.894545 371.65307)">SmartSignal V2</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_3">
+      <path d="M 116.928 352.656 
+L 801.792 352.656 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <defs>
+       <path id="mca79cdab2c" d="M 0 0 
+L -3.5 0 
+" style="stroke: #193247; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="352.656" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="359.054438" transform="rotate(-0 109.928 359.054438)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <path d="M 116.928 298.914641 
+L 801.792 298.914641 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="298.914641" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="305.313078" transform="rotate(-0 109.928 305.313078)">2,000</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <path d="M 116.928 245.173282 
+L 801.792 245.173282 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="245.173282" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="251.571719" transform="rotate(-0 109.928 251.571719)">4,000</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_9">
+      <path d="M 116.928 191.431922 
+L 801.792 191.431922 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="191.431922" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="197.83036" transform="rotate(-0 109.928 197.83036)">6,000</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_11">
+      <path d="M 116.928 137.690563 
+L 801.792 137.690563 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="137.690563" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="144.089001" transform="rotate(-0 109.928 144.089001)">8,000</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_13">
+      <path d="M 116.928 83.949204 
+L 801.792 83.949204 
+" clip-path="url(#pdee0394c05)" style="fill: none; stroke: #e7edf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mca79cdab2c" x="116.928" y="83.949204" style="fill: #193247; stroke: #193247; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 16px; font-family: 'Malgun Gothic'; text-anchor: end; fill: #193247" x="109.928" y="90.347641" transform="rotate(-0 109.928 90.347641)">10,000</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 17px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #193247" x="54.96218" y="214.272" transform="rotate(-90 54.96218 214.272)">900초 안에 도착한 차량 합계 (대)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 148.058182 352.656 
+L 355.592727 352.656 
+L 355.592727 128.124601 
+L 148.058182 128.124601 
+z
+" clip-path="url(#pdee0394c05)" style="fill: #abb5be"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 563.127273 352.656 
+L 770.661818 352.656 
+L 770.661818 118.639251 
+L 563.127273 118.639251 
+z
+" clip-path="url(#pdee0394c05)" style="fill: #087f76"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 116.928 352.656 
+L 116.928 75.888 
+" style="fill: none; stroke: #c5ced5; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 116.928 352.656 
+L 801.792 352.656 
+" style="fill: none; stroke: #c5ced5; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 23px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #193247" x="251.825455" y="113.520109" transform="rotate(-0 251.825455 113.520109)">8,356</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 23px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #193247" x="666.894545" y="104.034759" transform="rotate(-0 666.894545 104.034759)">8,709</text>
+   </g>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 700; font-size: 26px; font-family: 'Malgun Gothic'; text-anchor: start; fill: #087f76" x="116.928" y="40.176" transform="rotate(-0 116.928 40.176)">같은 차량 일정에서 353대 더 도착</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 12px; font-family: 'Malgun Gothic'; text-anchor: start; fill: #586e7c" x="50.112" y="432.339375" transform="rotate(-0 50.112 432.339375)">총 예정 차량 9,037대. SmartSignal 도착 8,709대, 900초 종료 시 잔류·미진입 합계 328대.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdee0394c05">
+   <rect x="116.928" y="75.888" width="684.864" height="276.768"/>
+  </clipPath>
+ </defs>
+</svg>

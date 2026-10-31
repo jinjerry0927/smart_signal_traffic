@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<net xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.20" junctionCornerDetail="8" junctionLinkDetail="8" limitTurnSpeed="5.50" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+  <location netOffset="0.00,0.00" convBoundary="0.00,-210.00,330.00,150.00" origBoundary="0.00,-210.00,330.00,150.00" projParameter="!" />
+  <edge id=":zt_t1_short_0" function="internal">
+    <lane id=":zt_t1_short_0_0" index="0" allow="passenger bus truck" speed="13.89" length="30.40" width="3.20" shape="-1.60,15.20 -1.60,-15.20" />
+  </edge>
+  <edge id=":zt_t1_short_1" function="internal">
+    <lane id=":zt_t1_short_1_0" index="0" allow="passenger bus truck" speed="10.90" length="27.21" width="3.20" shape="-1.60,15.20 -1.26,10.74 -0.23,6.97 1.49,3.89 3.89,1.49 6.97,-0.23 10.74,-1.26 15.20,-1.60" />
+  </edge>
+  <edge id=":zt_t1_short_2" function="internal">
+    <lane id=":zt_t1_short_2_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="15.20,1.60 11.59,1.88 8.54,2.71 6.04,4.10 4.10,6.04 2.71,8.54 1.88,11.59 1.60,15.20" />
+  </edge>
+  <edge id=":zt_t1_short_3" function="internal">
+    <lane id=":zt_t1_short_3_0" index="0" allow="passenger bus truck" speed="10.90" length="27.21" width="3.20" shape="15.20,1.60 10.74,1.26 6.97,0.23 3.89,-1.49 1.49,-3.89 -0.23,-6.97 -1.26,-10.74 -1.60,-15.20" />
+  </edge>
+  <edge id=":zt_t1_short_4" function="internal">
+    <lane id=":zt_t1_short_4_0" index="0" allow="passenger bus truck" speed="9.85" length="22.03" width="3.20" shape="1.60,-15.20 1.88,-11.59 2.71,-8.54 4.10,-6.04 6.04,-4.10 8.54,-2.71 11.59,-1.88 15.20,-1.60" />
+  </edge>
+  <edge id=":zt_t1_short_5" function="internal">
+    <lane id=":zt_t1_short_5_0" index="0" allow="passenger bus truck" speed="13.89" length="30.40" width="3.20" shape="1.60,-15.20 1.60,15.20" />
+  </edge>
+  <edge id="zt_t1_short_E_in" from="zt_t1_short_E_end" to="zt_t1_short" priority="-1">
+    <lane id="zt_t1_short_E_in_0" index="0" allow="passenger bus truck" speed="13.89" length="314.80" width="3.20" shape="330.00,1.60 15.20,1.60" />
+  </edge>
+  <edge id="zt_t1_short_E_out" from="zt_t1_short" to="zt_t1_short_E_end" priority="-1">
+    <lane id="zt_t1_short_E_out_0" index="0" allow="passenger bus truck" speed="13.89" length="314.80" width="3.20" shape="15.20,-1.60 330.00,-1.60" />
+  </edge>
+  <edge id="zt_t1_short_N_in" from="zt_t1_short_N_end" to="zt_t1_short" priority="-1">
+    <lane id="zt_t1_short_N_in_0" index="0" allow="passenger bus truck" speed="13.89" length="134.80" width="3.20" shape="-1.60,150.00 -1.60,15.20" />
+  </edge>
+  <edge id="zt_t1_short_N_out" from="zt_t1_short" to="zt_t1_short_N_end" priority="-1">
+    <lane id="zt_t1_short_N_out_0" index="0" allow="passenger bus truck" speed="13.89" length="134.80" width="3.20" shape="1.60,15.20 1.60,150.00" />
+  </edge>
+  <edge id="zt_t1_short_S_in" from="zt_t1_short_S_end" to="zt_t1_short" priority="-1">
+    <lane id="zt_t1_short_S_in_0" index="0" allow="passenger bus truck" speed="13.89" length="194.80" width="3.20" shape="1.60,-210.00 1.60,-15.20" />
+  </edge>
+  <edge id="zt_t1_short_S_out" from="zt_t1_short" to="zt_t1_short_S_end" priority="-1">
+    <lane id="zt_t1_short_S_out_0" index="0" allow="passenger bus truck" speed="13.89" length="194.80" width="3.20" shape="-1.60,-15.20 -1.60,-210.00" />
+  </edge>
+  <tlLogic id="zt_t1_short" type="static" programID="0" offset="0">
+    <phase duration="25" state="GGrrrr" name="N_G" />
+    <phase duration="3" state="yyrrrr" name="N_y" />
+    <phase duration="2" state="rrrrrr" name="N_r" />
+    <phase duration="25" state="rrGGrr" name="E_G" />
+    <phase duration="3" state="rryyrr" name="E_y" />
+    <phase duration="2" state="rrrrrr" name="E_r" />
+    <phase duration="25" state="rrrrGG" name="S_G" />
+    <phase duration="3" state="rrrryy" name="S_y" />
+    <phase duration="2" state="rrrrrr" name="S_r" />
+  </tlLogic>
+  <junction id="zt_t1_short" type="traffic_light" x="0.00" y="0.00" incLanes="zt_t1_short_N_in_0 zt_t1_short_E_in_0 zt_t1_short_S_in_0" intLanes=":zt_t1_short_0_0 :zt_t1_short_1_0 :zt_t1_short_2_0 :zt_t1_short_3_0 :zt_t1_short_4_0 :zt_t1_short_5_0" shape="-3.20,15.20 3.20,15.20 3.35,12.68 3.79,10.46 4.53,8.53 5.57,6.90 6.90,5.57 8.53,4.53 10.46,3.79 12.68,3.35 15.20,3.20 15.20,-3.20 12.68,-3.35 10.46,-3.79 8.53,-4.53 6.90,-5.57 5.57,-6.90 4.53,-8.53 3.79,-10.46 3.35,-12.68 3.20,-15.20 -3.20,-15.20" radius="12.00">
+    <request index="0" response="000000" foes="001000" cont="0" />
+    <request index="1" response="110000" foes="111000" cont="0" />
+    <request index="2" response="100000" foes="100000" cont="0" />
+    <request index="3" response="100011" foes="100011" cont="0" />
+    <request index="4" response="000000" foes="000010" cont="0" />
+    <request index="5" response="000000" foes="001110" cont="0" />
+  </junction>
+  <junction id="zt_t1_short_E_end" type="dead_end" x="330.00" y="0.00" incLanes="zt_t1_short_E_out_0" intLanes="" shape="330.00,0.00 330.00,-3.20 330.00,0.00" fringe="outer" />
+  <junction id="zt_t1_short_N_end" type="dead_end" x="0.00" y="150.00" incLanes="zt_t1_short_N_out_0" intLanes="" shape="0.00,150.00 3.20,150.00 0.00,150.00" fringe="outer" />
+  <junction id="zt_t1_short_S_end" type="dead_end" x="0.00" y="-210.00" incLanes="zt_t1_short_S_out_0" intLanes="" shape="0.00,-210.00 -3.20,-210.00 0.00,-210.00" fringe="outer" />
+  <connection from="zt_t1_short_E_in" to="zt_t1_short_N_out" fromLane="0" toLane="0" via=":zt_t1_short_2_0" tl="zt_t1_short" linkIndex="2" dir="r" state="o" />
+  <connection from="zt_t1_short_E_in" to="zt_t1_short_S_out" fromLane="0" toLane="0" via=":zt_t1_short_3_0" tl="zt_t1_short" linkIndex="3" dir="l" state="o" />
+  <connection from="zt_t1_short_N_in" to="zt_t1_short_S_out" fromLane="0" toLane="0" via=":zt_t1_short_0_0" tl="zt_t1_short" linkIndex="0" dir="s" state="O" />
+  <connection from="zt_t1_short_N_in" to="zt_t1_short_E_out" fromLane="0" toLane="0" via=":zt_t1_short_1_0" tl="zt_t1_short" linkIndex="1" dir="l" state="o" />
+  <connection from="zt_t1_short_S_in" to="zt_t1_short_E_out" fromLane="0" toLane="0" via=":zt_t1_short_4_0" tl="zt_t1_short" linkIndex="4" dir="r" state="O" />
+  <connection from="zt_t1_short_S_in" to="zt_t1_short_N_out" fromLane="0" toLane="0" via=":zt_t1_short_5_0" tl="zt_t1_short" linkIndex="5" dir="s" state="O" />
+  <connection from=":zt_t1_short_0" to="zt_t1_short_S_out" fromLane="0" toLane="0" dir="s" state="M" />
+  <connection from=":zt_t1_short_1" to="zt_t1_short_E_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_t1_short_2" to="zt_t1_short_N_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_t1_short_3" to="zt_t1_short_S_out" fromLane="0" toLane="0" dir="l" state="M" />
+  <connection from=":zt_t1_short_4" to="zt_t1_short_E_out" fromLane="0" toLane="0" dir="r" state="M" />
+  <connection from=":zt_t1_short_5" to="zt_t1_short_N_out" fromLane="0" toLane="0" dir="s" state="M" />
+</net>

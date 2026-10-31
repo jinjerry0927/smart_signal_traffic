@@ -241,6 +241,7 @@ class WebTests(unittest.TestCase):
             thread.join()
 
     def test_stop_finalization_failure_is_reported(self):
+        # Covered separately from preflight: a failed run must remain a failure.
         class BrokenFinish:
             connection = object()
             def __init__(self, *args, **kwargs):
@@ -258,6 +259,55 @@ class WebTests(unittest.TestCase):
             self.assertEqual(demo.snapshot()['status'], 'failed')
             out = Path(demo.snapshot()['output'])
             self.assertEqual(json.loads((out / 'manifest.json').read_text())['status'], 'failed')
+
+    def test_preflight_reports_ready_and_unavailable_without_starting_a_run(self):
+        demo = Demo()
+        edge = edge_server(port=0)
+        web = web_server(demo, port=0)
+        workers = [threading.Thread(target=s.serve_forever, daemon=True) for s in (edge, web)]
+        for worker in workers:
+            worker.start()
+        url = 'http://127.0.0.1:' + str(web.server_port)
+        edge_url = 'http://127.0.0.1:' + str(edge.server_port)
+        def check(address):
+            req = request.Request(url + '/api/check-edge',
+                                  data=json_bytes(dict(edge_url=address)),
+                                  headers={'Content-Type': 'application/json'})
+            with request.urlopen(req, timeout=3) as response:
+                return json.load(response)
+        try:
+            result = check(edge_url)
+            self.assertEqual(result['status'], 'ready')
+            self.assertEqual(result['health']['identity'], demo.identity)
+            edge.shutdown()
+            edge.server_close()
+            result = check(edge_url)
+            self.assertEqual(result['status'], 'unavailable')
+            self.assertIn('error', result)
+            self.assertEqual(demo.snapshot()['status'], 'ready')
+            self.assertIsNone(demo.worker)
+            with request.urlopen(url + '/?mode=edge&speed=30') as response:
+                self.assertIn('Pi 연결 확인', response.read().decode())
+            with self.assertRaises(error.HTTPError) as caught:
+                check('file:///tmp/model')
+            self.assertEqual(caught.exception.code, 400)
+        finally:
+            for server in (edge, web):
+                server.shutdown()
+                server.server_close()
+            for worker in workers:
+                worker.join()
+
+    def test_playback_speed_change_does_not_advance_a_paused_simulation(self):
+        demo = Demo()
+        with self.assertRaises(ValueError):
+            demo.set_speed(60)
+        demo.update(status='paused', time_s=35, speed=30)
+        changed = demo.set_speed(60)
+        self.assertEqual((changed['time_s'], changed['status'], changed['speed']), (35, 'paused', 60))
+        for invalid in (True, 0, 61, float('nan')):
+            with self.assertRaises(ValueError):
+                demo.set_speed(invalid)
 
     def test_close_failure_still_records_failed_manifest(self):
         class BrokenClose:

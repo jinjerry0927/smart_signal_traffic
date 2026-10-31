@@ -1,0 +1,363 @@
+{
+  "schema": "unseen-transfer-protocol-v1",
+  "status": "frozen_before_environment_generation",
+  "date": "2026-10-28",
+  "primary_question": "Reuse the exact showcased model and all global rules, with zero additional training on unseen supported geometry",
+  "frozen_files_sha256": {
+    "results/runs/final_signal_wave10_20261007/release/model.json": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "results/runs/final_signal_wave10_20261007/release/policy.json": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "results/runs/transferable_train_150_seed43/model.json": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "configs/smart_signal_default.json": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "transferable_signal/__init__.py": "e2f29f0be2a78285f650fd1b6c2b532e905b827da658ae91c12ea66285af0a84",
+    "transferable_signal/control.py": "27178b31dfc3306ab5d6d4eb94deb56e72634fe82634cabb27ddebbad7643f88",
+    "transferable_signal/controllers.py": "e74e22a21b36c4f06040477dfc6799d91aed814723041ff878d92d3302f8348c",
+    "transferable_signal/environment.py": "460c655427714977e3b2f8a77d7ac6c474c16b3d78f2bb897b08e670b1504106",
+    "transferable_signal/model.py": "5dea7f70cc0a4b998b7ece0e8e7b50efa9507e7d574edf55dd0aed641ac548c9",
+    "transferable_signal/spec.py": "b4eb997d40cc6013d73dfeacd1b534364946fb5cc1f4850a8e9f32a36cf3a0d4",
+    "transferable_signal/suite.py": "74a81af996114a3b401abe68315486a5492f9451edfe8dffa8e05d6c78684b9d",
+    "evaluation_support.py": "7f5b3b1a34b4edfb9aded593bdd4d1fb326342d179f4ba9f62fe1618f01e27a0",
+    "transferable_signal/adaptive.py": "6f9214880703b4c1e7a9efadc0435bd22adb9bff9af95d9a39a1e021e56e5cb5",
+    "transferable_signal/adaptive_v2.py": "a0abf3e8ecb20ea424c885fa6166e743c7f597116e98c20a8b1b7d04f81045a0",
+    "transferable_signal/deployment.py": "8f725eac3b0781519e605e819006027750849279e98e21a82915a5139372be21",
+    "signal_demo/release.py": "c980a292de65b990246cfc8083711e51021340ebe23eb72fdb923273cc742f18",
+    "transferable_signal/runner.py": "fe5653a3b4cccb3da242922b574c8550189c006c1743c797c64e3ce4a2dc2531"
+  },
+  "model": "results/runs/final_signal_wave10_20261007/release/model.json",
+  "policy": "results/runs/final_signal_wave10_20261007/release/policy.json",
+  "seed": 43,
+  "variant": "load_gate_pressure_wait35",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "policy_config": {
+    "version": "adaptive-v2",
+    "low_load_mode": "pressure",
+    "density_threshold": 0.1,
+    "fixed_green_s": 25,
+    "guard_green_s": 25,
+    "guard_density_threshold": 0.12,
+    "guard_queue_margin": 0.01,
+    "wait_green_s": 35,
+    "wait_queue_ratio": 0.01,
+    "wait_red_ratio": 0.4,
+    "wait_high_load_only": true
+  },
+  "additional_training": 0,
+  "target_specific_tuning": false,
+  "allowed_environment_changes": [
+    "physical lane/connection geometry",
+    "legal protected signal mapping",
+    "synthetic demand"
+  ],
+  "support": {
+    "arms": [
+      3,
+      4
+    ],
+    "lanes_per_approach": [
+      1,
+      2,
+      3
+    ],
+    "signal_count": [
+      1,
+      2
+    ],
+    "greens": "fully protected G/r vehicle phases; no permissive g, pedestrians or conflicting streams",
+    "acceptance": "make_spec/load_spec, served-lane checks and movement/vehicle checks must pass; support of new geometry is not yet verified"
+  },
+  "targets": [
+    {
+      "id": "zt_t1_short",
+      "shape": "T",
+      "signal_count": 1,
+      "arms": "NES",
+      "lanes": {
+        "N": 1,
+        "E": 1,
+        "S": 1
+      },
+      "endpoint_distance_m": {
+        "N": 150,
+        "E": 330,
+        "S": 210
+      },
+      "novelty_axes": [
+        "topology",
+        "storage"
+      ],
+      "novelty": [
+        "three_arms_instead_of_four",
+        "one_signal_instead_of_three",
+        "short_storage"
+      ]
+    },
+    {
+      "id": "zt_x31_asymmetric",
+      "shape": "X",
+      "signal_count": 1,
+      "arms": "NESW",
+      "lanes": {
+        "N": 3,
+        "E": 1,
+        "S": 3,
+        "W": 1
+      },
+      "endpoint_distance_m": {
+        "N": 320,
+        "E": 140,
+        "S": 260,
+        "W": 180
+      },
+      "novelty_axes": [
+        "lane_capacity",
+        "storage"
+      ],
+      "novelty": [
+        "three_lane_major_road",
+        "three_to_one_lane_ratio",
+        "short_storage"
+      ]
+    },
+    {
+      "id": "zt_pair_short",
+      "shape": "two_connected_X",
+      "signal_count": 2,
+      "junction_spacing_m": 160,
+      "junctions": [
+        {
+          "id": "zt_a",
+          "lanes": {
+            "N": 2,
+            "E": 1,
+            "S": 3,
+            "W": 1
+          }
+        },
+        {
+          "id": "zt_b",
+          "lanes": {
+            "N": 3,
+            "E": 1,
+            "S": 2,
+            "W": 1
+          }
+        }
+      ],
+      "connector_lanes": 2,
+      "outer_endpoint_distance_m": {
+        "north": 360,
+        "south": 300,
+        "east": 180,
+        "west": 220
+      },
+      "novelty_axes": [
+        "topology",
+        "storage",
+        "lane_capacity"
+      ],
+      "novelty": [
+        "two_signals_instead_of_three",
+        "short_connector_storage",
+        "three_lane_major_road"
+      ]
+    }
+  ],
+  "demand": {
+    "profiles": [
+      "quiet",
+      "busy",
+      "directional"
+    ],
+    "samples_per_profile": 3,
+    "seeds": {
+      "zt_t1_short": {
+        "quiet": [
+          280000,
+          280001,
+          280002
+        ],
+        "busy": [
+          280100,
+          280101,
+          280102
+        ],
+        "directional": [
+          280200,
+          280201,
+          280202
+        ]
+      },
+      "zt_x31_asymmetric": {
+        "quiet": [
+          281000,
+          281001,
+          281002
+        ],
+        "busy": [
+          281100,
+          281101,
+          281102
+        ],
+        "directional": [
+          281200,
+          281201,
+          281202
+        ]
+      },
+      "zt_pair_short": {
+        "quiet": [
+          282000,
+          282001,
+          282002
+        ],
+        "busy": [
+          282100,
+          282101,
+          282102
+        ],
+        "directional": [
+          282200,
+          282201,
+          282202
+        ]
+      }
+    },
+    "vehicle_type_weights": {
+      "passenger": 0.8,
+      "bus": 0.1,
+      "truck": 0.1
+    },
+    "duration_s": 600,
+    "drain_s": 300,
+    "arrival_process": "piecewise Poisson, frozen into explicit vehicles before comparing controllers",
+    "base_arrival_vph_per_lane": {
+      "quiet": 180,
+      "busy": 360,
+      "directional": 240
+    },
+    "directional": "source-index parity alternates at 300s; matching half x2, other sources x0.5; route preference weight 3 vs 1",
+    "generator": "unchanged suite.demand (already source-frozen); freeze the new geometry builder in input manifest before any final run"
+  },
+  "novelty_gate": {
+    "minimum_material_axes": 2,
+    "cosmetic_changes_count": false,
+    "max_short_incoming_lane_m": 180,
+    "short_connector_lane_range_m": [
+      100,
+      180
+    ],
+    "showcase_min_incoming_lane_m": 352.43,
+    "require_no_historical_byte_or_screening_signature_duplicate": true,
+    "note": "endpoint distances are design inputs; novelty uses imported SUMO lane lengths. A failed geometry gate is recorded and resolved before performance inspection"
+  },
+  "comparators": {
+    "primary": [
+      "fixed",
+      "webster",
+      "max_pressure",
+      "smart_v2"
+    ],
+    "diagnostics": [
+      "raw_smart",
+      "rules_pressure"
+    ],
+    "smart_v2": "unchanged showcased AdaptiveSmartSignalV2 loaded from frozen release",
+    "raw_smart": "unchanged trained scorer under the identical SignalClock mask",
+    "rules_pressure": "same V2 decision flow with the raw learned score vector replaced by observation.pressure; keep normalization, thresholds, masks and tie-breaking unchanged"
+  },
+  "budget": {
+    "pilot_runs_max": 12,
+    "final_conditions": 27,
+    "primary_runs": 108,
+    "diagnostic_runs": 54,
+    "final_runs": 162,
+    "total_runs_max": 174,
+    "training_runs": 0,
+    "pilot_environment": "existing valid_t2/valid_x3, one quiet scenario each, six controllers",
+    "invocation_wall_seconds": 2700,
+    "automatic_retry": false
+  },
+  "metrics": {
+    "primary": [
+      "mean_queue_vehicles",
+      "arrived_vehicles",
+      "not_departed_vehicles",
+      "departed_not_arrived_vehicles"
+    ],
+    "secondary": [
+      "max_queue_vehicles",
+      "p95_completed_waiting_time_s",
+      "mean_completed_waiting_time_s",
+      "mean_completed_travel_time_s",
+      "decision_latency",
+      "policy_mode_usage"
+    ],
+    "stopped_vehicle_threshold_mps": 0.1,
+    "sample_interval_s": 1,
+    "samples_per_final_run": 900,
+    "aggregation": "arithmetic mean of per-run queue means over 27 paired conditions; arrivals summed over identical scheduled lists; case/profile groups reported separately",
+    "fractional_change": "(smart-baseline)/baseline; both zero -> 0, positive smart with zero baseline -> +infinity and failure",
+    "uncertainty": "show all 27 paired results and per-case/profile range over 3 traffic samples; no vehicle-level independent sample or universal/statistical-certainty claim"
+  },
+  "criteria": {
+    "fixed_queue_change_max": -0.05,
+    "webster_queue_change_max": -0.05,
+    "max_pressure_queue_change_max": 0.0,
+    "arrivals_nondecrease_vs": [
+      "fixed",
+      "webster",
+      "max_pressure"
+    ],
+    "worst_case_mean_queue_change_vs_fixed_max": 0.1,
+    "worst_profile_mean_queue_change_vs_fixed_max": 0.1,
+    "collision_vehicle_events_max": 0,
+    "teleport_events_max": 0,
+    "learned_contribution": {
+      "comparison": "smart_v2 vs rules_pressure",
+      "queue_change_max": -0.02,
+      "arrivals_nondecrease": true,
+      "affects_primary_pass": false
+    }
+  },
+  "execution": {
+    "pairing": "same network, explicit departure/route list, seed, 900-second horizon and SignalClock limits",
+    "run_order": [
+      "fixed",
+      "webster",
+      "max_pressure",
+      "smart_v2",
+      "raw_smart",
+      "rules_pressure"
+    ],
+    "stop_on": [
+      "execution error",
+      "collision",
+      "teleport",
+      "provenance mismatch",
+      "raw record inconsistency"
+    ],
+    "warnings": "preserve raw emergency-braking and other warning messages; investigate separately; never relabel as zero",
+    "resume": "only at a completed-run boundary with all frozen hashes unchanged",
+    "final_feedback": "no retraining/reselection/threshold changes; record failure, then use a new development and final set if improvement is pursued"
+  },
+  "scope_boundary": "this bundle finalizes history and test rules only; no new geometry, live traffic evaluation, web update or physical Pi validation is executed"
+}

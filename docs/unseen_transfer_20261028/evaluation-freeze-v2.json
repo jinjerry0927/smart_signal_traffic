@@ -1,0 +1,113 @@
+{
+  "status": "prepared_pending_review",
+  "fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  },
+  "evaluation_revision": 2,
+  "superseded_pre_review_freeze_sha256": "1a3b02041ca6f9a43004253cc2b19bbeceffa63ac95fc1b928ae9193bb290239",
+  "compatibility_summary_sha256": "9303793bd54f070be1bf82a866a864ddf925041231fce00cccb54ac519497cde",
+  "compatibility_rechecks": [
+    {
+      "status": "PASS",
+      "raw_seconds": 600,
+      "frames": 601,
+      "actions": 120,
+      "warnings": [],
+      "recomputed_metrics": {
+        "mean_queue_vehicles": 0.6233333333333333,
+        "max_queue_vehicles": 10,
+        "mean_system_total_waiting_time_s": 14.843333333333334,
+        "sample_seconds": 600,
+        "arrived_vehicles": 18,
+        "departed_vehicles": 18,
+        "scheduled_vehicles": 18,
+        "not_departed_vehicles": 0,
+        "departed_not_arrived_vehicles": 0,
+        "running_vehicles_end": 0,
+        "pending_vehicles_end": 0,
+        "collision_vehicle_events": 0,
+        "teleport_events": 0,
+        "mean_completed_waiting_time_s": 19.77777777777778,
+        "mean_completed_travel_time_s": 66.77777777777777,
+        "mean_completed_time_loss_s": 32.892222222222216,
+        "p95_completed_waiting_time_s": 56.74999999999999
+      },
+      "manifest_sha256": "2d752eda02741ea3d38a2eb2ee522170b8c8730390d1188f1c3f4aac30760a7c",
+      "verification_source_sha256": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    {
+      "status": "PASS",
+      "raw_seconds": 600,
+      "frames": 601,
+      "actions": 120,
+      "warnings": [],
+      "recomputed_metrics": {
+        "mean_queue_vehicles": 1.1333333333333333,
+        "max_queue_vehicles": 14,
+        "mean_system_total_waiting_time_s": 30.706666666666667,
+        "sample_seconds": 600,
+        "arrived_vehicles": 36,
+        "departed_vehicles": 36,
+        "scheduled_vehicles": 36,
+        "not_departed_vehicles": 0,
+        "departed_not_arrived_vehicles": 0,
+        "running_vehicles_end": 0,
+        "pending_vehicles_end": 0,
+        "collision_vehicle_events": 0,
+        "teleport_events": 0,
+        "mean_completed_waiting_time_s": 17.88888888888889,
+        "mean_completed_travel_time_s": 63.5,
+        "mean_completed_time_loss_s": 30.880555555555556,
+        "p95_completed_waiting_time_s": 67.0
+      },
+      "manifest_sha256": "019d93f0e086ee5ed0f2d7e7d7ee4bb131f21a4e17dc347f2fa868704778acbb",
+      "verification_source_sha256": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    {
+      "status": "PASS",
+      "raw_seconds": 600,
+      "frames": 601,
+      "actions": 240,
+      "warnings": [],
+      "recomputed_metrics": {
+        "mean_queue_vehicles": 11.805,
+        "max_queue_vehicles": 48,
+        "mean_system_total_waiting_time_s": 429.1933333333333,
+        "sample_seconds": 600,
+        "arrived_vehicles": 90,
+        "departed_vehicles": 90,
+        "scheduled_vehicles": 90,
+        "not_departed_vehicles": 0,
+        "departed_not_arrived_vehicles": 0,
+        "running_vehicles_end": 0,
+        "pending_vehicles_end": 0,
+        "collision_vehicle_events": 0,
+        "teleport_events": 0,
+        "mean_completed_waiting_time_s": 77.7,
+        "mean_completed_travel_time_s": 143.5222222222222,
+        "mean_completed_time_loss_s": 101.00433333333332,
+        "p95_completed_waiting_time_s": 166.55
+      },
+      "manifest_sha256": "255d683a9a5b53071ae3e80fa571ebe4cae72153b7d568b710772ea3166468b5",
+      "verification_source_sha256": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    }
+  ],
+  "comparison_runs_max": 174,
+  "functional_probe_runs": 3,
+  "total_new_traffic_runs_max": 177,
+  "note": "Latest user request includes three new-network functional probes. The frozen 12-pilot/162-final comparison budget and all performance criteria remain unchanged.",
+  "review_requirement": "separate code review note, tests and all 12 pilot verifications before final comparisons"
+}

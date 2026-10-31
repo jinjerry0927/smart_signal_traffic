@@ -1,0 +1,83 @@
+{
+  "status": "Codex_separate_review_PASS",
+  "original_batch_status": "failed_preserved",
+  "authority": "User requested all comparisons after a separate Codex review. The stop was enforced and diagnosed; this is a new batch of previously authorized, unattempted jobs, not an automatic retry or a claim that the original protocol passed.",
+  "fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  },
+  "runner_sha256": "cc1dbdf36d72b8a3ac4f3be909f0ce12dff40de75aecd3bc4b9990c896d3ed30",
+  "review_note": "docs\\unseen_transfer_20261028\\teleport-review-05.md",
+  "review_note_sha256": "612cedba5e29d20e650894f39aa9cc94e2528a1df9baf729005d8de16a54ace4",
+  "stop_rule": "Any error, collision, teleport, fingerprint or raw mismatch stops the entire suffix batch; any further suffix requires a new separate review",
+  "parameter_changes": 0,
+  "additional_training": 0,
+  "failed_job_retries": 0,
+  "parents": [
+    {
+      "path": "final\\batch-v2.json",
+      "sha256": "bf3367d53e720836e972db33aac65ccc63a1a408bab93bb1b6927e1f0c0126bf"
+    },
+    {
+      "path": "followup_round01\\batch-v2.json",
+      "sha256": "6b5ad88d81251d441d2d361e32d76e945b37c8ddf437ad5fa76e78431d6a8ab6"
+    },
+    {
+      "path": "followup_round02\\batch-v2.json",
+      "sha256": "a3c1e9383eecce83ca77ec6f2e560b583b75d1dfcc32481c43215c5dc3f66320"
+    },
+    {
+      "path": "followup_round03\\batch-v2.json",
+      "sha256": "61fbf1694b0b773d69db1dcff39b72ee28ba392128691b733e820b7d754c8f60"
+    },
+    {
+      "path": "followup_round04\\batch-v2.json",
+      "sha256": "c0d93ed3ac5ec618a7df529dc7b4724d4813d9e728b9c36b2427cee61f68ac18"
+    }
+  ],
+  "attempted_before": 158,
+  "reviewed_failure": {
+    "id": "zt_pair_short_directional_s02/webster",
+    "outcome": "failed_teleport",
+    "path": "followup_round04\\zt_pair_short_directional_s02\\webster",
+    "manifest_sha256": "b3a185e03a80a5292f57b8e6363db7a7669668ca550e6bcfe1a60fac7bc7a3e0",
+    "frames": 763,
+    "actions": 306,
+    "event": {
+      "time_s": 762,
+      "teleports": 1,
+      "collisions": 0
+    },
+    "prefix_replay": "PASS",
+    "completed_metrics": null,
+    "files_sha256": {
+      "decisions.jsonl": "cc20f586d14645a9af96462ce262d5935f2d5f17d5b012fde9038db2f9de0579",
+      "frames.jsonl": "29be3f8c427512381086d897411d82e1ef3da6d8f95c7cff31dcb022aebaa319",
+      "manifest.json": "b3a185e03a80a5292f57b8e6363db7a7669668ca550e6bcfe1a60fac7bc7a3e0",
+      "signals.csv": "9a970e91c833ec22204e927b808843551ba652dde68b97d8f42aca11cc4ff584",
+      "sumo-errors.log": "f105a94e6e61f437a1006fe7130493e710b02379ea9f277930aa92d49a12b486",
+      "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tripinfo.xml": "b06c1dbd6bfbace4d88ab9760d3421ac4ad3ebaf95d2820e5f814f11e8f49b35"
+    }
+  },
+  "expected_jobs": [
+    "zt_pair_short_directional_s02/max_pressure",
+    "zt_pair_short_directional_s02/smart_v2",
+    "zt_pair_short_directional_s02/raw_smart",
+    "zt_pair_short_directional_s02/rules_pressure"
+  ],
+  "original_total_attempts_max": 162,
+  "formal_primary_target_claim": "INCOMPLETE/NOT PASSED; failed partial metrics never enter averages"
+}

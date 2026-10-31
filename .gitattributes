@@ -9,3 +9,10 @@ network/*_wave*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,c
 tools/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 evaluation_support.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 results/runs/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+network/unseen_transfer_*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/unseen_transfer_*/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+presentation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Matplotlib SVG path data contains intentional spaces in sealed artifacts.
+presentation/**/*.svg whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+presentations/**/*.pdf binary
+presentations/**/*.pptx binary

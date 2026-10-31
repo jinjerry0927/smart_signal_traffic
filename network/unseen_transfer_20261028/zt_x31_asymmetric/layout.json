@@ -1,0 +1,55 @@
+{
+  "junctions": [
+    {
+      "id": "zt_x31_asymmetric",
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "roads": [
+    {
+      "id": "zt_x31_asymmetric_N",
+      "a": "zt_x31_asymmetric",
+      "b": "zt_x31_asymmetric_N_end",
+      "arm_a": "N",
+      "lanes": 3,
+      "end_xy": [
+        0,
+        320
+      ]
+    },
+    {
+      "id": "zt_x31_asymmetric_E",
+      "a": "zt_x31_asymmetric",
+      "b": "zt_x31_asymmetric_E_end",
+      "arm_a": "E",
+      "lanes": 1,
+      "end_xy": [
+        140,
+        0
+      ]
+    },
+    {
+      "id": "zt_x31_asymmetric_S",
+      "a": "zt_x31_asymmetric",
+      "b": "zt_x31_asymmetric_S_end",
+      "arm_a": "S",
+      "lanes": 3,
+      "end_xy": [
+        0,
+        -260
+      ]
+    },
+    {
+      "id": "zt_x31_asymmetric_W",
+      "a": "zt_x31_asymmetric",
+      "b": "zt_x31_asymmetric_W_end",
+      "arm_a": "W",
+      "lanes": 1,
+      "end_xy": [
+        -180,
+        0
+      ]
+    }
+  ]
+}

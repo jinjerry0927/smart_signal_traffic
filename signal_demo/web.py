@@ -3,13 +3,13 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from .protocol import MAX_BODY, json_bytes, strict_json
+from .protocol import EdgeClient, MAX_BODY, json_bytes, strict_json
 
 
 def make_server(demo, host='127.0.0.1', port=8000):
     if host not in ('127.0.0.1', 'localhost'):
         raise ValueError('Presentation control server binds to localhost only')
-    page = Path(__file__).with_name('dashboard.html').read_bytes()
+    page = Path(__file__).with_name('unseen_dashboard.html' if hasattr(demo, 'select_network') else 'dashboard.html').read_bytes()
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -28,7 +28,7 @@ def make_server(demo, host='127.0.0.1', port=8000):
                 pass
 
         def do_GET(self):
-            if self.path in ('/', '/index.html'):
+            if urlsplit(self.path).path in ('/', '/index.html'):
                 self.reply(200, page, True)
             elif self.path == '/api/state':
                 self.reply(200, demo.snapshot())
@@ -53,8 +53,22 @@ def make_server(demo, host='127.0.0.1', port=8000):
                 payload = strict_json(self.rfile.read(size))
                 if self.path == '/api/start':
                     data = demo.start(payload)
+                elif self.path == '/api/check-edge':
+                    client = EdgeClient(payload['edge_url'], demo.identity)
+                    try:
+                        health = client.check()
+                        data = dict(status='ready', url=client.url, health=health)
+                    except Exception as exc:
+                        data = dict(status='unavailable', url=client.url,
+                                    error=f'{type(exc).__name__}: {exc}')
+                elif self.path == '/api/speed':
+                    data = demo.set_speed(payload['speed'])
                 elif self.path == '/api/command':
                     data = demo.command(payload['action'])
+                elif self.path == '/api/select-network':
+                    if not hasattr(demo, 'select_network'):
+                        raise ValueError('Network selection requires the new-intersection trial mode')
+                    data = demo.select_network(payload['case'])
                 else:
                     self.reply(404, dict(error='Not found'))
                     return
@@ -69,8 +83,11 @@ def make_server(demo, host='127.0.0.1', port=8000):
     return ThreadingHTTPServer((host, port), Handler)
 
 
-def serve(host, port, output, release):
-    from .runtime import Demo
+def serve(host, port, output, release, unseen=False):
+    if unseen:
+        from .unseen import TrialDemo as Demo
+    else:
+        from .runtime import Demo
     demo = Demo(output, release)
     server = make_server(demo, host, port)
     print(f'Smart Signal: http://{host}:{server.server_port}', flush=True)

@@ -1,0 +1,93 @@
+{
+  "status": "Codex_separate_review_PASS",
+  "original_batch_status": "failed_preserved",
+  "authority": "User requested all comparisons after a separate Codex review. The stop was enforced and diagnosed; this is a new batch of previously authorized, unattempted jobs, not an automatic retry or a claim that the original protocol passed.",
+  "fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  },
+  "runner_sha256": "cc1dbdf36d72b8a3ac4f3be909f0ce12dff40de75aecd3bc4b9990c896d3ed30",
+  "review_note": "docs\\unseen_transfer_20261028\\teleport-review-03.md",
+  "review_note_sha256": "eaf957d065f57c6d29d1377d2b1f6871448a8400a99aabedcd437d0703a7e261",
+  "stop_rule": "Any error, collision, teleport, fingerprint or raw mismatch stops the entire suffix batch; any further suffix requires a new separate review",
+  "parameter_changes": 0,
+  "additional_training": 0,
+  "failed_job_retries": 0,
+  "parents": [
+    {
+      "path": "final\\batch-v2.json",
+      "sha256": "bf3367d53e720836e972db33aac65ccc63a1a408bab93bb1b6927e1f0c0126bf"
+    },
+    {
+      "path": "followup_round01\\batch-v2.json",
+      "sha256": "6b5ad88d81251d441d2d361e32d76e945b37c8ddf437ad5fa76e78431d6a8ab6"
+    },
+    {
+      "path": "followup_round02\\batch-v2.json",
+      "sha256": "a3c1e9383eecce83ca77ec6f2e560b583b75d1dfcc32481c43215c5dc3f66320"
+    }
+  ],
+  "attempted_before": 140,
+  "reviewed_failure": {
+    "id": "zt_pair_short_busy_s02/webster",
+    "outcome": "failed_teleport",
+    "path": "followup_round02\\zt_pair_short_busy_s02\\webster",
+    "manifest_sha256": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+    "frames": 479,
+    "actions": 192,
+    "event": {
+      "time_s": 478,
+      "teleports": 1,
+      "collisions": 0
+    },
+    "prefix_replay": "PASS",
+    "completed_metrics": null,
+    "files_sha256": {
+      "decisions.jsonl": "c5e68abc4a98b7cd279530f443acb1068e6f5ae4125df2d959e86d4bc1af1998",
+      "frames.jsonl": "4845c60cfd0360f11718082643faa631037bdcda72bf7bdea08a1c615922559c",
+      "manifest.json": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+      "signals.csv": "776f781eaa769d8fdeab88e3312aee5099e5eb5517a1963d851ac2120320fdae",
+      "sumo-errors.log": "2350c92c19cc547463751af91f1a0c98bdf923fd3b43f5ce9612e34b58e6fc99",
+      "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tripinfo.xml": "a22027d648967359ea0e479a02132decbc81a86422626f16841d27cef5c5e7cc"
+    }
+  },
+  "expected_jobs": [
+    "zt_pair_short_busy_s02/max_pressure",
+    "zt_pair_short_busy_s02/smart_v2",
+    "zt_pair_short_busy_s02/raw_smart",
+    "zt_pair_short_busy_s02/rules_pressure",
+    "zt_pair_short_directional_s00/fixed",
+    "zt_pair_short_directional_s00/webster",
+    "zt_pair_short_directional_s00/max_pressure",
+    "zt_pair_short_directional_s00/smart_v2",
+    "zt_pair_short_directional_s00/raw_smart",
+    "zt_pair_short_directional_s00/rules_pressure",
+    "zt_pair_short_directional_s01/fixed",
+    "zt_pair_short_directional_s01/webster",
+    "zt_pair_short_directional_s01/max_pressure",
+    "zt_pair_short_directional_s01/smart_v2",
+    "zt_pair_short_directional_s01/raw_smart",
+    "zt_pair_short_directional_s01/rules_pressure",
+    "zt_pair_short_directional_s02/fixed",
+    "zt_pair_short_directional_s02/webster",
+    "zt_pair_short_directional_s02/max_pressure",
+    "zt_pair_short_directional_s02/smart_v2",
+    "zt_pair_short_directional_s02/raw_smart",
+    "zt_pair_short_directional_s02/rules_pressure"
+  ],
+  "original_total_attempts_max": 162,
+  "formal_primary_target_claim": "INCOMPLETE/NOT PASSED; failed partial metrics never enter averages"
+}

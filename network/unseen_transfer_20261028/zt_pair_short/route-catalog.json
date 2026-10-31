@@ -1,0 +1,290 @@
+[
+  {
+    "id": "od_000",
+    "edges": [
+      "zt_a_E_in",
+      "zt_a_S_out"
+    ],
+    "source": "zt_a_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_001",
+    "edges": [
+      "zt_a_E_in",
+      "zt_a_W_out"
+    ],
+    "source": "zt_a_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_002",
+    "edges": [
+      "zt_a_E_in",
+      "zt_link_out",
+      "zt_b_E_out"
+    ],
+    "source": "zt_a_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_003",
+    "edges": [
+      "zt_a_E_in",
+      "zt_link_out",
+      "zt_b_N_out"
+    ],
+    "source": "zt_a_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_004",
+    "edges": [
+      "zt_a_E_in",
+      "zt_link_out",
+      "zt_b_W_out"
+    ],
+    "source": "zt_a_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_005",
+    "edges": [
+      "zt_a_S_in",
+      "zt_a_E_out"
+    ],
+    "source": "zt_a_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_006",
+    "edges": [
+      "zt_a_S_in",
+      "zt_a_W_out"
+    ],
+    "source": "zt_a_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_007",
+    "edges": [
+      "zt_a_S_in",
+      "zt_link_out",
+      "zt_b_E_out"
+    ],
+    "source": "zt_a_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_008",
+    "edges": [
+      "zt_a_S_in",
+      "zt_link_out",
+      "zt_b_N_out"
+    ],
+    "source": "zt_a_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_009",
+    "edges": [
+      "zt_a_S_in",
+      "zt_link_out",
+      "zt_b_W_out"
+    ],
+    "source": "zt_a_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_010",
+    "edges": [
+      "zt_a_W_in",
+      "zt_a_E_out"
+    ],
+    "source": "zt_a_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_011",
+    "edges": [
+      "zt_a_W_in",
+      "zt_a_S_out"
+    ],
+    "source": "zt_a_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_012",
+    "edges": [
+      "zt_a_W_in",
+      "zt_link_out",
+      "zt_b_E_out"
+    ],
+    "source": "zt_a_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_013",
+    "edges": [
+      "zt_a_W_in",
+      "zt_link_out",
+      "zt_b_N_out"
+    ],
+    "source": "zt_a_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_014",
+    "edges": [
+      "zt_a_W_in",
+      "zt_link_out",
+      "zt_b_W_out"
+    ],
+    "source": "zt_a_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_015",
+    "edges": [
+      "zt_b_E_in",
+      "zt_link_in",
+      "zt_a_E_out"
+    ],
+    "source": "zt_b_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_016",
+    "edges": [
+      "zt_b_E_in",
+      "zt_link_in",
+      "zt_a_S_out"
+    ],
+    "source": "zt_b_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_017",
+    "edges": [
+      "zt_b_E_in",
+      "zt_link_in",
+      "zt_a_W_out"
+    ],
+    "source": "zt_b_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_018",
+    "edges": [
+      "zt_b_E_in",
+      "zt_b_N_out"
+    ],
+    "source": "zt_b_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_019",
+    "edges": [
+      "zt_b_E_in",
+      "zt_b_W_out"
+    ],
+    "source": "zt_b_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_020",
+    "edges": [
+      "zt_b_N_in",
+      "zt_link_in",
+      "zt_a_E_out"
+    ],
+    "source": "zt_b_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_021",
+    "edges": [
+      "zt_b_N_in",
+      "zt_link_in",
+      "zt_a_S_out"
+    ],
+    "source": "zt_b_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_022",
+    "edges": [
+      "zt_b_N_in",
+      "zt_link_in",
+      "zt_a_W_out"
+    ],
+    "source": "zt_b_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_023",
+    "edges": [
+      "zt_b_N_in",
+      "zt_b_E_out"
+    ],
+    "source": "zt_b_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_024",
+    "edges": [
+      "zt_b_N_in",
+      "zt_b_W_out"
+    ],
+    "source": "zt_b_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_025",
+    "edges": [
+      "zt_b_W_in",
+      "zt_link_in",
+      "zt_a_E_out"
+    ],
+    "source": "zt_b_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_026",
+    "edges": [
+      "zt_b_W_in",
+      "zt_link_in",
+      "zt_a_S_out"
+    ],
+    "source": "zt_b_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_027",
+    "edges": [
+      "zt_b_W_in",
+      "zt_link_in",
+      "zt_a_W_out"
+    ],
+    "source": "zt_b_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_028",
+    "edges": [
+      "zt_b_W_in",
+      "zt_b_E_out"
+    ],
+    "source": "zt_b_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_029",
+    "edges": [
+      "zt_b_W_in",
+      "zt_b_N_out"
+    ],
+    "source": "zt_b_W_in",
+    "lanes": 1
+  }
+]

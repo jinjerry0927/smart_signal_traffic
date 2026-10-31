@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="zt_x31_asymmetric" x="0" y="0" type="traffic_light" radius="12" />
+  <node id="zt_x31_asymmetric_N_end" x="0" y="320" type="priority" fringe="outer" />
+  <node id="zt_x31_asymmetric_E_end" x="140" y="0" type="priority" fringe="outer" />
+  <node id="zt_x31_asymmetric_S_end" x="0" y="-260" type="priority" fringe="outer" />
+  <node id="zt_x31_asymmetric_W_end" x="-180" y="0" type="priority" fringe="outer" />
+</nodes>

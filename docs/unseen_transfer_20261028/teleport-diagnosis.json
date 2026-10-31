@@ -1,0 +1,151 @@
+{
+  "status": "stopped_on_preregistered_teleport_rule",
+  "completed_final_runs": 127,
+  "failed_attempts": 1,
+  "unattempted_runs": 34,
+  "complete_paired_conditions": 21,
+  "failed_job": "zt_pair_short_busy_s00/webster",
+  "failed_manifest_sha256": "a412565b7439888dfc087f311973765c8c6b12170a4d2baf580d9189a3dc79d2",
+  "failure_files_sha256": {
+    "decisions.jsonl": "3df26500af7a1941f951b8dae15552606eb3ba9b9c3af19f36120f2bd63989bb",
+    "frames.jsonl": "991a60683288b4c429b89d46e864c8801684dbdee6a6da27a598219942f610c3",
+    "manifest.json": "a412565b7439888dfc087f311973765c8c6b12170a4d2baf580d9189a3dc79d2",
+    "signals.csv": "f02ae9cc4b331373ee26d3b9a211ef7f10e0cec8270fdeef2013dbaa511fdda7",
+    "sumo-errors.log": "54dd29e30c0a037066a53b459496c3344637f2ebaca5791a811a09a43309b05f",
+    "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tripinfo.xml": "4b1a9523fb94aa95800cc6674b4128cdbd46daba3f0560cbe8689f912f845404"
+  },
+  "checked_prefix": {
+    "frames": 505,
+    "last_time_s": 504,
+    "controller_actions": 202,
+    "clock_signal_observation_policy_replay": "PASS",
+    "collisions": 0,
+    "teleport_events": 1
+  },
+  "vehicle": {
+    "id": "veh_00106",
+    "type": "bus",
+    "scheduled_depart_s": 96.457,
+    "route": [
+      "zt_b_E_in",
+      "zt_link_in",
+      "zt_a_E_out"
+    ],
+    "lane_compatible_without_required_lane_change": true,
+    "compatible_movements": [
+      [
+        {
+          "index": 6,
+          "incoming": "zt_b_E_in_0",
+          "outgoing": "zt_link_in_1",
+          "turn": "l"
+        },
+        {
+          "index": 3,
+          "incoming": "zt_link_in_1",
+          "outgoing": "zt_a_E_out_0",
+          "turn": "l"
+        }
+      ]
+    ],
+    "continuous_below_0_1_mps_begin": 204,
+    "continuous_below_0_1_mps_end": 503,
+    "consecutive_seconds": 300
+  },
+  "event": [
+    {
+      "time_s": 504,
+      "teleports": 1,
+      "collisions": 0
+    }
+  ],
+  "upstream_east_green_windows": [
+    {
+      "begin": 204,
+      "end": 235,
+      "seconds": 32
+    },
+    {
+      "begin": 395,
+      "end": 410,
+      "seconds": 16
+    }
+  ],
+  "downstream_north_green_windows": [
+    {
+      "begin": 230,
+      "end": 265,
+      "seconds": 36
+    },
+    {
+      "begin": 440,
+      "end": 455,
+      "seconds": 16
+    }
+  ],
+  "receiving_lane1_vehicle_count_during_upstream_green": [
+    13,
+    15
+  ],
+  "inference": "Route and signal/control replay are valid. High receiving-lane occupancy and mismatched upstream/downstream green windows are consistent with spillback/coordination failure under this Webster demand. Exact yield gap/leader cause is not established without position/leader data.",
+  "official_reference": "https://sumo.dlr.de/docs/Simulation/Why_Vehicles_are_teleporting.html",
+  "formal_primary_evaluation": "INCOMPLETE; do not claim original 27-condition target passed",
+  "partial_reference_only": {
+    "controllers": {
+      "fixed": {
+        "mean_queue": 20.552698412698412,
+        "arrived": 5520,
+        "scheduled": 5591,
+        "remaining": 71,
+        "warning_count": 0
+      },
+      "webster": {
+        "mean_queue": 19.068042328042328,
+        "arrived": 5523,
+        "scheduled": 5591,
+        "remaining": 68,
+        "warning_count": 0
+      },
+      "max_pressure": {
+        "mean_queue": 14.990370370370371,
+        "arrived": 5468,
+        "scheduled": 5591,
+        "remaining": 123,
+        "warning_count": 0
+      },
+      "smart_v2": {
+        "mean_queue": 15.767883597883596,
+        "arrived": 5589,
+        "scheduled": 5591,
+        "remaining": 2,
+        "warning_count": 0
+      },
+      "raw_smart": {
+        "mean_queue": 16.96666666666667,
+        "arrived": 5562,
+        "scheduled": 5591,
+        "remaining": 29,
+        "warning_count": 0
+      },
+      "rules_pressure": {
+        "mean_queue": 14.990370370370371,
+        "arrived": 5468,
+        "scheduled": 5591,
+        "remaining": 123,
+        "warning_count": 0
+      }
+    },
+    "smart_queue_change": {
+      "fixed": -0.23280713406754097,
+      "webster": -0.17307276087306395,
+      "max_pressure": 0.05186751283010593,
+      "raw_smart": -0.07065519069448363,
+      "rules_pressure": 0.05186751283010593
+    }
+  },
+  "partial_reference_warning": "21 fully completed conditions only; excludes the interrupted and unattempted conditions by the stopping rule, so it is not the preregistered full comparison",
+  "additional_training": 0,
+  "model_or_policy_changes": 0,
+  "teleport_disabled": false
+}

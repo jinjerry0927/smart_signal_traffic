@@ -1,0 +1,25 @@
+[
+  {
+    "selectedCase": "zt_x31_asymmetric",
+    "signals": 1,
+    "time": "0 / 300초",
+    "title": "새 도로망 B · 3:1 비대칭 사거리",
+    "viewportHeight": 720,
+    "viewportWidth": 1265,
+    "file": "02_road_b.svg"
+  },
+  {
+    "selectedCase": "zt_t1_short",
+    "signals": 1,
+    "time": "0 / 300초",
+    "title": "새 도로망 A · 짧은 삼거리",
+    "file": "01_road_a.svg"
+  },
+  {
+    "selectedCase": "zt_pair_short",
+    "signals": 2,
+    "time": "0 / 300초",
+    "title": "새 도로망 C · 짧은 연결 2교차로",
+    "file": "03_road_c.svg"
+  }
+]

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<connections>
+  <connection from="zt_t1_short_N_in" to="zt_t1_short_S_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="0" />
+  <connection from="zt_t1_short_N_in" to="zt_t1_short_E_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="1" />
+  <connection from="zt_t1_short_E_in" to="zt_t1_short_N_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="2" />
+  <connection from="zt_t1_short_E_in" to="zt_t1_short_S_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="3" />
+  <connection from="zt_t1_short_S_in" to="zt_t1_short_E_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="4" />
+  <connection from="zt_t1_short_S_in" to="zt_t1_short_N_out" fromLane="0" toLane="0" tl="zt_t1_short" linkIndex="5" />
+</connections>

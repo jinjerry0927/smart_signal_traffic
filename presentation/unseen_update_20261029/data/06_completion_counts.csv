@@ -1,0 +1,7 @@
+﻿controller,label,completed,failed,unattempted
+fixed,Fixed,27,0,0
+webster,Webster,22,5,0
+max_pressure,Max-Pressure,27,0,0
+smart_v2,SmartSignal V2,27,0,0
+raw_smart,학습 모델 단독,27,0,0
+rules_pressure,규칙 중심 진단,27,0,0

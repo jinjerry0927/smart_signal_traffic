@@ -1,0 +1,56 @@
+[
+  {
+    "id": "od_000",
+    "edges": [
+      "zt_t1_short_E_in",
+      "zt_t1_short_N_out"
+    ],
+    "source": "zt_t1_short_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_001",
+    "edges": [
+      "zt_t1_short_E_in",
+      "zt_t1_short_S_out"
+    ],
+    "source": "zt_t1_short_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_002",
+    "edges": [
+      "zt_t1_short_N_in",
+      "zt_t1_short_E_out"
+    ],
+    "source": "zt_t1_short_N_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_003",
+    "edges": [
+      "zt_t1_short_N_in",
+      "zt_t1_short_S_out"
+    ],
+    "source": "zt_t1_short_N_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_004",
+    "edges": [
+      "zt_t1_short_S_in",
+      "zt_t1_short_E_out"
+    ],
+    "source": "zt_t1_short_S_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_005",
+    "edges": [
+      "zt_t1_short_S_in",
+      "zt_t1_short_N_out"
+    ],
+    "source": "zt_t1_short_S_in",
+    "lanes": 1
+  }
+]

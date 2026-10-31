@@ -1,0 +1,28 @@
+﻿scenario,case,road,profile,demand,sample,n,fixed_mean_queue,smart_mean_queue,queue_change_pct,fixed_arrived,smart_arrived,scheduled,smart_remaining
+zt_t1_short_quiet_s00,zt_t1_short,삼거리,quiet,한산,1,1,2.32,1.2044444444444444,-48.08429118773946,85,85,85,0
+zt_t1_short_quiet_s01,zt_t1_short,삼거리,quiet,한산,2,1,2.5044444444444443,1.6,-36.11357586512865,91,91,91,0
+zt_t1_short_quiet_s02,zt_t1_short,삼거리,quiet,한산,3,1,2.4877777777777776,1.62,-34.88164359088878,87,87,87,0
+zt_t1_short_busy_s00,zt_t1_short,삼거리,busy,혼잡,1,1,8.28,5.323333333333333,-35.70853462157809,180,180,180,0
+zt_t1_short_busy_s01,zt_t1_short,삼거리,busy,혼잡,2,1,7.305555555555555,4.45,-39.087452471482884,180,180,180,0
+zt_t1_short_busy_s02,zt_t1_short,삼거리,busy,혼잡,3,1,4.541111111111111,4.192222222222222,-7.6828969904575555,165,165,165,0
+zt_t1_short_directional_s00,zt_t1_short,삼거리,directional,방향 편중,1,1,9.166666666666666,3.491111111111111,-61.915151515151514,163,163,163,0
+zt_t1_short_directional_s01,zt_t1_short,삼거리,directional,방향 편중,2,1,4.85,2.8444444444444446,-41.3516609392898,135,135,135,0
+zt_t1_short_directional_s02,zt_t1_short,삼거리,directional,방향 편중,3,1,8.35,3.24,-61.197604790419156,151,151,151,0
+zt_x31_asymmetric_quiet_s00,zt_x31_asymmetric,비대칭 사거리,quiet,한산,1,1,10.5,8.47,-19.333333333333325,241,241,241,0
+zt_x31_asymmetric_quiet_s01,zt_x31_asymmetric,비대칭 사거리,quiet,한산,2,1,10.29,7.374444444444444,-28.333873231832406,241,241,241,0
+zt_x31_asymmetric_quiet_s02,zt_x31_asymmetric,비대칭 사거리,quiet,한산,3,1,10.674444444444445,7.254444444444444,-32.03913812844801,231,231,231,0
+zt_x31_asymmetric_busy_s00,zt_x31_asymmetric,비대칭 사거리,busy,혼잡,1,1,66.74,48.416666666666664,-27.454799720307655,506,522,522,0
+zt_x31_asymmetric_busy_s01,zt_x31_asymmetric,비대칭 사거리,busy,혼잡,2,1,45.041111111111114,40.01555555555556,-11.15770777314552,447,461,461,0
+zt_x31_asymmetric_busy_s02,zt_x31_asymmetric,비대칭 사거리,busy,혼잡,3,1,49.093333333333334,48.10111111111111,-2.0210936085460873,502,510,510,0
+zt_x31_asymmetric_directional_s00,zt_x31_asymmetric,비대칭 사거리,directional,방향 편중,1,1,46.64333333333333,37.84,-18.873722575573492,410,430,432,2
+zt_x31_asymmetric_directional_s01,zt_x31_asymmetric,비대칭 사거리,directional,방향 편중,2,1,41.766666666666666,27.30666666666667,-34.62090981644054,417,424,424,0
+zt_x31_asymmetric_directional_s02,zt_x31_asymmetric,비대칭 사거리,directional,방향 편중,3,1,37.88777777777778,32.09777777777778,-15.281973078389388,387,391,391,0
+zt_pair_short_quiet_s00,zt_pair_short,연결 2교차로,quiet,한산,1,1,23.19,18.335555555555555,-20.93335249868239,310,310,310,0
+zt_pair_short_quiet_s01,zt_pair_short,연결 2교차로,quiet,한산,2,1,21.036666666666665,13.937777777777777,-33.74531241747214,292,292,292,0
+zt_pair_short_quiet_s02,zt_pair_short,연결 2교차로,quiet,한산,3,1,18.93777777777778,14.01,-26.020887115700543,299,299,299,0
+zt_pair_short_busy_s00,zt_pair_short,연결 2교차로,busy,혼잡,1,1,131.29888888888888,115.78777777777778,-11.813589012346725,506,557,647,90
+zt_pair_short_busy_s01,zt_pair_short,연결 2교차로,busy,혼잡,2,1,106.50222222222222,97.23222222222222,-8.70404373409005,504,543,610,67
+zt_pair_short_busy_s02,zt_pair_short,연결 2교차로,busy,혼잡,3,1,128.33444444444444,115.26333333333334,-10.185193201790455,483,546,651,105
+zt_pair_short_directional_s00,zt_pair_short,연결 2교차로,directional,방향 편중,1,1,91.89,82.53222222222222,-10.183673716158214,465,494,525,31
+zt_pair_short_directional_s01,zt_pair_short,연결 2교차로,directional,방향 편중,2,1,83.16777777777777,54.3,-34.7102911116752,433,482,482,0
+zt_pair_short_directional_s02,zt_pair_short,연결 2교차로,directional,방향 편중,3,1,103.39444444444445,75.12555555555555,-27.340819945193708,445,498,531,33

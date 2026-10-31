@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "reviewer": "Codex, separate source inspection and independent arithmetic/safety replay",
+  "evaluation_sha256": "3fd6f94c89f9f9be10b90061df5c605ad45da0f769eff3aa0534c95deaf70ee3",
+  "review_note_sha256": "8fcacf7f86849662a75918a3d676a881bbc982e9849cd5dddcfea4052fcec11c",
+  "pilot_batch_sha256": "b5d83fbdde732b9d914aa9dc51ca7c32f31ad693cb4a2a525b447a8f955ceeea",
+  "pilot_runs": 12,
+  "fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  }
+}

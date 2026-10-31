@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <vType id="passenger" vClass="passenger" length="5" maxSpeed="13.89" />
+  <vType id="bus" vClass="bus" length="12" maxSpeed="13.89" />
+  <vType id="truck" vClass="truck" length="12" maxSpeed="13.89" />
+  <route id="od_000" edges="zt_t1_short_E_in zt_t1_short_N_out" />
+  <route id="od_001" edges="zt_t1_short_E_in zt_t1_short_S_out" />
+  <route id="od_002" edges="zt_t1_short_N_in zt_t1_short_E_out" />
+  <route id="od_003" edges="zt_t1_short_N_in zt_t1_short_S_out" />
+  <route id="od_004" edges="zt_t1_short_S_in zt_t1_short_E_out" />
+  <route id="od_005" edges="zt_t1_short_S_in zt_t1_short_N_out" />
+  <vehicle id="probe_0000" type="passenger" route="od_000" depart="0" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0001" type="bus" route="od_000" depart="2" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0002" type="truck" route="od_000" depart="4" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0003" type="passenger" route="od_001" depart="6" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0004" type="bus" route="od_001" depart="8" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0005" type="truck" route="od_001" depart="10" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0006" type="passenger" route="od_002" depart="12" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0007" type="bus" route="od_002" depart="14" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0008" type="truck" route="od_002" depart="16" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0009" type="passenger" route="od_003" depart="18" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0010" type="bus" route="od_003" depart="20" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0011" type="truck" route="od_003" depart="22" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0012" type="passenger" route="od_004" depart="24" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0013" type="bus" route="od_004" depart="26" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0014" type="truck" route="od_004" depart="28" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0015" type="passenger" route="od_005" depart="30" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0016" type="bus" route="od_005" depart="32" departLane="best" departSpeed="0" />
+  <vehicle id="probe_0017" type="truck" route="od_005" depart="34" departLane="best" departSpeed="0" />
+</routes>

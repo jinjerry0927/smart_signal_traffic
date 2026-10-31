@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<edges>
+  <edge id="zt_x31_asymmetric_N_out" from="zt_x31_asymmetric" to="zt_x31_asymmetric_N_end" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_N_in" from="zt_x31_asymmetric_N_end" to="zt_x31_asymmetric" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_E_out" from="zt_x31_asymmetric" to="zt_x31_asymmetric_E_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_E_in" from="zt_x31_asymmetric_E_end" to="zt_x31_asymmetric" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_S_out" from="zt_x31_asymmetric" to="zt_x31_asymmetric_S_end" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_S_in" from="zt_x31_asymmetric_S_end" to="zt_x31_asymmetric" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_W_out" from="zt_x31_asymmetric" to="zt_x31_asymmetric_W_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_x31_asymmetric_W_in" from="zt_x31_asymmetric_W_end" to="zt_x31_asymmetric" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+</edges>

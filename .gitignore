@@ -104,6 +104,11 @@ results/runs/transferable_train_150_seed43/*
 results/runs/final_signal_wave10_20261007/*
 !results/runs/final_signal_wave10_20261007/final_summary.json
 !results/runs/final_signal_wave10_20261007/release/
+# New-network web mode reads these sealed summaries; raw runs stay local.
+!results/runs/unseen_transfer_20261028/
+results/runs/unseen_transfer_20261028/*
+!results/runs/unseen_transfer_20261028/reviewed-followup-summary.json
+!results/runs/unseen_transfer_20261028/reviewed-followup-comparison.csv
 results/exports/
 .env
 .env.*

@@ -1,0 +1,100 @@
+{
+  "attempts": 134,
+  "completed": 132,
+  "failed": 2,
+  "unattempted": 28,
+  "reviewed_prefix": {
+    "id": "zt_pair_short_busy_s01/webster",
+    "outcome": "failed_teleport",
+    "path": "followup_round01\\zt_pair_short_busy_s01\\webster",
+    "manifest_sha256": "6eb3b73f55df62a2a8f773a618e50c951b12f10a0d91f513998727cf4d5d11d3",
+    "frames": 622,
+    "actions": 250,
+    "event": {
+      "time_s": 621,
+      "teleports": 1,
+      "collisions": 0
+    },
+    "prefix_replay": "PASS",
+    "completed_metrics": null,
+    "files_sha256": {
+      "decisions.jsonl": "cfd3221aca78b262c1e4b5ddc0362e39f9251756b5dae7cbac97f3b8a4703d7f",
+      "frames.jsonl": "a949c696cc41d0cfc61d3a23b9601e29c6df8839de72182f57d008782c646a4d",
+      "manifest.json": "6eb3b73f55df62a2a8f773a618e50c951b12f10a0d91f513998727cf4d5d11d3",
+      "signals.csv": "eb0d3a20e37f0b86d55b7cb53dc5217e8cddf844f52b64719cb49776390af439",
+      "sumo-errors.log": "8c2ee8171e26a70fbeead421e97293bca9673894acb44970551674cc311b306d",
+      "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tripinfo.xml": "a8c19ab5f8e9ac2416e002b078ad1028ffa9b1dc0196a9c9604eed9e076fb30c"
+    }
+  },
+  "vehicle": {
+    "id": "veh_00260",
+    "type": "passenger",
+    "route": "od_012",
+    "depart": "261.874",
+    "departLane": "best",
+    "departSpeed": "0",
+    "route_edges": [
+      "zt_a_W_in",
+      "zt_link_out",
+      "zt_b_E_out"
+    ],
+    "lane_continuous_without_required_change": false,
+    "movements": [
+      {
+        "junction": "zt_a",
+        "index": 13,
+        "incoming": "zt_a_W_in_0",
+        "outgoing": "zt_link_out_1",
+        "turn": "l"
+      },
+      {
+        "junction": "zt_b",
+        "index": 7,
+        "incoming": "zt_link_out_0",
+        "outgoing": "zt_b_E_out_0",
+        "turn": "r"
+      }
+    ],
+    "last_observation": {
+      "time_s": 621,
+      "speed": 12.508446616659173,
+      "waiting_s": 0.0
+    },
+    "continuous_stopped_begin": 321,
+    "continuous_stopped_end": 620,
+    "last_before_event": [
+      0.0,
+      300.0
+    ]
+  },
+  "interpretation": "Second Webster congestion teleport. Independent clock/observation/policy prefix matches; exact microscopic yield cause not established. No tuning or retry; keep the original failure.",
+  "upstream_W_green": [
+    {
+      "begin": 321,
+      "end": 325,
+      "seconds": 5
+    },
+    {
+      "begin": 490,
+      "end": 545,
+      "seconds": 56
+    }
+  ],
+  "downstream_S_green": [
+    {
+      "begin": 375,
+      "end": 400,
+      "seconds": 26
+    },
+    {
+      "begin": 570,
+      "end": 620,
+      "seconds": 51
+    }
+  ],
+  "receiver_lane1_counts_when_upstream_green": [
+    15,
+    15
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "od_000",
+    "edges": [
+      "zt_x31_asymmetric_E_in",
+      "zt_x31_asymmetric_N_out"
+    ],
+    "source": "zt_x31_asymmetric_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_001",
+    "edges": [
+      "zt_x31_asymmetric_E_in",
+      "zt_x31_asymmetric_S_out"
+    ],
+    "source": "zt_x31_asymmetric_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_002",
+    "edges": [
+      "zt_x31_asymmetric_E_in",
+      "zt_x31_asymmetric_W_out"
+    ],
+    "source": "zt_x31_asymmetric_E_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_003",
+    "edges": [
+      "zt_x31_asymmetric_N_in",
+      "zt_x31_asymmetric_E_out"
+    ],
+    "source": "zt_x31_asymmetric_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_004",
+    "edges": [
+      "zt_x31_asymmetric_N_in",
+      "zt_x31_asymmetric_S_out"
+    ],
+    "source": "zt_x31_asymmetric_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_005",
+    "edges": [
+      "zt_x31_asymmetric_N_in",
+      "zt_x31_asymmetric_W_out"
+    ],
+    "source": "zt_x31_asymmetric_N_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_006",
+    "edges": [
+      "zt_x31_asymmetric_S_in",
+      "zt_x31_asymmetric_E_out"
+    ],
+    "source": "zt_x31_asymmetric_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_007",
+    "edges": [
+      "zt_x31_asymmetric_S_in",
+      "zt_x31_asymmetric_N_out"
+    ],
+    "source": "zt_x31_asymmetric_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_008",
+    "edges": [
+      "zt_x31_asymmetric_S_in",
+      "zt_x31_asymmetric_W_out"
+    ],
+    "source": "zt_x31_asymmetric_S_in",
+    "lanes": 3
+  },
+  {
+    "id": "od_009",
+    "edges": [
+      "zt_x31_asymmetric_W_in",
+      "zt_x31_asymmetric_E_out"
+    ],
+    "source": "zt_x31_asymmetric_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_010",
+    "edges": [
+      "zt_x31_asymmetric_W_in",
+      "zt_x31_asymmetric_N_out"
+    ],
+    "source": "zt_x31_asymmetric_W_in",
+    "lanes": 1
+  },
+  {
+    "id": "od_011",
+    "edges": [
+      "zt_x31_asymmetric_W_in",
+      "zt_x31_asymmetric_S_out"
+    ],
+    "source": "zt_x31_asymmetric_W_in",
+    "lanes": 1
+  }
+]

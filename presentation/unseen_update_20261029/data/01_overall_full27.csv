@@ -1,0 +1,6 @@
+﻿controller,label,n,mean_queue,arrived,scheduled,remaining
+fixed,Fixed,27,39.859053497942384,8356,9037,681
+max_pressure,Max-Pressure,27,31.482716049382717,8387,9037,650
+smart_v2,SmartSignal V2,27,32.272839506172836,8709,9037,328
+raw_smart,학습 모델 단독,27,33.806748971193414,8660,9037,377
+rules_pressure,규칙 중심 진단,27,31.452181069958847,8388,9037,649

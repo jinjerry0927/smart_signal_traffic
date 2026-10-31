@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "date": "2026-10-29",
+  "reviewer": "Codex separate source/evidence/browser inspection",
+  "tests": {
+    "new_web": 5,
+    "existing_web_inference": 19
+  },
+  "sources_sha256": {
+    "signal_demo/runtime.py": "b3a1ba69f43f31a734c35583fbb6d9a87597b0f04c5eafbde09d58510dad8cee",
+    "signal_demo/web.py": "08a57757307a4ed3b007e82703c977c6a703aee8046ea4a5583f8cba46202c32",
+    "signal_demo/__main__.py": "66752b24f72c14cc0376f690570252a9437a47ed2c7e76fc4e65976bde473009",
+    "signal_demo/unseen.py": "31597ae33bf6d882f9a1c917a5017993ecb0dcb5d9e133772854d361a0547277",
+    "signal_demo/unseen_dashboard.html": "cf8371b48395fb0f5b5731bd8b1f0726935431204545cef2015e49b6052ad913",
+    "tests/test_unseen_web.py": "7c09598ef6cf165882d4ed4c2b315b6110f54feaeda42f4c4e053ecb089837db",
+    "tools/check_unseen_web_live.py": "3aba5c0a07627e31cc4865750f8c21be2798cf32a13e729fe632aef50ea19426"
+  },
+  "functional_web_runs": 5,
+  "completed": 4,
+  "user_stopped": 1,
+  "collisions": 0,
+  "teleports": 0,
+  "warnings": 0,
+  "checks_sha256": "ad0c6c52b917d58d1ac72b3edbb134c514f89592a080c5f173497bd614a9fcc9",
+  "interaction_sha256": "243c33ccae032126253286abac95942063a03fea9dd848ee530f2718a26411ea",
+  "screenshot_sha256": "c674dd8906836f80b0f510633963b2c95e65686704b19d3de7bed753365ff2d1",
+  "review_note_sha256": "d6796694be0cde5c23f70293642438004c175b3e1e29611c28f4a8a65cff761f",
+  "browser_observed": {
+    "viewport_px": 622,
+    "page_width_px": 622,
+    "console_errors_warnings": 0,
+    "selected_case": "zt_pair_short",
+    "signal_cards": 2,
+    "scenario_options": 9,
+    "status": "ready"
+  },
+  "preserved_user_files": {
+    "signal_demo/runtime.py": false,
+    "signal_demo/web.py": false,
+    "signal_demo/dashboard.html": true,
+    "signal_demo/__main__.py": false,
+    "tests/test_signal_demo.py": true
+  },
+  "original809_changed_only_authorized_web_adapters": [
+    "signal_demo/__main__.py",
+    "signal_demo/runtime.py",
+    "signal_demo/web.py"
+  ],
+  "frozen_original_sources": 17,
+  "additional_training": 0,
+  "physical_pi_verified": false,
+  "total_traffic_attempts_formal_and_web": 182,
+  "local_markdown_links_checked": 127,
+  "local_markdown_broken": 0
+}

@@ -1,0 +1,245 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "e3c3499c8c53f1176c0376dca5bdac3d5295f81260ba523806b521b58ff8056a",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "zt_x31_asymmetric_N_in_0": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_in"
+    },
+    "zt_x31_asymmetric_W_out_0": {
+      "length_m": 158.4,
+      "capacity_vehicles": 21.12,
+      "edge": "zt_x31_asymmetric_W_out"
+    },
+    "zt_x31_asymmetric_S_out_0": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_out"
+    },
+    "zt_x31_asymmetric_N_in_1": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_in"
+    },
+    "zt_x31_asymmetric_S_out_1": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_out"
+    },
+    "zt_x31_asymmetric_N_in_2": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_in"
+    },
+    "zt_x31_asymmetric_S_out_2": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_out"
+    },
+    "zt_x31_asymmetric_E_out_0": {
+      "length_m": 118.4,
+      "capacity_vehicles": 15.786666666666667,
+      "edge": "zt_x31_asymmetric_E_out"
+    },
+    "zt_x31_asymmetric_E_in_0": {
+      "length_m": 118.4,
+      "capacity_vehicles": 15.786666666666667,
+      "edge": "zt_x31_asymmetric_E_in"
+    },
+    "zt_x31_asymmetric_N_out_0": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_out"
+    },
+    "zt_x31_asymmetric_S_in_0": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_in"
+    },
+    "zt_x31_asymmetric_S_in_1": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_in"
+    },
+    "zt_x31_asymmetric_N_out_1": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_out"
+    },
+    "zt_x31_asymmetric_S_in_2": {
+      "length_m": 244.8,
+      "capacity_vehicles": 32.64,
+      "edge": "zt_x31_asymmetric_S_in"
+    },
+    "zt_x31_asymmetric_N_out_2": {
+      "length_m": 304.8,
+      "capacity_vehicles": 40.64,
+      "edge": "zt_x31_asymmetric_N_out"
+    },
+    "zt_x31_asymmetric_W_in_0": {
+      "length_m": 158.4,
+      "capacity_vehicles": 21.12,
+      "edge": "zt_x31_asymmetric_W_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "zt_x31_asymmetric",
+      "phases": [
+        {
+          "id": "N_G",
+          "state": "GGGGGrrrrrrrrrrr",
+          "incoming": [
+            "zt_x31_asymmetric_N_in_0",
+            "zt_x31_asymmetric_N_in_1",
+            "zt_x31_asymmetric_N_in_2"
+          ]
+        },
+        {
+          "id": "E_G",
+          "state": "rrrrrGGGrrrrrrrr",
+          "incoming": [
+            "zt_x31_asymmetric_E_in_0"
+          ]
+        },
+        {
+          "id": "S_G",
+          "state": "rrrrrrrrGGGGGrrr",
+          "incoming": [
+            "zt_x31_asymmetric_S_in_0",
+            "zt_x31_asymmetric_S_in_1",
+            "zt_x31_asymmetric_S_in_2"
+          ]
+        },
+        {
+          "id": "W_G",
+          "state": "rrrrrrrrrrrrrGGG",
+          "incoming": [
+            "zt_x31_asymmetric_W_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "zt_x31_asymmetric_N_in_0",
+          "outgoing": "zt_x31_asymmetric_W_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 1,
+          "incoming": "zt_x31_asymmetric_N_in_0",
+          "outgoing": "zt_x31_asymmetric_S_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 2,
+          "incoming": "zt_x31_asymmetric_N_in_1",
+          "outgoing": "zt_x31_asymmetric_S_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 3,
+          "incoming": "zt_x31_asymmetric_N_in_2",
+          "outgoing": "zt_x31_asymmetric_S_out_2",
+          "turn": "s"
+        },
+        {
+          "index": 4,
+          "incoming": "zt_x31_asymmetric_N_in_2",
+          "outgoing": "zt_x31_asymmetric_E_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 5,
+          "incoming": "zt_x31_asymmetric_E_in_0",
+          "outgoing": "zt_x31_asymmetric_N_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 6,
+          "incoming": "zt_x31_asymmetric_E_in_0",
+          "outgoing": "zt_x31_asymmetric_W_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 7,
+          "incoming": "zt_x31_asymmetric_E_in_0",
+          "outgoing": "zt_x31_asymmetric_S_out_2",
+          "turn": "l"
+        },
+        {
+          "index": 8,
+          "incoming": "zt_x31_asymmetric_S_in_0",
+          "outgoing": "zt_x31_asymmetric_E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 9,
+          "incoming": "zt_x31_asymmetric_S_in_0",
+          "outgoing": "zt_x31_asymmetric_N_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 10,
+          "incoming": "zt_x31_asymmetric_S_in_1",
+          "outgoing": "zt_x31_asymmetric_N_out_1",
+          "turn": "s"
+        },
+        {
+          "index": 11,
+          "incoming": "zt_x31_asymmetric_S_in_2",
+          "outgoing": "zt_x31_asymmetric_N_out_2",
+          "turn": "s"
+        },
+        {
+          "index": 12,
+          "incoming": "zt_x31_asymmetric_S_in_2",
+          "outgoing": "zt_x31_asymmetric_W_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 13,
+          "incoming": "zt_x31_asymmetric_W_in_0",
+          "outgoing": "zt_x31_asymmetric_S_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 14,
+          "incoming": "zt_x31_asymmetric_W_in_0",
+          "outgoing": "zt_x31_asymmetric_E_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 15,
+          "incoming": "zt_x31_asymmetric_W_in_0",
+          "outgoing": "zt_x31_asymmetric_N_out_2",
+          "turn": "l"
+        }
+      ]
+    }
+  ]
+}

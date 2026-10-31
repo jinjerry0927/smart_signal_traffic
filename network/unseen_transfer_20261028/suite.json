@@ -1,0 +1,548 @@
+{
+  "version": "transferable-v1",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "cases": [
+    {
+      "id": "zt_t1_short",
+      "split": "test",
+      "spec": "zt_t1_short/intersection.json",
+      "spec_sha256": "a330b812511de6299d30228cc491c539a34320e2eb0fd32883f15f9252c1f68b"
+    },
+    {
+      "id": "zt_x31_asymmetric",
+      "split": "test",
+      "spec": "zt_x31_asymmetric/intersection.json",
+      "spec_sha256": "e180a4fffd21080e29dcf80ee7d01b8af1a8c02343cc3f601a42c87aea26864e"
+    },
+    {
+      "id": "zt_pair_short",
+      "split": "test",
+      "spec": "zt_pair_short/intersection.json",
+      "spec_sha256": "53f45208e9ef4fd840720911e452f5883e72da83a0d80bdaaa3f36f200d98880"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "zt_t1_short_quiet_s00",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 280000,
+      "routes": "zt_t1_short/quiet_s00.rou.xml",
+      "routes_sha256": "4f4d8e3b43ac97da564d1f98f38fc11a342fbb42ef276c17c97d3bf7fb910005",
+      "scheduled": 85,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_quiet_s01",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 280001,
+      "routes": "zt_t1_short/quiet_s01.rou.xml",
+      "routes_sha256": "f06f4dd39b99b30c0bdb2532328c6836169e179bd42a9be54c4389d4ffaf8ddc",
+      "scheduled": 91,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_quiet_s02",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 2,
+      "seed": 280002,
+      "routes": "zt_t1_short/quiet_s02.rou.xml",
+      "routes_sha256": "d9e8d220382b3d00fa0d7a72b402bff95a2cd247245427c7488f482520d16995",
+      "scheduled": 87,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_busy_s00",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 280100,
+      "routes": "zt_t1_short/busy_s00.rou.xml",
+      "routes_sha256": "5dea60e174606aa1c6e23a3bdaed76d5af2243122a2990b0013611cd87e542fe",
+      "scheduled": 180,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_busy_s01",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 280101,
+      "routes": "zt_t1_short/busy_s01.rou.xml",
+      "routes_sha256": "4579492e09fe4a9bda3a5d03400a6c766e2f3cd18b8d705d38188e51fa3273d5",
+      "scheduled": 180,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_busy_s02",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 2,
+      "seed": 280102,
+      "routes": "zt_t1_short/busy_s02.rou.xml",
+      "routes_sha256": "6a0344c7cfd97e867aa59a7ee6345faabcdeb6be0c74738b3fccf87ebb199d1f",
+      "scheduled": 165,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_directional_s00",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 280200,
+      "routes": "zt_t1_short/directional_s00.rou.xml",
+      "routes_sha256": "83beb0d3d7bb9e67edc6d12792ee446d7bbdc4273852a69361a81499ddb06eb1",
+      "scheduled": 163,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_directional_s01",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 280201,
+      "routes": "zt_t1_short/directional_s01.rou.xml",
+      "routes_sha256": "6880b3a06dbed089fd741896c63873de878c2bf29c2b660039bb59e2bc12a089",
+      "scheduled": 135,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_t1_short_directional_s02",
+      "case": "zt_t1_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 2,
+      "seed": 280202,
+      "routes": "zt_t1_short/directional_s02.rou.xml",
+      "routes_sha256": "e435a2b9006d22024659bdfd7c1417b5e61efee53b27a3862042d3e3e3f68c73",
+      "scheduled": 151,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_quiet_s00",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 281000,
+      "routes": "zt_x31_asymmetric/quiet_s00.rou.xml",
+      "routes_sha256": "82d862e1a41ccceb61ca30ddee4dfb09764429cf118f039a435e83fedf7287d1",
+      "scheduled": 241,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_quiet_s01",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 281001,
+      "routes": "zt_x31_asymmetric/quiet_s01.rou.xml",
+      "routes_sha256": "ef4fd5e09dcf45f57b6f6447dfa03c8917d9a326c9e18234cd74bb68e0a330ad",
+      "scheduled": 241,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_quiet_s02",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 2,
+      "seed": 281002,
+      "routes": "zt_x31_asymmetric/quiet_s02.rou.xml",
+      "routes_sha256": "59cff4a99c0132f0d6fbed17f16644206557bd471f9d5d3bbe0d9f55db860fff",
+      "scheduled": 231,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_busy_s00",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 281100,
+      "routes": "zt_x31_asymmetric/busy_s00.rou.xml",
+      "routes_sha256": "a035ba48488c70830ab2756a764e848f09ec04ea8e472cd271705264695cbfce",
+      "scheduled": 522,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_busy_s01",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 281101,
+      "routes": "zt_x31_asymmetric/busy_s01.rou.xml",
+      "routes_sha256": "4924dd2f7611c2d802453e4b4b856ccd2386d4fb43e651908bbaa9035ee1554d",
+      "scheduled": 461,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_busy_s02",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "busy",
+      "sample": 2,
+      "seed": 281102,
+      "routes": "zt_x31_asymmetric/busy_s02.rou.xml",
+      "routes_sha256": "d58a8d4e82edc1da40d0e9dd858e7bac2cafc9e407eddbb2b421a0c91069336e",
+      "scheduled": 510,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_directional_s00",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 281200,
+      "routes": "zt_x31_asymmetric/directional_s00.rou.xml",
+      "routes_sha256": "97f21ba7eaa5ad5a0961fb4fe461d6efd7540f94a9d6908476cad8969daeba7c",
+      "scheduled": 432,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_directional_s01",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 281201,
+      "routes": "zt_x31_asymmetric/directional_s01.rou.xml",
+      "routes_sha256": "6c62f7535968754fd2a1e175ec606aa3057d867d044e6866e1730baf5663979d",
+      "scheduled": 424,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_x31_asymmetric_directional_s02",
+      "case": "zt_x31_asymmetric",
+      "split": "test",
+      "profile": "directional",
+      "sample": 2,
+      "seed": 281202,
+      "routes": "zt_x31_asymmetric/directional_s02.rou.xml",
+      "routes_sha256": "902758f470fc1e23db5b477f1e725968fea8620b99c5c664de5032ce4ec8d76d",
+      "scheduled": 391,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_quiet_s00",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 0,
+      "seed": 282000,
+      "routes": "zt_pair_short/quiet_s00.rou.xml",
+      "routes_sha256": "11c81b28de98eb431005177f7b679b24a35ef08ab4bea57edcc1f6394bfcfc06",
+      "scheduled": 310,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_quiet_s01",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 1,
+      "seed": 282001,
+      "routes": "zt_pair_short/quiet_s01.rou.xml",
+      "routes_sha256": "f62080a445c6732b9ff658d7f661216c1f242ea414ad66c8c907a26524099b51",
+      "scheduled": 292,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_quiet_s02",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "quiet",
+      "sample": 2,
+      "seed": 282002,
+      "routes": "zt_pair_short/quiet_s02.rou.xml",
+      "routes_sha256": "73c9cf44e11eb0a2cc3a99747de9b26a63a313f53ec67c24b327bf3d5e24fddd",
+      "scheduled": 299,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_busy_s00",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 0,
+      "seed": 282100,
+      "routes": "zt_pair_short/busy_s00.rou.xml",
+      "routes_sha256": "eec4e57b3aa038cf4ba23d0e0d853cc92b52d8dd56bb2778e3065614f7d1d803",
+      "scheduled": 647,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 1,
+      "seed": 282101,
+      "routes": "zt_pair_short/busy_s01.rou.xml",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "scheduled": 610,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "busy",
+      "sample": 2,
+      "seed": 282102,
+      "routes": "zt_pair_short/busy_s02.rou.xml",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "scheduled": 651,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 0,
+      "seed": 282200,
+      "routes": "zt_pair_short/directional_s00.rou.xml",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "scheduled": 525,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 1,
+      "seed": 282201,
+      "routes": "zt_pair_short/directional_s01.rou.xml",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "scheduled": 482,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "split": "test",
+      "profile": "directional",
+      "sample": 2,
+      "seed": 282202,
+      "routes": "zt_pair_short/directional_s02.rou.xml",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "scheduled": 531,
+      "duration_s": 600,
+      "drain_s": 300
+    }
+  ],
+  "preparation_status": "completed",
+  "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+  "builder_sha256": {
+    "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e"
+  },
+  "novelty": {
+    "zt_t1_short": {
+      "signal_count": 1,
+      "junctions": [
+        {
+          "id": "zt_t1_short",
+          "arms": 3,
+          "green_phases": 3,
+          "approaches": [
+            {
+              "edge": "zt_t1_short_E_in",
+              "lanes": 1,
+              "length_m": 314.8
+            },
+            {
+              "edge": "zt_t1_short_N_in",
+              "lanes": 1,
+              "length_m": 134.8
+            },
+            {
+              "edge": "zt_t1_short_S_in",
+              "lanes": 1,
+              "length_m": 194.8
+            }
+          ],
+          "turn_counts": {
+            "r": 2,
+            "l": 2,
+            "s": 2
+          }
+        }
+      ],
+      "internal_links": [],
+      "screening_signature_sha256": "22c23ad102b18bf8a44e83a3d5cba7f5979fd5fe13df13df568bd248b01d2efb"
+    },
+    "zt_x31_asymmetric": {
+      "signal_count": 1,
+      "junctions": [
+        {
+          "id": "zt_x31_asymmetric",
+          "arms": 4,
+          "green_phases": 4,
+          "approaches": [
+            {
+              "edge": "zt_x31_asymmetric_E_in",
+              "lanes": 1,
+              "length_m": 118.4
+            },
+            {
+              "edge": "zt_x31_asymmetric_N_in",
+              "lanes": 3,
+              "length_m": 304.8
+            },
+            {
+              "edge": "zt_x31_asymmetric_S_in",
+              "lanes": 3,
+              "length_m": 244.8
+            },
+            {
+              "edge": "zt_x31_asymmetric_W_in",
+              "lanes": 1,
+              "length_m": 158.4
+            }
+          ],
+          "turn_counts": {
+            "r": 4,
+            "s": 8,
+            "l": 4
+          }
+        }
+      ],
+      "internal_links": [],
+      "screening_signature_sha256": "c0461d715ebf6d663a5a95aeb9448ddbf6a6a692d19da94db83a472312153bde"
+    },
+    "zt_pair_short": {
+      "signal_count": 2,
+      "junctions": [
+        {
+          "id": "zt_a",
+          "arms": 4,
+          "green_phases": 4,
+          "approaches": [
+            {
+              "edge": "zt_a_E_in",
+              "lanes": 1,
+              "length_m": 158.4
+            },
+            {
+              "edge": "zt_a_S_in",
+              "lanes": 3,
+              "length_m": 284.8
+            },
+            {
+              "edge": "zt_a_W_in",
+              "lanes": 1,
+              "length_m": 198.4
+            },
+            {
+              "edge": "zt_link_in",
+              "lanes": 2,
+              "length_m": 129.6
+            }
+          ],
+          "turn_counts": {
+            "r": 4,
+            "s": 6,
+            "l": 4
+          }
+        },
+        {
+          "id": "zt_b",
+          "arms": 4,
+          "green_phases": 4,
+          "approaches": [
+            {
+              "edge": "zt_b_E_in",
+              "lanes": 1,
+              "length_m": 158.4
+            },
+            {
+              "edge": "zt_b_N_in",
+              "lanes": 3,
+              "length_m": 344.8
+            },
+            {
+              "edge": "zt_b_W_in",
+              "lanes": 1,
+              "length_m": 198.4
+            },
+            {
+              "edge": "zt_link_out",
+              "lanes": 2,
+              "length_m": 129.6
+            }
+          ],
+          "turn_counts": {
+            "r": 4,
+            "s": 6,
+            "l": 4
+          }
+        }
+      ],
+      "internal_links": [
+        {
+          "lanes": 2,
+          "length_m": 129.6
+        },
+        {
+          "lanes": 2,
+          "length_m": 129.6
+        }
+      ],
+      "screening_signature_sha256": "31e282a7ee1b6e9bf2b23e024953b1d62a8ae0314055f0f2b078c52b7852b9c0"
+    }
+  }
+}

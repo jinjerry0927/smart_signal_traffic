@@ -26,7 +26,7 @@ class StopRequested(Exception):
     pass
 
 
-def map_data(network, spec):
+def map_data(network, spec, names=None):
     root = ET.parse(network).getroot()
     points = lambda shape: [[float(v) for v in pair.split(',')] for pair in shape.split()]
     lanes, edges = {}, []
@@ -36,9 +36,11 @@ def map_data(network, spec):
         if edge.get('function') != 'internal':
             edges.append(dict(id=edge.get('id'), lanes=[l.get('id') for l in edge.findall('lane')]))
     junctions = []
+    junction_ids = {j['id'] for j in spec['junctions']}
+    names = NAMES if names is None else names
     for j in root.findall('junction'):
-        if j.get('id') in NAMES:
-            junctions.append(dict(id=j.get('id'), name=NAMES[j.get('id')],
+        if j.get('id') in junction_ids:
+            junctions.append(dict(id=j.get('id'), name=names.get(j.get('id'), j.get('id')),
                                   x=float(j.get('x')), y=float(j.get('y')), shape=points(j.get('shape'))))
     all_points = [p for e in edges for lid in e['lanes'] for p in lanes[lid]['shape']]
     xs, ys = zip(*all_points)
@@ -68,6 +70,7 @@ class Demo:
         validated_policy(self.release / 'model.json')
         self.suite_path = ROOT / 'network/transferable_v1/suite.json'
         self.suite, self.cases = load_suite(self.suite_path)
+        self.scenarios, self.junction_names = SCENARIOS.copy(), NAMES.copy()
         spec, network, _ = self.cases['gyeongju']
         self.map = map_data(network, spec)
         summary_path = ROOT / 'results/runs/final_signal_wave10_20261007/final_summary.json'
@@ -88,7 +91,7 @@ class Demo:
             return copy.deepcopy(self.state)
 
     def boot(self):
-        return dict(map=self.map, identity=self.identity, scenarios=SCENARIOS,
+        return dict(map=self.map, identity=self.identity, scenarios=self.scenarios,
                     comparison=self.comparison, title='Smart Signal · 경주 3교차로')
 
     def update(self, **values):
@@ -101,9 +104,9 @@ class Demo:
         scenario_id = options.get('scenario', 'gyeongju_busy')
         controller = options.get('controller', 'smart')
         mode = options.get('mode', 'local')
-        if scenario_id not in SCENARIOS or controller not in ('smart', 'fixed', 'webster', 'max_pressure') or mode not in ('local', 'edge'):
+        if scenario_id not in self.scenarios or controller not in ('smart', 'fixed', 'webster', 'max_pressure') or mode not in ('local', 'edge'):
             raise ValueError('Unknown scenario, controller or inference mode')
-        speed, horizon = options.get('speed', 10), options.get('horizon_s', 900)
+        speed, horizon = options.get('speed', 30), options.get('horizon_s', 900)
         if (type(speed) not in (int, float) or not 1 <= speed <= 60
                 or type(horizon) is not int or not 30 <= horizon <= 900 or horizon % 5):
             raise ValueError('Speed 1..60; horizon 30..900 in multiples of 5')
@@ -124,6 +127,7 @@ class Demo:
                               queue=0, running=0, arrived=0, mean_queue=0, decision_ms=None,
                               link='connecting' if mode == 'edge' else 'local',
                               link_message='원격 연결 확인 중' if mode == 'edge' else 'PC 추론')
+            self.state.update(edge_health=None, link_error=None)
             self.worker = threading.Thread(target=self._run, args=(scenario_id, controller, mode, edge_url, speed, horizon), daemon=True)
             self.worker.start()
         return self.snapshot()
@@ -149,6 +153,15 @@ class Demo:
         if self.worker is not None:
             self.worker.join(timeout=10)
 
+    def set_speed(self, speed):
+        if type(speed) not in (int, float) or not 1 <= speed <= 60:
+            raise ValueError('Speed must be 1..60')
+        with self.lock:
+            if self.state['status'] not in ('running', 'pausing', 'paused'):
+                raise ValueError('Speed can change only during an active run')
+            self.state['speed'] = speed
+        return self.snapshot()
+
     def _frame(self, env, observation, speed):
         # The worker alone queries TraCI; request handlers only read locked snapshots.
         connection = env.connection
@@ -165,9 +178,10 @@ class Demo:
             lane_signals = {lid: 'G' if any(state[m['index']] == 'G' for m in j['movements'] if m['incoming'] == lid)
                             else 'y' if any(state[m['index']] == 'y' for m in j['movements'] if m['incoming'] == lid)
                             else 'r' for lid in incoming}
-            junctions.append(dict(id=jid, name=NAMES[jid], phase=clock.current, phase_count=len(clock.phases),
+            junctions.append(dict(id=jid, name=self.junction_names.get(jid, jid), phase=clock.current, phase_count=len(clock.phases),
                                   stage=clock.stage, elapsed_s=clock.elapsed, remaining_s=clock.remaining,
                                   state=state, lane_signals=lane_signals,
+                                  next_phase=clock.pending, red_age_s=clock.red_age.tolist(),
                                   queue=sum(env.observer.samples[lid]['queue'] for lid in incoming)))
         self.update(time_s=connection.simulation.getTime(), vehicles=vehicles, junctions=junctions,
                     queue=sum(v['speed'] < .1 for v in vehicles), running=len(vehicles),
@@ -184,7 +198,9 @@ class Demo:
         if self.stop_event.is_set():
             raise StopRequested()
         self.update(status='running')
-        if self.stop_event.wait(1 / speed):
+        with self.lock:
+            playback_speed = self.state.get('speed', speed)
+        if self.stop_event.wait(1 / playback_speed):
             raise StopRequested()
 
     def _run(self, scenario_id, controller, mode, edge_url, speed, horizon):
@@ -214,7 +230,7 @@ class Demo:
                 try:
                     edge = EdgeClient(edge_url, identity)
                     health = edge.check()
-                    self.update(link='edge', link_message='원격 추론 · ' + health['hostname'])
+                    self.update(link='edge', link_message='원격 추론 · ' + health['hostname'], edge_health=health)
                 except Exception as exc:
                     edge = None
                     message = f'{type(exc).__name__}: {exc}'

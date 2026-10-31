@@ -1,0 +1,90 @@
+{
+  "junctions": [
+    {
+      "id": "zt_a",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "zt_b",
+      "x": 0,
+      "y": 160
+    }
+  ],
+  "roads": [
+    {
+      "id": "zt_link",
+      "a": "zt_a",
+      "b": "zt_b",
+      "arm_a": "N",
+      "arm_b": "S",
+      "lanes": 2
+    },
+    {
+      "id": "zt_a_E",
+      "a": "zt_a",
+      "b": "zt_a_E_end",
+      "arm_a": "E",
+      "lanes": 1,
+      "end_xy": [
+        180,
+        0
+      ]
+    },
+    {
+      "id": "zt_a_S",
+      "a": "zt_a",
+      "b": "zt_a_S_end",
+      "arm_a": "S",
+      "lanes": 3,
+      "end_xy": [
+        0,
+        -300
+      ]
+    },
+    {
+      "id": "zt_a_W",
+      "a": "zt_a",
+      "b": "zt_a_W_end",
+      "arm_a": "W",
+      "lanes": 1,
+      "end_xy": [
+        -220,
+        0
+      ]
+    },
+    {
+      "id": "zt_b_N",
+      "a": "zt_b",
+      "b": "zt_b_N_end",
+      "arm_a": "N",
+      "lanes": 3,
+      "end_xy": [
+        0,
+        520
+      ]
+    },
+    {
+      "id": "zt_b_E",
+      "a": "zt_b",
+      "b": "zt_b_E_end",
+      "arm_a": "E",
+      "lanes": 1,
+      "end_xy": [
+        180,
+        160
+      ]
+    },
+    {
+      "id": "zt_b_W",
+      "a": "zt_b",
+      "b": "zt_b_W_end",
+      "arm_a": "W",
+      "lanes": 1,
+      "end_xy": [
+        -220,
+        160
+      ]
+    }
+  ]
+}

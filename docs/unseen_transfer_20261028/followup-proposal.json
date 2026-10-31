@@ -1,0 +1,376 @@
+{
+  "status": "superseded_unexecuted_draft",
+  "purpose": "Finish only the 34 unattempted jobs as a separate follow-up; preserve the failed Webster attempt and original stopped batch",
+  "original_batch_sha256": "bf3367d53e720836e972db33aac65ccc63a1a408bab93bb1b6927e1f0c0126bf",
+  "original_fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  },
+  "producer_changes": 0,
+  "parameter_changes": 0,
+  "training_runs": 0,
+  "rerun_failed_job": false,
+  "failure_handling": {
+    "teleport": "stop that run immediately, preserve failure and exclude its partial metrics from paired averages, then continue the next job",
+    "collision_or_execution_or_record_error": "stop the whole follow-up and investigate"
+  },
+  "interpretation": "Original preregistered batch remains stopped/not passed. Report completion/failure for every condition, full coverage per controller, and means only on explicitly common completed conditions; report the learned-contribution subset separately.",
+  "jobs": [
+    {
+      "scenario": "zt_pair_short_busy_s00",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "eec4e57b3aa038cf4ba23d0e0d853cc92b52d8dd56bb2778e3065614f7d1d803",
+      "seed": 282100,
+      "scheduled": 647
+    },
+    {
+      "scenario": "zt_pair_short_busy_s00",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "eec4e57b3aa038cf4ba23d0e0d853cc92b52d8dd56bb2778e3065614f7d1d803",
+      "seed": 282100,
+      "scheduled": 647
+    },
+    {
+      "scenario": "zt_pair_short_busy_s00",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "eec4e57b3aa038cf4ba23d0e0d853cc92b52d8dd56bb2778e3065614f7d1d803",
+      "seed": 282100,
+      "scheduled": 647
+    },
+    {
+      "scenario": "zt_pair_short_busy_s00",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "eec4e57b3aa038cf4ba23d0e0d853cc92b52d8dd56bb2778e3065614f7d1d803",
+      "seed": 282100,
+      "scheduled": 647
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "fixed",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "webster",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s01",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "78c5eb036b03ca5b2292294196d9884cdcd8a2e2f466de8097d616bd1cb40bf3",
+      "seed": 282101,
+      "scheduled": 610
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "fixed",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "webster",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_busy_s02",
+      "case": "zt_pair_short",
+      "profile": "busy",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "c6d7cafc38a05baa8897fafd76115ed3cf2944e885e1570f93771649bbd13147",
+      "seed": 282102,
+      "scheduled": 651
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "fixed",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "webster",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s00",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "cc3288f56f57db1b210657be03d607cd9b41d107ccdd84b31a36fe4ebb124d26",
+      "seed": 282200,
+      "scheduled": 525
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "fixed",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "webster",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s01",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "7242c82f10c82db13ebee8b8261fad6cb25a5b15bb01503544ad7428f702cfe6",
+      "seed": 282201,
+      "scheduled": 482
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "fixed",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "webster",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "max_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "smart_v2",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "raw_smart",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    },
+    {
+      "scenario": "zt_pair_short_directional_s02",
+      "case": "zt_pair_short",
+      "profile": "directional",
+      "controller": "rules_pressure",
+      "network_sha256": "4185a1825bc7bfba32773b6023fb8a9972124df0fc8ca3c026c0a85eab0749cd",
+      "routes_sha256": "199aa4fc93bc3f6c9e71248cce5584937d8e2dd2bf9688deab090a6c2656c93c",
+      "seed": 282202,
+      "scheduled": 531
+    }
+  ],
+  "additional_traffic_attempts_max": 34,
+  "superseded_draft_status": "requires_user_authorization_to_change_batch_stop_handling",
+  "superseded_by": "followup-round-01.json",
+  "resolution": "Existing user authority covers separately reviewed unattempted comparisons. Every error/teleport still stops the entire new batch and requires another review; no failed run is retried."
+}

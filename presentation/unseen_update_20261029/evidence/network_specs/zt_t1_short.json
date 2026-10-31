@@ -1,0 +1,124 @@
+{
+  "version": "transferable-v1",
+  "features": [
+    "queue_ratio",
+    "density_ratio",
+    "arrival_ratio",
+    "downstream_ratio",
+    "red_age_ratio",
+    "green_elapsed_ratio",
+    "is_green"
+  ],
+  "network": "network.net.xml",
+  "network_sha256": "d8b8ad5a51f9a44f83eb3838499ab98498554955c7a93525a334a28e375f84b4",
+  "limits": {
+    "decision_s": 5,
+    "min_green_s": 15,
+    "max_green_s": 60,
+    "yellow_s": 3,
+    "all_red_s": 2,
+    "max_red_s": 180,
+    "fixed_green_s": 25,
+    "arrival_window_s": 60,
+    "saturation_vph_per_lane": 1800,
+    "storage_m_per_vehicle": 7.5
+  },
+  "lanes": {
+    "zt_t1_short_N_in_0": {
+      "length_m": 134.8,
+      "capacity_vehicles": 17.973333333333336,
+      "edge": "zt_t1_short_N_in"
+    },
+    "zt_t1_short_S_out_0": {
+      "length_m": 194.8,
+      "capacity_vehicles": 25.973333333333336,
+      "edge": "zt_t1_short_S_out"
+    },
+    "zt_t1_short_E_out_0": {
+      "length_m": 314.8,
+      "capacity_vehicles": 41.973333333333336,
+      "edge": "zt_t1_short_E_out"
+    },
+    "zt_t1_short_E_in_0": {
+      "length_m": 314.8,
+      "capacity_vehicles": 41.973333333333336,
+      "edge": "zt_t1_short_E_in"
+    },
+    "zt_t1_short_N_out_0": {
+      "length_m": 134.8,
+      "capacity_vehicles": 17.973333333333336,
+      "edge": "zt_t1_short_N_out"
+    },
+    "zt_t1_short_S_in_0": {
+      "length_m": 194.8,
+      "capacity_vehicles": 25.973333333333336,
+      "edge": "zt_t1_short_S_in"
+    }
+  },
+  "junctions": [
+    {
+      "id": "zt_t1_short",
+      "phases": [
+        {
+          "id": "N_G",
+          "state": "GGrrrr",
+          "incoming": [
+            "zt_t1_short_N_in_0"
+          ]
+        },
+        {
+          "id": "E_G",
+          "state": "rrGGrr",
+          "incoming": [
+            "zt_t1_short_E_in_0"
+          ]
+        },
+        {
+          "id": "S_G",
+          "state": "rrrrGG",
+          "incoming": [
+            "zt_t1_short_S_in_0"
+          ]
+        }
+      ],
+      "movements": [
+        {
+          "index": 0,
+          "incoming": "zt_t1_short_N_in_0",
+          "outgoing": "zt_t1_short_S_out_0",
+          "turn": "s"
+        },
+        {
+          "index": 1,
+          "incoming": "zt_t1_short_N_in_0",
+          "outgoing": "zt_t1_short_E_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 2,
+          "incoming": "zt_t1_short_E_in_0",
+          "outgoing": "zt_t1_short_N_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 3,
+          "incoming": "zt_t1_short_E_in_0",
+          "outgoing": "zt_t1_short_S_out_0",
+          "turn": "l"
+        },
+        {
+          "index": 4,
+          "incoming": "zt_t1_short_S_in_0",
+          "outgoing": "zt_t1_short_E_out_0",
+          "turn": "r"
+        },
+        {
+          "index": 5,
+          "incoming": "zt_t1_short_S_in_0",
+          "outgoing": "zt_t1_short_N_out_0",
+          "turn": "s"
+        }
+      ]
+    }
+  ]
+}

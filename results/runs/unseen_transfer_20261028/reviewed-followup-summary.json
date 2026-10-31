@@ -1,0 +1,624 @@
+{
+  "status": "all_planned_attempts_accounted_for",
+  "original_protocol_status": "stopped_on_teleport; original failed batch preserved",
+  "formal_primary_target_met": null,
+  "formal_primary_target_evaluable": false,
+  "completed_runs": 157,
+  "failed_runs": 5,
+  "unattempted_runs": 0,
+  "common_complete_conditions": 22,
+  "followup_interpretation": "Descriptive extension after reviewed stops. No original full-protocol PASS claim. Failed partial runs have no comparable completed metrics.",
+  "failed": [
+    {
+      "id": "zt_pair_short_busy_s00/webster",
+      "outcome": "failed_teleport",
+      "path": "final\\zt_pair_short_busy_s00\\webster",
+      "manifest_sha256": "a412565b7439888dfc087f311973765c8c6b12170a4d2baf580d9189a3dc79d2",
+      "frames": 505,
+      "actions": 202,
+      "event": {
+        "time_s": 504,
+        "teleports": 1,
+        "collisions": 0
+      },
+      "prefix_replay": "PASS",
+      "completed_metrics": null,
+      "files_sha256": {
+        "decisions.jsonl": "3df26500af7a1941f951b8dae15552606eb3ba9b9c3af19f36120f2bd63989bb",
+        "frames.jsonl": "991a60683288b4c429b89d46e864c8801684dbdee6a6da27a598219942f610c3",
+        "manifest.json": "a412565b7439888dfc087f311973765c8c6b12170a4d2baf580d9189a3dc79d2",
+        "signals.csv": "f02ae9cc4b331373ee26d3b9a211ef7f10e0cec8270fdeef2013dbaa511fdda7",
+        "sumo-errors.log": "54dd29e30c0a037066a53b459496c3344637f2ebaca5791a811a09a43309b05f",
+        "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tripinfo.xml": "4b1a9523fb94aa95800cc6674b4128cdbd46daba3f0560cbe8689f912f845404"
+      }
+    },
+    {
+      "id": "zt_pair_short_busy_s01/webster",
+      "outcome": "failed_teleport",
+      "path": "followup_round01\\zt_pair_short_busy_s01\\webster",
+      "manifest_sha256": "6eb3b73f55df62a2a8f773a618e50c951b12f10a0d91f513998727cf4d5d11d3",
+      "frames": 622,
+      "actions": 250,
+      "event": {
+        "time_s": 621,
+        "teleports": 1,
+        "collisions": 0
+      },
+      "prefix_replay": "PASS",
+      "completed_metrics": null,
+      "files_sha256": {
+        "decisions.jsonl": "cfd3221aca78b262c1e4b5ddc0362e39f9251756b5dae7cbac97f3b8a4703d7f",
+        "frames.jsonl": "a949c696cc41d0cfc61d3a23b9601e29c6df8839de72182f57d008782c646a4d",
+        "manifest.json": "6eb3b73f55df62a2a8f773a618e50c951b12f10a0d91f513998727cf4d5d11d3",
+        "signals.csv": "eb0d3a20e37f0b86d55b7cb53dc5217e8cddf844f52b64719cb49776390af439",
+        "sumo-errors.log": "8c2ee8171e26a70fbeead421e97293bca9673894acb44970551674cc311b306d",
+        "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tripinfo.xml": "a8c19ab5f8e9ac2416e002b078ad1028ffa9b1dc0196a9c9604eed9e076fb30c"
+      }
+    },
+    {
+      "id": "zt_pair_short_busy_s02/webster",
+      "outcome": "failed_teleport",
+      "path": "followup_round02\\zt_pair_short_busy_s02\\webster",
+      "manifest_sha256": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+      "frames": 479,
+      "actions": 192,
+      "event": {
+        "time_s": 478,
+        "teleports": 1,
+        "collisions": 0
+      },
+      "prefix_replay": "PASS",
+      "completed_metrics": null,
+      "files_sha256": {
+        "decisions.jsonl": "c5e68abc4a98b7cd279530f443acb1068e6f5ae4125df2d959e86d4bc1af1998",
+        "frames.jsonl": "4845c60cfd0360f11718082643faa631037bdcda72bf7bdea08a1c615922559c",
+        "manifest.json": "6cf77bd8c17c7525d00a9d55a0e7b665c88b08d8c6f9bf70722297a963d37f7c",
+        "signals.csv": "776f781eaa769d8fdeab88e3312aee5099e5eb5517a1963d851ac2120320fdae",
+        "sumo-errors.log": "2350c92c19cc547463751af91f1a0c98bdf923fd3b43f5ce9612e34b58e6fc99",
+        "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tripinfo.xml": "a22027d648967359ea0e479a02132decbc81a86422626f16841d27cef5c5e7cc"
+      }
+    },
+    {
+      "id": "zt_pair_short_directional_s00/webster",
+      "outcome": "failed_teleport",
+      "path": "followup_round03\\zt_pair_short_directional_s00\\webster",
+      "manifest_sha256": "8c7f97ed36b7854e926518b45c2315f0536ef339412f2cde3b9658a8ddc68ada",
+      "frames": 482,
+      "actions": 194,
+      "event": {
+        "time_s": 481,
+        "teleports": 1,
+        "collisions": 0
+      },
+      "prefix_replay": "PASS",
+      "completed_metrics": null,
+      "files_sha256": {
+        "decisions.jsonl": "e3abffc2f3351500185abe14ea12db67d65678a5f1872aee70e6add47c31c1b8",
+        "frames.jsonl": "88fe8a64d822df4ea15bf604bf35764e568809dcf5a862c7086ff4a0a12f2da9",
+        "manifest.json": "8c7f97ed36b7854e926518b45c2315f0536ef339412f2cde3b9658a8ddc68ada",
+        "signals.csv": "f0447964c3128ae0e39d6daddb49d060ea09aa2adab7836d6f49c5fd55be84b6",
+        "sumo-errors.log": "bcc2cd3039a89733f92eefa5f64661b1cf41e61b622e0a27c6d41f084070d24e",
+        "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tripinfo.xml": "0ef11a34de63c19c37e147dcf7d0f9d053779a3e01018a6f2e888b8131bfd78f"
+      }
+    },
+    {
+      "id": "zt_pair_short_directional_s02/webster",
+      "outcome": "failed_teleport",
+      "path": "followup_round04\\zt_pair_short_directional_s02\\webster",
+      "manifest_sha256": "b3a185e03a80a5292f57b8e6363db7a7669668ca550e6bcfe1a60fac7bc7a3e0",
+      "frames": 763,
+      "actions": 306,
+      "event": {
+        "time_s": 762,
+        "teleports": 1,
+        "collisions": 0
+      },
+      "prefix_replay": "PASS",
+      "completed_metrics": null,
+      "files_sha256": {
+        "decisions.jsonl": "cc20f586d14645a9af96462ce262d5935f2d5f17d5b012fde9038db2f9de0579",
+        "frames.jsonl": "29be3f8c427512381086d897411d82e1ef3da6d8f95c7cff31dcb022aebaa319",
+        "manifest.json": "b3a185e03a80a5292f57b8e6363db7a7669668ca550e6bcfe1a60fac7bc7a3e0",
+        "signals.csv": "9a970e91c833ec22204e927b808843551ba652dde68b97d8f42aca11cc4ff584",
+        "sumo-errors.log": "f105a94e6e61f437a1006fe7130493e710b02379ea9f277930aa92d49a12b486",
+        "sumo.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tripinfo.xml": "b06c1dbd6bfbace4d88ab9760d3421ac4ad3ebaf95d2820e5f814f11e8f49b35"
+      }
+    }
+  ],
+  "overall_common_completed": {
+    "controllers": {
+      "fixed": {
+        "mean_queue": 23.39883838383838,
+        "arrived": 5953,
+        "scheduled": 6073,
+        "remaining": 120,
+        "warning_count": 0
+      },
+      "webster": {
+        "mean_queue": 21.918737373737375,
+        "arrived": 5938,
+        "scheduled": 6073,
+        "remaining": 135,
+        "warning_count": 0
+      },
+      "max_pressure": {
+        "mean_queue": 17.17469696969697,
+        "arrived": 5926,
+        "scheduled": 6073,
+        "remaining": 147,
+        "warning_count": 0
+      },
+      "smart_v2": {
+        "mean_queue": 17.519343434343433,
+        "arrived": 6071,
+        "scheduled": 6073,
+        "remaining": 2,
+        "warning_count": 0
+      },
+      "raw_smart": {
+        "mean_queue": 18.439747474747474,
+        "arrived": 6030,
+        "scheduled": 6073,
+        "remaining": 43,
+        "warning_count": 0
+      },
+      "rules_pressure": {
+        "mean_queue": 17.137222222222224,
+        "arrived": 5927,
+        "scheduled": 6073,
+        "remaining": 146,
+        "warning_count": 0
+      }
+    },
+    "smart_queue_change": {
+      "fixed": -0.2512729415472148,
+      "webster": -0.2007138396879199,
+      "max_pressure": 0.020067106002193618,
+      "raw_smart": -0.04991413476049488,
+      "rules_pressure": 0.022297733387952684
+    }
+  },
+  "cases_common_completed": {
+    "zt_pair_short": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 36.58305555555555,
+          "arrived": 1334,
+          "scheduled": 1383,
+          "remaining": 49,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 36.82361111111111,
+          "arrived": 1316,
+          "scheduled": 1383,
+          "remaining": 67,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 27.22222222222222,
+          "arrived": 1359,
+          "scheduled": 1383,
+          "remaining": 24,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 25.145833333333332,
+          "arrived": 1383,
+          "scheduled": 1383,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 24.836666666666666,
+          "arrived": 1363,
+          "scheduled": 1383,
+          "remaining": 20,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 27.016111111111112,
+          "arrived": 1360,
+          "scheduled": 1383,
+          "remaining": 23,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.31263714986446367,
+        "webster": -0.3171274469128353,
+        "max_pressure": -0.07627551020408165,
+        "raw_smart": 0.01244799355791167,
+        "rules_pressure": -0.06922823829402215
+      }
+    },
+    "zt_t1_short": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 5.53395061728395,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 4.534320987654321,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 3.854320987654321,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 3.1072839506172842,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 3.75,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 3.854320987654321,
+          "arrived": 1237,
+          "scheduled": 1237,
+          "remaining": 0,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.4385052983825989,
+        "webster": -0.3147190154650403,
+        "max_pressure": -0.19381806534272894,
+        "raw_smart": -0.17139094650205752,
+        "rules_pressure": -0.19381806534272894
+      }
+    },
+    "zt_x31_asymmetric": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 35.404074074074074,
+          "arrived": 3382,
+          "scheduled": 3453,
+          "remaining": 71,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 32.678765432098764,
+          "arrived": 3385,
+          "scheduled": 3453,
+          "remaining": 68,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 26.029506172839504,
+          "arrived": 3330,
+          "scheduled": 3453,
+          "remaining": 123,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 28.541851851851852,
+          "arrived": 3451,
+          "scheduled": 3453,
+          "remaining": 2,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 30.28641975308642,
+          "arrived": 3430,
+          "scheduled": 3453,
+          "remaining": 23,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 26.029506172839504,
+          "arrived": 3330,
+          "scheduled": 3453,
+          "remaining": 123,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.19382577857748112,
+        "webster": -0.12659332522346214,
+        "max_pressure": 0.09651914493997801,
+        "raw_smart": -0.05760231534322517,
+        "rules_pressure": 0.09651914493997801
+      }
+    }
+  },
+  "profiles_common_completed": {
+    "busy": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 30.16685185185185,
+          "arrived": 1980,
+          "scheduled": 2018,
+          "remaining": 38,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 30.19055555555556,
+          "arrived": 1970,
+          "scheduled": 2018,
+          "remaining": 48,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 22.333333333333332,
+          "arrived": 1928,
+          "scheduled": 2018,
+          "remaining": 90,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 25.08314814814815,
+          "arrived": 2018,
+          "scheduled": 2018,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 24.920555555555556,
+          "arrived": 2002,
+          "scheduled": 2018,
+          "remaining": 16,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 22.333333333333332,
+          "arrived": 1928,
+          "scheduled": 2018,
+          "remaining": 90,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.16851953026684902,
+        "webster": -0.1691723558385318,
+        "max_pressure": 0.12312603648424562,
+        "raw_smart": 0.0065244369143427315,
+        "rules_pressure": 0.12312603648424562
+      }
+    },
+    "directional": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 33.11888888888889,
+          "arrived": 2096,
+          "scheduled": 2178,
+          "remaining": 82,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 28.805873015873015,
+          "arrived": 2091,
+          "scheduled": 2178,
+          "remaining": 87,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 24.48111111111111,
+          "arrived": 2121,
+          "scheduled": 2178,
+          "remaining": 57,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 23.017142857142858,
+          "arrived": 2176,
+          "scheduled": 2178,
+          "remaining": 2,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 24.223650793650794,
+          "arrived": 2157,
+          "scheduled": 2178,
+          "remaining": 21,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 24.363333333333337,
+          "arrived": 2122,
+          "scheduled": 2178,
+          "remaining": 56,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.3050146418147223,
+        "webster": -0.20095659505061242,
+        "max_pressure": -0.05979991052382465,
+        "raw_smart": -0.049807023176876845,
+        "rules_pressure": -0.05525477395774301
+      }
+    },
+    "quiet": {
+      "controllers": {
+        "fixed": {
+          "mean_queue": 11.32679012345679,
+          "arrived": 1877,
+          "scheduled": 1877,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "webster": {
+          "mean_queue": 11.047530864197531,
+          "arrived": 1877,
+          "scheduled": 1877,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "max_pressure": {
+          "mean_queue": 8.05283950617284,
+          "arrived": 1877,
+          "scheduled": 1877,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "smart_v2": {
+          "mean_queue": 8.200740740740741,
+          "arrived": 1877,
+          "scheduled": 1877,
+          "remaining": 0,
+          "warning_count": 0
+        },
+        "raw_smart": {
+          "mean_queue": 9.620617283950617,
+          "arrived": 1871,
+          "scheduled": 1877,
+          "remaining": 6,
+          "warning_count": 0
+        },
+        "rules_pressure": {
+          "mean_queue": 8.05283950617284,
+          "arrived": 1877,
+          "scheduled": 1877,
+          "remaining": 0,
+          "warning_count": 0
+        }
+      },
+      "smart_queue_change": {
+        "fixed": -0.27598722574035117,
+        "webster": -0.25768564563893387,
+        "max_pressure": 0.018366345741092884,
+        "raw_smart": -0.14758684409768108,
+        "rules_pressure": 0.018366345741092884
+      }
+    }
+  },
+  "paired_smart_comparisons": {
+    "fixed": {
+      "paired_conditions": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 39.859053497942384,
+      "smart_queue_change": -0.1903259943731771,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8356
+    },
+    "webster": {
+      "paired_conditions": 22,
+      "smart_mean_queue": 17.519343434343433,
+      "baseline_mean_queue": 21.918737373737375,
+      "smart_queue_change": -0.2007138396879199,
+      "smart_arrived": 6071,
+      "baseline_arrived": 5938
+    },
+    "max_pressure": {
+      "paired_conditions": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 31.482716049382717,
+      "smart_queue_change": 0.02509705501745018,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8387
+    },
+    "raw_smart": {
+      "paired_conditions": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 33.806748971193414,
+      "smart_queue_change": -0.045372877064506136,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8660
+    },
+    "rules_pressure": {
+      "paired_conditions": 27,
+      "smart_mean_queue": 32.272839506172836,
+      "baseline_mean_queue": 31.452181069958847,
+      "smart_queue_change": 0.02609225841567569,
+      "smart_arrived": 8709,
+      "baseline_arrived": 8388
+    }
+  },
+  "learned_contribution_target_on_complete_pairs": false,
+  "controller_coverage": {
+    "fixed": {
+      "completed": 27,
+      "failed": 0
+    },
+    "webster": {
+      "completed": 22,
+      "failed": 5
+    },
+    "max_pressure": {
+      "completed": 27,
+      "failed": 0
+    },
+    "smart_v2": {
+      "completed": 27,
+      "failed": 0
+    },
+    "raw_smart": {
+      "completed": 27,
+      "failed": 0
+    },
+    "rules_pressure": {
+      "completed": 27,
+      "failed": 0
+    }
+  },
+  "additional_training": 0,
+  "parameter_changes": 0,
+  "traffic_reruns": 0,
+  "fingerprint": {
+    "protocol_sha256": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2",
+    "input_freeze_sha256": "990e5706ab574b556e8fff3c95a868d032cb6a29548015d227a3143e0b283691",
+    "sources_sha256": {
+      "tools/unseen_transfer_build.py": "635287003110e7af18642a8c15d408914c62a0c12af355b654f98de9bd5a3e7e",
+      "tools/unseen_transfer_runtime.py": "f71af5fde8a2110ad2cf7254bfec83a2c2b4ffb097ee864930164946197b2387",
+      "tools/unseen_transfer_experiment.py": "038393c9913d32f5b91f12183b5df767609b69e1ea7b16d8fdfba83666d50a62",
+      "tools/verify_unseen_transfer.py": "14f5f256bff12916f609872ca88b4927ee8b1c96e22412fa4bf970e6d8368c11"
+    },
+    "model_sha256": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "policy_sha256": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sumo": "Eclipse SUMO sumo 1.26.0",
+    "sumo_binary_sha256": "dcdbf4fe1f8268816cda2d0631d407fd8e63b0cad5f3e57fe9cf235d9dece926"
+  },
+  "parents": [
+    {
+      "path": "final\\batch-v2.json",
+      "sha256": "bf3367d53e720836e972db33aac65ccc63a1a408bab93bb1b6927e1f0c0126bf"
+    },
+    {
+      "path": "followup_round01\\batch-v2.json",
+      "sha256": "6b5ad88d81251d441d2d361e32d76e945b37c8ddf437ad5fa76e78431d6a8ab6"
+    },
+    {
+      "path": "followup_round02\\batch-v2.json",
+      "sha256": "a3c1e9383eecce83ca77ec6f2e560b583b75d1dfcc32481c43215c5dc3f66320"
+    },
+    {
+      "path": "followup_round03\\batch-v2.json",
+      "sha256": "61fbf1694b0b773d69db1dcff39b72ee28ba392128691b733e820b7d754c8f60"
+    },
+    {
+      "path": "followup_round04\\batch-v2.json",
+      "sha256": "c0d93ed3ac5ec618a7df529dc7b4724d4813d9e728b9c36b2427cee61f68ac18"
+    },
+    {
+      "path": "followup_round05\\batch-v2.json",
+      "sha256": "a2b7d4e73e8c0e576b8497ff6996068bc893eb68b129c8c644e38ce998acf440"
+    }
+  ],
+  "total_traffic_attempts": 177,
+  "failed_partial_metrics_in_averages": false
+}

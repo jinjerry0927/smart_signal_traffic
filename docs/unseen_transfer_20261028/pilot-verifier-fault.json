@@ -1,0 +1,31 @@
+{
+  "status": "diagnosed_before_final",
+  "stage": "pilot",
+  "job": "valid_x3_quiet/webster",
+  "completed_traffic_runs": 8,
+  "verified_before_stop": 7,
+  "mismatch_time_s": 450,
+  "plan_update_time_s": 390,
+  "critical_ratios": [
+    0.1,
+    0.12222222222222222,
+    0.16666666666666666,
+    0.1111111111111111
+  ],
+  "production_greens_s": [
+    15,
+    15,
+    25,
+    15
+  ],
+  "verifier_v1_greens_s": [
+    15,
+    15,
+    20,
+    15
+  ],
+  "cause": "Python float-list sum vs NumPy float64 summation at a 5-second ceil boundary; production input critical_ratio is float64 ndarray",
+  "model_rule_changes": 0,
+  "new_traffic_retry_required": false,
+  "handling": "Preserve v1 code, freeze and raw results; correct only verifier numeric types, re-audit the eight completed pilot traces under a v2 evaluation, then continue remaining four pilot jobs."
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "unseen-transfer-freeze-v1",
+  "date": "2026-10-28",
+  "files_sha256": {
+    "history.json": "3dd044ca4d9a711d21abb33972930614ff027662a79a6b86a5d105bea3f8adae",
+    "protocol.json": "5c5db9b7f8d1584119564b07d8adf06d80e281581bad85b168a838fdc133b5c2"
+  },
+  "audit_tool_sha256": "38ce1b87cbe9eb29c5fb07670d27d197ebcf5f85d65c9f97ac07fb0fa799ed68",
+  "frozen_files_sha256": {
+    "results/runs/final_signal_wave10_20261007/release/model.json": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "results/runs/final_signal_wave10_20261007/release/policy.json": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "results/runs/transferable_train_150_seed43/model.json": "8eca32d46b9cc285162cf0e70fceb1a8d696254bf72b6954d0a764a482c8b999",
+    "configs/smart_signal_default.json": "a375c53e085959d9521bf6090b9bac85cf257133241fd28c07eeb82d158379f3",
+    "transferable_signal/__init__.py": "e2f29f0be2a78285f650fd1b6c2b532e905b827da658ae91c12ea66285af0a84",
+    "transferable_signal/control.py": "27178b31dfc3306ab5d6d4eb94deb56e72634fe82634cabb27ddebbad7643f88",
+    "transferable_signal/controllers.py": "e74e22a21b36c4f06040477dfc6799d91aed814723041ff878d92d3302f8348c",
+    "transferable_signal/environment.py": "460c655427714977e3b2f8a77d7ac6c474c16b3d78f2bb897b08e670b1504106",
+    "transferable_signal/model.py": "5dea7f70cc0a4b998b7ece0e8e7b50efa9507e7d574edf55dd0aed641ac548c9",
+    "transferable_signal/spec.py": "b4eb997d40cc6013d73dfeacd1b534364946fb5cc1f4850a8e9f32a36cf3a0d4",
+    "transferable_signal/suite.py": "74a81af996114a3b401abe68315486a5492f9451edfe8dffa8e05d6c78684b9d",
+    "evaluation_support.py": "7f5b3b1a34b4edfb9aded593bdd4d1fb326342d179f4ba9f62fe1618f01e27a0",
+    "transferable_signal/adaptive.py": "6f9214880703b4c1e7a9efadc0435bd22adb9bff9af95d9a39a1e021e56e5cb5",
+    "transferable_signal/adaptive_v2.py": "a0abf3e8ecb20ea424c885fa6166e743c7f597116e98c20a8b1b7d04f81045a0",
+    "transferable_signal/deployment.py": "8f725eac3b0781519e605e819006027750849279e98e21a82915a5139372be21",
+    "signal_demo/release.py": "c980a292de65b990246cfc8083711e51021340ebe23eb72fdb923273cc742f18",
+    "transferable_signal/runner.py": "fe5653a3b4cccb3da242922b574c8550189c006c1743c797c64e3ce4a2dc2531"
+  }
+}

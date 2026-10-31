@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "summary_sha256": "890307441af1020181e4a14b55a2cf8d246ed8e167ab6e9a25adc69591ea2388",
+  "comparison_sha256": "24980ee43d52de4f3443f7d7609275b66d11911f793aab92b1f252bc28b07fb0",
+  "report_sha256": "b588e392b97d7d75cedcd06eb586140abfafedc9fa5c01f694448cefa1a7bfe0",
+  "report_source_sha256": "faef1ae0f6ce318e36829a5a333f53a0e91bd610a987e30dedc55858e9a5cffb",
+  "diagram_sha256": "3f7c8900c5a5bc3aa7ca714bc437829d29c85b9a80f4be73a73fcfe50c593abe",
+  "attempts": 162,
+  "completed": 157,
+  "failed": 5,
+  "original_full_protocol_pass_claim": false,
+  "failed_partial_metrics_excluded": true
+}

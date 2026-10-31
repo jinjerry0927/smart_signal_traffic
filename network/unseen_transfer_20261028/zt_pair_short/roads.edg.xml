@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<edges>
+  <edge id="zt_link_out" from="zt_a" to="zt_b" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_link_in" from="zt_b" to="zt_a" numLanes="2" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_E_out" from="zt_a" to="zt_a_E_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_E_in" from="zt_a_E_end" to="zt_a" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_S_out" from="zt_a" to="zt_a_S_end" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_S_in" from="zt_a_S_end" to="zt_a" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_W_out" from="zt_a" to="zt_a_W_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_a_W_in" from="zt_a_W_end" to="zt_a" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_N_out" from="zt_b" to="zt_b_N_end" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_N_in" from="zt_b_N_end" to="zt_b" numLanes="3" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_E_out" from="zt_b" to="zt_b_E_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_E_in" from="zt_b_E_end" to="zt_b" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_W_out" from="zt_b" to="zt_b_W_end" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+  <edge id="zt_b_W_in" from="zt_b_W_end" to="zt_b" numLanes="1" speed="13.89" width="3.2" spreadType="right" allow="passenger bus truck" />
+</edges>

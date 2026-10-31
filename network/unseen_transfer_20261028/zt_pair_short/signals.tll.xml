@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tlLogics>
+  <tlLogic id="zt_a" type="static" programID="0" offset="0">
+    <phase duration="25" name="N_G" state="GGGGrrrrrrrrrr" />
+    <phase duration="3" name="N_y" state="yyyyrrrrrrrrrr" />
+    <phase duration="2" name="N_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="E_G" state="rrrrGGGrrrrrrr" />
+    <phase duration="3" name="E_y" state="rrrryyyrrrrrrr" />
+    <phase duration="2" name="E_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="S_G" state="rrrrrrrGGGGrrr" />
+    <phase duration="3" name="S_y" state="rrrrrrryyyyrrr" />
+    <phase duration="2" name="S_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="W_G" state="rrrrrrrrrrrGGG" />
+    <phase duration="3" name="W_y" state="rrrrrrrrrrryyy" />
+    <phase duration="2" name="W_r" state="rrrrrrrrrrrrrr" />
+  </tlLogic>
+  <tlLogic id="zt_b" type="static" programID="0" offset="0">
+    <phase duration="25" name="N_G" state="GGGGrrrrrrrrrr" />
+    <phase duration="3" name="N_y" state="yyyyrrrrrrrrrr" />
+    <phase duration="2" name="N_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="E_G" state="rrrrGGGrrrrrrr" />
+    <phase duration="3" name="E_y" state="rrrryyyrrrrrrr" />
+    <phase duration="2" name="E_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="S_G" state="rrrrrrrGGGGrrr" />
+    <phase duration="3" name="S_y" state="rrrrrrryyyyrrr" />
+    <phase duration="2" name="S_r" state="rrrrrrrrrrrrrr" />
+    <phase duration="25" name="W_G" state="rrrrrrrrrrrGGG" />
+    <phase duration="3" name="W_y" state="rrrrrrrrrrryyy" />
+    <phase duration="2" name="W_r" state="rrrrrrrrrrrrrr" />
+  </tlLogic>
+</tlLogics>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<connections>
+  <connection from="zt_x31_asymmetric_N_in" to="zt_x31_asymmetric_W_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="0" />
+  <connection from="zt_x31_asymmetric_N_in" to="zt_x31_asymmetric_S_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="1" />
+  <connection from="zt_x31_asymmetric_N_in" to="zt_x31_asymmetric_S_out" fromLane="1" toLane="1" tl="zt_x31_asymmetric" linkIndex="2" />
+  <connection from="zt_x31_asymmetric_N_in" to="zt_x31_asymmetric_S_out" fromLane="2" toLane="2" tl="zt_x31_asymmetric" linkIndex="3" />
+  <connection from="zt_x31_asymmetric_N_in" to="zt_x31_asymmetric_E_out" fromLane="2" toLane="0" tl="zt_x31_asymmetric" linkIndex="4" />
+  <connection from="zt_x31_asymmetric_E_in" to="zt_x31_asymmetric_N_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="5" />
+  <connection from="zt_x31_asymmetric_E_in" to="zt_x31_asymmetric_W_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="6" />
+  <connection from="zt_x31_asymmetric_E_in" to="zt_x31_asymmetric_S_out" fromLane="0" toLane="2" tl="zt_x31_asymmetric" linkIndex="7" />
+  <connection from="zt_x31_asymmetric_S_in" to="zt_x31_asymmetric_E_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="8" />
+  <connection from="zt_x31_asymmetric_S_in" to="zt_x31_asymmetric_N_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="9" />
+  <connection from="zt_x31_asymmetric_S_in" to="zt_x31_asymmetric_N_out" fromLane="1" toLane="1" tl="zt_x31_asymmetric" linkIndex="10" />
+  <connection from="zt_x31_asymmetric_S_in" to="zt_x31_asymmetric_N_out" fromLane="2" toLane="2" tl="zt_x31_asymmetric" linkIndex="11" />
+  <connection from="zt_x31_asymmetric_S_in" to="zt_x31_asymmetric_W_out" fromLane="2" toLane="0" tl="zt_x31_asymmetric" linkIndex="12" />
+  <connection from="zt_x31_asymmetric_W_in" to="zt_x31_asymmetric_S_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="13" />
+  <connection from="zt_x31_asymmetric_W_in" to="zt_x31_asymmetric_E_out" fromLane="0" toLane="0" tl="zt_x31_asymmetric" linkIndex="14" />
+  <connection from="zt_x31_asymmetric_W_in" to="zt_x31_asymmetric_N_out" fromLane="0" toLane="2" tl="zt_x31_asymmetric" linkIndex="15" />
+</connections>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tlLogics>
+  <tlLogic id="zt_x31_asymmetric" type="static" programID="0" offset="0">
+    <phase duration="25" name="N_G" state="GGGGGrrrrrrrrrrr" />
+    <phase duration="3" name="N_y" state="yyyyyrrrrrrrrrrr" />
+    <phase duration="2" name="N_r" state="rrrrrrrrrrrrrrrr" />
+    <phase duration="25" name="E_G" state="rrrrrGGGrrrrrrrr" />
+    <phase duration="3" name="E_y" state="rrrrryyyrrrrrrrr" />
+    <phase duration="2" name="E_r" state="rrrrrrrrrrrrrrrr" />
+    <phase duration="25" name="S_G" state="rrrrrrrrGGGGGrrr" />
+    <phase duration="3" name="S_y" state="rrrrrrrryyyyyrrr" />
+    <phase duration="2" name="S_r" state="rrrrrrrrrrrrrrrr" />
+    <phase duration="25" name="W_G" state="rrrrrrrrrrrrrGGG" />
+    <phase duration="3" name="W_y" state="rrrrrrrrrrrrryyy" />
+    <phase duration="2" name="W_r" state="rrrrrrrrrrrrrrrr" />
+  </tlLogic>
+</tlLogics>
