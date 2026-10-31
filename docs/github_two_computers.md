@@ -4,7 +4,7 @@ GitHub는 커밋한 파일을 공유한다. 각 컴퓨터의 실행 프로그램
 
 ## 다른 컴퓨터에서 시작
 
-1. GitHub Desktop에서 `jinjerry0927/sumo_project`를 Clone하거나 기존 프로젝트에서 Pull한다.
+1. GitHub Desktop에서 `jinjerry0927/smart_signal_traffic`을 Clone하거나 기존 프로젝트에서 Pull한다. 현재 저장소는 [smart_signal_traffic](https://github.com/jinjerry0927/smart_signal_traffic)이며 예전 `sumo_project` 주소는 자동 연결된다. 로컬 폴더명은 `sumo_project`로 유지해도 된다.
 2. Python3.11과 SUMO1.26.0을 설치한다. 이번 실습은 SUMO1.26.0으로 검증했다.
 3. VS Code에서 **그 컴퓨터의** `sumo_project` 폴더를 연다. 이름이 다른 폴더로 Clone해도 된다.
 4. VS Code 터미널에서 아래 명령을 실행한다.
