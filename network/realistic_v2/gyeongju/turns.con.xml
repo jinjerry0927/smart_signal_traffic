@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<connections>
+  <connection from="yonggang_geunhwa_in" to="yonggang_west_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="0" />
+  <connection from="yonggang_geunhwa_in" to="yonggang_southwest_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="1" />
+  <connection from="yonggang_geunhwa_in" to="yonggang_southeast_out" fromLane="1" toLane="1" tl="gj_yonggang" linkIndex="2" />
+  <connection from="yonggang_southeast_in" to="yonggang_geunhwa_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="3" />
+  <connection from="yonggang_southeast_in" to="yonggang_west_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="4" />
+  <connection from="yonggang_southeast_in" to="yonggang_southwest_out" fromLane="1" toLane="1" tl="gj_yonggang" linkIndex="5" />
+  <connection from="yonggang_southwest_in" to="yonggang_southeast_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="6" />
+  <connection from="yonggang_southwest_in" to="yonggang_geunhwa_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="7" />
+  <connection from="yonggang_southwest_in" to="yonggang_west_out" fromLane="1" toLane="0" tl="gj_yonggang" linkIndex="8" />
+  <connection from="yonggang_west_in" to="yonggang_southwest_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="9" />
+  <connection from="yonggang_west_in" to="yonggang_southeast_out" fromLane="0" toLane="0" tl="gj_yonggang" linkIndex="10" />
+  <connection from="yonggang_west_in" to="yonggang_geunhwa_out" fromLane="0" toLane="1" tl="gj_yonggang" linkIndex="11" />
+  <connection from="geunhwa_seungsam_in" to="geunhwa_west_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="0" />
+  <connection from="geunhwa_seungsam_in" to="yonggang_geunhwa_in" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="1" />
+  <connection from="geunhwa_seungsam_in" to="geunhwa_east_out" fromLane="1" toLane="0" tl="gj_geunhwa" linkIndex="2" />
+  <connection from="geunhwa_east_in" to="geunhwa_seungsam_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="3" />
+  <connection from="geunhwa_east_in" to="geunhwa_west_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="4" />
+  <connection from="geunhwa_east_in" to="yonggang_geunhwa_in" fromLane="0" toLane="1" tl="gj_geunhwa" linkIndex="5" />
+  <connection from="yonggang_geunhwa_out" to="geunhwa_east_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="6" />
+  <connection from="yonggang_geunhwa_out" to="geunhwa_seungsam_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="7" />
+  <connection from="yonggang_geunhwa_out" to="geunhwa_west_out" fromLane="1" toLane="0" tl="gj_geunhwa" linkIndex="8" />
+  <connection from="geunhwa_west_in" to="yonggang_geunhwa_in" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="9" />
+  <connection from="geunhwa_west_in" to="geunhwa_east_out" fromLane="0" toLane="0" tl="gj_geunhwa" linkIndex="10" />
+  <connection from="geunhwa_west_in" to="geunhwa_seungsam_out" fromLane="0" toLane="1" tl="gj_geunhwa" linkIndex="11" />
+  <connection from="seungsam_north_in" to="seungsam_west_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="0" />
+  <connection from="seungsam_north_in" to="geunhwa_seungsam_in" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="1" />
+  <connection from="seungsam_north_in" to="seungsam_east_out" fromLane="1" toLane="0" tl="gj_seungsam" linkIndex="2" />
+  <connection from="seungsam_east_in" to="seungsam_north_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="3" />
+  <connection from="seungsam_east_in" to="seungsam_west_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="4" />
+  <connection from="seungsam_east_in" to="geunhwa_seungsam_in" fromLane="0" toLane="1" tl="gj_seungsam" linkIndex="5" />
+  <connection from="geunhwa_seungsam_out" to="seungsam_east_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="6" />
+  <connection from="geunhwa_seungsam_out" to="seungsam_north_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="7" />
+  <connection from="geunhwa_seungsam_out" to="seungsam_west_out" fromLane="1" toLane="0" tl="gj_seungsam" linkIndex="8" />
+  <connection from="seungsam_west_in" to="geunhwa_seungsam_in" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="9" />
+  <connection from="seungsam_west_in" to="seungsam_east_out" fromLane="0" toLane="0" tl="gj_seungsam" linkIndex="10" />
+  <connection from="seungsam_west_in" to="seungsam_north_out" fromLane="0" toLane="1" tl="gj_seungsam" linkIndex="11" />
+</connections>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tlLogics>
+  <tlLogic id="gj_geunhwa" type="static" programID="realistic-v2" offset="0">
+    <phase duration="15" state="rrGrrrrrGrrr" name="NS_left" />
+    <phase duration="3" state="rryrrrrryrrr" name="_transition_0_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_0_clearance" />
+    <phase duration="15" state="GGrrrrGGrrrr" name="NS_through" />
+    <phase duration="3" state="yyrrrryyrrrr" name="_transition_1_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_1_clearance" />
+    <phase duration="15" state="rrrGGGrrrrrr" name="E_combined" />
+    <phase duration="3" state="rrryyyrrrrrr" name="_transition_2_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_2_clearance" />
+    <phase duration="15" state="rrrrrrrrrGGG" name="W_combined" />
+    <phase duration="3" state="rrrrrrrrryyy" name="_transition_3_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_3_clearance" />
+  </tlLogic>
+  <tlLogic id="gj_seungsam" type="static" programID="realistic-v2" offset="0">
+    <phase duration="15" state="rrrrrrGGGrrr" name="S_combined" />
+    <phase duration="3" state="rrrrrrGGyrrr" name="_transition_0_yellow" />
+    <phase duration="2" state="rrrrrrGGrrrr" name="_transition_0_clearance" />
+    <phase duration="15" state="GGrrrrGGrrrr" name="NS_through" />
+    <phase duration="3" state="GGrrrryyrrrr" name="_transition_1_yellow" />
+    <phase duration="2" state="GGrrrrrrrrrr" name="_transition_1_clearance" />
+    <phase duration="15" state="GGGrrrrrrrrr" name="N_combined" />
+    <phase duration="3" state="yyyrrrrrrrrr" name="_transition_2_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_2_clearance" />
+    <phase duration="15" state="rrrrrrrrrGGG" name="W_combined" />
+    <phase duration="3" state="rrrrrrrrryyy" name="_transition_3_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_3_clearance" />
+    <phase duration="15" state="rrrGGGrrrrrr" name="E_combined" />
+    <phase duration="3" state="rrryyyrrrrrr" name="_transition_4_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_4_clearance" />
+  </tlLogic>
+  <tlLogic id="gj_yonggang" type="static" programID="realistic-v2" offset="0">
+    <phase duration="15" state="GGGrrrrrrrrr" name="N_combined" />
+    <phase duration="3" state="GGyrrrrrrrrr" name="_transition_0_yellow" />
+    <phase duration="2" state="GGrrrrrrrrrr" name="_transition_0_clearance" />
+    <phase duration="15" state="GGrrrrGGrrrr" name="NS_through" />
+    <phase duration="3" state="yyrrrrGGrrrr" name="_transition_1_yellow" />
+    <phase duration="2" state="rrrrrrGGrrrr" name="_transition_1_clearance" />
+    <phase duration="15" state="rrrrrrGGGrrr" name="S_combined" />
+    <phase duration="3" state="rrrrrryyyrrr" name="_transition_2_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_2_clearance" />
+    <phase duration="15" state="rrrGGGrrrrrr" name="E_combined" />
+    <phase duration="3" state="rrryyyrrrrrr" name="_transition_3_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_3_clearance" />
+    <phase duration="15" state="rrrrrrrrrGGG" name="W_combined" />
+    <phase duration="3" state="rrrrrrrrryyy" name="_transition_4_yellow" />
+    <phase duration="2" state="rrrrrrrrrrrr" name="_transition_4_clearance" />
+  </tlLogic>
+</tlLogics>

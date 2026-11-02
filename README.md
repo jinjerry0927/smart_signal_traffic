@@ -1,5 +1,18 @@
 # Smart Signal
 
+기존 신호체계는 **Legacy V1**으로 보존한다. 별도 **Realistic V2**는 이동별 보호 신호·중복 현시를 사용하는 실험 버전이다.
+[설계·차로 변경·AI/Pi 호환성](docs/realistic_v2_20261103.md), [교차로별 신호표](docs/realistic_v2_signal_plan.md),
+[Windows 직접 실행 안내](docs/realistic_v2_manual.md), [정적 검증 기록](docs/realistic_v2_validation.md)을 참조한다.
+V2 구현 과정에서 SUMO는 실행하지 않았으며, 기존 모델의 V2 성능과 보행자/조건부 우회전은 미검증이다.
+
+```powershell
+# 아래 검사는 SUMO를 실행하지 않는다.
+python -X utf8 -B -m realistic_signal check
+# 사용자가 직접 웹 서버를 열고 실험 시작을 선택하면 SUMO가 실행된다.
+python -X utf8 -B -m signal_demo web --signal-system realistic-v2 --port 8002
+```
+
+
 경주 도로를 대상으로 예측·협력형 AI 신호제어를 직접 학습하고 검증하는 졸업작품.
 현재 실행 기반은 **기존 단일 교차로 Double DQN/E2와 범용 SmartSignal V2**다. [발표용 3교차로 웹 관제·Pi 추론 연결](docs/prototype_web_pi_20261007.md)을 준비했다. 물리 Pi 검증은 접속 주소 확인 후 진행한다.
 현재 실험 구간은 **산업로 용강네거리 → 근화여고네거리 → 승삼네거리**다.

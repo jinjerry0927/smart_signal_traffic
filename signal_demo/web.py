@@ -92,12 +92,14 @@ def make_server(demo, host='127.0.0.1', port=8000):
     return ThreadingHTTPServer((host, port), Handler)
 
 
-def serve(host, port, output, release, unseen=False):
+def serve(host, port, output, release, unseen=False, realistic=False):
+    if unseen and realistic:
+        raise ValueError('Unseen and Realistic V2 are separate research modes')
     if unseen:
         from .unseen import TrialDemo as Demo
     else:
         from .runtime import Demo
-    demo = Demo(output, release)
+    demo = Demo(output, release, realistic=True) if realistic else Demo(output, release)
     server = make_server(demo, host, port)
     print(f'Smart Signal: http://{host}:{server.server_port}', flush=True)
     try:

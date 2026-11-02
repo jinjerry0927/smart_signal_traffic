@@ -16,3 +16,7 @@ presentation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-a
 presentation/**/*.svg whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 presentations/**/*.pdf binary
 presentations/**/*.pptx binary
+
+realistic_signal/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+network/realistic_v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -79,7 +79,7 @@ class LiveEnvironment(SignalEnvironment):
 
 
 class Demo:
-    def __init__(self, output=ROOT / 'results/runs/web_pi_prototype', release=DEFAULT_RELEASE):
+    def __init__(self, output=ROOT / 'results/runs/web_pi_prototype', release=DEFAULT_RELEASE, *, realistic=False):
         self.output, self.release = Path(output).resolve(), Path(release).resolve()
         self.policy, self.identity = load_release(self.release)
         # PC validates the full original deployment contract as well as the portable one.
@@ -87,9 +87,20 @@ class Demo:
         self.suite_path = ROOT / 'network/transferable_v1/suite.json'
         self.suite, self.cases = load_suite(self.suite_path)
         self.scenarios = SUPPORTED_SCENARIOS.copy()
+        self.networks = NETWORKS.copy()
+        if realistic:
+            from realistic_signal.build import load_scenarios
+            from realistic_signal.spec import DEFAULT_SPEC
+            spec, network, scenarios = load_scenarios(DEFAULT_SPEC)
+            self.cases['realistic_v2'] = (spec, network, dict(id='realistic_v2', split='experimental'))
+            self.networks['realistic_v2'] = 'Realistic V2 · 경주 3교차로 (실험)'
+            self.scenarios.update({s['id']: PROFILES[s['profile']] for s in scenarios})
+            self.suite = dict(self.suite, scenarios=[*self.suite['scenarios'],
+                              *(dict(s, case='realistic_v2') for s in scenarios)])
         self.junction_names = dict(NAMES, center='중앙 교차로')
-        self.maps = {case: map_data(self.cases[case][1], self.cases[case][0]) for case in NETWORKS}
-        self.map = self.maps['gyeongju']
+        self.maps = {case: map_data(self.cases[case][1], self.cases[case][0]) for case in self.networks}
+        initial = 'realistic_v2' if realistic else 'gyeongju'
+        self.map = self.maps[initial]
         summary_path = ROOT / 'results/runs/final_signal_wave10_20261007/final_summary.json'
         meta = read_json(self.release / 'release.json')
         expected = meta['evidence_sha256']['results\\runs\\final_signal_wave10_20261007\\final_summary.json']
@@ -100,13 +111,17 @@ class Demo:
         self.stop_event, self.pause_event = threading.Event(), threading.Event()
         self.worker = None
         self.session_id = uuid.uuid4().hex
-        self.state = self._ready_state('gyeongju')
+        self.state = self._ready_state(initial)
+
+    def _system(self, network):
+        return 'realistic-v2' if network == 'realistic_v2' else 'legacy-v1'
 
     def _ready_state(self, network):
         return dict(status='ready', time_s=0, horizon_s=900, vehicles=[], junctions=[],
                           queue=0, running=0, arrived=0, mean_queue=0, link='local',
                           link_message='PC 추론 준비', decision_ms=None, error=None, result=None, decisions={},
-                          network=network, run_id=None, session_id=self.session_id, revision=0,
+                          network=network, signal_system=self._system(network), run_id=None, session_id=self.session_id, revision=0,
+                          applied_signal_system=None,
                           output=None, link_error=None, diagnostic_error=None, edge_health=None,
                           remote_roundtrip_ms=None, remote_inference_ms=None)
 
@@ -117,8 +132,9 @@ class Demo:
     def boot(self):
         return dict(map=self.map, identity=self.identity, scenarios=self.scenarios,
                     networks={case: dict(name=name, map=self.maps[case],
-                                         scenarios={s: label for s, label in SUPPORTED_SCENARIOS.items() if s.startswith(case + '_')})
-                              for case, name in NETWORKS.items()},
+                                         signal_system=self._system(case),
+                                         scenarios={s: label for s, label in self.scenarios.items() if s.startswith(case + '_')})
+                              for case, name in self.networks.items()},
                     comparison=self.comparison, title='Smart Signal · 경주 3교차로')
 
     def update(self, **values):
@@ -127,7 +143,7 @@ class Demo:
             self.state['revision'] += 1
 
     def select_network(self, network):
-        if not isinstance(network, str) or network not in NETWORKS:
+        if not isinstance(network, str) or network not in self.networks:
             raise ValueError('Unknown demonstration network')
         with self.lock:
             if self.worker is not None and self.worker.is_alive():
@@ -158,7 +174,9 @@ class Demo:
     def start(self, options):
         if not isinstance(options, dict):
             raise ValueError('Options object required')
-        scenario_id = options.get('scenario', 'gyeongju_busy')
+        scenario_id = options.get('scenario', self.state['network'] + '_busy')
+        if isinstance(scenario_id, str) and scenario_id.startswith('realistic_v2_') and options.get('mode', 'local') != 'local':
+            raise ValueError('Realistic V2 uses experimental PC inference; the Legacy Pi protocol is incompatible')
         controller = options.get('controller', 'smart')
         mode = options.get('mode', 'local')
         if scenario_id not in self.scenarios or controller not in ('smart', 'fixed', 'webster', 'max_pressure') or mode not in ('local', 'edge'):
@@ -180,8 +198,10 @@ class Demo:
             self.stop_event.clear()
             self.pause_event.clear()
             self.update(status='starting', error=None, result=None, time_s=0, horizon_s=horizon,
+                              applied_signal_system=None,
                               controller=controller, scenario=scenario_id, speed=speed, vehicles=[], junctions=[],
                               network=next(s['case'] for s in self.suite['scenarios'] if s['id'] == scenario_id),
+                              signal_system='realistic-v2' if scenario_id.startswith('realistic_v2_') else 'legacy-v1',
                               run_id=uuid.uuid4().hex, mode=mode, output=None, link_error=None, diagnostic_error=None, edge_health=None,
                               remote_roundtrip_ms=None, remote_inference_ms=None,
                               queue=0, running=0, arrived=0, mean_queue=0, decision_ms=None, decisions={},
@@ -232,8 +252,13 @@ class Demo:
                                   stage=clock.stage, elapsed_s=clock.elapsed, remaining_s=clock.remaining,
                                   state=state, lane_signals=lane_signals,
                                   next_phase=clock.pending, red_age_s=clock.red_age.tolist(),
+                                  phase_name=clock.phases[clock.current]['id'],
+                                  next_phase_name=clock.phases[clock.pending]['id'] if clock.pending is not None else None,
+                                  movement_signals=[dict(m, state=state[m['index']]) for m in j['movements']],
+                                  right_turn_mode=env.spec.get('right_turn_mode', 'legacy_protected'),
                                   queue=sum(env.observer.samples[lid]['queue'] for lid in incoming)))
         self.update(time_s=connection.simulation.getTime(), vehicles=vehicles, junctions=junctions,
+                    applied_signal_system='realistic-v2' if env.spec.get('version') == 'realistic-v2' else 'legacy-v1',
                     queue=sum(v['speed'] < .1 for v in vehicles), running=len(vehicles),
                     arrived=len(env.metrics.arrived), mean_queue=(sum(env.metrics.queues) / len(env.metrics.queues)) if env.metrics.queues else 0)
         if env.metrics.collisions or env.metrics.teleports:
@@ -259,7 +284,16 @@ class Demo:
             policy, identity = load_release(self.release)
             scenario = next(s for s in self.suite['scenarios'] if s['id'] == scenario_id)
             spec, network, _ = self.cases[scenario['case']]
-            routes = self.suite_path.parent / scenario['routes']
+            realistic = spec.get('version') == 'realistic-v2'
+            if realistic:
+                from realistic_signal.build import load_scenarios
+                from realistic_signal.spec import DEFAULT_SPEC
+                checked, checked_network, _ = load_scenarios(DEFAULT_SPEC)
+                if checked != spec or checked_network != network:
+                    raise ValueError('Realistic V2 inputs changed since server initialization')
+                routes = network.parent / scenario['routes']
+            else:
+                routes = self.suite_path.parent / scenario['routes']
             if digest(network) != spec['network_sha256'] or digest(routes) != scenario['routes_sha256']:
                 raise ValueError('Frozen network or demand changed')
             _check_scenario(policy, scenario, spec, dict(mode='validated', limits=identity['limits']), self.suite)
@@ -271,10 +305,16 @@ class Demo:
                             horizon_s=horizon, seed=scenario['seed'], controller=controller,
                             requested_mode=mode, edge_url=edge_url if mode == 'edge' else None,
                             identity=identity, network_sha256=digest(network), routes_sha256=digest(routes),
+                            signal_system='realistic-v2' if realistic else 'legacy-v1',
+                            model_compatibility=('experimental_transfer_unvalidated' if realistic else 'legacy_validated') if controller == 'smart' else 'not_used',
                             suite_sha256=digest(self.suite_path),
                             junction_phase_counts={j['id']: len(j['phases']) for j in spec['junctions']},
                             bridge_sha256={p.name: digest(p) for p in sorted(Path(__file__).parent.glob('*.py'))},
                             fallback_events=[])
+            if realistic:
+                metadata.update(spec_sha256=digest(DEFAULT_SPEC), spec_path=str(DEFAULT_SPEC),
+                                source_sha256={p.relative_to(ROOT).as_posix(): digest(p)
+                                               for p in (ROOT / 'realistic_signal').glob('*.py')})
             write_json(out / 'manifest.json', metadata)
             self.update(output=str(out))
             edge = None
@@ -290,7 +330,11 @@ class Demo:
                     self.update(link='fallback', link_message='원격 연결 실패 → PC 추론', link_error=message)
             else:
                 self.update(link='local', link_message='PC 추론' if controller == 'smart' else 'PC 기본 신호')
-            env = LiveEnvironment(spec, network, routes, out, horizon, scenario['seed'],
+            environment = LiveEnvironment
+            if realistic:
+                from .realistic import RealisticLiveEnvironment
+                environment = RealisticLiveEnvironment
+            env = environment(spec, network, routes, out, horizon, scenario['seed'],
                                   on_frame=lambda e, o: self._frame(e, o, speed))
             stream = (out / 'decisions.csv').open('w', encoding='utf-8', newline='')
             writer = csv.writer(stream)
@@ -320,6 +364,10 @@ class Demo:
                 details = {jid: decision_snapshot(observation[jid], env.clocks[jid], action,
                            diagnostics.get(jid), now, 'edge' if edge else 'local', env.observer.samples, controller)
                            for jid, action in actions.items()}
+                if realistic:
+                    from .realistic import explain_constraints
+                    for jid, detail in details.items():
+                        explain_constraints(detail, env.clocks[jid])
                 self.update(decision_ms=ms / len(actions), decisions=details,
                             remote_roundtrip_ms=edge.last_ms if edge else None,
                             remote_inference_ms=edge.last_inference_ms if edge else None,

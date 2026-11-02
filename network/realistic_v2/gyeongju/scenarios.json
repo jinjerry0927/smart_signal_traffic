@@ -1,0 +1,41 @@
+{
+  "version": "realistic-v2",
+  "scenarios": [
+    {
+      "id": "realistic_v2_quiet",
+      "case": "gyeongju",
+      "split": "experimental",
+      "profile": "quiet",
+      "routes": "quiet.rou.xml",
+      "routes_sha256": "dd2f6667ac02b5df9b792b5dc1a063b7fa200564d2c7c2c64b4d73f005856b4f",
+      "scheduled": 338,
+      "seed": 33010,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "realistic_v2_busy",
+      "case": "gyeongju",
+      "split": "experimental",
+      "profile": "busy",
+      "routes": "busy.rou.xml",
+      "routes_sha256": "9d20d1233a687bd0b6ad63f3ae868e54060048e82ab290cf089e39de1acc7b98",
+      "scheduled": 680,
+      "seed": 33011,
+      "duration_s": 600,
+      "drain_s": 300
+    },
+    {
+      "id": "realistic_v2_directional",
+      "case": "gyeongju",
+      "split": "experimental",
+      "profile": "directional",
+      "routes": "directional.rou.xml",
+      "routes_sha256": "be29f091afcbca329d2f97733a5c1f9edf829222f9ba7a10a5bb3c19080c97dc",
+      "scheduled": 579,
+      "seed": 33012,
+      "duration_s": 600,
+      "drain_s": 300
+    }
+  ]
+}

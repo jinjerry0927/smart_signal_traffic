@@ -1,0 +1,98 @@
+{
+  "version": "realistic-v2",
+  "input_sha256": {
+    "network/transferable_v1/gyeongju/intersection.json": "3902cb101f20148cd477a80ac65717d3aa8efb87ceff782d93d8bf7a20ee4c6c",
+    "network/transferable_v1/gyeongju/network.net.xml": "3acd8eff736cf4922f2f48e7fa8f65e742f080d690984ce69c3adca108d7e82c",
+    "network/gyeongju_simple/nodes.nod.xml": "f9772da103e6162ee544c7056f0f776da016abc87362d4662fe36b9b909b4b29",
+    "network/gyeongju_simple/roads.edg.xml": "8d11dfd4003d4bbd5859f880e9ada2286796e74057d83e3df7eaa128a2a12c55",
+    "network/gyeongju_simple/turns.con.xml": "f6066cd1f9b8eaa22299f9f891eb96c75d943372c94ef6321e296c1ea6ce988f",
+    "network/transferable_v1/gyeongju/quiet.rou.xml": "dd2f6667ac02b5df9b792b5dc1a063b7fa200564d2c7c2c64b4d73f005856b4f",
+    "network/transferable_v1/gyeongju/busy.rou.xml": "9d20d1233a687bd0b6ad63f3ae868e54060048e82ab290cf089e39de1acc7b98",
+    "network/transferable_v1/gyeongju/directional.rou.xml": "be29f091afcbca329d2f97733a5c1f9edf829222f9ba7a10a5bb3c19080c97dc"
+  },
+  "generated_sha256": {
+    "busy.rou.xml": "9d20d1233a687bd0b6ad63f3ae868e54060048e82ab290cf089e39de1acc7b98",
+    "directional.rou.xml": "be29f091afcbca329d2f97733a5c1f9edf829222f9ba7a10a5bb3c19080c97dc",
+    "intersection.json": "7e8c6adb2972931c50f1453402190eb496cc20f1f934143a8b419954bccc2c31",
+    "labels.add.xml": "0bbf17ef82afc534f416f020a00b0fd441450189755ffd4f5391927fa7cbf05f",
+    "netconvert.log": "1ee456262d7aaf011c85ff7c16892a3cc6e545dbe212e9869045160174d5ec42",
+    "network.net.xml": "1272c6fe2ea7a640dc19782c93ef3fd06b8c32b427e306fcaa37ead811574d17",
+    "nodes.nod.xml": "f9772da103e6162ee544c7056f0f776da016abc87362d4662fe36b9b909b4b29",
+    "quiet.rou.xml": "dd2f6667ac02b5df9b792b5dc1a063b7fa200564d2c7c2c64b4d73f005856b4f",
+    "roads.edg.xml": "8d11dfd4003d4bbd5859f880e9ada2286796e74057d83e3df7eaa128a2a12c55",
+    "scenarios.json": "2dd48b0e4c8096ead544554ac76459db7233edcb640b9ec94dee5b24fb7a0502",
+    "signals.tll.xml": "0d763a582a5ba81e7279b2eb2c372adf979f3a5938706587605750f9777c76cd",
+    "turns.con.xml": "dc3019864075294c0cfe4160d9ee6e5788a199257149e277833beff916592320",
+    "view.xml": "5fb223de3d49aaf4c1d268b4e73dbc504904af23be72dcb973c2f956132123eb"
+  },
+  "removed_connections": [
+    {
+      "junction": "gj_geunhwa",
+      "incoming": "geunhwa_seungsam_in_1",
+      "removed": {
+        "index": 2,
+        "incoming": "geunhwa_seungsam_in_1",
+        "outgoing": "yonggang_geunhwa_in_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    },
+    {
+      "junction": "gj_geunhwa",
+      "incoming": "yonggang_geunhwa_out_1",
+      "removed": {
+        "index": 9,
+        "incoming": "yonggang_geunhwa_out_1",
+        "outgoing": "geunhwa_seungsam_out_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    },
+    {
+      "junction": "gj_seungsam",
+      "incoming": "seungsam_north_in_1",
+      "removed": {
+        "index": 2,
+        "incoming": "seungsam_north_in_1",
+        "outgoing": "geunhwa_seungsam_in_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    },
+    {
+      "junction": "gj_seungsam",
+      "incoming": "geunhwa_seungsam_out_1",
+      "removed": {
+        "index": 9,
+        "incoming": "geunhwa_seungsam_out_1",
+        "outgoing": "seungsam_north_out_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    },
+    {
+      "junction": "gj_yonggang",
+      "incoming": "yonggang_geunhwa_in_1",
+      "removed": {
+        "index": 2,
+        "incoming": "yonggang_geunhwa_in_1",
+        "outgoing": "yonggang_southwest_out_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    },
+    {
+      "junction": "gj_yonggang",
+      "incoming": "yonggang_southwest_in_1",
+      "removed": {
+        "index": 9,
+        "incoming": "yonggang_southwest_in_1",
+        "outgoing": "yonggang_geunhwa_out_1",
+        "turn": "s"
+      },
+      "reason": "inner main-road lane becomes protected-left only"
+    }
+  ],
+  "lane_counts_changed": false,
+  "simulation_run": false
+}
