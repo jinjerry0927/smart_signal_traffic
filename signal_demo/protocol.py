@@ -10,6 +10,7 @@ import numpy as np
 
 from transferable_signal.control import SignalClock
 from transferable_signal.spec import DEFAULT_LIMITS
+from .explanation import capture, validate
 
 MAX_BODY = 512 * 1024
 
@@ -104,20 +105,29 @@ def infer(policy, identity, payload):
         raise ValueError('Invalid junction IDs')
     decoded = {jid: unpack_junction(v) for jid, v in frame.items()}
     started = time.perf_counter()
-    actions = {jid: policy.action(jid, obs, clock) for jid, (obs, clock) in decoded.items()}
+    actions, diagnostics = {}, {}
+    for jid, (obs, clock) in decoded.items():
+        actions[jid] = policy.action(jid, obs, clock)
+        diagnostics[jid] = capture(policy, obs, actions[jid])
     return dict(request_id=rid, identity_sha256=identity['identity_sha256'], actions=actions,
-                inference_ms=(time.perf_counter() - started) * 1000)
+                inference_ms=(time.perf_counter() - started) * 1000, diagnostics=diagnostics)
 
 
 class EdgeClient:
     def __init__(self, url, identity, timeout=1.0):
+        if not isinstance(url, str):
+            raise ValueError('Edge URL must be http://HOST:PORT')
         parsed = urlsplit(url)
         if (parsed.scheme != 'http' or not parsed.hostname or parsed.username or parsed.password
-                or parsed.path not in ('', '/') or parsed.query or parsed.fragment):
+                or parsed.path not in ('', '/') or parsed.query or parsed.fragment
+                or (parsed.port is not None and not 1 <= parsed.port <= 65535)):
             raise ValueError('Edge URL must be http://HOST:PORT')
         self.url, self.identity, self.timeout = url.rstrip('/'), identity, timeout
         self.checked = False
         self.last_ms = None
+        self.last_inference_ms = None
+        self.last_diagnostics = {}
+        self.diagnostic_error = None
 
     def _call(self, path, payload=None):
         req = request.Request(self.url + path, data=None if payload is None else json_bytes(payload),
@@ -131,12 +141,14 @@ class EdgeClient:
 
     def check(self):
         health = self._call('/health')
-        if health.get('identity') != self.identity:
+        if (not isinstance(health, dict) or health.get('identity') != self.identity
+                or not isinstance(health.get('hostname'), str) or not health['hostname']):
             raise ValueError('Edge has a different frozen model/contract')
         self.checked = True
         return health
 
     def action(self, observations, clocks):
+        self.last_diagnostics, self.diagnostic_error = {}, None
         if not self.checked:
             self.check()
         rid = uuid.uuid4().hex
@@ -155,4 +167,15 @@ class EdgeClient:
         if not isinstance(elapsed, (int, float)) or isinstance(elapsed, bool) or not math.isfinite(elapsed) or elapsed < 0:
             raise ValueError('Invalid edge latency')
         self.last_ms = (time.perf_counter() - started) * 1000
+        self.last_inference_ms = elapsed
+        values = reply.get('diagnostics')
+        if values is not None:
+            try:
+                if not isinstance(values, dict) or set(values) != set(actions):
+                    raise ValueError('Diagnostic junctions differ')
+                self.last_diagnostics = {jid: validate(values[jid], observations[jid], action)
+                                         for jid, action in actions.items()}
+            except (ValueError, KeyError, TypeError, OverflowError) as exc:
+                self.last_diagnostics = {}
+                self.diagnostic_error = str(exc)
         return actions

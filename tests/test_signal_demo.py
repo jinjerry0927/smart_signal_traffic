@@ -22,7 +22,8 @@ from signal_demo.protocol import EdgeClient, infer, json_bytes, pack_frame, stri
 from signal_demo.release import DEFAULT_RELEASE, load_release
 from signal_demo.runtime import Demo, StopRequested
 from signal_demo.web import make_server as web_server
-from signal_demo.probe import probe
+from signal_demo.probe import probe, diagnostics_match
+from signal_demo.explanation import capture, snapshot as decision_snapshot
 
 
 def sample(elapsed=35, stage='green'):
@@ -186,6 +187,89 @@ class ProtocolTests(unittest.TestCase):
                 export(output)
 
 
+class DecisionViewTests(unittest.TestCase):
+    def setUp(self):
+        self.policy, self.identity = load_release()
+
+    def test_each_junction_keeps_its_own_diagnostic(self):
+        obs, clocks = sample()
+        payload = dict(request_id='diagnostics', identity_sha256=self.identity['identity_sha256'],
+                       junctions=pack_frame(obs, clocks))
+        reply = infer(self.policy, self.identity, payload)
+        for jid, observation in obs.items():
+            action = self.policy.action(jid, observation, clocks[jid])
+            expected = capture(self.policy, observation, action)
+            self.assertEqual(reply['diagnostics'][jid], expected)
+            self.assertEqual(reply['actions'][jid], action)
+            self.assertEqual(len(expected['scores']), len(clocks[jid].phases))
+
+    def test_capture_is_immutable_and_does_not_change_actions(self):
+        obs, clocks = sample()
+        before = self.policy.action('j3', obs['j3'], clocks['j3'])
+        saved = capture(self.policy, obs['j3'], before)
+        original = copy.deepcopy(saved)
+        self.policy.action('j5', obs['j5'], clocks['j5'])
+        self.assertEqual(saved, original)
+        self.assertEqual(self.policy.action('j3', obs['j3'], clocks['j3']), before)
+
+    def test_cross_cpu_score_rounding_does_not_hide_action_changes(self):
+        obs, clocks = sample()
+        action = self.policy.action('j3', obs['j3'], clocks['j3'])
+        original = {'j3': capture(self.policy, obs['j3'], action)}
+        rounded = copy.deepcopy(original)
+        rounded['j3']['scores'][0] += 1e-7
+        self.assertTrue(diagnostics_match(rounded, original))
+        rounded['j3']['decision']['action'] = (action + 1) % 3
+        self.assertFalse(diagnostics_match(rounded, original))
+
+    def test_wait_guard_explains_a_real_override(self):
+        obs, clocks = sample()
+        scores = np.array([0., 5., 1., 2., 3.])
+        with patch.object(self.policy, 'scores', return_value=scores):
+            action = self.policy.action('j5', obs['j5'], clocks['j5'])
+            diagnostic = capture(self.policy, obs['j5'], action)
+        self.assertEqual(diagnostic['decision']['raw_ai_action'], 1)
+        self.assertEqual(action, 4)
+        detail = decision_snapshot(obs['j5'], clocks['j5'], action, diagnostic, 125, 'local')
+        self.assertEqual(detail['reason'], '긴 대기 보호 보정')
+        self.assertEqual(detail['time_s'], 125)
+        self.assertEqual(detail['phases'][4]['red_age_s'], 100)
+
+    def test_safety_constraint_is_not_presented_as_free_ai_choice(self):
+        for stage in ('green', 'yellow', 'all_red'):
+            obs, clocks = sample(elapsed=5 if stage == 'green' else 35, stage=stage)
+            action = self.policy.action('j3', obs['j3'], clocks['j3'])
+            detail = decision_snapshot(obs['j3'], clocks['j3'], action,
+                                      capture(self.policy, obs['j3'], action), 5, 'local')
+            self.assertEqual(detail['reason'], '전환 제약에 따른 선택')
+            self.assertEqual(sum(p['rank'] is not None for p in detail['phases']), 1)
+
+    def test_old_and_malformed_diagnostics_do_not_change_valid_actions(self):
+        obs, clocks = sample()
+        actions = {j: self.policy.action(j, o, clocks[j]) for j, o in obs.items()}
+        for extra in ({}, {'diagnostics': {'wrong-junction': {}}}):
+            client = EdgeClient('http://127.0.0.1:9998', self.identity)
+            client.checked = True
+            def fake(path, payload):
+                return dict(request_id=payload['request_id'], identity_sha256=self.identity['identity_sha256'],
+                            actions=actions, inference_ms=.1, **extra)
+            client._call = fake
+            self.assertEqual(client.action(obs, clocks), actions)
+            self.assertEqual(client.last_diagnostics, {})
+
+    def test_queued_vehicle_count_and_raw_seconds_share_one_frame(self):
+        obs, clocks = sample()
+        clock = clocks['j3']
+        clock.phases[0]['incoming'] = ['a', 'b']
+        samples = {'a': {'queue': 3}, 'b': {'queue': 7}}
+        action = self.policy.action('j3', obs['j3'], clock)
+        detail = decision_snapshot(obs['j3'], clock, action, capture(self.policy, obs['j3'], action),
+                                   35, 'edge', samples)
+        self.assertEqual(detail['phases'][0]['queued_vehicles'], 10)
+        self.assertEqual(detail['phases'][0]['features'], obs['j3']['features'][0].tolist())
+        self.assertEqual(detail['phases'][0]['red_age_s'], clock.red_age[0])
+
+
 class WebTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -241,7 +325,6 @@ class WebTests(unittest.TestCase):
             thread.join()
 
     def test_stop_finalization_failure_is_reported(self):
-        # Covered separately from preflight: a failed run must remain a failure.
         class BrokenFinish:
             connection = object()
             def __init__(self, *args, **kwargs):
@@ -287,7 +370,7 @@ class WebTests(unittest.TestCase):
             self.assertEqual(demo.snapshot()['status'], 'ready')
             self.assertIsNone(demo.worker)
             with request.urlopen(url + '/?mode=edge&speed=30') as response:
-                self.assertIn('Pi 연결 확인', response.read().decode())
+                self.assertIn('id="edge-check"', response.read().decode())
             with self.assertRaises(error.HTTPError) as caught:
                 check('file:///tmp/model')
             self.assertEqual(caught.exception.code, 400)

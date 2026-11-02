@@ -23,6 +23,8 @@ def display_summary(value):
 
 
 class TrialDemo(Demo):
+    trial_view = True
+
     def __init__(self, output=ROOT/'results/runs/unseen_web_20261029', release=DEFAULT_RELEASE):
         super().__init__(output, release)
         self.original_path, self.original_suite, self.original_cases = self.suite_path, self.suite, self.cases
@@ -63,7 +65,9 @@ class TrialDemo(Demo):
             self.suite_path, self.suite, self.cases = suite_path, suite, cases
             self.scenarios, self.comparison, self.map = scenarios, comparison, drawing
             self.selected_case, self.worker = case, None
-            self.state = copy.deepcopy(self.ready_state)
+            revision = self.state['revision']
+            self.state = self._ready_state(case)
+            self.state['revision'] = revision + 1
             self.state.update(case=case, scenario=None, controller='smart')
             return self.boot()
 

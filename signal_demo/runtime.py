@@ -14,12 +14,17 @@ from transferable_signal.runner import _check_scenario
 from transferable_signal.spec import digest, read_json, write_json
 from transferable_signal.suite import load_suite
 
-from .protocol import EdgeClient
+from .protocol import EdgeClient, json_bytes
+from .explanation import capture, snapshot as decision_snapshot
 from .release import DEFAULT_RELEASE, ROOT, load_release
+from .visualization import VehicleFrames
 
 NAMES = dict(gj_yonggang='용강네거리', gj_geunhwa='근화여고네거리', gj_seungsam='승삼네거리')
-SCENARIOS = dict(gyeongju_quiet='한산한 교통', gyeongju_busy='혼잡한 교통',
-                 gyeongju_directional='한 방향 집중')
+NETWORKS = dict(gyeongju='경주 산업로 · 3교차로', valid_t2='T형 · 기존 검증 도로망',
+                valid_x3='X형 · 기존 검증 도로망')
+PROFILES = dict(quiet='한산한 교통', busy='혼잡한 교통', directional='한 방향 집중')
+SCENARIOS = {f'gyeongju_{profile}': label for profile, label in PROFILES.items()}
+SUPPORTED_SCENARIOS = {f'{case}_{profile}': label for case in NETWORKS for profile, label in PROFILES.items()}
 
 
 class StopRequested(Exception):
@@ -28,23 +33,33 @@ class StopRequested(Exception):
 
 def map_data(network, spec, names=None):
     root = ET.parse(network).getroot()
-    points = lambda shape: [[float(v) for v in pair.split(',')] for pair in shape.split()]
+    points = lambda shape: [[float(v) for v in pair.split(',')[:2]] for pair in (shape or '').split()]
     lanes, edges = {}, []
     for edge in root.findall('edge'):
         for lane in edge.findall('lane'):
-            lanes[lane.get('id')] = dict(shape=points(lane.get('shape')), width=float(lane.get('width', 3.2)))
+            lanes[lane.get('id')] = dict(shape=points(lane.get('shape')), width=float(lane.get('width', 3.2)),
+                                         length=float(lane.get('length')), index=int(lane.get('index')),
+                                         edge=edge.get('id'), internal=edge.get('function') == 'internal')
         if edge.get('function') != 'internal':
             edges.append(dict(id=edge.get('id'), lanes=[l.get('id') for l in edge.findall('lane')]))
     junctions = []
-    junction_ids = {j['id'] for j in spec['junctions']}
-    names = NAMES if names is None else names
+    controlled = {j['id'] for j in spec['junctions']}
+    names = dict(NAMES, center='중앙 교차로') if names is None else names
     for j in root.findall('junction'):
-        if j.get('id') in junction_ids:
+        if j.get('id') in controlled:
             junctions.append(dict(id=j.get('id'), name=names.get(j.get('id'), j.get('id')),
                                   x=float(j.get('x')), y=float(j.get('y')), shape=points(j.get('shape'))))
     all_points = [p for e in edges for lid in e['lanes'] for p in lanes[lid]['shape']]
     xs, ys = zip(*all_points)
-    return dict(edges=edges, lanes=lanes, junctions=junctions, bounds=[min(xs), min(ys), max(xs), max(ys)],
+    road_junctions = [dict(id=j.get('id'), shape=points(j.get('shape'))) for j in root.findall('junction')
+                      if len(points(j.get('shape'))) >= 3 and j.get('type') != 'internal']
+    connections = [dict(incoming=f"{c.get('from')}_{c.get('fromLane')}",
+                        outgoing=f"{c.get('to')}_{c.get('toLane')}", via=c.get('via'),
+                        junction=c.get('tl'), index=int(c.get('linkIndex')) if c.get('linkIndex') is not None else None,
+                        turn=c.get('dir')) for c in root.findall('connection')]
+    return dict(edges=edges, lanes=lanes, junctions=junctions, road_junctions=road_junctions,
+                connections=connections, bounds=[min(xs), min(ys), max(xs), max(ys)],
+                coordinate_reference=dict(position='front_bumper_center', angle='clockwise_from_north', units='metres'),
                 signals={j['id']: dict(phases=j['phases'], movements=j['movements']) for j in spec['junctions']})
 
 
@@ -52,6 +67,7 @@ class LiveEnvironment(SignalEnvironment):
     def __init__(self, *args, on_frame, **kwargs):
         super().__init__(*args, **kwargs)
         self.on_frame, self.last_frame = on_frame, -1
+        self.vehicle_frames = VehicleFrames()
 
     def observe(self):
         observation = super().observe()
@@ -70,9 +86,10 @@ class Demo:
         validated_policy(self.release / 'model.json')
         self.suite_path = ROOT / 'network/transferable_v1/suite.json'
         self.suite, self.cases = load_suite(self.suite_path)
-        self.scenarios, self.junction_names = SCENARIOS.copy(), NAMES.copy()
-        spec, network, _ = self.cases['gyeongju']
-        self.map = map_data(network, spec)
+        self.scenarios = SUPPORTED_SCENARIOS.copy()
+        self.junction_names = dict(NAMES, center='중앙 교차로')
+        self.maps = {case: map_data(self.cases[case][1], self.cases[case][0]) for case in NETWORKS}
+        self.map = self.maps['gyeongju']
         summary_path = ROOT / 'results/runs/final_signal_wave10_20261007/final_summary.json'
         meta = read_json(self.release / 'release.json')
         expected = meta['evidence_sha256']['results\\runs\\final_signal_wave10_20261007\\final_summary.json']
@@ -82,21 +99,61 @@ class Demo:
         self.lock = threading.RLock()
         self.stop_event, self.pause_event = threading.Event(), threading.Event()
         self.worker = None
-        self.state = dict(status='ready', time_s=0, horizon_s=900, vehicles=[], junctions=[],
+        self.session_id = uuid.uuid4().hex
+        self.state = self._ready_state('gyeongju')
+
+    def _ready_state(self, network):
+        return dict(status='ready', time_s=0, horizon_s=900, vehicles=[], junctions=[],
                           queue=0, running=0, arrived=0, mean_queue=0, link='local',
-                          link_message='PC 추론 준비', decision_ms=None, error=None, result=None)
+                          link_message='PC 추론 준비', decision_ms=None, error=None, result=None, decisions={},
+                          network=network, run_id=None, session_id=self.session_id, revision=0,
+                          output=None, link_error=None, diagnostic_error=None, edge_health=None,
+                          remote_roundtrip_ms=None, remote_inference_ms=None)
 
     def snapshot(self):
         with self.lock:
-            return copy.deepcopy(self.state)
+            return dict(copy.deepcopy(self.state), worker_active=self.worker is not None and self.worker.is_alive())
 
     def boot(self):
         return dict(map=self.map, identity=self.identity, scenarios=self.scenarios,
+                    networks={case: dict(name=name, map=self.maps[case],
+                                         scenarios={s: label for s, label in SUPPORTED_SCENARIOS.items() if s.startswith(case + '_')})
+                              for case, name in NETWORKS.items()},
                     comparison=self.comparison, title='Smart Signal · 경주 3교차로')
 
     def update(self, **values):
         with self.lock:
             self.state.update(values)
+            self.state['revision'] += 1
+
+    def select_network(self, network):
+        if not isinstance(network, str) or network not in NETWORKS:
+            raise ValueError('Unknown demonstration network')
+        with self.lock:
+            if self.worker is not None and self.worker.is_alive():
+                raise RuntimeError('Stop the current experiment before changing networks')
+            revision = self.state['revision']
+            self.state = self._ready_state(network)
+            self.state['revision'] = revision + 1
+            self.map = self.maps[network]
+        return self.snapshot()
+
+    def set_speed(self, speed):
+        if type(speed) not in (int, float) or not 1 <= speed <= 60:
+            raise ValueError('Speed must be 1..60')
+        with self.lock:
+            if self.state['status'] not in ('running', 'pausing', 'paused'):
+                raise ValueError('Speed changes require a running or paused experiment')
+            self.update(speed=speed)
+        return self.snapshot()
+
+    def check_edge(self, url):
+        client = EdgeClient(url, self.identity)
+        started = time.perf_counter()
+        health = client.check()
+        return dict(hostname=health['hostname'], system=health.get('system'), machine=health.get('machine'),
+                    roundtrip_ms=(time.perf_counter() - started) * 1000,
+                    identity_sha256=self.identity['identity_sha256'])
 
     def start(self, options):
         if not isinstance(options, dict):
@@ -106,7 +163,7 @@ class Demo:
         mode = options.get('mode', 'local')
         if scenario_id not in self.scenarios or controller not in ('smart', 'fixed', 'webster', 'max_pressure') or mode not in ('local', 'edge'):
             raise ValueError('Unknown scenario, controller or inference mode')
-        speed, horizon = options.get('speed', 30), options.get('horizon_s', 900)
+        speed, horizon = options.get('speed', 10), options.get('horizon_s', 900)
         if (type(speed) not in (int, float) or not 1 <= speed <= 60
                 or type(horizon) is not int or not 30 <= horizon <= 900 or horizon % 5):
             raise ValueError('Speed 1..60; horizon 30..900 in multiples of 5')
@@ -122,54 +179,47 @@ class Demo:
                 raise RuntimeError('An experiment is already running')
             self.stop_event.clear()
             self.pause_event.clear()
-            self.state.update(status='starting', error=None, result=None, time_s=0, horizon_s=horizon,
+            self.update(status='starting', error=None, result=None, time_s=0, horizon_s=horizon,
                               controller=controller, scenario=scenario_id, speed=speed, vehicles=[], junctions=[],
-                              queue=0, running=0, arrived=0, mean_queue=0, decision_ms=None,
+                              network=next(s['case'] for s in self.suite['scenarios'] if s['id'] == scenario_id),
+                              run_id=uuid.uuid4().hex, mode=mode, output=None, link_error=None, diagnostic_error=None, edge_health=None,
+                              remote_roundtrip_ms=None, remote_inference_ms=None,
+                              queue=0, running=0, arrived=0, mean_queue=0, decision_ms=None, decisions={},
                               link='connecting' if mode == 'edge' else 'local',
                               link_message='원격 연결 확인 중' if mode == 'edge' else 'PC 추론')
-            self.state.update(edge_health=None, link_error=None)
             self.worker = threading.Thread(target=self._run, args=(scenario_id, controller, mode, edge_url, speed, horizon), daemon=True)
-            self.worker.start()
+            try:
+                self.worker.start()
+            except Exception as exc:
+                self.update(status='failed', error=f'Worker start failed: {exc}')
+                raise
         return self.snapshot()
 
     def command(self, action):
         with self.lock:
             active = self.worker is not None and self.worker.is_alive()
-            if action == 'stop' and active:
+            if action == 'stop' and active and self.state['status'] in ('starting', 'running', 'pausing', 'paused'):
                 self.stop_event.set()
-                self.state['status'] = 'stopping'
+                self.update(status='stopping')
             elif action == 'pause' and active and self.state['status'] == 'running':
                 self.pause_event.set()
-                self.state['status'] = 'pausing'
+                self.update(status='pausing')
             elif action == 'resume' and active and self.state['status'] in ('paused', 'pausing'):
                 self.pause_event.clear()
-                self.state['status'] = 'running'
+                self.update(status='running')
             else:
                 raise ValueError('Command unavailable in the current state')
         return self.snapshot()
 
     def close(self):
         self.stop_event.set()
-        if self.worker is not None:
+        if self.worker is not None and self.worker.is_alive():
             self.worker.join(timeout=10)
-
-    def set_speed(self, speed):
-        if type(speed) not in (int, float) or not 1 <= speed <= 60:
-            raise ValueError('Speed must be 1..60')
-        with self.lock:
-            if self.state['status'] not in ('running', 'pausing', 'paused'):
-                raise ValueError('Speed can change only during an active run')
-            self.state['speed'] = speed
-        return self.snapshot()
 
     def _frame(self, env, observation, speed):
         # The worker alone queries TraCI; request handlers only read locked snapshots.
         connection = env.connection
-        vehicles = []
-        for vid in connection.vehicle.getIDList():
-            x, y = connection.vehicle.getPosition(vid)
-            vehicles.append(dict(id=vid, x=x, y=y, angle=connection.vehicle.getAngle(vid),
-                                 speed=connection.vehicle.getSpeed(vid)))
+        vehicles = env.vehicle_frames.snapshot(connection)
         junctions = []
         for j in env.spec['junctions']:
             jid, clock = j['id'], env.clocks[j['id']]
@@ -188,23 +238,23 @@ class Demo:
                     arrived=len(env.metrics.arrived), mean_queue=(sum(env.metrics.queues) / len(env.metrics.queues)) if env.metrics.queues else 0)
         if env.metrics.collisions or env.metrics.teleports:
             raise RuntimeError('Collision or teleport observed; run stopped')
-        if self.stop_event.is_set():
-            raise StopRequested()
         # Pause is acknowledged at the next 1-second frame, with no extra SUMO advancement.
-        while self.pause_event.is_set():
-            self.update(status='paused')
-            if self.stop_event.wait(.05):
-                raise StopRequested()
-        if self.stop_event.is_set():
-            raise StopRequested()
-        self.update(status='running')
-        with self.lock:
-            playback_speed = self.state.get('speed', speed)
-        if self.stop_event.wait(1 / playback_speed):
+        while True:
+            with self.lock:
+                if self.stop_event.is_set():
+                    raise StopRequested()
+                if not self.pause_event.is_set():
+                    self.update(status='running')
+                    speed = self.state['speed']
+                    break
+                self.update(status='paused')
+            self.stop_event.wait(.05)
+        if self.stop_event.wait(1 / speed):
             raise StopRequested()
 
     def _run(self, scenario_id, controller, mode, edge_url, speed, horizon):
-        env, stream, out, metadata = None, None, None, None
+        env, stream, detail_stream, out, metadata = None, None, None, None, None
+        final = dict(status='failed', error='Run did not finish')
         try:
             policy, identity = load_release(self.release)
             scenario = next(s for s in self.suite['scenarios'] if s['id'] == scenario_id)
@@ -221,6 +271,8 @@ class Demo:
                             horizon_s=horizon, seed=scenario['seed'], controller=controller,
                             requested_mode=mode, edge_url=edge_url if mode == 'edge' else None,
                             identity=identity, network_sha256=digest(network), routes_sha256=digest(routes),
+                            suite_sha256=digest(self.suite_path),
+                            junction_phase_counts={j['id']: len(j['phases']) for j in spec['junctions']},
                             bridge_sha256={p.name: digest(p) for p in sorted(Path(__file__).parent.glob('*.py'))},
                             fallback_events=[])
             write_json(out / 'manifest.json', metadata)
@@ -243,6 +295,7 @@ class Demo:
             stream = (out / 'decisions.csv').open('w', encoding='utf-8', newline='')
             writer = csv.writer(stream)
             writer.writerow(['time_s', 'junction', 'action', 'inference', 'decision_ms'])
+            detail_stream = (out / 'explanations.jsonl').open('w', encoding='utf-8')
             observation = env.reset()
             done = False
             while not done:
@@ -256,19 +309,34 @@ class Demo:
                         metadata['fallback_events'].append(dict(time_s=env.connection.simulation.getTime(), reason=message))
                         self.update(link='fallback', link_message='원격 응답 실패 → PC 추론', link_error=message)
                 if edge is None:
-                    actions = {jid: policy.action(jid, value, env.clocks[jid]) for jid, value in observation.items()}
+                    actions, diagnostics = {}, {}
+                    for jid, value in observation.items():
+                        actions[jid] = policy.action(jid, value, env.clocks[jid])
+                        diagnostics[jid] = capture(policy, value, actions[jid])
+                else:
+                    diagnostics = edge.last_diagnostics
                 ms = (time.perf_counter() - started) * 1000
-                self.update(decision_ms=ms / len(actions))
+                now = env.connection.simulation.getTime()
+                details = {jid: decision_snapshot(observation[jid], env.clocks[jid], action,
+                           diagnostics.get(jid), now, 'edge' if edge else 'local', env.observer.samples, controller)
+                           for jid, action in actions.items()}
+                self.update(decision_ms=ms / len(actions), decisions=details,
+                            remote_roundtrip_ms=edge.last_ms if edge else None,
+                            remote_inference_ms=edge.last_inference_ms if edge else None,
+                            diagnostic_error=edge.diagnostic_error if edge else None)
+                detail_stream.write(json_bytes(dict(time_s=now, junctions=details)).decode('utf-8') + '\n')
+                detail_stream.flush()
                 for jid, action in actions.items():
                     writer.writerow([env.connection.simulation.getTime(), jid, action, 'edge' if edge else 'local', ms / len(actions)])
                 stream.flush()
                 observation, _, done = env.step(actions)
+            self.update(status='finalizing')
             result = env.finish()
             if result['collision_vehicle_events'] or result['teleport_events']:
                 raise RuntimeError('Unsafe run detected')
             metadata['status'] = 'completed'
             write_json(out / 'metrics.json', result)
-            self.update(status='completed', result=result)
+            final = dict(status='completed', result=result, error=None)
         except StopRequested:
             if metadata is not None:
                 metadata['status'] = 'stopped'
@@ -277,28 +345,30 @@ class Demo:
                     result = env.finish()
                     write_json(out / 'metrics.json', result)
                     self.update(result=result)
-                self.update(status='stopped')
+                final = dict(status='stopped', error=None)
             except Exception as exc:
                 message = f'{type(exc).__name__}: {exc}'
                 metadata.update(status='failed', error=message)
-                self.update(status='failed', error=message)
+                final = dict(status='failed', error=message)
         except Exception as exc:
             message = f'{type(exc).__name__}: {exc}'
             if metadata is not None:
                 metadata.update(status='failed', error=message)
-            self.update(status='failed', error=message)
+            final = dict(status='failed', error=message)
         finally:
-            for resource in (env, stream):
+            self.update(status='finalizing')
+            for resource in (env, stream, detail_stream):
                 if resource is not None:
                     try:
                         resource.close()
                     except Exception as exc:
                         message = f'Finalization failed: {type(exc).__name__}: {exc}'
-                        self.update(status='failed', error=message)
+                        final = dict(status='failed', error=message)
                         if metadata is not None:
                             metadata.update(status='failed', error=message)
             if metadata is not None:
                 try:
                     write_json(out / 'manifest.json', metadata)
                 except Exception as exc:
-                    self.update(status='failed', error=f'Manifest write failed: {type(exc).__name__}: {exc}')
+                    final = dict(status='failed', error=f'Manifest write failed: {type(exc).__name__}: {exc}')
+            self.update(**final)

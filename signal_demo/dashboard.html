@@ -2,196 +2,163 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
 <title>Smart Signal · 경주 관제</title>
 <style>
 :root{--ink:#172d38;--muted:#71818a;--teal:#07877c;--border:#dce5e7;--bg:#f3f6f6;--red:#d74c52;--yellow:#d99a22}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Segoe UI","Malgun Gothic",sans-serif}button,input,select{font:inherit}button,select{cursor:pointer}button:disabled,select:disabled,input:disabled{cursor:default;opacity:.5}button{border:1px solid var(--border);border-radius:9px;background:white;padding:10px 16px;font-weight:600;color:var(--ink)}button:hover:enabled{background:#f0f7f6}.primary{background:var(--teal);border-color:var(--teal);color:white}.primary:hover:enabled{background:#066f66}.danger{color:var(--red)}
 header{height:68px;background:white;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 30px}.brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:750;letter-spacing:-.6px}.logo{width:33px;height:33px;border-radius:10px;background:var(--teal);display:grid;place-items:center;color:white}.logo svg{width:21px}.tag{font-size:11px;letter-spacing:1px;color:var(--muted);font-weight:700}.pill{display:inline-flex;align-items:center;gap:7px;border-radius:20px;background:#eaf5f2;color:#08786d;padding:6px 12px;font-size:12px;font-weight:600}.dot{width:7px;height:7px;background:currentColor;border-radius:50%}.amber{background:#fff2d8;color:#9b6508}.gray{background:#edf1f3;color:#677983}.red{background:#fff0f0;color:var(--red)}
 main{max-width:1560px;margin:auto;padding:25px 30px}.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:1.5px;font-weight:750;color:var(--teal);margin-bottom:4px}h1{font-size:25px;letter-spacing:-.9px;margin:0}h2{font-size:16px;letter-spacing:-.4px;margin:0}.subtitle{font-size:13px;color:var(--muted);margin-top:5px}.header-meta{text-align:right;font-size:12px;color:var(--muted)}.header-meta b{color:var(--ink);font-size:14px;display:block}.controls{background:white;border:1px solid var(--border);border-radius:13px;padding:15px 18px;margin-bottom:16px;display:flex;flex-wrap:wrap;align-items:end;gap:12px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;color:var(--muted);font-weight:650}.field select,.field input{background:#f9fbfb;border:1px solid var(--border);border-radius:8px;height:39px;padding:0 11px;color:var(--ink)}.field.wide{flex:1;min-width:195px}.controls .buttons{display:flex;gap:7px;margin-left:auto}.edge-field{display:none;min-width:210px}.edge-field.visible{display:flex}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:17px}.stat{background:white;border:1px solid var(--border);border-radius:12px;padding:15px 19px}.stat label{font-size:12px;color:var(--muted)}.stat .value{font-size:29px;line-height:1.3;font-weight:700;letter-spacing:-1px;margin-top:3px}.stat small{color:var(--muted);font-size:12px;font-weight:400;letter-spacing:0;margin-left:5px}.stat .caption{font-size:11px;color:var(--muted);margin-top:3px}.stat:first-child{border-left:3px solid var(--teal)}
-.workspace{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:17px}.panel{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden}.panel-head{padding:16px 19px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #edf1f2}.map-area{position:relative;height:455px;background:#f8fbfa;background-image:radial-gradient(#dde7e4 .8px,transparent .8px);background-size:19px 19px}#map{width:100%;height:100%;display:block}.map-legend{position:absolute;bottom:15px;left:18px;display:flex;gap:13px;font-size:11px;color:#667c80;background:#fffffff0;border:1px solid var(--border);border-radius:8px;padding:8px 11px}.legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}.map-note{position:absolute;top:13px;left:18px;font-size:11px;color:#748787}.time-line{display:flex;align-items:center;gap:13px;padding:12px 19px;font-size:12px;color:var(--muted)}progress{width:100%;height:5px;accent-color:var(--teal)}.junction-list{padding:12px;display:grid;gap:10px}.junction{border:1px solid var(--border);border-radius:10px;padding:13px 14px}.junction-top{display:flex;justify-content:space-between;align-items:center}.junction-name{font-weight:700;font-size:14px}.stage{font-size:11px;font-weight:650;color:var(--teal);background:#eaf7f2;border-radius:5px;padding:3px 7px}.stage.yellow{background:#fff3dc;color:#a76f13}.stage.all_red{background:#ffeded;color:var(--red)}.junction-row{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:var(--muted)}.junction-row b{color:var(--ink)}.phase-track{display:flex;gap:4px;margin-top:12px}.phase-track span{height:5px;flex:1;background:#e8eeef;border-radius:2px}.phase-track span.active{background:var(--teal)}.source-box{margin:0 13px 14px;padding:11px 13px;background:#f5f8f8;border-radius:9px;font-size:11px;color:var(--muted)}.source-box b{color:var(--ink);display:block;margin-bottom:3px}.source-box .mono{font-family:Consolas,monospace;color:#53656d}.alert{display:none;margin-bottom:16px;padding:11px 15px;background:#fff6e5;border:1px solid #f0d9a8;color:#946515;border-radius:9px;font-size:12px}.alert.visible{display:block}.alert.error{background:#fff0f0;border-color:#f3cbce;color:#b33d46}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:17px}.panel{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden}.panel-head{padding:16px 19px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #edf1f2}.map-area{position:relative;height:455px;background:#f8fbfa;background-image:radial-gradient(#dde7e4 .8px,transparent .8px);background-size:19px 19px}#map{width:100%;height:100%;display:block}.map-legend{position:absolute;bottom:15px;left:18px;display:flex;gap:13px;font-size:11px;color:#667c80;background:#fffffff0;border:1px solid var(--border);border-radius:8px;padding:8px 11px}.legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}.map-note{max-width:calc(100% - 85px);pointer-events:none;position:absolute;top:13px;left:18px;font-size:11px;color:#748787}.time-line{display:flex;align-items:center;gap:13px;padding:12px 19px;font-size:12px;color:var(--muted)}progress{width:100%;height:5px;accent-color:var(--teal)}.junction-list{padding:12px;display:grid;gap:10px}.junction{border:1px solid var(--border);border-radius:10px;padding:13px 14px}.junction-top{display:flex;justify-content:space-between;align-items:center}.junction-name{font-weight:700;font-size:14px}.stage{font-size:11px;font-weight:650;color:var(--teal);background:#eaf7f2;border-radius:5px;padding:3px 7px}.stage.yellow{background:#fff3dc;color:#a76f13}.stage.all_red{background:#ffeded;color:var(--red)}.junction-row{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:var(--muted)}.junction-row b{color:var(--ink)}.phase-track{display:flex;gap:4px;margin-top:12px}.phase-track span{height:5px;flex:1;background:#e8eeef;border-radius:2px}.phase-track span.active{background:var(--teal)}.source-box{margin:0 13px 14px;padding:11px 13px;background:#f5f8f8;border-radius:9px;font-size:11px;color:var(--muted)}.source-box b{color:var(--ink);display:block;margin-bottom:3px}.source-box .mono{font-family:Consolas,monospace;color:#53656d}.alert{display:none;margin-bottom:16px;padding:11px 15px;background:#fff6e5;border:1px solid #f0d9a8;color:#946515;border-radius:9px;font-size:12px}.alert.visible{display:block}.alert.error{background:#fff0f0;border-color:#f3cbce;color:#b33d46}
 .comparison{margin-top:18px}.comparison-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.scope-tabs{display:flex;background:#eef3f3;padding:3px;border-radius:8px}.scope-tabs button{padding:5px 10px;font-size:11px;border:0;background:transparent}.scope-tabs button.selected{background:white;box-shadow:0 1px 3px #0001}.comparison-body{display:grid;grid-template-columns:240px 1fr;gap:25px;padding:19px}.callout{border-radius:10px;background:#eaf6f2;padding:17px}.callout .number{font-size:35px;font-weight:750;letter-spacing:-1.5px;color:var(--teal)}.callout .label{font-size:12px;font-weight:600}.callout p{font-size:11px;color:#5f7976;margin:7px 0 0}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px;text-align:right}th{color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);padding:0 12px 8px;white-space:nowrap}td{padding:8px 12px;border-bottom:1px solid #eef2f2}th:first-child,td:first-child{text-align:left}tr.best{background:#f1f9f6;font-weight:650;color:#066d63}.bar-cell{display:flex;align-items:center;gap:10px;justify-content:end}.bar{height:5px;width:120px;background:#edf1f2;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:#a6b6bc}.best .bar i{background:var(--teal)}.evidence-note{padding:0 19px 14px;color:var(--muted);font-size:11px}footer{font-size:11px;color:#8a989e;padding:17px 0 0;display:flex;justify-content:space-between}.offline{color:var(--red)}
 @media(max-width:1050px){main{padding:20px}.workspace{grid-template-columns:1fr 280px}.controls .buttons{margin-left:0}.map-area{height:435px}.comparison-body{grid-template-columns:200px 1fr}.bar{width:70px}}
 @media(max-width:760px){header{padding:0 18px}.tag{display:none}.heading{align-items:start}.header-meta{display:none}.stats{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}.map-area{height:450px}.comparison-body{grid-template-columns:1fr}.comparison-head{flex-wrap:wrap}.junction-list{grid-template-columns:repeat(3,1fr)}.junction-top{flex-wrap:wrap;gap:5px}.junction-row{flex-wrap:wrap;gap:5px}.stat .value{font-size:25px}.bar{width:55px}h1{font-size:21px}.controls{padding:13px}.controls .buttons{width:100%}.controls .buttons button{flex:1}}
 @media(max-width:480px){.junction-list{grid-template-columns:1fr}.scope-tabs{margin-top:7px}.comparison-body{padding:14px}th,td{padding-left:6px;padding-right:6px}.bar{display:none}.brand{font-size:18px}}
 .map-tools{position:absolute;top:15px;right:15px;display:flex;flex-direction:column;gap:5px}.map-tools button{padding:5px 11px;min-width:37px;font-size:15px;box-shadow:0 1px 4px #0001}.junction-name{border:0;background:transparent;padding:0;text-align:left}.junction-name:hover:enabled{color:var(--teal);background:transparent}
-
-.purpose{margin:0 0 17px;padding:18px 20px;background:#e9f5f1;border:1px solid #c8e5dc;border-radius:13px}.purpose h2{margin-bottom:6px}.purpose p{margin:0;color:#4c6d68;font-size:13px}.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:13px;align-items:center;margin-top:16px}.flow-step{padding:12px 14px;background:#ffffffc9;border-radius:10px;border:1px solid #d1e5de}.flow-step b{display:block;font-size:13px}.flow-step span{display:block;font-size:12px;margin-top:3px;color:#617871}.flow-step.compute{border:2px solid var(--teal)}.flow-step.compute.fallback{border-color:var(--yellow);background:#fff7e8}.flow-arrow{color:#699a8d;font-size:22px}.actual-source{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-size:12px}.actual-source strong{color:#066d63}.actual-source.fallback strong{color:#a26808}.edge-address{display:flex;gap:7px;align-items:center}.edge-address input{width:225px;min-width:0}.edge-address button{padding:8px 12px;font-size:12px;white-space:nowrap}.edge-help{font-size:11px;color:#778a8b;max-width:400px}.connection-check{display:none;border:1px solid #d8e3df;border-radius:10px;padding:13px 16px;background:#fff;margin:-5px 0 16px;font-size:13px}.connection-check.visible{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.connection-check.failed{background:#fff4e7;border-color:#e5c994}.connection-check.ready{background:#eaf7f1;border-color:#b9decd}.connection-check p{margin:4px 0 0;font-size:12px;color:#667873}.connection-check button{margin-left:auto}.speed-note{font-size:11px;color:#607d75;margin-top:5px}.signal-explain{padding:13px 15px;border-top:1px solid var(--border);font-size:12px;color:#667c78}.signal-explain summary{cursor:pointer;font-weight:650;color:var(--ink)}.signal-explain p{margin:8px 0}.signal-cycle{display:flex;gap:4px;align-items:center;justify-content:space-between;margin-top:12px}.signal-cycle span{padding:6px 5px;border-radius:6px;background:#edf2f1;text-align:center;font-size:10px;flex:1;color:#677d77}.signal-cycle span.on{font-weight:700;box-shadow:inset 0 0 0 1px currentColor}.signal-cycle .green.on{background:#e5f5ec;color:#08786d}.signal-cycle .yellow.on{background:#fff0cc;color:#97670b}.signal-cycle .all_red.on{background:#ffe7e6;color:#ad373b}.phase-track{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:11px}.phase-track span{height:auto;padding:6px 2px;text-align:center;font-size:10px;line-height:1.5;background:#fff0ef;color:#a54b46;border:1px solid #efcfcd;border-radius:6px}.phase-track span.active{background:#e5f6ef;border-color:#a9d7c8;color:#08776b}.phase-track span.ending{background:#fff1d1;color:#956511;border-color:#efd69b}.phase-track strong,.phase-track small{display:block;font-size:inherit}.timing-detail{font-size:11px;color:#667b75;margin-top:9px;line-height:1.6}.junction-row{gap:8px}.junction-row .elapsed{text-align:right;font-weight:650;color:#426b60}.workspace{grid-template-columns:minmax(0,1fr) 355px}.map-area{height:570px}#map{cursor:grab;touch-action:none;user-select:none}#map.dragging{cursor:grabbing}#map:focus-visible{outline:3px solid #83bcac;outline-offset:-4px}.map-note{max-width:75%;pointer-events:none;background:#f8fbfaf0;padding:4px 7px;border-radius:6px}.source-box{font-size:12px}.time-line{flex-wrap:wrap}.time-line progress{flex:1;min-width:70px}.playback-caption{width:100%;font-size:11px;color:#617d75}.purpose-note{font-size:11px;color:#647b74;margin-top:10px}.actual-source span{color:#627c74}
-@media(max-width:1050px){.workspace{grid-template-columns:minmax(0,1fr) 315px}.flow{gap:7px}.flow-step{padding:10px}.map-area{height:590px}}
-@media(max-width:760px){.workspace{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-arrow{display:none}.flow-step{display:flex;gap:9px;align-items:center}.flow-step span{margin:0}.purpose{padding:15px}.junction-list{grid-template-columns:1fr}.map-area{height:440px}.edge-address input{width:210px}.edge-field{max-width:100%}.purpose h2{font-size:15px}}
-@media(max-width:480px){.edge-address{flex-wrap:wrap}.edge-address input{width:100%}.edge-field{width:100%}.flow-step{display:block}.flow-step span{margin-top:4px}.map-legend{gap:8px;font-size:10px;left:10px}.map-note{font-size:10px;left:8px;top:8px}}
+.stale{opacity:.5}.field-note{font-size:11px;color:var(--muted);max-width:330px}.result-note{margin:12px 0;padding:12px 15px;background:#eef6f5;border:1px solid var(--border);border-radius:9px;font-size:12px;overflow-wrap:anywhere}.result-note:empty{display:none}.edge-check{padding:7px 10px;font-size:12px}.callout p{white-space:pre-line}
+</style>
+<style>
+.junction.selected{border-color:var(--teal);background:#f5fbf9}.decision-brief{font-size:11px;color:#526b72;margin-top:9px;min-height:17px}.decision-panel{margin-top:18px}.decision-heading{gap:12px;flex-wrap:wrap}.decision-meta{font-size:12px;color:var(--muted)}.decision-body{padding:18px 19px}.decision-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}.decision-step{background:#f4f7f8;border-radius:9px;padding:13px 15px}.decision-step.final{background:#eaf6f2}.decision-step .label{font-size:12px;color:#597078}.decision-step strong{display:block;font-size:19px;margin:5px 0}.decision-step .note{font-size:12px;color:#597078}.decision-explanation{padding:12px 15px;background:#fff6e5;border-radius:8px;font-size:13px;color:#735324;margin-bottom:12px}.decision-constraint{font-size:12px;color:#536a72;margin:8px 0 15px}.candidate-table{margin-top:12px}.candidate-table th,.candidate-table td{padding:9px 10px}.candidate-table .selected-row{background:#edf8f3}.candidate-table .blocked{color:#87969c}.candidate-table button{font-size:12px;padding:5px 9px;white-space:nowrap}.candidate-table button.selected{border-color:var(--teal);color:#066d63;background:#eaf6f2}.decision-inputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 20px;margin:8px 0}.decision-inputs div{border-bottom:1px solid #edf1f2;padding:10px 0}.decision-inputs dt{font-size:12px;color:#597078}.decision-inputs dd{margin:4px 0 0;font-size:14px;font-variant-numeric:tabular-nums}.decision-inputs small{display:block;font-size:11px;color:var(--muted)}.decision-footnote{font-size:11px;color:#677d84;margin-top:10px}.decision-empty{padding:20px;color:#677d84;font-size:13px}.decision-panel details{margin-top:13px;border-top:1px solid var(--border);padding-top:12px}.decision-panel summary{font-size:13px;font-weight:600;cursor:pointer}.decision-table-title{font-size:13px;font-weight:600}.tabular{font-variant-numeric:tabular-nums}
+@media(max-width:760px){.decision-steps{grid-template-columns:1fr}.decision-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.decision-body{padding:14px}.candidate-table{min-width:750px}.decision-step strong{font-size:17px}}@media(max-width:420px){.decision-inputs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 2v7H2m13-7v7h7M9 22v-7H2m13 7v-7h7"/></svg></span>Smart Signal <span class="tag">TRAFFIC CONTROL</span></div><span id="connection" class="pill gray"><span class="dot"></span>연결 확인 중</span></header>
 <main>
-<div class="heading"><div><div class="eyebrow">GYEONGJU · RESEARCH PROTOTYPE</div><h1>경주 3교차로 실시간 관제</h1><div class="subtitle">기다리는 차량과 통과한 차량을 보며, AI 신호 제어가 작동하는 과정을 확인합니다.</div></div><div class="header-meta"><b>seed43 / Adaptive V2</b>검증된 모델 · 추가 학습 없이 실행</div></div>
-<section class="purpose" aria-label="실습 작동 과정">
-<h2>교통을 보고, 신호를 선택하고, 안전하게 적용합니다</h2><p>차량이 어디에 밀리는지 관찰한 뒤 AI가 통과시킬 신호 그룹을 고릅니다. 화면에서는 대기 차량, 도착 수, 신호 변화를 함께 확인하세요.</p>
-<div class="flow"><div class="flow-step"><b>① 노트북 · 교통 관측</b><span>SUMO에서 차량과 대기열 수집</span></div><span class="flow-arrow">→</span><div id="compute-step" class="flow-step compute"><b id="compute-title">② 계산 위치 확인</b><span id="compute-caption">실험을 시작하면 실제 위치 표시</span></div><span class="flow-arrow">→</span><div class="flow-step"><b>③ 노트북 · 신호 적용</b><span>황색과 전체 정지를 거쳐 다음 녹색</span></div></div>
-<div id="actual-source" class="actual-source"><strong id="actual-label">아직 실험 전입니다</strong><span id="actual-detail">Pi를 선택했다면 아래에서 연결을 먼저 확인하세요.</span></div>
-</section>
+<div class="heading"><div><div class="eyebrow">SMART SIGNAL · RESEARCH PROTOTYPE</div><h1 id="page-title">경주 3교차로 실시간 관제</h1><div class="subtitle" id="network-description">공통 AI 모델이 교통 흐름을 관찰하고, 교차로별 신호를 선택합니다.</div></div><div class="header-meta"><b>seed43 / Adaptive V2</b>동결 모델 · 가상 수요 시뮬레이션</div></div>
 <section class="controls" aria-label="시뮬레이션 설정">
+<div class="field"><label for="network">도로망</label><select id="network" disabled><option value="gyeongju">경주 산업로 · 3교차로</option></select></div>
 <div class="field"><label for="scenario">교통 상황</label><select id="scenario"><option value="gyeongju_busy">혼잡한 교통</option><option value="gyeongju_quiet">한산한 교통</option><option value="gyeongju_directional">한 방향 집중</option></select></div>
 <div class="field"><label for="controller">신호 체계</label><select id="controller"><option value="smart">Smart Signal</option><option value="fixed">Fixed</option><option value="webster">Webster</option><option value="max_pressure">Max-Pressure</option></select></div>
 <div class="field"><label for="mode">추론 위치</label><select id="mode"><option value="local">PC</option><option value="edge">원격 / Raspberry Pi</option></select></div>
-<div class="field edge-field" id="edge-field"><label for="edge-url">추론 서버 주소</label><div class="edge-address"><input id="edge-url" value="" placeholder="http://Pi의_IP:9998" spellcheck="false" aria-label="원격 추론 서버 주소"><button id="check-edge" type="button">Pi 연결 확인</button></div><span class="edge-help">휴대폰에서 확인한 Pi IP를 사용하세요. 127.0.0.1은 노트북 자신입니다.</span></div>
-<div class="field"><label for="speed">재생 속도</label><select id="speed"><option value="1">1배 · 신호 설명</option><option value="5">5배</option><option value="10">10배</option><option value="30" selected>30배 · 빠른 시연</option><option value="60">60배 · 빠른 확인</option></select></div>
-<div class="field"><label for="horizon">실험 시간</label><select id="horizon"><option value="900">900초 · 전 구간</option><option value="300" selected>300초 · 빠른 시연</option><option value="60">60초 · 연결 확인</option></select></div>
-<div class="buttons"><button class="primary" id="start">실험 시작</button><button id="pause" disabled>일시정지</button><button class="danger" id="stop" disabled>정지</button></div>
+<div class="field edge-field" id="edge-field"><label for="edge-url">추론 서버 주소</label><input id="edge-url" value="http://127.0.0.1:9998" spellcheck="false" aria-label="원격 추론 서버 주소"><button id="edge-check" class="edge-check">연결 확인</button><span id="edge-check-result" class="field-note" role="status"></span></div>
+<div class="field"><label for="speed">재생 속도</label><select id="speed"><option value="10">10배</option><option value="5">5배</option><option value="1">1배</option><option value="30">30배</option><option value="60">60배</option></select></div>
+<div class="field"><label for="horizon">실험 시간</label><select id="horizon"><option value="900">900초 · 전 구간</option><option value="300">300초 · 빠른 시연</option><option value="60">60초 · 연결 확인</option></select></div>
+<div class="buttons"><button class="primary" id="start" disabled>실험 시작</button><button id="pause" disabled>일시정지</button><button class="danger" id="stop" disabled>정지</button></div>
 </section>
-<div id="connection-check" role="status" class="connection-check"><div><b id="check-title"></b><p id="check-detail"></p></div><button id="use-pc" hidden>PC로 시연하기</button></div>
 <div id="alert" role="status" class="alert"></div>
+<div id="run-result" class="result-note" role="status"></div>
 <section class="stats" aria-label="실시간 지표">
-<div class="stat"><label>현재 대기 차량</label><div class="value"><span id="queue">0</span><small>대</small></div><div class="caption">지금 거의 멈춰 있는 차량 · 줄어드는지 관찰</div></div>
-<div class="stat"><label>도로 위 차량</label><div class="value"><span id="running">0</span><small>대</small></div><div class="caption">출발했지만 아직 목적지에 도착하지 않은 차량</div></div>
-<div class="stat"><label>도착 완료</label><div class="value"><span id="arrived">0</span><small>대</small></div><div class="caption">목적지까지 통과한 누적 차량 수</div></div>
-<div class="stat"><label>신호 결정 시간</label><div class="value"><span id="latency">—</span><small>ms</small></div><div class="caption">한 교차로의 판단 시간 · Pi이면 통신 포함</div></div>
+<div class="stat"><label>현재 대기 차량</label><div class="value"><span id="queue">0</span><small>대</small></div><div class="caption">속도 0.1 m/s 미만</div></div>
+<div class="stat"><label>도로 위 차량</label><div class="value"><span id="running">0</span><small>대</small></div><div class="caption">진입한 차량 중 운행 중</div></div>
+<div class="stat"><label>도착 완료</label><div class="value"><span id="arrived">0</span><small>대</small></div><div class="caption">목적지까지 통과한 차량</div></div>
+<div class="stat"><label>신호 결정·정보수집 시간</label><div class="value"><span id="latency">—</span><small>ms</small></div><div class="caption">교차로당 · 원격이면 통신 포함</div></div>
 </section>
 <section class="workspace">
-<div class="panel"><div class="panel-head"><h2>실시간 도로 지도</h2><span id="status" class="pill gray"><span class="dot"></span>준비 완료</span></div><div class="map-area"><div class="map-note">드래그로 이동 · 휠로 확대 · 방향키로 이동</div><svg id="map" role="img" tabindex="0" aria-label="용강·근화여고·승삼 3교차로 도로와 차량 지도" aria-describedby="map-help"></svg><div class="map-tools"><button id="zoom-in" aria-label="지도 확대">+</button><button id="zoom-out" aria-label="지도 축소">−</button><button id="zoom-reset" aria-label="전체 지도" style="font-size:10px">전체</button></div><div class="map-legend"><span><i class="legend-dot" style="background:#099486"></i>이동 차량</span><span><i class="legend-dot" style="background:#df666c"></i>대기 차량</span><span>● 녹색 / 황색 / 적색</span></div></div><div class="time-line"><span id="time" style="white-space:nowrap">0 / 300초</span><progress id="progress" max="300" value="0" aria-label="시뮬레이션 진행률"></progress><span id="playback-caption" class="playback-caption">시간과 신호의 초 단위는 시뮬레이션 기준입니다.</span></div></div>
-<aside class="panel"><div class="panel-head"><h2>교차로 신호 상태</h2><span class="tag">3 JUNCTIONS</span></div><div id="junctions" class="junction-list"></div><details class="signal-explain"><summary>신호가 바뀌는 순서</summary><p>녹색 15~60초 → 황색 3초 → 전체 정지 2초 → 선택한 그룹의 녹색</p><p>일반 적색은 다른 그룹이 통과하는 동안의 정지입니다. 전체 적색은 모든 방향을 잠깐 멈추는 안전 전환입니다.</p><p>녹색은 AI가 5초마다 유지하거나 전환합니다. 표시된 적색 시간은 이미 기다린 시간이며, 앞으로의 남은 시간 예측이 아닙니다.</p><p>빠른 배속에서는 짧은 전환이 빠르게 지나갑니다. 신호 설명은 1배에서 확인하세요.</p></details><div class="source-box"><b id="source">실험 준비</b><span>최소 녹색 15초 · 황색 3초 · 전체 적색 2초<br>시간 진행과 신호 적용: PC / SUMO</span><div class="mono" id="identity" style="margin-top:8px"></div></div></aside>
+<div class="panel"><div class="panel-head"><h2>실시간 도로 지도</h2><span id="status" class="pill gray"><span class="dot"></span>준비 완료</span></div><div class="map-area"><div class="map-note">실험 도로망 · 교차로 이름을 눌러 확대</div><svg id="map" role="img" aria-label="용강·근화여고·승삼 3교차로 도로와 차량 지도"></svg><div class="map-tools"><button id="zoom-in" aria-label="지도 확대">+</button><button id="zoom-out" aria-label="지도 축소">−</button><button id="zoom-reset" aria-label="전체 지도" style="font-size:10px">전체</button></div><div class="map-legend"><span><i class="legend-dot" style="background:#099486"></i>이동 차량</span><span><i class="legend-dot" style="background:#df666c"></i>대기 차량</span><span>● 녹색 / 황색 / 적색</span></div></div><div class="time-line"><span id="time" style="white-space:nowrap">0 / 900 s</span><progress id="progress" max="900" value="0" aria-label="시뮬레이션 진행률"></progress></div></div>
+<aside class="panel"><div class="panel-head"><h2>교차로 신호 상태</h2><span class="tag" id="junction-count">3 JUNCTIONS</span></div><div id="junctions" class="junction-list"></div><div class="source-box"><b id="source">PC 추론 준비</b><span id="safety-limits">신호 전환 제약 확인 중</span><br>시간 진행과 신호 적용: PC / SUMO<div id="remote-latency"></div><div class="mono" id="identity" style="margin-top:8px"></div></div></aside>
 </section>
-<section class="panel comparison"><div class="panel-head comparison-head"><div><h2>AI 신호의 비교 결과</h2><div class="subtitle" style="font-size:11px">지금 운행과 별도로 검증한 결과 · 대기열은 작을수록, 도착 수는 많을수록 유리</div></div><div class="scope-tabs"><button id="scope-all" class="selected">전체 24조건</button><button id="scope-gyeongju">경주 6조건</button></div></div><div class="comparison-body"><div class="callout"><div class="label">Fixed 대비 평균 대기열 감소</div><div class="number" id="improvement">—</div><p id="comparison-caption"></p></div><div class="table-wrap"><table><thead><tr><th>신호 체계</th><th>평균 대기열 (대)</th><th>도착 (대)</th><th>잔류 (대)</th></tr></thead><tbody id="comparison-rows"></tbody></table></div></div><div class="evidence-note">각 조건 900초의 가상 수요 실험입니다. 실시간 시연 수치와 구분하며, 현장 성능이나 모든 교차로의 개선을 보장하지 않습니다.</div></section>
-<footer><span id="map-help" hidden>지도에서 마우스 또는 손가락으로 드래그하고, 방향키로 이동할 수 있습니다. 전체 버튼으로 처음 위치로 돌아갑니다.</span><span>Smart Signal · 공통 모델 + 교차로 설정 + 안전 전환 규칙</span><span id="network-note">SUMO 연결 대기</span></footer>
+<section id="decision-detail" class="panel decision-panel" aria-label="교차로 관측과 신호 판단 상세">
+<div class="panel-head decision-heading"><div><h2 id="decision-title">용강네거리 · 판단 상세</h2><div class="subtitle" style="font-size:12px">교차로 이름을 선택하면 관측 · AI 추천 · 최종 선택을 확인합니다.</div></div><span id="decision-meta" class="decision-meta">실행 후 판단 기록 표시</span></div>
+<div id="decision-body" class="decision-body"><div class="decision-empty">실제 운행의 판단 시점 입력과 선택 결과를 표시합니다. 가상 예시 값은 사용하지 않습니다.</div></div>
+</section>
+<section class="panel comparison"><div class="panel-head comparison-head"><div><h2>검증된 최종 비교</h2><div class="subtitle" style="font-size:11px">저장된 기존 24조건 평가 · 현재 선택 도로망의 실시간 비교가 아닙니다.</div></div><div class="scope-tabs"><button id="scope-all" class="selected">전체 24조건</button><button id="scope-gyeongju">경주 6조건</button></div></div><div class="comparison-body"><div class="callout"><div class="label">Fixed 대비 평균 대기열 감소</div><div class="number" id="improvement">—</div><p id="comparison-caption"></p></div><div class="table-wrap"><table><thead><tr><th>신호 체계</th><th>평균 대기열 (대)</th><th>도착 (대)</th><th>잔류 (대)</th></tr></thead><tbody id="comparison-rows"></tbody></table></div></div><div class="evidence-note">각 조건 900초의 가상 수요 실험입니다. 개별 24조건 중 Fixed보다 악화된 2조건도 있습니다. 학습 모델의 독립적인 추가 성능 기여와 현장 성능은 입증되지 않았습니다. 신규 도로망 27조건 원본은 현재 저장소에서 확인되지 않아 이 표에 포함하지 않습니다.</div></section>
+<footer><span>Smart Signal · 공통 모델 + 교차로 설정 + 안전 전환 규칙</span><span id="network-note">SUMO 연결 대기</span></footer>
 </main>
+<script src="/traffic-map.js"></script>
 <script>
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
-let boot=null,current=null,busy=false,polling=false,vehicleNodes=new Map(),signalNodes=new Map(),coord,mapBox,zoom=1,zoomCenter,dragState=null,checking=false,preflight=null;
+let boot=null,current=null,busy=false,polling=false,trafficMap=null;
+let connected=false,lastRunKey='';
+let selectedJunction='gj_yonggang',selectedPhase=null;
 const names={smart:'Smart Signal',v2:'Smart Signal',fixed:'Fixed',webster:'Webster',max_pressure:'Max-Pressure'};
-const statuses={ready:'준비 완료',starting:'실행 준비 중',running:'운행 중',pausing:'일시정지 중',paused:'일시정지',stopping:'정지 중',stopped:'사용자 정지',completed:'실험 완료',failed:'실행 오류'};
+const statuses={ready:'준비 완료',starting:'실행 준비 중',running:'운행 중',pausing:'일시정지 중',paused:'일시정지',stopping:'정지 중',finalizing:'결과 저장 중',stopped:'사용자 정지',completed:'실험 완료',failed:'실행 오류'};
 function node(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs||{}))e.setAttribute(k,v);if(parent)parent.appendChild(e);return e}
-function path(points){return points.map((p,i)=>`${i?'L':'M'} ${coord(p).join(' ')}`).join(' ')}
-function textSVG(text,x,y,parent,attrs={}){const e=node('text',{x,y,'font-size':48,fill:'#4b6268',...attrs},parent);e.textContent=text;return e}
-function setZoom(value,center){
- if(!mapBox)return;
- zoom=Math.max(1,Math.min(8,value));
- if(center)zoomCenter=center;
- if(!zoomCenter)zoomCenter=[mapBox[2]/2,mapBox[3]/2];
- const w=mapBox[2]/zoom,h=mapBox[3]/zoom;
- zoomCenter=[Math.max(w*.15,Math.min(mapBox[2]-w*.15,zoomCenter[0])),Math.max(h*.15,Math.min(mapBox[3]-h*.15,zoomCenter[1]))];
- $('map').setAttribute('viewBox',`${zoomCenter[0]-w/2} ${zoomCenter[1]-h/2} ${w} ${h}`);
-}
-function resetMap(){setZoom(1,[mapBox[2]/2,mapBox[3]/2]);}
-function mapPoint(event){const point=new DOMPoint(event.clientX,event.clientY);return point.matrixTransform($('map').getScreenCTM().inverse());}
-function installMapControls(){
- const map=$('map');
- map.addEventListener('pointerdown',e=>{if(e.button!==0||!mapBox)return;e.preventDefault();map.focus({preventScroll:true});map.setPointerCapture(e.pointerId);dragState={point:mapPoint(e),center:[...zoomCenter]};map.classList.add('dragging');});
- map.addEventListener('pointermove',e=>{if(!dragState)return;const p=mapPoint(e);setZoom(zoom,[zoomCenter[0]+dragState.point.x-p.x,zoomCenter[1]+dragState.point.y-p.y]);});
- const stop=()=>{dragState=null;map.classList.remove('dragging');};
- map.addEventListener('pointerup',stop);map.addEventListener('pointercancel',stop);map.addEventListener('lostpointercapture',stop);
- map.addEventListener('wheel',e=>{if(!mapBox)return;e.preventDefault();const p=mapPoint(e),old=zoom,next=Math.max(1,Math.min(8,zoom*(e.deltaY<0?1.2:1/1.2))),ratio=old/next;setZoom(next,[p.x+(zoomCenter[0]-p.x)*ratio,p.y+(zoomCenter[1]-p.y)*ratio]);},{passive:false});
- map.addEventListener('keydown',e=>{const step=mapBox[2]/zoom*.12,d={ArrowLeft:[-step,0],ArrowRight:[step,0],ArrowUp:[0,-step],ArrowDown:[0,step]}[e.key];if(d){e.preventDefault();setZoom(zoom,[zoomCenter[0]+d[0],zoomCenter[1]+d[1]]);}});
-}
 function drawMap(data){
- const svg=$('map'),[minX,minY,maxX,maxY]=data.bounds;coord=p=>[p[0]-minX+75,maxY-p[1]+55];
- const width=maxX-minX+370,height=maxY-minY+150;mapBox=[0,0,width,height];setZoom(1);
- const roads=node('g',{},svg),markings=node('g',{},svg),signals=node('g',{},svg),cars=node('g',{id:'cars'},svg),labels=node('g',{},svg);
- for(const edge of data.edges){for(const lid of edge.lanes){const lane=data.lanes[lid];node('path',{d:path(lane.shape),fill:'none',stroke:'#becbd0','stroke-width':lane.width+3,'stroke-linecap':'round','stroke-linejoin':'round'},roads);}}
- for(const j of data.junctions){node('path',{d:path(j.shape)+' Z',fill:'#dce4e5',stroke:'#dce4e5','stroke-width':2},roads)}
- for(const edge of data.edges){for(const lid of edge.lanes){node('path',{d:path(data.lanes[lid].shape),fill:'none',stroke:'#fcfefe','stroke-width':.5,'stroke-dasharray':'7 9','vector-effect':'non-scaling-stroke'},markings);}}
- for(const [jid,dataJ]of Object.entries(data.signals)){
-  for(const lid of new Set(dataJ.movements.map(m=>m.incoming))){const points=data.lanes[lid].shape,p=coord(points.at(-1)),q=coord(points.at(-2)),dx=p[0]-q[0],dy=p[1]-q[1],len=Math.hypot(dx,dy),nx=-dy/len*3.1,ny=dx/len*3.1;
-   const e=node('line',{x1:p[0]+nx,y1:p[1]+ny,x2:p[0]-nx,y2:p[1]-ny,stroke:'#d74c52','stroke-width':3,'vector-effect':'non-scaling-stroke','stroke-linecap':'round'},signals);signalNodes.set(lid,e);
-  }
- }
- for(const j of data.junctions){const [x,y]=coord([j.x,j.y]);node('circle',{cx:x,cy:y,r:14,fill:'white',stroke:'#96aaa9','stroke-width':2},labels);node('line',{x1:x+23,y1:y-12,x2:x+65,y2:y-36,stroke:'#b2c3c2','stroke-width':2},labels);textSVG(j.name,x+70,y-44,labels,{'font-weight':650});textSVG('신호 제어 지점',x+70,y-7,labels,{'font-size':27,fill:'#8a9a9d'});}
- // Labels follow the same experiment map coordinates, rather than external map tiles.
- const north=data.junctions.find(j=>j.id==='gj_seungsam');if(north){const [x,y]=coord([north.x,north.y]);textSVG('N ↑',x-100,100,labels,{'font-size':31,fill:'#82999a'});}
+ if(!trafficMap)trafficMap=new SignalTrafficMap.TrafficMap($('map'),{
+  onJunction:jid=>{selectedJunction=jid;selectedPhase=null;renderDecision()},
+  onLOD:({detailed})=>{document.querySelector('.map-note').textContent=detailed?'확대 · 실제 차량 치수 / 이동별 신호 · 드래그로 이동':'전체 · 차량은 최소 가독성 표식 / 신호는 일부 통과 여부 · 휠로 확대'}
+ });
+ trafficMap.load(data);
 }
-function junctionCards(data){
- const order=['gj_seungsam','gj_geunhwa','gj_yonggang'];$('junctions').replaceChildren();
- for(const jid of order){
-  const j=data.junctions.find(j=>j.id===jid),count=data.signals[jid].phases.length,card=document.createElement('article');
-  card.className='junction';card.id='card-'+jid;
-  card.innerHTML=`<div class="junction-top"><button class="junction-name"></button><span class="stage">실험 전</span></div><div class="junction-row"><span class="phase">통과 그룹 —</span><span class="elapsed">실험 시작 대기</span></div><div class="signal-cycle" aria-label="안전한 신호 전환 순서"><span class="green">녹색<br>15~60초</span>→<span class="yellow">황색<br>3초</span>→<span class="all_red">전체 정지<br>2초</span></div><div class="phase-track">${Array.from({length:count},(_,i)=>`<span><strong>그룹 ${i+1}</strong><small>실험 전</small></span>`).join('')}</div><div class="timing-detail">각 그룹은 함께 통과할 수 있는 방향 묶음입니다.</div><div class="junction-row"><span>이 교차로의 대기 차량</span><b class="queue">0 대</b></div>`;
-  card.querySelector('.stage').textContent='실험 전';
-  const button=card.querySelector('.junction-name');button.textContent=j.name;button.setAttribute('aria-label',j.name+' 지도 확대');button.addEventListener('click',()=>setZoom(3,coord([j.x,j.y])));$('junctions').appendChild(card);
- }
+function junctionCards(data){const order=[...data.junctions].sort((a,b)=>b.y-a.y);$('junctions').replaceChildren();for(const j of order){const jid=j.id,count=data.signals[jid].phases.length;const card=document.createElement('article');card.className='junction';card.id='card-'+jid;card.innerHTML=`<div class="junction-top"><button class="junction-name"></button><span class="stage">대기</span></div><div class="junction-row"><span class="phase">신호 그룹 —</span><span class="elapsed">— 초</span></div><div class="phase-track">${Array(count).fill('<span></span>').join('')}</div><div class="junction-row"><span>진입 차선 대기</span><b class="queue">0 대</b></div><div class="decision-brief">판단 기록 대기</div>`;const button=card.querySelector('.junction-name');button.textContent=j.name;button.setAttribute('aria-label',j.name+' 지도 확대 및 판단 상세');button.addEventListener('click',()=>{selectedJunction=jid;selectedPhase=null;trafficMap.focus(jid);renderDecision();});$('junctions').appendChild(card);}}
+function showNetwork(id){
+ const network=boot.networks[id];boot.map=network.map;
+ selectedJunction=network.map.junctions.find(j=>j.id==='gj_yonggang')?.id||network.map.junctions[0].id;
+ selectedPhase=null;lastDetailKey='';drawMap(boot.map);junctionCards(boot.map);
+ $('network').value=id;$('page-title').textContent=network.name+' 실시간 관제';$('map').setAttribute('aria-label',network.name+' 도로와 차량 지도');
+ $('network-description').textContent=id==='gyeongju'?'실제 도로 형태 · SUMO 가상 수요 · 공통 모델의 교차로별 제어':'학습에 포함되지 않은 기존 검증망 · 같은 동결 모델 · 신규 27조건 실험과 별개';
+ $('junction-count').textContent=boot.map.junctions.length+' JUNCTIONS';
+ const profile=$('scenario').value.split('_').at(-1);$('scenario').replaceChildren();
+ for(const [key,label]of Object.entries(network.scenarios)){const option=element('option',label);option.value=key;$('scenario').append(option)}
+ const preferred=id+'_'+profile;$('scenario').value=preferred in network.scenarios?preferred:id+'_busy';
 }
-function renderSignal(j){
- const card=$('card-'+j.id),green=j.stage==='green';
- card.querySelector('.stage').className='stage '+j.stage;
- card.querySelector('.stage').textContent={green:'통과 중',yellow:'통과 종료 준비',all_red:'모든 방향 정지'}[j.stage];
- card.querySelector('.phase').textContent=green?`그룹 ${j.phase+1} 통과 중`:j.next_phase==null?'안전 전환 중':`다음 통과: 그룹 ${j.next_phase+1}`;
- card.querySelector('.elapsed').textContent=green?`녹색 시작 후 ${j.elapsed_s}초`:`${j.stage==='yellow'?'황색':'전체 정지'} 종료까지 ${j.remaining_s}초`;
- card.querySelector('.queue').textContent=j.queue+' 대';
- card.querySelectorAll('.signal-cycle span').forEach(e=>e.classList.toggle('on',e.classList.contains(j.stage)));
- [...card.querySelectorAll('.phase-track span')].forEach((e,i)=>{const active=i===j.phase&&green,ending=i===j.phase&&j.stage==='yellow';e.className=active?'active':ending?'ending':'';e.querySelector('small').textContent=active?'녹색 · 통과':ending?'황색 · 마무리':`정지 ${Math.round(j.red_age_s?.[i]||0)}초`;});
- card.querySelector('.timing-detail').textContent=green?'AI가 5초마다 유지 또는 전환을 선택합니다.':'교차로를 비운 뒤 다음 그룹의 녹색을 켭니다.';
- for(const [lid,color]of Object.entries(j.lane_signals))signalNodes.get(lid).setAttribute('stroke',{G:'#07877c',y:'#db9e28',r:'#d74c52'}[color]);
+function renderVehicles(state){trafficMap.update(state)}
+let lastDetailKey='',inputsExpanded=true;
+function element(tag,text='',className=''){const e=document.createElement(tag);if(text)e.textContent=text;if(className)e.className=className;return e}
+function percent(value){return (value*100).toFixed(1)+'%'}
+function highlightPhase(phase){trafficMap?.highlight(phase)}
+function renderDecision(){
+ if(!boot||!current)return;
+ const j=boot.map.junctions.find(j=>j.id===selectedJunction),d=current.decisions?.[selectedJunction];
+ $('decision-title').textContent=j.name+' · 판단 상세';
+ for(const junction of boot.map.junctions){const card=$('card-'+junction.id),brief=current.decisions?.[junction.id];card.classList.toggle('selected',junction.id===selectedJunction);card.querySelector('.junction-name').setAttribute('aria-pressed',String(junction.id===selectedJunction));card.querySelector('.decision-brief').textContent=brief?`최근 선택: 그룹 ${brief.action+1} · ${brief.reason}`:'판단 기록 대기';}
+ $('decision-meta').textContent=d?`결정 ${d.time_s}s / 현재 ${current.time_s}s · ${current.controller!=='smart'?'PC 규칙 제어':d.source==='edge'?'원격 추론':'PC 추론'}`:'실행 후 판단 기록 표시';
+ const key=d?`${selectedJunction}|${d.time_s}|${selectedPhase}|${d.source}|${current.controller}`:'empty|'+selectedJunction;
+ if(key===lastDetailKey)return;lastDetailKey=key;
+ const body=$('decision-body');body.replaceChildren();
+ if(!d){body.append(element('div','실제 운행의 판단 시점 입력과 선택 결과를 표시합니다. 가상 예시 값은 사용하지 않습니다.','decision-empty'));highlightPhase(null);return;}
+ const target=d.phases[d.action],chosen=d.phases[selectedPhase??d.action]||target;
+ highlightPhase(chosen);
+ const steps=element('div','','decision-steps');
+ const values=[['관측한 교통 상태',`그룹 ${d.action+1} · 대기 ${target.queued_vehicles??'—'}대`,`진출 점유 ${percent(target.features[3])} · 미서비스 ${target.red_age_s.toFixed(0)}초`],
+  ['AI 추천 · 안전 후보',d.raw_ai_action==null?(current.controller==='smart'?'정보 미제공':'AI 미사용'):`그룹 ${d.raw_ai_action+1}`,d.raw_ai_action==null?'모델 평가값을 표시하지 않는 실행':'안전 제약 내에서 가장 높은 Q값'],
+  ['최종 선택',`그룹 ${d.action+1}${d.action===d.current_phase&&d.stage==='green'?' 유지':' 전환 대상'}`,d.reason]];
+ values.forEach((value,i)=>{const box=element('div','','decision-step'+(i===2?' final':''));box.append(element('div',value[0],'label'),element('strong',value[1]),element('div',value[2],'note'));steps.append(box)});
+ body.append(steps,element('div',d.explanation,'decision-explanation'),element('div',d.constraint,'decision-constraint'),element('div','같은 결정 시점의 신호 후보 비교','decision-table-title'));
+ const wrap=element('div','','table-wrap'),table=element('table','','candidate-table tabular');table.setAttribute('aria-label','신호 후보별 관측과 평가');
+ const head=element('thead'),header=element('tr');['후보','대기 차량','대기 용량비','최근 유입 수준','진출 점유율','미서비스','모델 Q값 / 안전 후보 순위','선택 가능','최종 선택'].forEach(text=>header.append(element('th',text)));head.append(header);table.append(head);
+ const rows=element('tbody');
+ for(const phase of d.phases){const row=element('tr','',phase.index===d.action?'selected-row':phase.legal?'':'blocked'),cell=element('td'),button=element('button',`그룹 ${phase.index+1}`,phase.index===chosen.index?'selected':'');button.type='button';button.setAttribute('aria-pressed',String(phase.index===chosen.index));button.setAttribute('aria-label',`그룹 ${phase.index+1} 입력과 차로 확인`);button.addEventListener('click',()=>{selectedPhase=phase.index;renderDecision()});cell.append(button);row.append(cell);
+  const cells=[phase.queued_vehicles==null?'—':phase.queued_vehicles+'대',percent(phase.features[0]),percent(phase.features[2]),percent(phase.features[3]),phase.red_age_s.toFixed(0)+'초',phase.score==null?'미제공':phase.score.toFixed(4)+(phase.rank?' / '+phase.rank+'위':''),phase.legal?'가능':'제약',phase.index===d.action?'선택':'—'];cells.forEach(text=>row.append(element('td',text)));rows.append(row);
+ }table.append(rows);wrap.append(table);body.append(wrap);
+ const details=element('details'),summary=element('summary',`그룹 ${chosen.index+1} · ${d.diagnostic_available?'모델에 전달한':'관측한'} 7개 입력값`),inputs=element('dl','','decision-inputs');details.open=inputsExpanded;details.addEventListener('toggle',()=>{if(details.isConnected)inputsExpanded=details.open});details.append(summary);
+ const labels=['진입 대기 용량비','진입 차량 점유율','최근 유입 / 포화교통류','진출 차량 점유율','녹색 미서비스 시간','현재 녹색 경과','현재 녹색 여부'];
+ chosen.features.forEach((value,i)=>{const item=element('div'),display=i<4?percent(value):i===4?chosen.red_age_s.toFixed(0)+'초':i===5?chosen.green_elapsed_s+'초':value?'예':'아니오',dd=element('dd',display);dd.append(element('small',(d.diagnostic_available?'모델 입력 ':'관측값 ')+value.toFixed(4)));item.append(element('dt',labels[i]),dd);inputs.append(item)});details.append(inputs);body.append(details);
+ body.append(element('div','미서비스는 해당 신호가 녹색을 받지 못한 시간이며 차량별 대기시간과 다릅니다. 비율은 차로별 용량 근사의 평균이며 최근 유입은 최대 60초 관측입니다.','decision-footnote'),element('div','Q값은 모델의 원래 출력이며 확률이 아닙니다. 보정 규칙은 Q값을 변경하지 않고 최종 행동을 선택합니다. 별도의 보정 후 점수는 없습니다. 최종 선택은 전환 대상이며, 현재 적용 신호와 황색·전체 적색 단계는 위 신호 상태에서 확인합니다. 노란 차로는 확인 중인 후보입니다.','decision-footnote'));
 }
-function renderVehicles(vehicles){const live=new Set();for(const v of vehicles){live.add(v.id);let e=vehicleNodes.get(v.id);if(!e){e=node('line',{'stroke-width':3.1,'stroke-linecap':'round','vector-effect':'non-scaling-stroke'},$('cars'));vehicleNodes.set(v.id,e)}const [x,y]=coord([v.x,v.y]),r=v.angle*Math.PI/180,dx=Math.sin(r)*3.4,dy=-Math.cos(r)*3.4;e.setAttribute('x1',x-dx);e.setAttribute('y1',y-dy);e.setAttribute('x2',x+dx);e.setAttribute('y2',y+dy);e.setAttribute('stroke',v.speed<.1?'#df666c':'#099486')}
- for(const [id,e]of vehicleNodes){if(!live.has(id)){e.remove();vehicleNodes.delete(id)}}}
 function comparison(scope){const value=scope==='gyeongju'?boot.comparison.cases.gyeongju:boot.comparison.overall,c=value.controllers,max=Math.max(...Object.values(c).map(v=>v.mean_queue));$('scope-all').classList.toggle('selected',scope==='all');$('scope-gyeongju').classList.toggle('selected',scope==='gyeongju');$('improvement').textContent=(-value.queue_change.fixed*100).toFixed(1)+'%';$('comparison-caption').textContent=(scope==='all'?'24조건 × 4체계 · 96회':'경주 6조건 × 4체계 · 24회')+'\n체계별 총 유입 '+c.v2.scheduled.toLocaleString()+'대';$('comparison-rows').replaceChildren();for(const key of ['fixed','webster','max_pressure','v2']){const v=c[key],tr=document.createElement('tr');if(key==='v2')tr.className='best';tr.innerHTML=`<td>${names[key]}</td><td><div class="bar-cell"><span class="bar"><i style="width:${v.mean_queue/max*100}%"></i></span>${v.mean_queue.toFixed(2)}</div></td><td>${v.arrived.toLocaleString()}</td><td>${v.remaining.toLocaleString()}</td>`;$('comparison-rows').appendChild(tr)}}
 function alert(message,error=false){$('alert').textContent=message;$('alert').className='alert'+(message?' visible':'')+(error?' error':'')}
-function update(state){
- current=state;const active=['starting','running','pausing','paused','stopping'].includes(state.status);
- for(const id of ['scenario','controller','mode','horizon','edge-url'])$(id).disabled=active||busy||checking;
- $('speed').disabled=busy||checking||['starting','stopping'].includes(state.status);
- $('start').disabled=active||busy||checking;$('check-edge').disabled=checking||busy;
- $('pause').disabled=!['running','pausing','paused'].includes(state.status)||busy;$('stop').disabled=!active||busy;
+function controls(){
+ const state=current||{},active=state.worker_active||['starting','running','pausing','paused','stopping','finalizing'].includes(state.status),blocked=busy||!connected;
+ for(const id of ['network','scenario','controller','mode','horizon','edge-url','edge-check'])$(id).disabled=active||blocked;
+ $('speed').disabled=blocked||active&&!['running','pausing','paused'].includes(state.status);
+ $('start').disabled=active||blocked;$('pause').disabled=!['running','pausing','paused'].includes(state.status)||blocked;
+ $('stop').disabled=!['starting','running','pausing','paused'].includes(state.status)||blocked;
  $('pause').textContent=['paused','pausing'].includes(state.status)?'재개':'일시정지';
- $('queue').textContent=state.queue;$('running').textContent=state.running;$('arrived').textContent=state.arrived;$('latency').textContent=state.decision_ms==null?'—':state.decision_ms.toFixed(2);
- const horizon=state.status==='ready'?Number($('horizon').value):state.horizon_s;
- $('time').textContent=`${state.time_s} / ${horizon}초`;$('progress').max=horizon;$('progress').value=state.time_s;
- if(active&&state.speed)$('speed').value=String(state.speed);
- const speed=Number($('speed').value);
- $('playback-caption').textContent=`${speed}배: 시뮬레이션 ${speed}초 ≈ 실제 1초 + 계산·통신 시간 · 실행 중 배속 변경 가능 · 신호 설명은 1배 권장`;
- $('status').className='pill '+(state.status==='failed'?'red':['running','completed'].includes(state.status)?'':'gray');
- $('status').replaceChildren();const dot=document.createElement('span');dot.className='dot';$('status').append(dot,document.createTextNode(statuses[state.status]||state.status));$('source').textContent=state.link_message;
- const hasRun=state.status!=='ready',fallback=hasRun&&state.link==='fallback',edge=hasRun&&state.link==='edge',connecting=state.link==='connecting';
- const remotePC=edge&&state.edge_health&&state.edge_health.system!=='Linux';
- const remoteName=remotePC?'원격 PC':'Pi';
- $('connection').className='pill '+(fallback?'amber':connecting||!hasRun?'gray':'');$('connection').replaceChildren();const d=document.createElement('span');d.className='dot';
- $('connection').append(d,document.createTextNode(!hasRun?'실험 전':edge?`${remoteName}에서 계산${active?' 중':'한 실험'}`:fallback?'PC 대체 추론':connecting?'Pi 연결 확인 중':'PC에서 계산'));
- if(!hasRun)$('connection').lastChild.textContent='실험 전';
- $('compute-step').className='flow-step compute'+(fallback?' fallback':'');$('actual-source').className='actual-source'+(fallback?' fallback':'');
- $('compute-title').textContent=edge?`② ${remoteName} · AI 신호 선택`:fallback?'② 노트북 · 대체 계산':hasRun?'② 노트북 · 신호 선택':'② 실험 시작 전';
- $('compute-caption').textContent=edge?'실제 Pi가 관측을 받아 행동 반환':fallback?'Pi 사용 안 됨 · 동일 AI로 계속 운행':'선택한 계산 장치에서 신호 행동 결정';
- $('actual-label').textContent=connecting?'Pi 연결을 확인하고 있습니다':!hasRun?'아직 실험 전입니다':fallback?'실제 계산: PC · Pi 사용 안 됨':edge?`이번 실험 계산: ${remotePC?'원격 PC':'Raspberry Pi'}`:'실제 계산: PC';
- $('actual-detail').textContent=fallback?'주소와 서버를 확인한 뒤 새 실험을 시작하세요. 이번 운행은 PC를 유지합니다.':edge?state.link_message:!hasRun?'Pi를 선택했다면 연결 확인 후 시작하세요.':'선택한 신호 체계를 노트북에서 실행합니다.';
- if(state.error)alert('실행을 멈췄습니다. '+state.error,true);else if(fallback)alert('Pi 연결에 실패해 PC가 대신 계산하고 있습니다. 선택 메뉴가 Pi여도 이번 운행에는 Pi가 사용되지 않습니다. '+(state.link_error||''));else if(state.status==='completed')alert(`실험 완료 · 도착 ${state.arrived}대 / 아직 도로 위 ${state.running}대. 시간 제한으로 운행을 끝낸 결과입니다.`);else alert('');
- if(boot){renderVehicles(state.vehicles);for(const j of state.junctions)renderSignal(j);}
- if(!active&&!busy&&!checking)updateMode();$('network-note').textContent=`SUMO · ${state.time_s}초 · ${state.status==='ready'?'실험 준비':names[state.controller]||'Smart Signal'}`;
+ if(!active&&!blocked)updateMode();
 }
-async function api(path,body){const response=await fetch(path,body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw new Error(data.error||'요청 실패');return data}
-async function perform(path,body){busy=true;let message=null;try{update(current);update(await api(path,body))}catch(e){message=e.message}finally{busy=false;if(current)update(current);if(message)alert(message,true)}}
-function updateMode(){if($('controller').value!=='smart')$('mode').value='local';$('edge-field').classList.toggle('visible',$('mode').value==='edge');$('mode').disabled=$('controller').value!=='smart';}
-function showCheck(status,title,detail){const box=$('connection-check');box.className='connection-check visible '+status;$('check-title').textContent=title;$('check-detail').textContent=detail;$('use-pc').hidden=status!=='failed';}
-async function checkEdge(){
- const url=$('edge-url').value.trim();checking=true;update(current);showCheck('','Pi 연결을 확인하고 있습니다',url||'Pi 주소를 입력하세요.');
- try{const result=await api('/api/check-edge',{edge_url:url});preflight=result;
-  if(result.status==='ready'){const pi=result.health.system==='Linux'&&['aarch64','armv7l'].includes(result.health.machine);showCheck('ready',pi?'Pi 연결 준비 완료 · 모델 일치':'원격 서버 연결 완료 · 모델 일치',`${result.health.hostname} · ${result.health.system}/${result.health.machine} · ${result.url}${pi?'':' · 이 서버는 Pi로 확인되지 않았습니다.'}`);return true;}
-  const loopback=/^http:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(url);
-  showCheck('failed','Pi에 연결하지 못했습니다 · 실험은 아직 시작하지 않았습니다',loopback?'127.0.0.1은 노트북 자신입니다. 휴대폰의 Pi IP로 주소를 바꿔주세요.':`현재 Pi IP, 핫스팟 연결, 9998번 서버를 확인하세요. ${result.error}`);return false;
- }catch(e){showCheck('failed','Pi 주소 또는 연결을 확인하세요',e.message);return false;}
- finally{checking=false;update(current);}
+function update(state){
+ if(current&&current.session_id===state.session_id&&state.revision<current.revision)return;
+ current=state;
+ const runKey=state.session_id+'|'+state.network+'|'+state.run_id;
+ if(boot&&runKey!==lastRunKey){lastRunKey=runKey;showNetwork(state.network);$('edge-check-result').textContent='';}
+ if(state.run_id&&state.worker_active){for(const id of ['controller','scenario','mode'])$(id).value=state[id];$('horizon').value=String(state.horizon_s);if(document.activeElement!==$('speed'))$('speed').value=String(state.speed);}
+ controls();$('edge-field').classList.toggle('visible',$('mode').value==='edge');
+ $('queue').textContent=state.queue;$('running').textContent=state.running;$('arrived').textContent=state.arrived;$('latency').textContent=state.decision_ms==null?'—':state.decision_ms.toFixed(2);$('time').textContent=`${state.time_s} / ${state.horizon_s} s`;$('progress').max=state.horizon_s;$('progress').value=state.time_s;$('status').className='pill '+(state.status==='failed'?'red':['running','completed'].includes(state.status)?'':'gray');$('status').replaceChildren();const dot=document.createElement('span');dot.className='dot';$('status').append(dot,document.createTextNode(statuses[state.status]||state.status));$('source').textContent=state.link_message;
+ $('remote-latency').textContent=state.remote_roundtrip_ms==null?'':`원격 왕복 ${state.remote_roundtrip_ms.toFixed(2)} ms · 서버 추론 ${state.remote_inference_ms.toFixed(2)} ms / 전체 교차로`;
+ const result=state.result;
+ $('run-result').textContent=result?`${state.status==='completed'?'시간 종료':'중단 기록'} · 평균 대기 ${result.mean_queue_vehicles?.toFixed(2)??'—'}대 · 도착 ${result.arrived_vehicles} / 진입 ${result.departed_vehicles} / 예정 ${result.scheduled_vehicles}대 · 도로 위 ${result.running_vehicles_end}대 · 미진입 ${result.not_departed_vehicles}대 · 저장: ${state.output}`:'';
+ $('connection').className='pill '+(state.link==='fallback'?'amber':state.link==='connecting'?'gray':'');$('connection').replaceChildren();const d=document.createElement('span');d.className='dot';$('connection').append(d,document.createTextNode(state.link==='edge'?'원격 추론 연결':state.link==='fallback'?'PC 대체 추론':state.link==='connecting'?'원격 연결 확인':state.controller&&state.controller!=='smart'?'PC 규칙 제어':'PC 추론 연결'));
+ if(state.error)alert('실행을 멈췄습니다. '+state.error,true);else if(state.link==='fallback')alert(state.link_message+' · 이번 실행은 PC 대체를 유지합니다. 복구 후 연결 확인과 새 실험 시작으로 원격 추론에 전환하세요.');else if(state.diagnostic_error)alert('원격 신호는 검증했지만 판단 상세를 검증하지 못했습니다: '+state.diagnostic_error);else if(state.status==='completed')alert(`실험이 끝났습니다. 도착 ${state.arrived}대 / 도로 위 잔류 ${state.running}대. 실험 시간 종료와 전 차량 도착은 다릅니다.`);else if(state.status==='stopped')alert('사용자가 중단한 실행입니다. 중단 시점의 기록을 저장했으며 전체 실험 완료 결과와 구분합니다.');else alert('');
+ if(boot){renderVehicles(state);for(const j of state.junctions){const card=$('card-'+j.id);card.querySelector('.stage').className='stage '+j.stage;card.querySelector('.stage').textContent={green:'녹색',yellow:'황색',all_red:'전체 적색'}[j.stage];card.querySelector('.phase').textContent=`신호 그룹 ${j.phase+1} / ${j.phase_count}`;card.querySelector('.elapsed').textContent=(j.stage==='green'?j.elapsed_s+'초 유지':j.remaining_s+'초 후 전환');card.querySelector('.queue').textContent=j.queue+' 대';[...card.querySelectorAll('.phase-track span')].forEach((e,i)=>e.classList.toggle('active',i===j.phase&&j.stage==='green'));}}
+ renderDecision();$('network-note').textContent=`SUMO · ${state.time_s}s · ${state.status==='ready'?'실행 준비':names[state.controller]||'Smart Signal'}`;
 }
-async function startExperiment(){
- if($('mode').value==='edge'&&!await checkEdge())return;
- try{localStorage.setItem('smart-signal-pi-url',$('edge-url').value.trim());}catch(e){}
- await perform('/api/start',{scenario:$('scenario').value,controller:$('controller').value,mode:$('mode').value,edge_url:$('edge-url').value.trim(),speed:Number($('speed').value),horizon_s:Number($('horizon').value)});
-}
-function initSettings(){
- const params=new URLSearchParams(location.search);let saved='';try{saved=localStorage.getItem('smart-signal-pi-url')||'';}catch(e){}
- $('edge-url').value=params.get('edge_url')||saved;
- if(['local','edge'].includes(params.get('mode')))$('mode').value=params.get('mode');
- if(['1','5','10','30','60'].includes(params.get('speed')))$('speed').value=params.get('speed');
- if(['60','300','900'].includes(params.get('horizon')))$('horizon').value=params.get('horizon');
- updateMode();installMapControls();
-}
-$('mode').addEventListener('change',()=>{preflight=null;$('connection-check').className='connection-check';updateMode();});$('controller').addEventListener('change',updateMode);
-$('edge-url').addEventListener('input',()=>{preflight=null;$('connection-check').className='connection-check';});
-$('check-edge').addEventListener('click',checkEdge);
-$('use-pc').addEventListener('click',()=>{$('mode').value='local';$('connection-check').className='connection-check';updateMode();startExperiment();});
-$('speed').addEventListener('change',()=>{if(['running','pausing','paused'].includes(current?.status))perform('/api/speed',{speed:Number($('speed').value)});else if(current)update(current);});
-$('horizon').addEventListener('change',()=>{if(current)update(current);});
-$('zoom-in').addEventListener('click',()=>setZoom(zoom*1.4));$('zoom-out').addEventListener('click',()=>setZoom(zoom/1.4));$('zoom-reset').addEventListener('click',resetMap);
-$('start').addEventListener('click',startExperiment);
+function connectionLost(){trafficMap?.freeze();connected=false;controls();for(const e of document.querySelectorAll('.stats,.workspace,#decision-detail'))e.classList.add('stale');$('connection').className='pill red';$('connection').textContent='관제 서버 연결 끊김';$('status').className='pill red';$('status').textContent='상태 확인 불가';alert('관제 서버가 응답하지 않습니다. 흐리게 표시한 화면은 마지막 수신 기록입니다. 서버를 확인하면 자동 재연결합니다.',true)}
+async function api(path,body){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),5000);try{const response=await fetch(path,{signal:controller.signal,...(body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})});const data=await response.json();if(!response.ok)throw new Error(data.error||'요청 실패');return data}finally{clearTimeout(timer)}}
+async function perform(path,body){if(busy||!current)return;busy=true;let message=null;try{controls();const state=await api(path,body);connected=true;update(state)}catch(e){message=e.message}finally{busy=false;controls();if(message)alert(message,true)}}
+function updateMode(){if($('controller').value!=='smart')$('mode').value='local';$('edge-field').classList.toggle('visible',$('mode').value==='edge');$('mode').disabled=$('controller').value!=='smart'}
+$('mode').addEventListener('change',updateMode);$('controller').addEventListener('change',updateMode);
+$('network').addEventListener('change',()=>perform('/api/network',{network:$('network').value}));
+$('speed').addEventListener('change',()=>{if(current?.worker_active)perform('/api/speed',{speed:Number($('speed').value)})});
+$('edge-check').addEventListener('click',async()=>{if(busy)return;busy=true;controls();$('edge-check-result').textContent='연결과 동결 모델 확인 중…';try{const v=await api('/api/edge-check',{url:$('edge-url').value});$('edge-check-result').textContent=`모델 일치 · ${v.hostname} · ${v.system} ${v.machine} · 왕복 ${v.roundtrip_ms.toFixed(2)} ms (실물 Pi 여부는 장비 확인 필요)`}catch(e){$('edge-check-result').textContent='연결 확인 실패: '+e.message}finally{busy=false;controls()}});
+$('zoom-in').addEventListener('click',()=>trafficMap.zoomBy(1.4));$('zoom-out').addEventListener('click',()=>trafficMap.zoomBy(1/1.4));$('zoom-reset').addEventListener('click',()=>trafficMap.reset());
+$('start').addEventListener('click',()=>perform('/api/start',{scenario:$('scenario').value,controller:$('controller').value,mode:$('mode').value,edge_url:$('edge-url').value,speed:Number($('speed').value),horizon_s:Number($('horizon').value)}));
 $('pause').addEventListener('click',()=>perform('/api/command',{action:['paused','pausing'].includes(current.status)?'resume':'pause'}));$('stop').addEventListener('click',()=>perform('/api/command',{action:'stop'}));$('scope-all').addEventListener('click',()=>comparison('all'));$('scope-gyeongju').addEventListener('click',()=>comparison('gyeongju'));
-async function poll(){if(polling)return;polling=true;try{update(await api('/api/state'))}catch(e){$('connection').className='pill red';$('connection').textContent='관제 서버 연결 끊김';alert('관제 서버가 응답하지 않습니다. 실행 터미널을 확인하세요.',true)}finally{polling=false}}
-(async()=>{try{initSettings();boot=await api('/api/boot');drawMap(boot.map);junctionCards(boot.map);comparison('all');$('identity').textContent='MODEL '+boot.identity.model_sha256.slice(0,12)+'…';await poll();setInterval(poll,300)}catch(e){alert('초기화 실패: '+e.message,true);$('start').disabled=true}})();
+async function poll(){if(polling)return;polling=true;try{const state=await api('/api/state');connected=true;for(const e of document.querySelectorAll('.stale'))e.classList.remove('stale');update(state)}catch(e){connectionLost()}finally{polling=false}}
+function launchOptions(){const query=new URLSearchParams(location.search);for(const [id,key]of [['mode','mode'],['speed','speed'],['horizon','horizon']]){const value=query.get(key);if(value&&[...$(id).options].some(o=>o.value===value))$(id).value=value}const address=query.get('edge_url');if(address)$('edge-url').value=address;updateMode()}
+(async()=>{try{boot=await api('/api/boot');$('network').replaceChildren();for(const [id,value]of Object.entries(boot.networks)){const option=element('option',value.name);option.value=id;$('network').append(option)}comparison('all');$('identity').textContent='MODEL '+boot.identity.model_sha256.slice(0,12)+'…';const l=boot.identity.limits;$('safety-limits').textContent=`녹색 ${l.min_green_s}~${l.max_green_s}초 · 황색 ${l.yellow_s}초 · 전체 적색 ${l.all_red_s}초`;launchOptions();await poll();setInterval(poll,300)}catch(e){alert('초기화 실패: '+e.message+' · 서버를 확인한 후 새로고침하세요.',true);controls()}})();
 </script>
 </body>
 </html>

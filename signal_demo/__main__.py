@@ -24,6 +24,7 @@ def main():
     probe_parser.add_argument('--url', required=True)
     probe_parser.add_argument('--out', required=True, type=Path)
     probe_parser.add_argument('--release', type=Path, default=DEFAULT_RELEASE)
+    probe_parser.add_argument('--require-diagnostics', action='store_true')
     args = parser.parse_args()
     if args.command == 'web':
         from .web import serve
@@ -37,7 +38,7 @@ def main():
         export(args.out, args.release)
     else:
         from .probe import probe
-        probe(args.url, args.out, args.release)
+        probe(args.url, args.out, args.release, args.require_diagnostics)
 
 
 if __name__ == '__main__':

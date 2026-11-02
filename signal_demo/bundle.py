@@ -17,7 +17,7 @@ def export(output, release=DEFAULT_RELEASE):
     (output / 'release').mkdir()
     for name in INFERENCE_FILES:
         shutil.copy2(ROOT / 'transferable_signal' / name, output / 'transferable_signal' / name)
-    for name in ('__init__.py', '__main__.py', 'edge.py', 'protocol.py', 'release.py', 'probe.py'):
+    for name in ('__init__.py', '__main__.py', 'edge.py', 'protocol.py', 'release.py', 'probe.py', 'explanation.py'):
         shutil.copy2(ROOT / 'signal_demo' / name, output / 'signal_demo' / name)
     for name in ('model.json', 'policy.json'):
         shutil.copy2(release / name, output / 'release' / name)

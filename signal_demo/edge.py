@@ -28,6 +28,7 @@ def make_server(host='127.0.0.1', port=9998, release=DEFAULT_RELEASE):
         def do_GET(self):
             if self.path == '/health':
                 self.reply(200, dict(status='ready', hostname=socket.gethostname(), identity=identity,
+                                     capabilities=['decision-view-v1'],
                                      system=platform.system(), machine=platform.machine(),
                                      python=platform.python_version(), numpy=np.__version__))
             else:
